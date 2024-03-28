@@ -12,7 +12,6 @@ alias ddown='docker compose down -v'
 # utils
 alias cat='bat'
 alias zs='source ~/.zshrc'
-alias dotfiles='cd $DOTFILES && code .'
 alias rm='trash'
 alias ip="curl https://ipinfo.io/json" # or /ip for plain-text ip
 alias localip="ipconfig getifaddr en0"
@@ -28,8 +27,16 @@ alias vi='nvim'
 alias gswip='git stash push -u -m "WIP"'
 alias gspop='git stash pop'
 
-# Always enable colored `grep` output
-# Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+#python
+alias python='python3'
+alias pip='pip3'
+alias py='python3'
+alias pym='python manage.py'
+alias pymdd='python manage.py dumpdata'
+alias pymld='python manage.py loaddata'
+alias pymm='python manage.py migrate'
+alias pymsh='python manage.py shell'
+alias pymsm='python manage.py schemamigration'
+alias pyms='python manage.py syncdb --noinput'
+alias pymt='python manage.py test'
+alias pymrs='python manage.py runserver'
