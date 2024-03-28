@@ -63,7 +63,7 @@ ZSH_THEME="robbyrussell"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="dd.mm.yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -75,9 +75,8 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
+# Load Oh My Zsh
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -85,12 +84,15 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+# Set the default text editor
+export BUNDLER_EDITOR=nvim
+
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -110,6 +112,24 @@ export HOMEBREW_NO_ANALYTICS=1
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# pnpm
+export PNPM_HOME="/Users/wilfriedago/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+# android home
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# local exports
+export PATH="$HOME/.local/bin:$PATH"
+
+# gh copilot cli alias
+eval "$(gh copilot alias -- zsh)"
 
 # Call `nvm use` automatically in a directory with a `.nvmrc` file
 autoload -U add-zsh-hook
@@ -134,18 +154,12 @@ load-nvmrc() {
 type -a nvm > /dev/null && add-zsh-hook chpwd load-nvmrc
 type -a nvm > /dev/null && load-nvmrc
 
-# pnpm
-export PNPM_HOME="/Users/wilfriedago/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+# Automatically load Python virtual environment if available
+if [[ -d "$PWD/.venv" ]]; then
+  source "$PWD/.venv/bin/activate"
+fi
 
-# Android home
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-
-# Set the default text editor
-export BUNDLER_EDITOR=code
-export EDITOR=code
+# Automatically add node_modules/.bin to PATH if present
+if [[ -d "$PWD/node_modules/.bin" ]]; then
+  export PATH="$PWD/node_modules/.bin:$PATH"
+fi
