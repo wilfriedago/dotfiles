@@ -23,6 +23,8 @@ alias localip="ipconfig getifaddr en0"
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -"
 alias flushdns="sudo killall -HUP mDNSResponder"
 alias emptytrash="trash -s -y"
+alias cl="clear"
+alias hf="huggingface-cli"
 
 # neovim
 alias vim='nvim'
@@ -37,8 +39,7 @@ alias python='python3'
 alias pip='pip3'
 alias py='python3'
 alias py2='python2'
-alias pip2='pip2'
-alias pipir='pip install -r requirements.txt'
+alias pir='pip install -r requirements.txt'
 
 # django
 alias dj='python manage.py'

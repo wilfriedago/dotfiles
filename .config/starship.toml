@@ -3,7 +3,7 @@
 add_newline = false # Add do not need  this extra line
 
 [character]
-success_symbol = '[➜](bold green)' # This rememmber me Robby Russel's Oh My Zsh theme
+success_symbol = '[➜](bold green)'
 error_symbol = "[➜](bold red)"
 
 [battery]
