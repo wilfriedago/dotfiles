@@ -78,14 +78,13 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 # Load Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
+# User configuration
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-
-# Set the default text editor
-export BUNDLER_EDITOR=nvim
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -93,6 +92,9 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='nvim'
 fi
+
+# Set the default text editor
+export BUNDLER_EDITOR=nvim
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -108,28 +110,24 @@ fi
 # (macOS-only) Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/docs/Analytics.md
 export HOMEBREW_NO_ANALYTICS=1
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# pnpm
-export PNPM_HOME="/Users/wilfriedago/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
-# android home
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+# starship prompt
+eval "$(starship init zsh)"
 
 # local exports
 export PATH="$HOME/.local/bin:$PATH"
 
 # gh copilot cli alias
 eval "$(gh copilot alias -- zsh)"
+
+# android home
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Call `nvm use` automatically in a directory with a `.nvmrc` file
 autoload -U add-zsh-hook
@@ -154,12 +152,25 @@ load-nvmrc() {
 type -a nvm > /dev/null && add-zsh-hook chpwd load-nvmrc
 type -a nvm > /dev/null && load-nvmrc
 
+# Automatically add node_modules/.bin to PATH if present
+if [[ -d "$PWD/node_modules/.bin" ]]; then
+  export PATH="$PWD/node_modules/.bin:$PATH"
+fi
+
+# Configure pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 # Automatically load Python virtual environment if available
 if [[ -d "$PWD/.venv" ]]; then
   source "$PWD/.venv/bin/activate"
 fi
 
-# Automatically add node_modules/.bin to PATH if present
-if [[ -d "$PWD/node_modules/.bin" ]]; then
-  export PATH="$PWD/node_modules/.bin:$PATH"
-fi
+# pnpm
+export PNPM_HOME="/Users/wilfriedago/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
