@@ -16,6 +16,7 @@ alias cat='bat'
 alias ls='eza --color=auto --long --git --icons=always'
 alias zs='source ~/.zshrc'
 alias dotfiles='cd $DOTFILES && code .'
+alias works='cd $WORKS'
 alias rm='trash'
 alias ip="curl https://ipinfo.io/json" # or /ip for plain-text ip
 alias localip="ipconfig getifaddr en0"
