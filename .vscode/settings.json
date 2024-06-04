@@ -476,7 +476,7 @@
     "workbench.editorinputs.searchEditorInput": true
   },
   "workbench.editor.enablePreview": true,
-  "workbench.iconTheme": "symbols",
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.layoutControl.enabled": false,
   "workbench.list.fastScrollSensitivity": 10,
   "workbench.productIconTheme": "material-product-icons",
