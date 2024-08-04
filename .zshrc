@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -83,17 +83,6 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
-
 # Set the default text editor
 # export BUNDLER_EDITOR=nvim
 
@@ -108,80 +97,14 @@ fi
 # Store your own aliases in the ~/.shell/.aliases file and load the here.
 [[ -f "$HOME/.shell/.aliases" ]] && source "$HOME/.shell/.aliases"
 
-# starship prompt
-eval "$(starship init zsh)"
+# Load exports
+[[ -f "$HOME/.shell/.exports" ]] && source "$HOME/.shell/.exports"
 
-# gh copilot cli alias
-eval "$(gh copilot alias -- zsh)"
+# Load functions
+[[ -f "$HOME/.shell/.functions" ]] && source "$HOME/.shell/.functions"
 
-# (macOS-only) Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/docs/Analytics.md
-export HOMEBREW_NO_ANALYTICS=1
+# Load completions
+[[ -f "$HOME/.shell/.completions" ]] && source "$HOME/.shell/.completions"
 
-# local exports
-export PATH="$HOME/.local/bin:$PATH"
-
-# android home
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Call `nvm use` automatically in a directory with a `.nvmrc` file
-autoload -U add-zsh-hook
-load-nvmrc() {
-  if nvm -v &> /dev/null; then
-    local node_version="$(nvm version)"
-    local nvmrc_path="$(nvm_find_nvmrc)"
-
-    if [ -n "$nvmrc_path" ]; then
-      local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-      if [ "$nvmrc_node_version" = "N/A" ]; then
-        nvm install
-      elif [ "$nvmrc_node_version" != "$node_version" ]; then
-        nvm use --silent
-      fi
-    elif [ "$node_version" != "$(nvm version default)" ]; then
-      nvm use default --silent
-    fi
-  fi
-}
-type -a nvm > /dev/null && add-zsh-hook chpwd load-nvmrc
-type -a nvm > /dev/null && load-nvmrc
-
-# Automatically add node_modules/.bin to PATH if present
-if [[ -d "$PWD/node_modules/.bin" ]]; then
-  export PATH="$PWD/node_modules/.bin:$PATH"
-fi
-
-# pnpm
-export PNPM_HOME="/Users/wilfriedago/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-# Automatically load Python virtual environment if available
-if [[ -d "$PWD/.venv" ]]; then
-  source "$PWD/.venv/bin/activate"
-fi
-
-# bun completions
-[ -s "/Users/wilfriedago/.bun/_bun" ] && source "/Users/wilfriedago/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
-if [ -f "/Users/wilfriedago/.config/fabric/fabric-bootstrap.inc" ]; then . "/Users/wilfriedago/.config/fabric/fabric-bootstrap.inc"; fi
+# Load fzf key bindings and completion
+[[ -f "$HOME/.shell/.fzf" ]] && source "$HOME/.shell/.fzf"
