@@ -57,6 +57,8 @@ alias lt="eza -al --icons --tree --level=2  --git" # ls tree with icons and git 
 
 # dotdrop
 alias dotdrop='dotdrop --profile=default --cfg=$HOME/.dotfiles/.config/dotdrop/config.yml' # run dotdrop with custom config
+alias dotfiles='dotdrop files' # run dotdrop files
+alias dotdetail='dotdrop detail' # run dotdrop details
 alias dotinstall='dotdrop install' # install dotfiles
 alias dotupdate='dotdrop update' # update dotfiles
 alias dotimport='dotdrop import' # import dotfiles
