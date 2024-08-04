@@ -4,7 +4,7 @@ add_newline = false # Add do not need  this extra line
 
 [character]
 success_symbol = '[➜](bold green)'
-error_symbol = "[➜](bold red)"
+error_symbol = '[➜](bold red)'
 
 [battery]
 disabled = true # I can keep my eyes on the battery level from the menu bar, no thanks
