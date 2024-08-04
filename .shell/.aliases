@@ -55,6 +55,15 @@ alias ll="eza -al --icons" # ls -l with icons
 alias l="eza -al --icons --git" # ls -l with icons and git status
 alias lt="eza -al --icons --tree --level=2  --git" # ls tree with icons and git status
 
+# dotdrop
+alias dotdrop='dotdrop --profile=default --cfg=$HOME/.dotfiles/.config/dotdrop/config.yml' # run dotdrop with custom config
+alias dotinstall='dotdrop install' # install dotfiles
+alias dotupdate='dotdrop update' # update dotfiles
+alias dotimport='dotdrop import' # import dotfiles
+
+# zoxide
+alias cd='z' # change directory with zoxide
+
 # utils
 alias zs='source ~/.zshrc' # source zshrc
 alias rm='trash' # move to trash
@@ -67,4 +76,3 @@ alias pubkey="cat ~/.ssh/id_ed25519.pub | pbcopy | echo '=> Copied to pasteboard
 alias lzd="lazydocker" # run Docker TUI
 alias lzg="lazygit" # run Git TUI
 alias llama='ollama run llama3' # run llama3
-alias dotdrop='dotdrop --profile=default --cfg=$HOME/.dotfiles/.config/dotdrop/config.yml' # run dotdrop with custom config
