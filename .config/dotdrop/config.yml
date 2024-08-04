@@ -13,6 +13,7 @@ profiles:
     - f_vscode
     - f_zshrc
     - f_zshenv
+    - d_warp
 dotfiles:
   d_shell:
     src: .shell
@@ -26,3 +27,6 @@ dotfiles:
   f_zshenv:
     src: .zshenv
     dst: ~/.zshenv
+  d_warp:
+    src: .warp
+    dst: ~/.warp
