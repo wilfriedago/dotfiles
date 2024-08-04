@@ -12,13 +12,17 @@ profiles:
     - d_shell
     - f_vscode
     - f_zshrc
+    - f_zshenv
 dotfiles:
   d_shell:
-    dst: ~/.shell
     src: .shell
+    dst: ~/.shell
   f_zshrc:
-    dst: ~/.zshrc
     src: .zshrc
+    dst: ~/.zshrc
   f_vscode:
-    dst: ~/Library/Application Support/Code/User/settings.json
     src: .vscode/settings.json
+    dst: ~/Library/Application Support/Code/User/settings.json
+  f_zshenv:
+    src: .zshenv
+    dst: ~/.zshenv

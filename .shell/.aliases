@@ -49,6 +49,7 @@ alias zs='source ~/.zshrc' # source zshrc
 alias rm='trash' # move to trash
 alias cat='bat -p' # cat with syntax highlighting
 alias ls='eza -a --level=1 --icons' # ls with icons
+alias ll="eza --icons --group-directories-first -l" # ls -l with icons
 alias ip="curl https://ipinfo.io/json" # or /ip for plain-text ip
 alias localip="ipconfig getifaddr en0" # get local ip address
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -" # test internet speed
@@ -57,4 +58,4 @@ alias pubkey="cat ~/.ssh/id_ed25519.pub | pbcopy | echo '=> Copied to pasteboard
 alias lzd="lazydocker" # run Docker TUI
 alias lzg="lazygit" # run Git TUI
 alias llama='ollama run llama3' # run llama3
-alias dotdrop='dotdrop --profile=default --cfg=$HOME/.config/dotdrop/config.yml' # run dotdrop with custom config
+alias dotdrop='dotdrop --profile=default --cfg=$HOME/.dotfiles/.config/dotdrop/config.yml' # run dotdrop with custom config
