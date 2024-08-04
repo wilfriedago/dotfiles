@@ -1,12 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your dotfiles.
-export DOTFILES=$HOME/.dotfiles
-
-# Path to works folder.
-export WORKS=$HOME/Developer/Works
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -76,7 +70,11 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(
+  git
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+)
 
 # Load Oh My Zsh
 source $ZSH/oh-my-zsh.sh
@@ -97,7 +95,7 @@ else
 fi
 
 # Set the default text editor
-export BUNDLER_EDITOR=nvim
+# export BUNDLER_EDITOR=nvim
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -107,20 +105,20 @@ export BUNDLER_EDITOR=nvim
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Store your own aliases in the ~/.aliases file and load the here.
-[[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
-
-# (macOS-only) Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/docs/Analytics.md
-export HOMEBREW_NO_ANALYTICS=1
+# Store your own aliases in the ~/.shell/.aliases file and load the here.
+[[ -f "$HOME/.shell/.aliases" ]] && source "$HOME/.shell/.aliases"
 
 # starship prompt
 eval "$(starship init zsh)"
 
-# local exports
-export PATH="$HOME/.local/bin:$PATH"
-
 # gh copilot cli alias
 eval "$(gh copilot alias -- zsh)"
+
+# (macOS-only) Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/docs/Analytics.md
+export HOMEBREW_NO_ANALYTICS=1
+
+# local exports
+export PATH="$HOME/.local/bin:$PATH"
 
 # android home
 export ANDROID_HOME=$HOME/Library/Android/sdk
@@ -160,7 +158,14 @@ if [[ -d "$PWD/node_modules/.bin" ]]; then
   export PATH="$PWD/node_modules/.bin:$PATH"
 fi
 
-# Configure pyenv
+# pnpm
+export PNPM_HOME="/Users/wilfriedago/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+# pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
@@ -170,10 +175,13 @@ if [[ -d "$PWD/.venv" ]]; then
   source "$PWD/.venv/bin/activate"
 fi
 
-# pnpm
-export PNPM_HOME="/Users/wilfriedago/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+# bun completions
+[ -s "/Users/wilfriedago/.bun/_bun" ] && source "/Users/wilfriedago/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+if [ -f "/Users/wilfriedago/.config/fabric/fabric-bootstrap.inc" ]; then . "/Users/wilfriedago/.config/fabric/fabric-bootstrap.inc"; fi

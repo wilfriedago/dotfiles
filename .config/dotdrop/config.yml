@@ -1,0 +1,24 @@
+config:
+  backup: true
+  banner: false
+  create: true
+  dotpath: ~/.dotfiles
+  keepdot: false
+  link_dotfile_default: nolink
+  link_on_import: nolink
+profiles:
+  default:
+    dotfiles:
+    - d_shell
+    - f_vscode
+    - f_zshrc
+dotfiles:
+  d_shell:
+    dst: ~/.shell
+    src: .shell
+  f_zshrc:
+    dst: ~/.zshrc
+    src: .zshrc
+  f_vscode:
+    dst: ~/Library/Application Support/Code/User/settings.json
+    src: .vscode/settings.json

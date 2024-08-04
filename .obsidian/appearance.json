@@ -1,0 +1,12 @@
+{
+  "accentColor": "#097743",
+  "baseFontSize": 14,
+  "cssTheme": "",
+  "interfaceFontFamily": "SF Pro",
+  "monospaceFontFamily": "JetBrainsMono Nerd Font Mono",
+  "nativeMenus": false,
+  "showViewHeader": false,
+  "textFontFamily": "SF Pro",
+  "theme": "obsidian",
+  "translucency": true
+}
