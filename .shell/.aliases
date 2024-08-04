@@ -11,7 +11,7 @@ alias po='pnpm outdated'
 alias vim='nvim' # use neovim as vim
 alias vi='nvim' # use neovim as vi
 
-#python
+# python
 alias python='python3'
 alias pip='pip3'
 alias py='python3'
@@ -41,15 +41,24 @@ alias gca='git add . && git commit --amend'
 
 # docker
 alias dk='docker'
-alias dcup='docker compose up'
-alias dcdown='docker compose down'
+alias dkps='docker ps'
+alias dkpsa='docker ps -a'
+alias dkx='docker exec -it'
+alias dki='docker images'
+alias dkc='docker-compose'
+alias dkcup='docker compose up'
+alias dkcdown='docker compose down'
+
+# exa
+alias ls='eza -a --icons --level=1' # ls with icons
+alias ll="eza -al --icons" # ls -l with icons
+alias l="eza -al --icons --git" # ls -l with icons and git status
+alias lt="eza -al --icons --tree --level=2  --git" # ls tree with icons and git status
 
 # utils
 alias zs='source ~/.zshrc' # source zshrc
 alias rm='trash' # move to trash
 alias cat='bat -p' # cat with syntax highlighting
-alias ls='eza -a --level=1 --icons' # ls with icons
-alias ll="eza --icons --group-directories-first -l" # ls -l with icons
 alias ip="curl https://ipinfo.io/json" # or /ip for plain-text ip
 alias localip="ipconfig getifaddr en0" # get local ip address
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -" # test internet speed
