@@ -11,7 +11,7 @@
   "apc.stylesheet": {
     ".composite.title": "padding: 0 8px !important;",
     ".composite.title .title-label": "padding: 0 !important;",
-    ".part.sidebar.right.pane-composite-part .composite.has-composite-bar.header-or-footer.header" : "padding: 0 8px !important;"
+    ".part.sidebar.right.pane-composite-part .composite.has-composite-bar.header-or-footer.header": "padding: 0 8px !important;"
   },
   "breadcrumbs.enabled": false,
   "breadcrumbs.filePath": "off",
@@ -450,6 +450,11 @@
   "material-icon-theme.folders.color": "#42a5f5",
   "material-icon-theme.folders.theme": "specific",
   "material-icon-theme.saturation": 0.5,
+  "pieces.telemetry": false,
+  "projectManager.git.baseFolders": [
+    "/Users/wilfriedago/Developer/Works",
+    "/Users/wilfriedago/Developer/Learn"
+  ],
   "remote.autoForwardPortsSource": "hybrid",
   "search.exclude": {
     "**/node_modules": true
@@ -629,7 +634,9 @@
   "window.autoDetectColorScheme": true,
   "window.autoDetectHighContrast": true,
   "window.commandCenter": false,
+  "window.customTitleBarVisibility": "never",
   "window.titleBarStyle": "native",
+  "workbench.activityBar.location": "top",
   "workbench.colorCustomizations": {
     "editor.selectionBackground": "#008b3f75",
     "editor.selectionHighlightBackground": "#008b3f5d"
@@ -647,12 +654,5 @@
   "workbench.settings.editor": "json",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
-  "workbench.tree.indent": 10,
-  "workbench.activityBar.location": "top",
-  "window.customTitleBarVisibility": "never",
-  "pieces.telemetry": false,
-  "projectManager.git.baseFolders": [
-    "/Users/wilfriedago/Developer/Works",
-    "/Users/wilfriedago/Developer/Learn"
-  ]
+  "workbench.tree.indent": 10
 }
