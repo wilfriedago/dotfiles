@@ -10,10 +10,14 @@ profiles:
   default:
     dotfiles:
     - d_shell
-    - f_vscode
     - f_zshrc
     - f_zshenv
     - d_warp
+    - d_neofetch
+  macos:
+    dotfiles:
+    - f_vscode
+
 dotfiles:
   d_shell:
     src: .shell
@@ -30,3 +34,6 @@ dotfiles:
   d_warp:
     src: .warp
     dst: ~/.warp
+  d_neofetch:
+    src: .config/neofetch
+    dst: ~/.config/neofetch
