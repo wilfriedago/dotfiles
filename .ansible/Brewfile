@@ -2,49 +2,36 @@
 # Taps
 # =============================================================================================
 
-tap "homebrew/bundle"
-tap "homebrew/cask-versions"
-tap "homebrew/services"
+tap "homebrew/bundle" # bundle command for installing multiple formulae
+tap "homebrew/cask-versions" # alternative versions of casks
+tap "homebrew/services" # manage background services with launchctl
 
 # =============================================================================================
 # Fonts
 # =============================================================================================
 
-cask "font-jetbrains-mono-nerd-font"
-cask "font-symbols-only-nerd-font"
+cask "font-jetbrains-mono-nerd-font" # monospaced font for developers
+cask "font-symbols-only-nerd-font" # font with only symbols for developers
 
 # =============================================================================================
 # Apps
 # =============================================================================================
 
-# installer for betterdiscord
-cask "betterdiscord-installer"
-# universal database tool and SQL client
-cask "dbeaver-community"
-# voice and text chat software
-cask "discord"
-# screen colour temperature controller
-cask "flux"
-# terminal emulator as alternative to Apple's Terminal app
-cask "iterm2"
-# HTTP and GraphQL Client
-cask "insomnia"
-# jetbrains tools manager
-cask "jetbrains-toolbox"
-# keyboard customiser
-cask "karabiner-elements"
-# password manager
-cask "nordpass"
-# VPN client for secure internet access and private browsing
-cask "nordvpn"
-# knowledge base that works on top of a local folder of plain text Markdown files
-cask "obsidian"
-# music streaming service
-cask "spotify"
-# messaging app with a focus on speed and security
-cask "telegram"
-# open-source code editor
-cask "visual-studio-code"
+cask "betterdiscord-installer" # installer for betterdiscord
+cask "dbeaver-community" # free universal database tool and SQL client
+cask "discord" # voice and text chat software
+cask "flux" # screen colour temperature controller
+cask "insomnia" # HTTP and GraphQL Client
+cask "jetbrains-toolbox" # jetbrains tools manager
+cask "karabiner-elements" # keyboard customiser
+cask "nordpass" # password manager
+cask "nordvpn" # VPN client for secure internet access and private browsing
+cask "obsidian" # knowledge base that works on top of a local folder of plain text Markdown files
+cask "spotify" # music streaming service
+cask "telegram" # messaging app with a focus on speed and security
+cask "visual-studio-code" # open-source code editor
+cask "warp" # a modern, rust-based terminal with AI built in, as alternative to Apple's Terminal app
+cask "alt-tab" # a better cmd+tab for macOS
 
 # the cat tells you the CPU usage of Mac by running speed
 # mas "RunCat", id: 1429033973
@@ -55,8 +42,8 @@ cask "visual-studio-code"
 # QuickLook plugins
 # =============================================================================================
 
-cask "qlmarkdown"
-cask "syntax-highlight"
+cask "qlmarkdown" # QuickLook generator for Markdown files
+cask "syntax-highlight" # QuickLook generator for source code files with syntax highlighting
 
 # =============================================================================================
 # Programming languages, REPLs

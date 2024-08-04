@@ -9,32 +9,32 @@
       ignore_errors: true
       ansible.builtin.shell:
         cmd: |
-          brew bundle --file "../deps/Brewfile"
+          brew bundle --file "../Brewfile"
 
     - name: pip
       tags: pip
       ignore_errors: true
       ansible.builtin.shell:
         cmd: |
-          brew bundle --file "../deps/requirements.txt"
+          brew bundle --file "../requirements.txt"
 
     - name: cargo
       tags: cargo
       ignore_errors: true
       ansible.builtin.shell:
         cmd: |
-          grep -v "^#" "../deps/cargo.txt" | xargs cargo install
+          grep -v "^#" "../cargo.txt" | xargs cargo install
 
     - name: npm
       tags: npm
       ignore_errors: true
       ansible.builtin.shell:
         cmd: |
-          grep -v "^#" "../deps/npm.txt" | xargs npm install -g
+          grep -v "^#" "../npm.txt" | xargs npm install -g
 
     - name: gh
       tags: gh
       ignore_errors: true
       ansible.builtin.shell:
         cmd: |
-          grep -v "^#" "../deps/gh.txt" | xargs gh extension install --force
+          grep -v "^#" "../gh.txt" | xargs gh extension install --force
