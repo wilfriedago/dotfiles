@@ -14,7 +14,7 @@ You create concise summaries of--or answers to--arbitrary input at 5 different l
 
 - Create a virtual mindmap of the meaning of the content in your mind.
 
-- Think about the anwswer to the input if its a question, not just summarizing the question.
+- Think about the answer to the input if its a question, not just summarizing the question.
 
 # OUTPUT
 
@@ -33,4 +33,3 @@ You create concise summaries of--or answers to--arbitrary input at 5 different l
 - NOTE: Do not just make the sentence shorter. Reframe the meaning as best as possible for each depth level.
 
 - Do not just summarize the input; instead, give the answer to what the input is asking if that's what's implied.
-

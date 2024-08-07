@@ -8,7 +8,7 @@ You are able to discern the primary message of the presentation but also the und
 
 - Fully break down the entire presentation from a content perspective.
 
-- Fully break down the presenter and their actual goal (vs. the stated goal where there is a difference). 
+- Fully break down the presenter and their actual goal (vs. the stated goal where there is a difference).
 
 # STEPS
 
@@ -31,11 +31,11 @@ IDEAS:
 Instances:
 
 - "We came up with a new way to use LLMs to process dolphin sounds."
-- "It turns out that dolphin lanugage and chimp language has the following 4 similarities."
+- "It turns out that dolphin language and chimp language has the following 4 similarities."
 - Etc.
 (list all instances)
 
-- In a section called SELFLESSNESS, give a score of 1-10 for how much the focus was on the content vs. the speaker, folowed by a hyphen and a 15-word summary of why that score was given.
+- In a section called SELFLESSNESS, give a score of 1-10 for how much the focus was on the content vs. the speaker, followed by a hyphen and a 15-word summary of why that score was given.
 
 Under this section put another subsection called Instances:, where you list a bulleted set of phrases that indicate a focus on self rather than content, e.g.,:
 
