@@ -16,18 +16,18 @@
 
 What's in here?
 
-- All my `brew` dependencies including applications, fonts, LSPs etc. See [`Brewfile`](deps/Brewfile)
-- All my `macOS` configuration. See [`macos`](macos/settings.sh)
-- All my shell configurations. See [`.shell/`](dotfiles/.shell) and [`.zshrc`](dotfiles/.zshrc)
-- All my `VSCode` configurations and extensions. See [`vscode/`](dotfiles/.vscode) and [`extensions`](deps/Brewfile)
-- All my rest [`.configs/`](dotfiles/.config), [`dotfiles/`](dotfiles) and [`wallpapers/`](wallpapers) :3
+- All my `brew` dependencies including applications, fonts, LSPs etc. See [`Brewfile`](.ansible/Brewfile)
+- All my `macOS` configuration. See [`macos`](.scripts/macos/default.sh) and [`macos`](.scripts/macos/settings.sh)
+- All my shell configurations. See [`.shell/`](.shell) and [`.zshrc`](.zshrc)
+- All my `VSCode` configurations and extensions. See [`vscode/`](.vscode) and [`extensions`](.ansible/Brewfile)
+- All my rest [`.configs/`](.config) :3
 
 ## Main principles
 
 - Minimalism in everything
 - Consistency
 - Simplicity
-- One style - [JetBrainsMono](https://www.jetbrains.com/lp/mono) font and [Catppuccin](https://github.com/catppuccin/catppuccin) color palette
+- One style - [JetBrainsMono](https://www.jetbrains.com/lp/mono) font
 - Reduced visual noise, only important things should be shown
 - "Please, do not touch my code" - minimal auto-formatting or code flow interruptions
 - Security - do not share anything with anyone
@@ -39,25 +39,25 @@ What's in here?
 
 I am using [`dotdrop`](https://github.com/deadc0de6/dotdrop) to manage dotfiles and [`ansible`](https://github.com/ansible/ansible) to set things up. Steps:
 
-1. Clone this repo with: `git clone https://github.com/wilfriedago/dotfiles dotfiles`
-2. `cd dotfiles/`
+1. Clone this repo with: `git clone https://github.com/wilfriedago/dotfiles ~/.dotfiles`
+2. `cd ~/.dotfiles/`
 3. Run the following commands to install the necessary tooling:
 
 ```shell
 # install core: homebrew, zsh, oh-my-zsh and configs (optional)
-ansible-playbook playbooks/shell.yaml
+ansible-playbook .ansible/playbooks/shell.yaml
 
 # install dependencies
-ansible-playbook playbooks/deps.yaml
+ansible-playbook .ansible/playbooks/deps.yaml
 ```
 
 4. Run the following commands to install configs:
 
 ```shell
-dotdrop -c "dotdrop.yaml" -p default install -f
+dotdrop -c ".config/dotdrop/config.yml" -p default install -f
 
 # macOS only!
-dotdrop -c "dotdrop.yaml" -p macos install -f
+dotdrop -c ".config/dotdrop/config.yml" -p macos install -f
 ```
 
 ## Apps
@@ -69,7 +69,7 @@ I also sync apps from the App Store with `brew` via [`mas`](https://formulae.bre
 
 ![vscode](https://raw.githubusercontent.com/pivoshenko/dotfiles/master/docs/assets/vscode.png)
 
-Here's a list of [`extensions`](dependencies/Brewfile) I use daily, but I try to keep my `VSCode` setup as simple as possible.
+Here's a list of [`extensions`](.ansible/Brewfile) I use daily, but I try to keep my `VSCode` setup as simple as possible.
 
 I also quite heavily use [`helix`](https://github.com/helix-editor/helix) for in-terminal editing. You can find my `helix` and LSPs configuration [here](dotfiles/.config/helix).
 
@@ -88,7 +88,7 @@ It works perfectly with `skhd` which allows me to focus and modify the layout wi
 
 ## CLI
 
-I am using [`iTerm2`](https://github.com/gnachman/iTerm2) and [`zellij`](https://github.com/zellij-org/zellij) as my main terminal.
+I am using [`Warp`](https://www.warp.dev) and [`zellij`](https://github.com/zellij-org/zellij) as my main terminal.
 As the main shell I am using [`zsh`](https://www.zsh.org) with [`oh-my-zsh`](https://github.com/ohmyzsh/ohmyzsh) and [`starship`](https://github.com/starship/starship). To manage shell plugins I am using [`zplug`](https://github.com/zplug/zplug).
 I also have some tools/scripts/aliases to make my working experience better.
 But, I try to keep them minimal: only ones I truly use.
