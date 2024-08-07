@@ -9,9 +9,10 @@ config:
 profiles:
   default:
     dotfiles:
-    - d_shell
     - f_zshrc
     - f_zshenv
+    - d_config
+    - d_shell
     - d_warp
     - d_neofetch
   macos:
@@ -19,21 +20,24 @@ profiles:
     - f_vscode
 
 dotfiles:
-  d_shell:
-    src: .shell
-    dst: ~/.shell
   f_zshrc:
     src: .zshrc
     dst: ~/.zshrc
-  f_vscode:
-    src: .vscode/settings.json
-    dst: ~/Library/Application Support/Code/User/settings.json
   f_zshenv:
     src: .zshenv
     dst: ~/.zshenv
+  d_config:
+    src: .config
+    dst: ~/.config
+  d_shell:
+    src: .shell
+    dst: ~/.shell
   d_warp:
     src: .warp
     dst: ~/.warp
   d_neofetch:
     src: .config/neofetch
     dst: ~/.config/neofetch
+  f_vscode:
+    src: .vscode/settings.json
+    dst: ~/Library/Application Support/Code/User/settings.json
