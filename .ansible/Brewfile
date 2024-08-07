@@ -17,21 +17,20 @@ cask "font-symbols-only-nerd-font" # font with only symbols for developers
 # Apps
 # =============================================================================================
 
-cask "betterdiscord-installer" # installer for betterdiscord
-cask "dbeaver-community" # free universal database tool and SQL client
+cask "bitwarden" # password manager
 cask "discord" # voice and text chat software
 cask "flux" # screen colour temperature controller
 cask "insomnia" # HTTP and GraphQL Client
 cask "jetbrains-toolbox" # jetbrains tools manager
-cask "karabiner-elements" # keyboard customiser
-cask "nordpass" # password manager
-cask "nordvpn" # VPN client for secure internet access and private browsing
 cask "obsidian" # knowledge base that works on top of a local folder of plain text Markdown files
 cask "spotify" # music streaming service
 cask "telegram" # messaging app with a focus on speed and security
 cask "visual-studio-code" # open-source code editor
 cask "warp" # a modern, rust-based terminal with AI built in, as alternative to Apple's Terminal app
 cask "alt-tab" # a better cmd+tab for macOS
+cask 'notion-calendar' # a better calendar for Notion
+cask 'raycast' # a better Spotlight for macOS
+cask 'whatsapp' # messaging app
 
 # the cat tells you the CPU usage of Mac by running speed
 # mas "RunCat", id: 1429033973
@@ -92,46 +91,27 @@ brew "kubernetes-cli" # kubernetes command-line interface
 brew "lazydocker" # lazier way to manage everything docker
 brew "lazygit" # simple terminal ui for git commands
 brew "navi" # interactive cheatsheet tool for the command-line
-# fast, highly customisable system info script
-brew "neofetch"
-# manage multiple Node.js versions
-brew "nvm"
-# pinentry for GPG on Mac
-brew "pinentry-mac"
-# python version management
-brew "pyenv"
-# search tool like grep and the silver searcher
-brew "ripgrep"
-# install various Ruby versions and implementations
-brew "ruby-build"
-# ruby version manager
-brew "rbenv"
-# rust toolchain installer
-brew "rustup-init"
-# Spotify for the terminal written in Rust
-brew "spotify-tui"
-# Spotify customization
-brew "spicetify-cli"
-# cross-shell prompt for astronauts
-brew "starship"
-# pluggable terminal workspace with terminal multiplexer as the base feature
-brew "taplo"
-# display directories as trees (with optional color/html output)
-brew "tree"
-# command-line unarchiving tools supporting multiple formats
-brew "unar"
-# your cli home video recorder
-brew "vhs"
-# internet file retriever
-brew "wget"
-# shell extension to navigate your filesystem faster
-brew "zoxide"
-# next-generation plugin manager for zsh
-brew "zplug"
-# pluggable terminal workspace with terminal multiplexer as the base feature
-brew "zellij"
-# blazing fast terminal file manager written in Rust, based on async I/O
-brew "yazi"
+brew "neovim" # vim-fork focused on extensibility and usability
+brew "neofetch" # fast, highly customisable system info script
+brew "nvm" # manage multiple Node.js versions
+brew "pinentry-mac" # pinentry for GPG on Mac
+brew "pyenv" # python version management
+brew "ripgrep" # search tool like grep and the silver searcher
+brew "ruby-build" # install various Ruby versions and implementations
+brew "rbenv" # ruby version manager
+brew "rustup-init" # rust toolchain installer
+brew "spotify-tui" # Spotify for the terminal written in Rust
+brew "spicetify-cli" # Spotify customization
+brew "starship" # cross-shell prompt for astronauts
+brew "taplo" # pluggable terminal workspace with terminal multiplexer as the base feature
+brew "tree" # display directories as trees (with optional color/html output)
+brew "unar" # command-line unarchiving tools supporting multiple formats
+brew "vhs" # your cli home video recorder
+brew "wget" # internet file retriever
+brew "zoxide" # shell extension to navigate your filesystem faster
+brew "zplug" # next-generation plugin manager for zsh
+brew "zellij" # pluggable terminal workspace with terminal multiplexer as the base feature
+brew "yazi" # blazing fast terminal file manager written in Rust, based on async I/O
 
 # =============================================================================================
 # Linters, formatters and LSPs
