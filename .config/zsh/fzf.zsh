@@ -7,6 +7,7 @@
 if [[ ! "$PATH" == */opt/fzf/bin* ]]; then
   export PATH="$PATH:$(brew --prefix)/opt/fzf/bin"
   eval "$(fzf --zsh)"
+  source $HOME/.scripts/git/fzf-git.sh
 fi
 
 

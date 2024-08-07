@@ -68,7 +68,7 @@ alias gw='./gradlew'
 # utils
 alias zs='source ~/.zshrc' # source zshrc
 alias rm='trash' # move to trash
-alias cl='clear'
+alias cls='clear'
 alias cat='bat -p' # cat with syntax highlighting
 alias ip="curl https://ipinfo.io/json" # or /ip for plain-text ip
 alias localip="ipconfig getifaddr en0" # get local ip address
@@ -76,5 +76,4 @@ alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 alias flushdns="sudo killall -HUP mDNSResponder" # flush dns cache
 alias pubkey="cat ~/.ssh/id_ed25519.pub | pbcopy | echo '=> Copied to pasteboard.'" # copy ssh public key to clipboard
 alias lzd="lazydocker" # run Docker TUI
-alias lzg="lazygit" # run Git TUI
 alias llama='ollama run llama3' # run llama3

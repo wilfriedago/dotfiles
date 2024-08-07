@@ -1,6 +1,0 @@
-{
-    "github.com": {
-        "oauth_token": "$GITHUB_TOKEN",
-        "user": "wilfriedago"
-    }
-}

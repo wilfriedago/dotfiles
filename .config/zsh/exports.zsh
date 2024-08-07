@@ -7,10 +7,13 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-export EDITOR='nvim'
+# export EDITOR='nvim'
 
 # local exports
 export PATH="$HOME/.local/bin:$PATH"
+
+# XDG Base Directory Specification
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # =============================================================================================
 # Shell

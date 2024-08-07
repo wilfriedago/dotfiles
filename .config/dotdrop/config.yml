@@ -12,12 +12,11 @@ profiles:
     - f_zshrc
     - f_zshenv
     - d_config
-    - d_shell
     - d_warp
-    - d_neofetch
+    - d_scripts
   macos:
     dotfiles:
-    - f_vscode
+    - f_vscode_settings
 
 dotfiles:
   f_zshrc:
@@ -29,15 +28,12 @@ dotfiles:
   d_config:
     src: .config
     dst: ~/.config
-  d_shell:
-    src: .shell
-    dst: ~/.shell
   d_warp:
     src: .warp
     dst: ~/.warp
-  d_neofetch:
-    src: .config/neofetch
-    dst: ~/.config/neofetch
-  f_vscode:
+  d_scripts:
+    src: .scripts
+    dst: ~/.scripts
+  f_vscode_settings:
     src: .vscode/settings.json
     dst: ~/Library/Application Support/Code/User/settings.json

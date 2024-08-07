@@ -95,17 +95,17 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Store your own aliases in the ~/.shell/.aliases file and load the here.
-[[ -f "$HOME/.shell/.aliases" ]] && source "$HOME/.shell/.aliases.zsh"
+# Store your own aliases in the ~/.config/zsh/aliases.zsh file and load the here.
+[[ -f "$HOME/.config/zsh/aliases.zsh" ]] && source "$HOME/.config/zsh/aliases.zsh"
 
 # Load exports
-[[ -f "$HOME/.shell/.exports" ]] && source "$HOME/.shell/.exports.zsh"
+[[ -f "$HOME/.config/zsh/exports.zsh" ]] && source "$HOME/.config/zsh/exports.zsh"
 
 # Load functions
-[[ -f "$HOME/.shell/.functions" ]] && source "$HOME/.shell/.functions.zsh"
+[[ -f "$HOME/.config/zsh/functions.zsh" ]] && source "$HOME/.config/zsh/functions.zsh"
 
 # Load completions
-[[ -f "$HOME/.shell/.completions" ]] && source "$HOME/.shell/.completions.zsh"
+[[ -f "$HOME/.config/zsh/completions.zsh" ]] && source "$HOME/.config/zsh/completions.zsh"
 
 # Load fzf key bindings and completion
-[[ -f "$HOME/.shell/.fzf" ]] && source "$HOME/.shell/.fzf.zsh"
+[[ -f "$HOME/.config/zsh/fzf.zsh" ]] && source "$HOME/.config/zsh/fzf.zsh"
