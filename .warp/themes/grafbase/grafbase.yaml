@@ -3,9 +3,9 @@ accent: '#0d5961'
 background: '#131313'
 foreground: '#ffffff'
 details: 'darker'
-background_image:
+# background_image:
   # the path is relative to ~/.warp/themes/
-  path: grafbase/grafbase_bg.jpg
+  # path: grafbase/grafbase_bg.jpg
 terminal_colors:
   normal:
     magenta: '#45b192'
