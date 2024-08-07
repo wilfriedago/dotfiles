@@ -95,16 +95,16 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Store your own aliases in the ~/.shell/.aliases file and load the here.
-[[ -f "$HOME/.shell/.aliases" ]] && source "$HOME/.shell/.aliases"
+[[ -f "$HOME/.shell/.aliases" ]] && source "$HOME/.shell/.aliases.zsh"
 
 # Load exports
-[[ -f "$HOME/.shell/.exports" ]] && source "$HOME/.shell/.exports"
+[[ -f "$HOME/.shell/.exports" ]] && source "$HOME/.shell/.exports.zsh"
 
 # Load functions
-[[ -f "$HOME/.shell/.functions" ]] && source "$HOME/.shell/.functions"
+[[ -f "$HOME/.shell/.functions" ]] && source "$HOME/.shell/.functions.zsh"
 
 # Load completions
-[[ -f "$HOME/.shell/.completions" ]] && source "$HOME/.shell/.completions"
+[[ -f "$HOME/.shell/.completions" ]] && source "$HOME/.shell/.completions.zsh"
 
 # Load fzf key bindings and completion
-[[ -f "$HOME/.shell/.fzf" ]] && source "$HOME/.shell/.fzf"
+[[ -f "$HOME/.shell/.fzf" ]] && source "$HOME/.shell/.fzf.zsh"
