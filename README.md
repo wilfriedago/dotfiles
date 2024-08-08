@@ -16,10 +16,10 @@
 
 What's in here?
 
-- All my `brew` dependencies including applications, fonts, LSPs etc. See [`Brewfile`](.ansible/Brewfile)
+- All my `brew` dependencies including applications, fonts, LSPs etc. See [`Brewfile`](playbooks/deps/Brewfile)
 - All my `macOS` configuration. See [`macos`](.scripts/macos/default.sh) and [`macos`](.scripts/macos/settings.sh)
-- All my shell configurations. See [`.shell/`](.shell) and [`.zshrc`](.zshrc)
-- All my `VSCode` configurations and extensions. See [`vscode/`](.vscode) and [`extensions`](.ansible/Brewfile)
+- All my shell configurations. See [`.config/zsh`](.config/zsh) and [`.zshrc`](.zshrc)
+- All my `VSCode` configurations and extensions. See [`vscode/`](.vscode) and [`extensions`](playbooks/deps/Brewfile)
 - All my rest [`.configs/`](.config) :3
 
 ## Main principles
@@ -45,10 +45,10 @@ I am using [`dotdrop`](https://github.com/deadc0de6/dotdrop) to manage dotfiles 
 
 ```shell
 # install core: homebrew, zsh, oh-my-zsh and configs (optional)
-ansible-playbook .ansible/playbooks/shell.yaml
+ansible-playbook playbooks/shell.yaml
 
 # install dependencies
-ansible-playbook .ansible/playbooks/deps.yaml
+ansible-playbook playbooks/deps.yaml
 ```
 
 4. Run the following commands to install configs:
@@ -63,13 +63,13 @@ dotdrop -c ".config/dotdrop/config.yml" -p macos install -f
 ## Apps
 
 I am using [`brew`](https://brew.sh) to install all free apps for my Mac.
-I also sync apps from the App Store with `brew` via [`mas`](https://formulae.brew.sh/formula/mas), so the resulting [`Brewfile`](dependencies/Brewfile) contains everything.
+I also sync apps from the App Store with `brew` via [`mas`](https://formulae.brew.sh/formula/mas), so the resulting [`Brewfile`](playbooks/deps/Brewfile) contains everything.
 
 ## VSCode
 
 ![vscode](https://raw.githubusercontent.com/pivoshenko/dotfiles/master/docs/assets/vscode.png)
 
-Here's a list of [`extensions`](.ansible/Brewfile) I use daily, but I try to keep my `VSCode` setup as simple as possible.
+Here's a list of [`extensions`](playbooks/deps/Brewfile) I use daily, but I try to keep my `VSCode` setup as simple as possible.
 
 I also quite heavily use [`helix`](https://github.com/helix-editor/helix) for in-terminal editing. You can find my `helix` and LSPs configuration [here](dotfiles/.config/helix).
 
@@ -88,22 +88,23 @@ It works perfectly with `skhd` which allows me to focus and modify the layout wi
 
 ## CLI
 
-I am using [`Warp`](https://www.warp.dev) and [`zellij`](https://github.com/zellij-org/zellij) as my main terminal.
+I am using [`Warp`](https://www.warp.dev) as my main terminal.
 As the main shell I am using [`zsh`](https://www.zsh.org) with [`oh-my-zsh`](https://github.com/ohmyzsh/ohmyzsh) and [`starship`](https://github.com/starship/starship). To manage shell plugins I am using [`zplug`](https://github.com/zplug/zplug).
 I also have some tools/scripts/aliases to make my working experience better.
 But, I try to keep them minimal: only ones I truly use.
 
 I mainly work with:
 
-- `Python`
+- `Java & Kotlin` - For backend development
+- `JavaScript & TypeScript` - For frontend development
+- `Python` - For data science and machine learning
 
 I also have several other languages installed. But I don't use them daily:
 
-- `Elixir`
 - `Rust`
-- `Ruby`
+- `Go`
 
-### fzf
+### fzf a.k.a. Fuzzy Finder
 
 I use [`fzf`](https://github.com/junegunn/fzf) for several tasks:
 
