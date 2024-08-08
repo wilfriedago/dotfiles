@@ -59,16 +59,6 @@ man () {
       man "$@"
 }
 
-# update brew, cargo and npm packages
-update () {
-  brew update
-  brew upgrade
-  brew cleanup
-  pnpm update -g
-  gh extension upgrade --all
-  omz update
-}
-
 # lazygit with auto-cd
 lzg() {
   export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
