@@ -1,7 +1,6 @@
 {
-  "$schema": "vscode://schemas/settings/user",
   "amazonQ.telemetry": false,
-  "ansible.python.interpreterPath": "$HOME/.pyenv/shims/python3",
+  "ansible.lightspeed.enabled": true,
   "apc.electron": {
     "frame": false,
     "titleBarStyle": "hidden",
@@ -116,6 +115,7 @@
     "Laravel",
     "lastname",
     "lerp",
+    "lightspeed",
     "linkedin",
     "Linkedin",
     "logto",
@@ -129,6 +129,7 @@
     "meilisearch",
     "middlename",
     "millionlint",
+    "mindmap",
     "minio",
     "mjml",
     "mmkv",
@@ -136,6 +137,7 @@
     "mysql",
     "MYSQL",
     "nativewind",
+    "neofetch",
     "nestjs",
     "nestjsx",
     "Neue",
@@ -380,13 +382,6 @@
   "extensions.experimental.affinity": {
     "vscodevim.vim": 1
   },
-  "files.associations": {
-    "*.css": "css",
-    "*.scss": "tailwindcss",
-    ".commitlintrc": "json",
-    ".lintstagedrc": "json",
-    ".releaserc": "json"
-  },
   "files.eol": "\n",
   "files.exclude": {
     "**/.classpath": true,
@@ -422,8 +417,10 @@
     "scminput": false
   },
   "github.gitProtocol": "ssh",
+  "gitlens.ai.experimental.generateCommitMessage.enabled": true,
   "gitlens.ai.experimental.model": "vscode",
-  "gitlens.ai.experimental.vscode.model": "copilot:gpt-3.5-turbo",
+  "gitlens.ai.experimental.vscode.model": "copilot:gpt-4o",
+  "gitlens.experimental.generateCommitMessagePrompt": "Generate a concise git commit message written in present tense. Ensure that it includes a precise and informative subject line that succinctly summarizes the crux of the changes in under 70 characters. Follow conventional commit format and choose a type from the type-to-description JSON below that best describes the git diff: { 'docs': 'Documentation only changes', 'style': 'Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)', 'refactor': 'A code change that neither fixes a bug nor adds a feature', 'perf': 'A code change that improves performance', 'test': 'Adding missing tests or correcting existing tests', 'build': 'Changes that affect the build system or external dependencies', 'ci': 'Changes to our CI configuration files and scripts', 'chore': 'Other changes that don't modify src or test files', 'revert': 'Reverts a previous commit', 'feat': 'A new feature', 'fix': 'A bug fix' } If necessary, follow with an explanatory body providing insight into the nature of the changes, the reasoning behind them, and any significant consequences or considerations arising from them. Exclude anything unnecessary such as translation. Your entire response will be passed directly into git commit.",
   "gitlens.graph.layout": "editor",
   "gitlens.graph.minimap.additionalTypes": [
     "tags",
@@ -449,11 +446,9 @@
   "material-icon-theme.saturation": 0.5,
   "pieces.telemetry": false,
   "projectManager.git.baseFolders": [
-    "$home/Developer/Works",
-    "$home/Developer/Projects",
-    "$home/Developer/Personal",
-    "$home/Developer/Playground",
-    "$home/Developer/Learn"
+    "/Users/wilfriedago/Developer/Works",
+    "/Users/wilfriedago/Developer/Learn",
+    "/Users/wilfriedago/Developer/Projects"
   ],
   "remote.autoForwardPortsSource": "hybrid",
   "search.exclude": {
@@ -622,7 +617,10 @@
   "vim.useSystemClipboard": true,
   "vsixViewer.enableTelemetry": false,
   "window.autoDetectColorScheme": true,
+  "window.autoDetectHighContrast": true,
   "window.commandCenter": false,
+  "window.customTitleBarVisibility": "never",
+  "window.titleBarStyle": "native",
   "workbench.activityBar.location": "top",
   "workbench.colorCustomizations": {
     "editor.selectionBackground": "#008b3f75",
@@ -632,6 +630,7 @@
     "workbench.editorinputs.searchEditorInput": true
   },
   "workbench.editor.enablePreview": true,
+  "workbench.experimental.enableNewProfilesUI": true,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.layoutControl.enabled": false,
   "workbench.list.fastScrollSensitivity": 10,
