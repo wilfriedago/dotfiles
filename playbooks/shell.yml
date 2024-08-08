@@ -23,8 +23,43 @@
           sudo sh -c "echo $(which zsh) >> /etc/shells"
           chsh -s $(which zsh)
 
+    - name: Check if oh-my-zsh is installed
+      stat:
+        path: "{{ ansible_user_dir }}/.oh-my-zsh"
+      register: check_omz_install
+
     - name: Install oh-my-zsh
-      ignore_errors: true
+      when: not check_omz_install.stat.exists
       ansible.builtin.shell:
         cmd: |
           sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+    - name: Clone zsh-autosuggestions
+      ansible.builtin.git:
+        clone: yes
+        depth: 1
+        dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+        repo: https://github.com/zsh-users/zsh-autosuggestions.git
+        single_branch: yes
+        update: yes
+        version: master
+
+    - name: Clone fast-syntax-highlighting
+      ansible.builtin.git:
+        clone: yes
+        depth: 1
+        dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/plugins/fast-syntax-highlighting"
+        repo: https://github.com/zdharma-continuum/fast-syntax-highlighting.git
+        single_branch: yes
+        update: yes
+        version: master
+
+    - name: Clone fzf-tab
+      ansible.builtin.git:
+        clone: yes
+        depth: 1
+        dest: "{{ ansible_user_dir }}/.oh-my-zsh/custom/plugins/fzf-tab"
+        repo: https://github.com/Aloxaf/fzf-tab.git
+        single_branch: yes
+        update: yes
+        version: master
