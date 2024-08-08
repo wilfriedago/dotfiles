@@ -35,5 +35,5 @@ dotfiles:
     src: .scripts
     dst: ~/.scripts
   f_vscode_settings:
-    src: .vscode/settings.json
+    src: .vscode.settings.jsonc
     dst: ~/Library/Application Support/Code/User/settings.json

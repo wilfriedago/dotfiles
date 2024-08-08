@@ -1,5 +1,6 @@
 {
   "amazonQ.telemetry": false,
+  "ansible.python.interpreterPath": "$HOME/.pyenv/shims/python3",
   "apc.electron": {
     "frame": false,
     "titleBarStyle": "hidden",
@@ -31,7 +32,6 @@
     "axios",
     "baseui",
     "basicauth",
-    "Benco",
     "bitbucket",
     "buildcache",
     "casl",
@@ -238,12 +238,8 @@
     "vsix",
     "waitlist",
     "WAKATIME",
-    "wandau",
     "webp",
     "weloveeya",
-    "Weloveeya",
-    "Wilfried",
-    "wilfriedago",
     "woocommerce",
     "wordpress",
     "XTWITTER",
@@ -445,29 +441,22 @@
   "leetcode.hint.setDefaultLanguage": false,
   "leetcode.problems.sortStrategy": "None",
   "leetcode.showDescription": "Both",
-  "leetcode.workspaceFolder": "/Users/wilfriedago/Developer/Learn/leetcode",
+  "leetcode.workspaceFolder": "$HOME/Developer/Learn/leetcode",
   "material-icon-theme.files.color": "#42a5f5",
   "material-icon-theme.folders.color": "#42a5f5",
   "material-icon-theme.folders.theme": "specific",
   "material-icon-theme.saturation": 0.5,
   "pieces.telemetry": false,
   "projectManager.git.baseFolders": [
-    "/Users/wilfriedago/Developer/Works",
-    "/Users/wilfriedago/Developer/Learn"
+    "$home/Developer/Works",
+    "$home/Developer/Projects",
+    "$home/Developer/Personal",
+    "$home/Developer/Playground",
+    "$home/Developer/Learn"
   ],
   "remote.autoForwardPortsSource": "hybrid",
   "search.exclude": {
     "**/node_modules": true
-  },
-  "security.promptForLocalFileProtocolHandling": false,
-  "security.workspace.trust.untrustedFiles": "open",
-  "sonarlint.rules": {
-    "typescript:S2871": {
-      "level": "off"
-    },
-    "typescript:S4043": {
-      "level": "off"
-    }
   },
   "sortJSON.contextMenu": {
     "sortJSONAlphaNum": false,
@@ -632,10 +621,7 @@
   "vim.useSystemClipboard": true,
   "vsixViewer.enableTelemetry": false,
   "window.autoDetectColorScheme": true,
-  "window.autoDetectHighContrast": true,
   "window.commandCenter": false,
-  "window.customTitleBarVisibility": "never",
-  "window.titleBarStyle": "native",
   "workbench.activityBar.location": "top",
   "workbench.colorCustomizations": {
     "editor.selectionBackground": "#008b3f75",
@@ -645,7 +631,6 @@
     "workbench.editorinputs.searchEditorInput": true
   },
   "workbench.editor.enablePreview": true,
-  "workbench.experimental.enableNewProfilesUI": true,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.layoutControl.enabled": false,
   "workbench.list.fastScrollSensitivity": 10,
