@@ -2,8 +2,4 @@
 source <(ng completion script)
 
 # Load fabric completions.
-if [ -f "/Users/wilfriedago/.config/fabric/fabric-bootstrap.inc" ]; then . "/Users/wilfriedago/.config/fabric/fabric-bootstrap.inc"; fi
-
-# Sdkman
-export SDKMAN_DIR="/Users/wilfriedago/.sdkman"
-[[ -s "/Users/wilfriedago/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/wilfriedago/.sdkman/bin/sdkman-init.sh"
+if [ -f "$HOME/.config/fabric/fabric-bootstrap.inc" ]; then . "$HOME/.config/fabric/fabric-bootstrap.inc"; fi

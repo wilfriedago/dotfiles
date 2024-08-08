@@ -1,13 +1,11 @@
 # `.exports` is used to provide custom variables and environment variables for the shell
 
-export PWD=$(pwd)
-
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# export EDITOR='nvim'
+export EDITOR='nvim'
 
 # local exports
 export PATH="$HOME/.local/bin:$PATH"
@@ -39,18 +37,16 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# rustup
-. "$HOME/.cargo/env"
-
-# rustup
-source "$HOME/.cargo/env"
+# sdkman
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # =============================================================================================
 # Dependencies managers
 # =============================================================================================
 
 # pnpm
-export PNPM_HOME="/Users/wilfriedago/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -59,7 +55,7 @@ esac
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH" # Add bun to PATH
-[ -s "/Users/wilfriedago/.bun/_bun" ] && source "/Users/wilfriedago/.bun/_bun" # This loads bun bash_completion
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun" # This loads bun bash_completion
 
 
 # =============================================================================================
@@ -67,8 +63,6 @@ export PATH="$BUN_INSTALL/bin:$PATH" # Add bun to PATH
 # =============================================================================================
 
 # Node.js
-export NODE_NO_WARNINGS=1 # Silence npm warnings
-
 if [[ -d "$PWD/node_modules/.bin" ]]; then # Automatically add node_modules/.bin to PATH if present
   export PATH="$PWD/node_modules/.bin:$PATH"
 fi

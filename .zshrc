@@ -73,7 +73,7 @@ HIST_STAMPS="dd.mm.yyyy"
 plugins=(
   git
   fzf-tab
-  zsh-syntax-highlighting
+  fast-syntax-highlighting
   zsh-autosuggestions
 )
 

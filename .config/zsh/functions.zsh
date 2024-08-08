@@ -44,15 +44,7 @@ loadenv () {
     fi
     export $line > /dev/null
   done < "$1"
-  echo "Loaded!"
-}
-
-# sets up all my working env
-workon () {
-  if z 2>&1 "$1"; then
-    source ".venv/bin/activate" || true  # there might be no `.venv`
-    code .
-  fi
+  echo "Environment variables loaded from $1."
 }
 
 # show pretty `man` page
@@ -85,8 +77,8 @@ lzg() {
   lazygit "$@"
 
   if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
-          cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
-          rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
+    cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
+    rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
   fi
 }
 
