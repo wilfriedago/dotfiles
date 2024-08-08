@@ -9,7 +9,6 @@ if [[ ! "$PATH" == */opt/fzf/bin* ]]; then
   eval "$(fzf --zsh)"
   source $HOME/.config/zsh/scripts/fzf-git.sh
   source $HOME/.config/zsh/scripts/fzf-zsh-completion.sh
-  zstyle ':completion:*' fzf-search-display true
 fi
 
 
