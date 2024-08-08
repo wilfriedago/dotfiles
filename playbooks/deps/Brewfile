@@ -71,13 +71,12 @@ brew "bottom" # yet another cross-platform graphical process/system monitor
 brew "commitizen" # defines a standard way of committing rules
 brew "curl" # query HTTP, HTTPS or FTP server
 brew "dotdrop" # dotfiles manager
-brew "docker" # pack, ship and run any application as a lightweight container
-brew "docker-clean" # clean Docker containers, images, networks, and volumes
 brew "dsq" # CLI tool for running SQL queries against JSON, CSV, Excel, Parquet
 brew "duckdb" # embeddable SQL OLAP Database Management System
 brew "eza" # modern replacement for 'ls'
 brew "fd" # simple, fast and user-friendly alternative to find
 brew "fzf" # command-line fuzzy finder written in go
+brew "ffmpeg" # play, record, convert, and stream audio and video
 brew "gcc" # gnu compiler collection
 brew "gh" # github command-line tool
 brew "git-delta" # syntax-highlighting pager for git and diff output
