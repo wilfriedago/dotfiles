@@ -45,10 +45,10 @@ I am using [`dotdrop`](https://github.com/deadc0de6/dotdrop) to manage dotfiles 
 
 ```shell
 # install core: homebrew, zsh, oh-my-zsh and configs (optional)
-ansible-playbook playbooks/shell.yaml
+ansible-playbook playbooks/shell.yml
 
 # install dependencies
-ansible-playbook playbooks/deps.yaml
+ansible-playbook playbooks/deps.yml
 ```
 
 4. Run the following commands to install configs:
