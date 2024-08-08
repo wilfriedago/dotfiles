@@ -72,9 +72,6 @@ if [[ -d "$PWD/.venv" ]]; then # Automatically load Python virtual environment i
   source "$PWD/.venv/bin/activate"
 fi
 
-# Java
-export PATH=$JAVA_HOME/bin:$PATH
-
 # =============================================================================================
 # External misc
 # =============================================================================================

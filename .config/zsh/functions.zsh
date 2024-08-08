@@ -32,8 +32,7 @@ osclean () {
 # cd into whatever is the forefront Finder window
 cdf () {
   local path=$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')
-  echo "$path"
-  cd "$path"
+  z "$path"
 }
 
 # load `.env` file from a filename passed as an argument
