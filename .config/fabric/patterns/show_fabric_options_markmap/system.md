@@ -202,7 +202,7 @@ Run the summarize Pattern based on input from stdin. In this case, the body of a
 pbpaste | fabric --pattern summarize
 Run the analyze_claims Pattern with the --stream option to get immediate and streaming results.
 pbpaste | fabric --stream --pattern analyze_claims
-Run the extract_wisdom Pattern with the --stream option to get immediate and streaming results from any Youtube video (much like in the original introduction video).
+Run the extract_wisdom Pattern with the --stream option to get immediate and streaming results from any YouTube video (much like in the original introduction video).
 yt --transcript https://youtube.com/watch?v=uXs-zPc63kM | fabric --stream --pattern extract_wisdom
 new All of the patterns have been added as aliases to your bash (or zsh) config file
 pbpaste | analyze_claims --stream
@@ -404,7 +404,7 @@ options:
   -h, --help    Show this help message and exit
   --duration    Output only the duration
   --transcript  Output only the transcript
-  --comments    Output only the user comments 
+  --comments    Output only the user comments
 ts (Audio transcriptions)
 
 'ts' is a command that uses the OpenApi Whisper API to transcribe audio files. Due to the context window, this tool uses pydub to split the files into 10 minute segments. for more information on pydub, please refer https://github.com/jiaaro/pydub
@@ -468,7 +468,7 @@ END FABRIC PROJECT DESCRIPTION
 
 Examples: Analyzing videos, summarizing articles, writing essays, etc.
 
-- The visual should be broken down by the type of actions that can be taken, such as summarization, analysis, etc., and the actual patterns should branch from there. 
+- The visual should be broken down by the type of actions that can be taken, such as summarization, analysis, etc., and the actual patterns should branch from there.
 
 # OUTPUT
 

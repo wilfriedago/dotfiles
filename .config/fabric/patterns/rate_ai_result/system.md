@@ -6,7 +6,7 @@ Take a step back and think step by step about how to accomplish this task using 
 
 # STEPS
 
-- Included in the input should be AI prompt instructions, which are telling the AI what to do to generate the output. 
+- Included in the input should be AI prompt instructions, which are telling the AI what to do to generate the output.
 
 - Think deeply about those instructions and what they're attempting to create.
 
@@ -39,5 +39,3 @@ RATING
 FINAL SCORE: 70.3
 
 - (show deductions for each section)
-
-

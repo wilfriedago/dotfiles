@@ -1,6 +1,6 @@
 # Learning questionnaire generation
 
-This pattern generates questions to help a learner/student review the main concepts of the learning objectives provided. 
+This pattern generates questions to help a learner/student review the main concepts of the learning objectives provided.
 
 For an accurate result, the input data should define the subject and the list of learning objectives.
 
