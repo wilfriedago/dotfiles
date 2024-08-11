@@ -1,3 +1,5 @@
+# /bin/sh
+
 echo "Type in your first and last name (no accent or special characters - e.g. 'ç'): "
 read full_name
 
