@@ -34,7 +34,7 @@
         cmd: |
           sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-    - name: Clone zsh-autosuggestions
+    - name: Install zsh-autosuggestions
       ansible.builtin.git:
         clone: yes
         depth: 1
@@ -44,7 +44,7 @@
         update: yes
         version: master
 
-    - name: Clone fast-syntax-highlighting
+    - name: Install fast-syntax-highlighting
       ansible.builtin.git:
         clone: yes
         depth: 1
@@ -54,7 +54,7 @@
         update: yes
         version: master
 
-    - name: Clone fzf-tab
+    - name: Install fzf-tab
       ansible.builtin.git:
         clone: yes
         depth: 1
