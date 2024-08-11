@@ -19,7 +19,6 @@ cask "font-symbols-only-nerd-font" # font with only symbols for developers
 
 cask "bitwarden" # password manager
 cask "discord" # voice and text chat software
-cask "flux" # screen colour temperature controller
 cask "insomnia" # HTTP and GraphQL Client
 cask "jetbrains-toolbox" # jetbrains tools manager
 cask "obsidian" # knowledge base that works on top of a local folder of plain text Markdown files
@@ -31,11 +30,8 @@ cask "alt-tab" # a better cmd+tab for macOS
 cask 'notion-calendar' # a better calendar for Notion
 cask 'raycast' # a better Spotlight for macOS
 cask 'whatsapp' # messaging app
-
-# the cat tells you the CPU usage of Mac by running speed
-# mas "RunCat", id: 1429033973
-# pomodoro timer
-# mas "Flow", id: 1423210932
+cask 'slack' # messaging app
+cask 'nikitabobko/tap/aerospace' # a better window manager for macOS
 
 # =============================================================================================
 # QuickLook plugins
@@ -48,18 +44,11 @@ cask "syntax-highlight" # QuickLook generator for source code files with syntax 
 # Programming languages, REPLs
 # =============================================================================================
 
-# programming language for highly scalable real-time systems
-brew "erlang"
-# functional metaprogramming aware language built on Erlang VM
-brew "elixir"
-# statically typed language for the Erlang VM
-brew "gleam"
-# powerful, lightweight programming language
-brew "lua"
-# platform built on V8 to build network applications
-brew "node"
-# powerful, clean, object-oriented scripting language
-brew "ruby"
+# brew "erlang" # programming language for highly scalable real-time systems
+# brew "elixir" # functional metaprogramming aware language built on Erlang VM
+# brew "gleam" # statically typed language for the Erlang VM
+# brew "lua" # powerful, lightweight programming language
+# brew "ruby" # powerful, clean, object-oriented scripting language
 
 # =============================================================================================
 # CLI tools
@@ -68,7 +57,6 @@ brew "ruby"
 brew "act" # runs GitHub Actions locally
 brew "bat" # cat with syntax highlighting and Git integration
 brew "bottom" # yet another cross-platform graphical process/system monitor
-brew "commitizen" # defines a standard way of committing rules
 brew "curl" # query HTTP, HTTPS or FTP server
 brew "dotdrop" # dotfiles manager
 brew "dsq" # CLI tool for running SQL queries against JSON, CSV, Excel, Parquet
@@ -81,11 +69,9 @@ brew "gcc" # gnu compiler collection
 brew "gh" # github command-line tool
 brew "git-delta" # syntax-highlighting pager for git and diff output
 brew "graphviz" # graph visualization software from at&t and bell labs
-brew "helix" # post-modern modal text editor
 brew "jq" # lightweight and flexible command-line json processor
 brew "k9s" # kubernetes cli to manage your clusters in style!
 brew "koekeishiya/formulae/skhd" # hotkey daemon for macOS
-brew "koekeishiya/formulae/yabai" # tiling window manager for macOS
 brew "navi" # interactive cheatsheet tool for the command-line
 brew "neovim" # vim-fork focused on extensibility and usability
 brew "neofetch" # fast, highly customisable system info script
@@ -93,8 +79,6 @@ brew "nvm" # manage multiple Node.js versions
 brew "pinentry-mac" # pinentry for GPG on Mac
 brew "pyenv" # python version management
 brew "ripgrep" # search tool like grep and the silver searcher
-brew "ruby-build" # install various Ruby versions and implementations
-brew "rbenv" # ruby version manager
 brew "docker" # pack, ship and run any application as a lightweight container
 brew "docker-compose" # define and run multi-container Docker applications
 brew "docker-credential-helper" # credentials helper for Docker
@@ -102,9 +86,6 @@ brew "lazydocker" # lazier way to manage everything docker
 brew "lazygit" # simple terminal ui for git commands
 brew "colima" # a better Docker CLI
 brew "kubectl" # kubernetes command-line tool
-brew "rustup-init" # rust toolchain installer
-brew "spotify-tui" # Spotify for the terminal written in Rust
-brew "spicetify-cli" # Spotify customization
 brew "starship" # cross-shell prompt for astronauts
 brew "taplo" # pluggable terminal workspace with terminal multiplexer as the base feature
 brew "tree" # display directories as trees (with optional color/html output)
@@ -120,66 +101,37 @@ brew "yazi" # blazing fast terminal file manager written in Rust, based on async
 # Linters, formatters and LSPs
 # =============================================================================================
 
-# static checker for GitHub Actions workflow files
-brew "actionlint"
-# language server for Ansible files
-brew "ansible-lint"
-brew "ansible-language-server"
-# bash language server that brings an IDE-like experience for bash scripts to most editors
-brew "bash-language-server"
-# linter for .env files
-brew "dotenv-linter"
-# a language server for Dockerfiles powered by Node.js
-brew "dockerfile-language-server"
-# general purpose language server
-brew "efm-langserver"
-# Language Server and Debugger for Elixir
-brew "elixir-ls"
-# smarter Dockerfile linter to validate best practices
-brew "hadolint"
-# LSP for LanguageTool with support for Latex
-brew "ltex-ls"
-# Language Server Protocol for Markdown
-brew "marksman"
-# autoformat shell script source code
-brew "shfmt"
-# modernized, complete, self-contained TeX/LaTeX engine
-brew "tectonic"
-# implementation of the Language Server Protocol for LaTeX
-brew "texlab"
-# LSP implementation for TypeScript wrapping
-brew "typescript-language-server"
-# HTML/CSS/JSON/ESLint language servers
-brew "vscode-langservers-extracted"
-# extensible command-line tool to format YAML files
-brew "yamlfmt"
-# language server for YAML Files
-brew "yaml-language-server"
+brew "actionlint" # static checker for GitHub Actions workflow files
+brew "ansible-lint" # checks playbooks for practices and behaviour that could potentially be improved
+brew "ansible-language-server" # language server for Ansible files
+brew "bash-language-server" # bash language server that brings an IDE-like experience for bash scripts to most editors
+brew "dotenv-linter" # linter for .env files
+brew "dockerfile-language-server" # a language server for Dockerfiles powered by Node.js
+brew "efm-langserver" # general purpose language server that can handle any language
+brew "hadolint" # smarter Dockerfile linter to validate best practices
+brew "ltex-ls" # LSP for LanguageTool with support for Latex
+brew "marksman" # Language Server Protocol for Markdown
+brew "shfmt" # autoformat shell script source code
+brew "tectonic" # modernized, complete, self-contained TeX/LaTeX engine
+brew "texlab" # implementation of the Language Server Protocol for LaTeX
+brew "typescript-language-server" # LSP implementation for TypeScript wrapping
+brew "vscode-langservers-extracted" # HTML/CSS/JSON/ESLint language servers extracted from VSCode
+brew "yamlfmt" # extensible command-line tool to format YAML files
+brew "yaml-language-server" # language server for YAML Files
 
 # =============================================================================================
 # VSCode extensions
 # =============================================================================================
 
 vscode "alefragnani.project-manager"
-vscode "catppuccin.catppuccin-vsc"
 vscode "charliermarsh.ruff"
-vscode "dorzey.vscode-sqlfluff"
 vscode "drcika.apc-extension"
 vscode "eamodio.gitlens"
 vscode "editorconfig.editorconfig"
-vscode "equinusocio.vsc-material-theme-icons"
 vscode "github.vscode-pull-request-github"
-vscode "gleam.gleam"
-vscode "griimick.vhs"
 vscode "hbenl.vscode-test-explorer"
-vscode "ibrahimfadel.yabai-syntax-highlighting"
-vscode "jakebecker.elixir-ls"
 vscode "james-yu.latex-workshop"
-vscode "kdl-org.kdl"
-vscode "littlefoxteam.vscode-python-test-adapter"
-vscode "marclipovsky.string-manipulation"
 vscode "matangover.mypy"
-vscode "miguelsolorio.fluent-icons"
 vscode "mikestead.dotenv"
 vscode "ms-azuretools.vscode-docker"
 vscode "ms-python.debugpy"
@@ -199,21 +151,14 @@ vscode "ms-vscode.test-adapter-converter"
 vscode "naumovs.color-highlight"
 vscode "njpwerner.autodocstring"
 vscode "oderwat.indent-rainbow"
-vscode "peterschmalfeldt.explorer-exclude"
-vscode "ritwickdey.liveserver"
 vscode "robertostermann.inline-parameters-extended"
 vscode "rodolphebarbanneau.python-docstring-highlighter"
 vscode "rust-lang.rust-analyzer"
-vscode "samuelcolvin.jinjahtml"
-vscode "silverquark.dancehelix"
 vscode "swellaby.vscode-rust-test-adapter"
 vscode "tamasfe.even-better-toml"
-vscode "tgriesser.avro-schemas"
-vscode "trond-snekvik.simple-rst"
 vscode "vadimcn.vscode-lldb"
 vscode "visualstudioexptteam.intellicode-api-usage-examples"
 vscode "visualstudioexptteam.vscodeintellicode"
 vscode "visualstudioexptteam.vscodeintellicode-completions"
-vscode "vspacecode.whichkey"
 vscode "wakatime.vscode-wakatime"
 vscode "yzhang.markdown-all-in-one"
