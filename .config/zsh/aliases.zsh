@@ -78,11 +78,10 @@ alias pubkey="cat ~/.ssh/id_ed25519.pub | pbcopy | echo '=> Copied to pasteboard
 alias lzd="lazydocker" # run Docker TUI
 alias llama='ollama run llama3' # run llama3
 
-# Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
+# Get macOS Software Updates, and update installed Homebrew, npm, and their installed packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; pnpm add -g pnpm -g; pnpm update -g; gh extension upgrade --all; omz update'
 
-# Lock the screen (when going AFK)
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+alias afk='pmset displaysleepnow' # lock screen immediately
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'

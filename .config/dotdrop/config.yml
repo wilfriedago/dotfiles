@@ -11,7 +11,14 @@ profiles:
     dotfiles:
     - f_zshrc
     - f_zshenv
-    - d_config
+    - d_aerospace
+    - d_fabric
+    - d_fzf
+    - d_lazydocker
+    - d_lazygit
+    - d_neofetch
+    - d_nvim
+    - d_zsh
     - d_warp
     - d_scripts
   macos:
@@ -25,9 +32,30 @@ dotfiles:
   f_zshenv:
     src: .zshenv
     dst: ~/.zshenv
-  d_config:
-    src: .config
-    dst: ~/.config
+  d_aerospace:
+    src: .config/aerospace
+    dst: ~/.config/aerospace
+  d_fabric:
+    src: .config/fabric
+    dst: ~/.config/fabric
+  d_fzf:
+    src: .config/fzf
+    dst: ~/.config/fzf
+  d_lazydocker:
+    src: .config/lazydocker
+    dst: ~/.config/lazydocker
+  d_lazygit:
+    src: .config/lazygit
+    dst: ~/.config/lazygit
+  d_neofetch:
+    src: .config/neofetch
+    dst: ~/.config/neofetch
+  d_nvim:
+    src: .config/nvim
+    dst: ~/.config/nvim
+  d_zsh:
+    src: .config/zsh
+    dst: ~/.config/zsh
   d_warp:
     src: .warp
     dst: ~/.warp

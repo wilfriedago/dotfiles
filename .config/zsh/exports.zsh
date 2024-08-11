@@ -10,36 +10,23 @@ export EDITOR='nvim'
 # local exports
 export PATH="$HOME/.local/bin:$PATH"
 
-# XDG Base Directory Specification
-export XDG_CONFIG_HOME="$HOME/.config"
-
-# =============================================================================================
-# Shell
-# =============================================================================================
-
-# starship prompt
-eval "$(starship init zsh)"
-
-# gh copilot cli alias
-eval "$(gh copilot alias -- zsh)"
-
 # =============================================================================================
 # Version managers
 # =============================================================================================
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+[ -d "$PYENV_ROOT/bin" ] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # sdkman
 export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
 # =============================================================================================
 # Dependencies managers
@@ -57,20 +44,15 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH" # Add bun to PATH
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun" # This loads bun bash_completion
 
-
 # =============================================================================================
 # Language
 # =============================================================================================
 
 # Node.js
-if [[ -d "$PWD/node_modules/.bin" ]]; then # Automatically add node_modules/.bin to PATH if present
-  export PATH="$PWD/node_modules/.bin:$PATH"
-fi
+[ -d "$PWD/node_modules/.bin" ] && export PATH="$PWD/node_modules/.bin:$PATH" # Automatically add node_modules/.bin to PATH if present
 
 # Python
-if [[ -d "$PWD/.venv" ]]; then # Automatically load Python virtual environment if available
-  source "$PWD/.venv/bin/activate"
-fi
+[ -d "$PWD/.venv" ] && source "$PWD/.venv/bin/activate" # Automatically load Python virtual environment if available
 
 # =============================================================================================
 # External misc
@@ -81,6 +63,21 @@ export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_AUTO_UPDATE_SECS=604800 # 1 week
 
 # android home
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH"
+
+# Load fabric completions.
+[ -s "$HOME/.config/fabric/fabric-bootstrap.inc" ] && source "$HOME/.config/fabric/fabric-bootstrap.inc";
+
+# =============================================================================================
+# Shell
+# =============================================================================================
+
+# starship prompt
+eval "$(starship init zsh)"
+
+# gh copilot cli alias
+eval "$(gh copilot alias -- zsh)"
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)

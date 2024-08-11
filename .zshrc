@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# XDG Base Directory Specification
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -99,8 +102,8 @@ source $ZSH/oh-my-zsh.sh
 # Load functions
 [[ -f "$HOME/.config/zsh/functions.zsh" ]] && source "$HOME/.config/zsh/functions.zsh"
 
-# Load completions
-[[ -f "$HOME/.config/zsh/completions.zsh" ]] && source "$HOME/.config/zsh/completions.zsh"
-
 # Load fzf key bindings and completion
-[[ -f "$HOME/.config/zsh/fzf.zsh" ]] && source "$HOME/.config/zsh/fzf.zsh"
+[[ -f "$HOME/.config/fzf/fzf.sh" ]] && source "$HOME/.config/fzf/fzf.sh"
+
+# Load zstyle
+[[ -f "$HOME/.config/zsh/zstyle.zsh" ]] && source "$HOME/.config/zsh/zstyle.zsh"
