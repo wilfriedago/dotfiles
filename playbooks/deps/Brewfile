@@ -86,9 +86,6 @@ brew "jq" # lightweight and flexible command-line json processor
 brew "k9s" # kubernetes cli to manage your clusters in style!
 brew "koekeishiya/formulae/skhd" # hotkey daemon for macOS
 brew "koekeishiya/formulae/yabai" # tiling window manager for macOS
-brew "kubernetes-cli" # kubernetes command-line interface
-brew "lazydocker" # lazier way to manage everything docker
-brew "lazygit" # simple terminal ui for git commands
 brew "navi" # interactive cheatsheet tool for the command-line
 brew "neovim" # vim-fork focused on extensibility and usability
 brew "neofetch" # fast, highly customisable system info script
@@ -98,6 +95,13 @@ brew "pyenv" # python version management
 brew "ripgrep" # search tool like grep and the silver searcher
 brew "ruby-build" # install various Ruby versions and implementations
 brew "rbenv" # ruby version manager
+brew "docker" # pack, ship and run any application as a lightweight container
+brew "docker-compose" # define and run multi-container Docker applications
+brew "docker-credential-helper" # credentials helper for Docker
+brew "lazydocker" # lazier way to manage everything docker
+brew "lazygit" # simple terminal ui for git commands
+brew "colima" # a better Docker CLI
+brew "kubectl" # kubernetes command-line tool
 brew "rustup-init" # rust toolchain installer
 brew "spotify-tui" # Spotify for the terminal written in Rust
 brew "spicetify-cli" # Spotify customization
