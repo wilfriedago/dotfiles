@@ -83,7 +83,7 @@ To resolve this issue I am using two daemons:
 
 ## Tiling Windows Manager
 
-As my main tiling windows manager I am using [`yabai`](https://github.com/koekeishiya/yabai) which is light and very configurable.
+As my main tiling windows manager I am using [`aerospace`](https://github.com/nikitabobko/AeroSpace) which is light and very configurable, and doesn't require to disable system integrity protection.
 It works perfectly with `skhd` which allows me to focus and modify the layout without distractions.
 
 ## CLI
@@ -97,7 +97,7 @@ I mainly work with:
 
 - `Java & Kotlin` - For backend development
 - `JavaScript & TypeScript` - For frontend development
-- `Python` - For data science and machine learning
+- `Python` - For data science, machine learning and overall scripting
 
 I also have several other languages installed. But I don't use them daily:
 
