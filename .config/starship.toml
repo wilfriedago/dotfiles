@@ -1,6 +1,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-add_newline = false # Add do not need  this extra line
+add_newline = false # Add do not need this extra line
 
 [character]
 success_symbol = '[➜](bold green)'
@@ -8,6 +8,31 @@ error_symbol = '[➜](bold red)'
 
 [battery]
 disabled = true # I can keep my eyes on the battery level from the menu bar, no thanks
+
+# [shell]
+# zsh_indicator = "󰊠"
+# style = "green bold"
+# disabled = false
+
+# [status]
+# symbol = " "
+# success_symbol = ""
+# not_executable_symbol = " "
+# map_symbol = false
+# disabled = false
+
+[directory]
+read_only = " "
+truncation_length = 4
+# style = "bold mauve"
+
+# [memory_usage]
+# symbol = "󰍛 "
+# disabled = true
+
+[hostname]
+ssh_only = true
+ssh_symbol = " "
 
 [aws]
 symbol = "󰸏 "
@@ -31,11 +56,6 @@ symbol = " "
 
 [dart]
 symbol = " "
-
-# [directory]
-# read_only = " "
-# truncation_length = 4
-# style = "bold mauve"
 
 [docker_context]
 symbol = "󰡨 "
@@ -63,6 +83,7 @@ tag_symbol = "󰊢 "
 tag_disabled = false
 
 [git_metrics]
+ignore_submodules = true
 disabled = false
 
 [golang]
@@ -73,10 +94,6 @@ symbol = " "
 
 [haskell]
 symbol = " "
-
-[hostname]
-ssh_only = true
-ssh_symbol = " "
 
 [hg_branch]
 symbol = " "
@@ -96,10 +113,6 @@ disabled = false
 
 [lua]
 symbol = "󰢱 "
-
-[memory_usage]
-symbol = "󰍛 "
-disabled = true
 
 [meson]
 symbol = " "
@@ -137,18 +150,6 @@ symbol = " "
 
 [scala]
 symbol = " "
-
-# [shell]
-# zsh_indicator = "󰊠"
-# style = "green bold"
-# disabled = false
-
-[status]
-symbol = " "
-success_symbol = ""
-not_executable_symbol = " "
-map_symbol = false
-disabled = false
 
 [swift]
 symbol = " "
