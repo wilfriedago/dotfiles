@@ -5,6 +5,7 @@
 tap "homebrew/bundle" # bundle command for installing multiple formulae
 tap "homebrew/cask-versions" # alternative versions of casks
 tap "homebrew/services" # manage background services with launchctl
+tap "tufin/homebrew-tufin"
 
 # =============================================================================================
 # Fonts
@@ -96,6 +97,7 @@ brew "zoxide" # shell extension to navigate your filesystem faster
 brew "zplug" # next-generation plugin manager for zsh
 brew "zellij" # pluggable terminal workspace with terminal multiplexer as the base feature
 brew "yazi" # blazing fast terminal file manager written in Rust, based on async I/O
+brew "oasdiff" # diff tool for OpenAPI/Swagger files
 
 # =============================================================================================
 # Linters, formatters and LSPs
