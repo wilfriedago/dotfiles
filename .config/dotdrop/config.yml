@@ -13,6 +13,7 @@ profiles:
     - f_zshenv
     - f_starship
     - d_aerospace
+    - f_colima.yaml
     - d_fabric
     - d_fzf
     - d_lazydocker
@@ -39,6 +40,9 @@ dotfiles:
   d_aerospace:
     src: .config/aerospace
     dst: ~/.config/aerospace
+  f_colima.yaml:
+    src: .config/colima/default/colima.yaml
+    dst: ~/.config/colima/default/colima.yaml
   d_fabric:
     src: .config/fabric
     dst: ~/.config/fabric
