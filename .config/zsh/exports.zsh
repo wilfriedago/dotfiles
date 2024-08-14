@@ -59,9 +59,10 @@ export PATH="$BUN_INSTALL/bin:$PATH" # Add bun to PATH
 # =============================================================================================
 
 # (macOS-only) Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/docs/Analytics.md
-export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_DEVELOPER=1
+export HOMEBREW_NO_ANALYTICS=1 # Disable Homebrew analytics
+export HOMEBREW_DEVELOPER=1 # Enable developer mode
 export HOMEBREW_AUTO_UPDATE_SECS=604800 # 1 week
+export HOMEBREW_NO_ENV_HINTS=1 # Disable Homebrew environment hints
 
 # android home
 export ANDROID_HOME="$HOME/Library/Android/sdk"
