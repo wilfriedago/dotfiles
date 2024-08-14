@@ -98,6 +98,7 @@ brew "zplug" # next-generation plugin manager for zsh
 brew "zellij" # pluggable terminal workspace with terminal multiplexer as the base feature
 brew "yazi" # blazing fast terminal file manager written in Rust, based on async I/O
 brew "oasdiff" # diff tool for OpenAPI/Swagger files
+brew "doctl" # DigitalOcean CLI
 
 # =============================================================================================
 # Linters, formatters and LSPs
