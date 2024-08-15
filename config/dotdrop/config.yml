@@ -13,6 +13,7 @@ profiles:
     - f_colima.yaml
     - d_fabric
     - d_gh
+    - d_gh-copilot
     - d_lazydocker
     - d_lazygit
     - d_neofetch
@@ -40,6 +41,9 @@ dotfiles:
   d_gh:
     src: config/gh
     dst: ~/.config/gh
+  d_gh-copilot:
+    src: config/gh-copilot
+    dst: ~/.config/gh-copilot
   d_lazydocker:
     src: config/lazydocker
     dst: ~/.config/lazydocker
