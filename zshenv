@@ -65,9 +65,10 @@ export HOMEBREW_DEVELOPER=1 # Enable developer mode
 export HOMEBREW_AUTO_UPDATE_SECS=604800 # 1 week
 export HOMEBREW_NO_ENV_HINTS=1 # Disable Homebrew environment hints
 
-# android home
+# ANDROID
 export ANDROID_HOME="$HOME/Library/Android/sdk"
-export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH"
+export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
+
 
 # Load fabric completions.
 [ -s "$HOME/.config/fabric/fabric-bootstrap.inc" ] && source "$HOME/.config/fabric/fabric-bootstrap.inc";
