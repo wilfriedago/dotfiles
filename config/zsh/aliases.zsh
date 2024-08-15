@@ -56,8 +56,7 @@ alias l="eza -al --icons --git" # ls -l with icons and git status
 alias lt="eza -al --icons --tree --level=2  --git" # ls tree with icons and git status
 
 # dotdrop
-alias dotdrop='dotdrop --profile=default --cfg=~/.dotfiles/config/dotdrop/config.yml' # run dotdrop with custom config
-alias dot='dotdrop'
+alias dot='dotdrop --profile=default --cfg=~/.dotfiles/config/dotdrop/config.yml' # dotdrop with default profile
 
 # zoxide
 alias cd='z' # change directory with zoxide
