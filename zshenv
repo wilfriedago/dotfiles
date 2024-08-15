@@ -15,17 +15,17 @@ export PATH="$HOME/.local/bin:$PATH"
 # Version managers
 # =============================================================================================
 
-# pyenv
+# PYENV
 export PYENV_ROOT="$HOME/.pyenv"
 [ -d "$PYENV_ROOT/bin" ] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# nvm
+# NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# sdkman
+# SDKMAN
 export SDKMAN_DIR="$HOME/.sdkman"
 [ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
@@ -40,7 +40,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-# bun
+# BUN
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH" # Add bun to PATH
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun" # This loads bun bash_completion
@@ -49,17 +49,17 @@ export PATH="$BUN_INSTALL/bin:$PATH" # Add bun to PATH
 # Language
 # =============================================================================================
 
-# Node.js
+# NODE
 [ -d "$PWD/node_modules/.bin" ] && export PATH="$PWD/node_modules/.bin:$PATH" # Automatically add node_modules/.bin to PATH if present
 
-# Python
+# PYTHON
 [ -d "$PWD/.venv" ] && source "$PWD/.venv/bin/activate" # Automatically load Python virtual environment if available
 
 # =============================================================================================
 # External misc
 # =============================================================================================
 
-# (macOS-only) Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/docs/Analytics.md
+# HOMEBREW (macOS-only)
 export HOMEBREW_NO_ANALYTICS=1 # Disable Homebrew analytics
 export HOMEBREW_DEVELOPER=1 # Enable developer mode
 export HOMEBREW_AUTO_UPDATE_SECS=604800 # 1 week
