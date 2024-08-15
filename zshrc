@@ -106,6 +106,9 @@ source $ZSH/oh-my-zsh.sh
 # Shell
 # =============================================================================================
 
+# Initialize pyenv
+eval "$(pyenv init -)"
+
 # starship prompt
 eval "$(starship init zsh)"
 
@@ -114,3 +117,6 @@ eval "$(gh copilot alias -- zsh)"
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+# Load colima cli autocompletion.
+source <(colima completion zsh)
