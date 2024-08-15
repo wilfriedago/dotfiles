@@ -65,6 +65,16 @@ alias cd='z' # change directory with zoxide
 # gradle
 alias gw='./gradlew'
 
+# terraform
+alias tf='terraform'
+
+# doctl
+alias doc='doctl'
+
+# dotenv
+alias dotlint='dotenv-linter'
+alias dotvault='dotenv-vault'
+
 # utils
 alias zs='source ~/.zshrc' # source zshrc
 alias rm='trash' # move to trash
