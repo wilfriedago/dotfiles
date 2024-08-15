@@ -1,9 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# XDG Base Directory Specification
-export XDG_CONFIG_HOME="$HOME/.config"
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -93,17 +90,27 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Load exports
-[[ -f "$HOME/.config/zsh/exports.zsh" ]] && source "$HOME/.config/zsh/exports.zsh"
-
 # Load aliases
-[[ -f "$HOME/.config/zsh/aliases.zsh" ]] && source "$HOME/.config/zsh/aliases.zsh"
+[ -f "$HOME/.config/zsh/aliases.zsh" ] && source "$HOME/.config/zsh/aliases.zsh"
 
 # Load functions
-[[ -f "$HOME/.config/zsh/functions.zsh" ]] && source "$HOME/.config/zsh/functions.zsh"
+[ -f "$HOME/.config/zsh/functions.zsh" ] && source "$HOME/.config/zsh/functions.zsh"
 
 # Load fzf key bindings and completion
-[[ -f "$HOME/.config/fzf/fzf.sh" ]] && source "$HOME/.config/fzf/fzf.sh"
+[ -f "$HOME/.config/zsh/fzf.zsh" ] && source "$HOME/.config/zsh/fzf.zsh"
 
-# Load zstyle
-[[ -f "$HOME/.config/zsh/zstyle.zsh" ]] && source "$HOME/.config/zsh/zstyle.zsh"
+# Load style
+[ -f "$HOME/.config/zsh/style.zsh" ] && source "$HOME/.config/zsh/style.zsh"
+
+# =============================================================================================
+# Shell
+# =============================================================================================
+
+# starship prompt
+eval "$(starship init zsh)"
+
+# gh copilot cli alias
+eval "$(gh copilot alias -- zsh)"
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)

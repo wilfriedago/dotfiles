@@ -46,8 +46,8 @@ alias dkpsa='docker ps -a'
 alias dkx='docker exec -it'
 alias dki='docker images'
 alias dkc='docker-compose'
-alias dkcup='docker compose up'
-alias dkcdown='docker compose down'
+alias dkcu='docker compose up'
+alias dkcd='docker compose down'
 
 # exa
 alias ls='eza -a --icons --level=1' # ls with icons
@@ -56,7 +56,7 @@ alias l="eza -al --icons --git" # ls -l with icons and git status
 alias lt="eza -al --icons --tree --level=2  --git" # ls tree with icons and git status
 
 # dotdrop
-alias dotdrop='dotdrop --profile=default --cfg=$HOME/.dotfiles/.config/dotdrop/config.yml' # run dotdrop with custom config
+alias dotdrop='dotdrop --profile=default --cfg=~/.dotfiles/config/dotdrop/config.yml' # run dotdrop with custom config
 alias dot='dotdrop'
 
 # zoxide
@@ -91,7 +91,7 @@ alias llama='ollama run llama3' # run llama3
 # Get macOS Software Updates, and update installed Homebrew, npm, and their installed packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; pnpm add -g pnpm -g; pnpm update -g; gh extension upgrade --all; omz update'
 
-alias afk='pmset displaysleepnow' # lock screen immediately
+alias afk='pmset displaysleepnow' # lock screen immediately (macOS only)
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'

@@ -3,40 +3,31 @@ config:
   banner: false
   create: true
   dotpath: ~/.dotfiles
-  keepdot: true
+  keepdot: false
   link_dotfile_default: nolink
   link_on_import: nolink
 profiles:
   default:
     dotfiles:
-    - f_colima.yaml
-    - f_starship
-    - f_zshrc
-    - f_zshenv
     - d_aerospace
+    - f_colima.yaml
     - d_fabric
-    - d_fzf
+    - d_gh
     - d_lazydocker
     - d_lazygit
     - d_neofetch
     - d_nvim
     - d_zsh
-    - d_warp
+    - f_starship
+    - f_zshenv
+    - f_zshrc
     - d_scripts
+    - d_warp
   macos:
     dotfiles:
-    - f_vscode_settings
+    - f_vscode
 
 dotfiles:
-  f_zshrc:
-    src: .zshrc
-    dst: ~/.zshrc
-  f_zshenv:
-    src: .zshenv
-    dst: ~/.zshenv
-  f_starship:
-    src: config/starship.toml
-    dst: ~/.config/starship.toml
   d_aerospace:
     src: config/aerospace
     dst: ~/.config/aerospace
@@ -46,9 +37,9 @@ dotfiles:
   d_fabric:
     src: config/fabric
     dst: ~/.config/fabric
-  d_fzf:
-    src: config/fzf
-    dst: ~/.config/fzf
+  d_gh:
+    src: config/gh
+    dst: ~/.config/gh
   d_lazydocker:
     src: config/lazydocker
     dst: ~/.config/lazydocker
@@ -64,12 +55,21 @@ dotfiles:
   d_zsh:
     src: config/zsh
     dst: ~/.config/zsh
-  d_warp:
-    src: warp
-    dst: ~/.warp
+  f_starship:
+    src: config/starship.toml
+    dst: ~/.config/starship.toml
+  f_zshenv:
+    src: zshenv
+    dst: ~/.zshenv
+  f_zshrc:
+    src: zshrc
+    dst: ~/.zshrc
   d_scripts:
     src: scripts
     dst: ~/.scripts
-  f_vscode_settings:
+  d_warp:
+    src: warp
+    dst: ~/.warp
+  f_vscode:
     src: vscode/settings.json
     dst: ~/Library/Application Support/Code/User/settings.json

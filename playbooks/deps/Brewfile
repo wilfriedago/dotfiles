@@ -101,6 +101,8 @@ brew "yazi" # blazing fast terminal file manager written in Rust, based on async
 brew "oasdiff" # diff tool for OpenAPI/Swagger files
 brew "doctl" # DigitalOcean CLI
 brew "hashicorp/tap/terraform" # infrastructure as code software
+brew "hashicorp/tap/vault" # secrets management software
+brew "dotenv-org/brew/dotenv-vault" # dotenv plugin for HashiCorp Vault
 
 # =============================================================================================
 # Linters, formatters and LSPs
@@ -167,3 +169,9 @@ vscode "visualstudioexptteam.vscodeintellicode"
 vscode "visualstudioexptteam.vscodeintellicode-completions"
 vscode "wakatime.vscode-wakatime"
 vscode "yzhang.markdown-all-in-one"
+
+# =============================================================================================
+# Mac App Store apps
+# =============================================================================================
+
+mas "readkit-read-later-rss", id: 1615798039

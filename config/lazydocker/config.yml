@@ -1,0 +1,4 @@
+gui:
+  showBottomLine: false
+  returnImmediately: true
+  nerdFontsVersion: '3'

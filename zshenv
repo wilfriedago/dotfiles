@@ -1,4 +1,5 @@
-# `.exports` is used to provide custom variables and environment variables for the shell
+# XDG Base Directory Specification
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -71,15 +72,5 @@ export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH"
 # Load fabric completions.
 [ -s "$HOME/.config/fabric/fabric-bootstrap.inc" ] && source "$HOME/.config/fabric/fabric-bootstrap.inc";
 
-# =============================================================================================
-# Shell
-# =============================================================================================
-
-# starship prompt
-eval "$(starship init zsh)"
-
-# gh copilot cli alias
-eval "$(gh copilot alias -- zsh)"
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
+# rustup
+[ -d "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
