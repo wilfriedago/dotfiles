@@ -33,8 +33,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # Dependencies managers
 # =============================================================================================
 
-# pnpm
-export PNPM_HOME="$HOME/Library/pnpm"
+# PNPM
+export PNPM_HOME="$HOME/.pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
