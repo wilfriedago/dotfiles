@@ -1,7 +1,4 @@
 {
-  "$schema": "vscode://schemas/settings/user",
-  "amazonQ.telemetry": false,
-  "ansible.lightspeed.enabled": true,
   "apc.electron": {
     "frame": false,
     "titleBarStyle": "hidden",
@@ -20,12 +17,14 @@
   "cSpell.language": "en,en-US,en-GB,fr,fr-FR",
   "cSpell.useGitignore": true,
   "cSpell.userWords": [
+    "aarch",
     "adminer",
     "adonisjs",
     "airbnb",
     "animejs",
     "ansible",
     "antd",
+    "antfu",
     "asein",
     "atlascode",
     "automapper",
@@ -35,13 +34,17 @@
     "basicauth",
     "bitbucket",
     "buildcache",
+    "buildkit",
+    "bumpp",
     "casl",
     "classname",
     "cloudinary",
     "clsx",
     "cmdk",
+    "colima",
     "commitlint",
     "commitlintrc",
+    "containerd",
     "contentlayer",
     "Contentlayer",
     "contextive",
@@ -58,6 +61,7 @@
     "dayjs",
     "deadcode",
     "devcontainer",
+    "digitalocean",
     "docsearch",
     "dotdrop",
     "dotfile",
@@ -73,6 +77,8 @@
     "ENVFILE",
     "ESGIS",
     "esnext",
+    "esno",
+    "execa",
     "expirable",
     "Expirable",
     "expireable",
@@ -88,6 +94,7 @@
     "github",
     "Gitter",
     "golevelup",
+    "grafbase",
     "Grafikart",
     "graphcache",
     "gsap",
@@ -98,6 +105,8 @@
     "Highscore",
     "hookform",
     "inet",
+    "inotify",
+    "Inotify",
     "ipod",
     "isodate",
     "jetbrains",
@@ -113,8 +122,11 @@
     "kkiapay",
     "Kkiapay",
     "knip",
+    "kubernetes",
     "Laravel",
     "lastname",
+    "lazydocker",
+    "lazygit",
     "lerp",
     "lightspeed",
     "linkedin",
@@ -135,10 +147,12 @@
     "mjml",
     "mmkv",
     "MMKV",
+    "myregistry",
     "mysql",
     "MYSQL",
     "nativewind",
     "neofetch",
+    "Neovim",
     "nestjs",
     "nestjsx",
     "Neue",
@@ -151,8 +165,11 @@
     "nolink",
     "nosniff",
     "nums",
+    "nvim",
     "nvmrc",
     "oidc",
+    "Ollama",
+    "OPENAI",
     "openapi",
     "opencontainers",
     "opengraph",
@@ -164,6 +181,7 @@
     "partialize",
     "passmi",
     "pgcrypto",
+    "picocolors",
     "pino",
     "Popconfirm",
     "poppins",
@@ -203,11 +221,14 @@
     "signin",
     "signout",
     "signup",
+    "slidev",
     "slugified",
     "softinput",
     "sonarjs",
     "splittext",
     "srid",
+    "sshfs",
+    "ssse",
     "ssword",
     "strapi",
     "Styleguides",
@@ -223,11 +244,15 @@
     "timestamptz",
     "titlebar",
     "Traceback",
+    "traefik",
     "trilon",
     "trpc",
+    "tsup",
     "typecheck",
+    "typegen",
     "typeorm",
     "unlighthouse",
+    "unocss",
     "Updog",
     "urql",
     "useragent",
@@ -238,6 +263,7 @@
     "Velite",
     "Vercel",
     "viewsets",
+    "virtiofs",
     "Vitest",
     "vsix",
     "waitlist",
@@ -247,6 +273,7 @@
     "woocommerce",
     "wordpress",
     "XTWITTER",
+    "zoxide",
     "zustand"
   ],
   "continue.enableTabAutocomplete": true,
@@ -261,7 +288,7 @@
     "source.organizeImports": "never"
   },
   "editor.cursorBlinking": "expand",
-  "editor.fontFamily": "'JetBrains Mono', 'Geist Mono', 'SF Mono'",
+  "editor.fontFamily": "'JetBrainsMono Nerd Font', 'Geist Mono', 'SF Mono'",
   "editor.fontLigatures": true,
   "editor.fontSize": 13,
   "editor.inlineSuggest.enabled": true,
@@ -447,9 +474,10 @@
   "material-icon-theme.saturation": 0.5,
   "pieces.telemetry": false,
   "projectManager.git.baseFolders": [
-    "/Users/wilfriedago/Developer/Works",
-    "/Users/wilfriedago/Developer/Learn",
-    "/Users/wilfriedago/Developer/Projects"
+    "$home/Developer/Works",
+    "$home/Developer/Learn",
+    "$home/Developer/Projects",
+    "$home/Developer/Oss"
   ],
   "remote.autoForwardPortsSource": "hybrid",
   "search.exclude": {
@@ -478,26 +506,26 @@
   ],
   "symbols.files.associations": {
     "*.config.ts": "gear",
+    "*.module.ts": "nest-module",
+    "*.service.ts": "nest-service",
     "*.controller.ts": "nest-controller",
     "*.decorator.ts": "nest-decorator",
-    "*.filter.ts": "nest-filter",
-    "*.guard.ts": "nest-guard",
+    "*.pipe.ts": "nest-pipe",
     "*.interceptor.ts": "nest-interceptor",
     "*.middleware.ts": "nest-middleware",
-    "*.module.ts": "nest-module",
-    "*.pipe.ts": "nest-pipe",
-    "*.service.ts": "nest-service"
+    "*.guard.ts": "nest-guard",
+    "*.filter.ts": "nest-filter"
   },
   "symbols.folders.associations": {
+    "services": "folder-nest-services",
     "controllers": "folder-nest-controllers",
     "decorators": "folder-nest-decorators",
-    "filters": "folder-nest-filters",
     "guards": "folder-nest-guards",
-    "interceptors": "folder-nest-interceptors",
     "middlewares": "folder-nest-middlewares",
-    "modules": "folder-nest-modules",
     "pipes": "folder-nest-pipes",
-    "services": "folder-nest-services",
+    "interceptors": "folder-nest-interceptors",
+    "filters": "folder-nest-filters",
+    "modules": "folder-nest-modules",
     "types": "folder-interfaces"
   },
   "symbols.hidesExplorerArrows": false,
@@ -620,13 +648,8 @@
   "window.autoDetectColorScheme": true,
   "window.autoDetectHighContrast": true,
   "window.commandCenter": false,
-  "window.customTitleBarVisibility": "never",
   "window.titleBarStyle": "native",
   "workbench.activityBar.location": "top",
-  "workbench.colorCustomizations": {
-    "editor.selectionBackground": "#008b3f75",
-    "editor.selectionHighlightBackground": "#008b3f5d"
-  },
   "workbench.editor.autoLockGroups": {
     "workbench.editorinputs.searchEditorInput": true
   },
@@ -635,10 +658,66 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.layoutControl.enabled": false,
   "workbench.list.fastScrollSensitivity": 10,
-  "workbench.preferredDarkColorTheme": "dark-emerald",
   "workbench.productIconTheme": "material-product-icons",
   "workbench.settings.editor": "json",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
-  "workbench.tree.indent": 10
+  "workbench.tree.indent": 10,
+  "window.customTitleBarVisibility": "never",
+  "gitlens.views.contributors.showStatistics": true,
+  "yaml.schemas": {
+    "file://$HOME/.vscode/extensions/atlassian.atlascode-3.0.10/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  },
+  "atlascode.jira.statusbar.showUser": false,
+  "atlascode.jira.statusbar.showLogin": false,
+  "atlascode.jira.statusbar.showProduct": false,
+  "atlascode.jira.statusbar.enabled": false,
+  "atlascode.bitbucket.statusbar.enabled": false,
+  "atlascode.bitbucket.statusbar.showProduct": false,
+  "atlascode.bitbucket.statusbar.showUser": false,
+  "atlascode.bitbucket.statusbar.showLogin": false,
+  "atlascode.bitbucket.contextMenus.enabled": true,
+  "atlascode.bitbucket.enabled": false,
+  "atlascode.jira.explorer.fetchAllQueryResults": true,
+  "atlascode.jira.jqlList": [
+    {
+      "id": "40cc27ad-a793-4cba-85dd-0ed01f2ff510",
+      "enabled": true,
+      "name": "My issues",
+      "query": "assignee = currentUser() AND resolution = Unresolved ORDER BY lastViewed DESC",
+      "siteId": "6531ebe9-1b3a-4f2a-8653-180c5ab1b17d",
+      "monitor": true
+    }
+  ],
+  "atlascode.jira.lastCreateSiteAndProject": {
+    "siteId": "6531ebe9-1b3a-4f2a-8653-180c5ab1b17d",
+    "projectKey": "TIW"
+  },
+  "files.associations": {
+    ".env*": "dotenv"
+  },
+  "editor.tokenColorCustomizations": {
+    "[*Light*]": {
+      "textMateRules": [
+        {
+          "scope": "ref.matchtext",
+          "settings": {
+            "foreground": "#000"
+          }
+        }
+      ]
+    },
+    "[*Dark*]": {
+      "textMateRules": [
+        {
+          "scope": "ref.matchtext",
+          "settings": {
+            "foreground": "#fff"
+          }
+        }
+      ]
+    },
+    "textMateRules": []
+  },
+  "dotenv.enableAutocloaking": false
 }
