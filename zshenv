@@ -68,6 +68,8 @@ export HOMEBREW_NO_ENV_HINTS=1 # Disable Homebrew environment hints
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 
+# DOCKER
+export DOCKER_HOST="unix://$HOME/.config/colima/default/docker.sock"
 
 # Load fabric completions.
 [ -s "$HOME/.config/fabric/fabric-bootstrap.inc" ] && source "$HOME/.config/fabric/fabric-bootstrap.inc";
