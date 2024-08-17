@@ -26,7 +26,8 @@ profiles:
     - d_warp
   macos:
     dotfiles:
-    - f_vscode
+    - f_vscode_settings
+    - f_vscode_keybindings
 
 dotfiles:
   d_aerospace:
@@ -74,6 +75,9 @@ dotfiles:
   d_warp:
     src: warp
     dst: ~/.warp
-  f_vscode:
+  f_vscode_settings:
     src: vscode/settings.json
     dst: ~/Library/Application Support/Code/User/settings.json
+  f_vscode_keybindings:
+    src: vscode/keybindings.json
+    dst: ~/Library/Application Support/Code/User/keybindings.json
