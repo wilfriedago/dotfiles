@@ -71,6 +71,9 @@ export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/platform-t
 # DOCKER
 export DOCKER_HOST="unix://$HOME/.config/colima/default/docker.sock"
 
+# STARSHIP
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+
 # Load fabric completions.
 [ -s "$HOME/.config/fabric/fabric-bootstrap.inc" ] && source "$HOME/.config/fabric/fabric-bootstrap.inc";
 
