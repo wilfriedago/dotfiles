@@ -64,10 +64,10 @@ dotfiles:
     src: config/zsh
     dst: ~/.config/zsh
   f_zshenv:
-    src: zshenv
+    src: .zshenv
     dst: ~/.zshenv
   f_zshrc:
-    src: zshrc
+    src: .zshrc
     dst: ~/.zshrc
   d_scripts:
     src: scripts

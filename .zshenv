@@ -9,6 +9,8 @@ export LC_ALL=en_US.UTF-8
 export EDITOR='nvim'
 
 # local exports
+export PATH="/usr/local/bin:$PATH"
+export PATH="/opt/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 # =============================================================================================
@@ -75,7 +77,7 @@ export DOCKER_HOST="unix://$HOME/.config/colima/default/docker.sock"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
 # Load fabric completions.
-[ -s "$HOME/.config/fabric/fabric-bootstrap.inc" ] && source "$HOME/.config/fabric/fabric-bootstrap.inc";
+# [ -s "$HOME/.config/fabric/fabric-bootstrap.inc" ] && source "$HOME/.config/fabric/fabric-bootstrap.inc";
 
 # rustup
 [ -d "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
