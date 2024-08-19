@@ -13,6 +13,16 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/opt/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
+
+# =============================================================================================
+# Programming languages
+# =============================================================================================
+
+# GO
+export GOROOT="/usr/local/go"
+export GOPATH="$HOME/go"
+export PATH="$GOROOT/bin:$GOPATH/bin:$PATH" # Add Go binaries to PATH
+
 # =============================================================================================
 # Version managers
 # =============================================================================================
@@ -47,7 +57,7 @@ export PATH="$BUN_INSTALL/bin:$PATH" # Add bun to PATH
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun" # This loads bun bash_completion
 
 # =============================================================================================
-# Language
+# Programming languages utils
 # =============================================================================================
 
 # NODE
@@ -57,7 +67,7 @@ export PATH="$BUN_INSTALL/bin:$PATH" # Add bun to PATH
 [ -d "$PWD/.venv" ] && source "$PWD/.venv/bin/activate" # Automatically load Python virtual environment if available
 
 # =============================================================================================
-# External misc
+# Tools
 # =============================================================================================
 
 # HOMEBREW (macOS-only)
