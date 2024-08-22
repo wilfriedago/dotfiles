@@ -1,12 +1,17 @@
 # =============================================================================================
 # Taps
 # =============================================================================================
-
+tap "homebrew/core" # formulae for the Homebrew package manager
 tap "homebrew/bundle" # bundle command for installing multiple formulae
-tap "homebrew/cask-versions" # alternative versions of casks
 tap "homebrew/services" # manage background services with launchctl
-tap "tufin/homebrew-tufin" # Tufin tap
+tap "homebrew/cask" # formulae for the Homebrew package manager
 tap "hashicorp/tap" # HashiCorp tap
+tap "nikitabobko/tap" # Nikita Bobko tap
+tap "hashicorp/tap" # HashiCorp tap
+tap "tufin/homebrew-tufin" # Tufin tap
+tap "PlayCover/playcover" # PlayCover tap
+tap "koekeishiya/formulae" # koekeishiya tap
+tap "dotenv-org/brew" # dotenv-org tap
 
 # =============================================================================================
 # Fonts
@@ -19,21 +24,22 @@ cask "font-symbols-only-nerd-font" # font with only symbols for developers
 # Apps
 # =============================================================================================
 
+cask "basictex" # TeX distribution
 cask "bitwarden" # password manager
+cask 'brave-browser' # web browser
 cask "discord" # voice and text chat software
 cask "insomnia" # HTTP and GraphQL Client
 cask "jetbrains-toolbox" # jetbrains tools manager
 cask "obsidian" # knowledge base that works on top of a local folder of plain text Markdown files
 cask "spotify" # music streaming service
-cask "telegram" # messaging app with a focus on speed and security
 cask "visual-studio-code" # open-source code editor
 cask "warp" # a modern, rust-based terminal with AI built in, as alternative to Apple's Terminal app
 cask "alt-tab" # a better cmd+tab for macOS
 cask 'notion-calendar' # a better calendar for Notion
 cask 'raycast' # a better Spotlight for macOS
-cask 'whatsapp' # messaging app
 cask 'slack' # messaging app
-cask 'nikitabobko/tap/aerospace' # a better window manager for macOS
+cask 'aerospace' # a better window manager for macOS
+cask 'playcover-community' # run iOS apps and games on Apple Silicon Macs
 
 # =============================================================================================
 # QuickLook plugins
@@ -73,7 +79,7 @@ brew "git-delta" # syntax-highlighting pager for git and diff output
 brew "graphviz" # graph visualization software from at&t and bell labs
 brew "jq" # lightweight and flexible command-line json processor
 brew "k9s" # kubernetes cli to manage your clusters in style!
-brew "koekeishiya/formulae/skhd" # hotkey daemon for macOS
+brew "skhd" # hotkey daemon for macOS
 brew "navi" # interactive cheatsheet tool for the command-line
 brew "neovim" # vim-fork focused on extensibility and usability
 brew "neofetch" # fast, highly customisable system info script
@@ -100,9 +106,9 @@ brew "zellij" # pluggable terminal workspace with terminal multiplexer as the ba
 brew "yazi" # blazing fast terminal file manager written in Rust, based on async I/O
 brew "oasdiff" # diff tool for OpenAPI/Swagger files
 brew "doctl" # DigitalOcean CLI
-brew "hashicorp/tap/terraform" # infrastructure as code software
-brew "hashicorp/tap/vault" # secrets management software
-brew "dotenv-org/brew/dotenv-vault" # dotenv plugin for HashiCorp Vault
+brew "terraform" # infrastructure as code software
+brew "vault" # secrets management software
+brew "dotenv-vault" # dotenv plugin for HashiCorp Vault
 
 # =============================================================================================
 # Linters, formatters and LSPs
@@ -125,6 +131,7 @@ brew "typescript-language-server" # LSP implementation for TypeScript wrapping
 brew "vscode-langservers-extracted" # HTML/CSS/JSON/ESLint language servers extracted from VSCode
 brew "yamlfmt" # extensible command-line tool to format YAML files
 brew "yaml-language-server" # language server for YAML Files
+brew "latexindent" # indentation of LaTeX documents
 
 # =============================================================================================
 # VSCode extensions
@@ -171,7 +178,13 @@ vscode "wakatime.vscode-wakatime"
 vscode "yzhang.markdown-all-in-one"
 
 # =============================================================================================
-# Mac App Store apps
+# Mac App Store
 # =============================================================================================
 
+mas "keynote", id: 409183694
+mas "pages", id: 409201541
+mas "numbers", id: 409203825
+mas "hidden-bar", id: 1452453066
+mas "whatsapp", id: 310633997
+mas "telegram", id: 747648890
 mas "readkit-read-later-rss", id: 1615798039
