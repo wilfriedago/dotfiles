@@ -40,6 +40,7 @@ cask 'raycast' # a better Spotlight for macOS
 cask 'slack' # messaging app
 cask 'aerospace' # a better window manager for macOS
 cask 'playcover-community' # run iOS apps and games on Apple Silicon Macs
+cask 'polypane' # a feature complete browser for web developers for accesibility
 
 # =============================================================================================
 # QuickLook plugins
