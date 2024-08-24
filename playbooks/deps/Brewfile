@@ -6,7 +6,6 @@ tap "homebrew/bundle" # bundle command for installing multiple formulae
 tap "homebrew/services" # manage background services with launchctl
 tap "homebrew/cask" # formulae for the Homebrew package manager
 tap "hashicorp/tap" # HashiCorp tap
-tap "nikitabobko/tap" # Nikita Bobko tap
 tap "hashicorp/tap" # HashiCorp tap
 tap "tufin/homebrew-tufin" # Tufin tap
 tap "PlayCover/playcover" # PlayCover tap
@@ -38,7 +37,6 @@ cask "alt-tab" # a better cmd+tab for macOS
 cask 'notion-calendar' # a better calendar for Notion
 cask 'raycast' # a better Spotlight for macOS
 cask 'slack' # messaging app
-cask 'aerospace' # a better window manager for macOS
 cask 'playcover-community' # run iOS apps and games on Apple Silicon Macs
 cask 'polypane' # a feature complete browser for web developers for accesibility
 
