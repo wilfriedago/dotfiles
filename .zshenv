@@ -20,7 +20,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # GO
 export GOROOT="/usr/local/go"
-export GOPATH="$HOME/go"
+export GOPATH="$HOME/.go"
 export PATH="$GOROOT/bin:$GOPATH/bin:$PATH" # Add Go binaries to PATH
 
 # =============================================================================================
