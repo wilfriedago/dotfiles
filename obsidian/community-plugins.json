@@ -1,11 +1,11 @@
 [
-  "obsidian-excalidraw-plugin",
   "better-word-count",
+  "obsidian-advanced-uri",
+  "obsidian-contextual-typography",
+  "obsidian-dictionary-plugin",
+  "obsidian-excalidraw-plugin",
   "obsidian-linter",
   "obsidian-smart-typography",
-  "obsidian-contextual-typography",
   "obsidian-wakatime",
-  "obsidian-dictionary-plugin",
-  "obsidian-advanced-uri",
-  "pieces-for-developers"
+  "recent-files-obsidian"
 ]
