@@ -1,0 +1,106 @@
+{
+  // Place your snippets for javascript here. Each snippet is defined under a snippet name and has a prefix, body and
+  // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+  // same ids are connected.
+  // Example:
+  "Print to console": {
+    "prefix": "clg",
+    "body": [
+      "console.log(`File: ${__FILE__}, Line: ${__LINE__}`, $0);"
+    ],
+    "description": "Logs with the current file path and line number."
+  },
+  "Environment variable": {
+    "prefix": "env",
+    "body": "process.env.${0}",
+    "description": "Environment Variables"
+  },
+  "Fetch": {
+    "prefix": "fetch",
+    "body": [
+      "try {",
+      "\tconst res = await fetch('$1');",
+      "\tconst data = await res.json();",
+      "\t$0",
+      "} catch(err) {",
+      "\tconsole.error(err);",
+      "}"
+    ],
+    "description": "Fetch data Asynchronously"
+  },
+  "Generate Service Nestjs": {
+    "prefix": "nservice",
+    "body": [
+      "import { Injectable } from '@nestjs/common';",
+      "import { InjectRepository } from '@nestjs/typeorm';",
+      "import { Repository } from 'typeorm';",
+      "",
+      "import { EntityCondition } from '@/utils/types/entity-condition.type';",
+      "import { IPaginationOptions } from '@/utils/types/pagination-options';",
+      "",
+      "import { $1 } from './dto/$2.dto';",
+      "import { $3 } from './$4.entity';",
+      "import { $5 } from './entities/$6.entity';",
+      "",
+      "@Injectable()",
+      "export class $7Service {",
+      "\tconstructor(",
+      "\t\t@InjectRepository($8)",
+      "\t\tprivate readonly $9Repository: Repository<$10>,",
+      "\t) {}",
+      "",
+      "\tasync create(createProfileDto: $12): Promise<$13> {",
+      "\t\treturn await this.$14Repository.save(",
+      "\t\t\tthis.$15Repository.create(createProfileDto),",
+      "\t\t);",
+      "\t}",
+      "",
+      "\tasync findManyWithPagination(paginationOptions: IPaginationOptions): Promise<$16[]> {",
+      "\t\tconst { page, limit } = paginationOptions;",
+      "\t\treturn await this.$17Repository.find({",
+      "\t\t\tskip: (page - 1) * limit,",
+      "\t\t\ttake: limit,",
+      "\t\t});",
+      "\t}",
+      "",
+      "\tasync findOne(fields: EntityCondition<$18>): Promise<$19> {",
+      "\t\treturn await this.$20Repository.findOne({",
+      "\t\t\twhere: fields,",
+      "\t\t});",
+      "\t}",
+      "",
+      "\tasync update(id: number, updateProfileDto: $21): Promise<$22> {",
+      "\t\treturn await this.$23Repository.save({",
+      "\t\t\tid,",
+      "\t\t\t...updateProfileDto,",
+      "\t\t});",
+      "\t}",
+      "",
+      "\tasync softDelete(id: number): Promise<void> {",
+      "\t\tawait this.$24Repository.softDelete(id);",
+      "\t}",
+      "}"
+    ]
+  },
+  "Generate Service Nextjs": {
+    "prefix": "nextservice",
+    "body": [
+      "import type { AxiosResponse } from 'axios';",
+      "",
+      "import { routes } from '@/constants';",
+      "import type { Collection, $1 } from '@/interfaces';",
+      "import axiosInstance from '@/libs/axios';",
+      "",
+      "export const get$1s = async () => { return axiosInstance().get(routes.api.$2s).then(({ data }: AxiosResponse<Collection<$1>>) => data);};",
+      "",
+      "export const get$1 = async (id: string) => {return axiosInstance().get(`${routes.api.$2s}/${id}`).then(({ data }: AxiosResponse<$1>) => data);};",
+      "",
+      "export const create$1 = async (payload: Partial<$1>) => {return axiosInstance().post(routes.api.$2s, payload).then(({ data }: AxiosResponse<$1>) => data);};",
+      "",
+      "export const update$1 = async (payload: Partial<$1>) => {return axiosInstance().patch(`${routes.api.$2s}/${payload.id}`, payload).then(({ data }: AxiosResponse<$1>) => data);};",
+      "",
+      "export const delete$1 = async (id: string) => {return axiosInstance().delete(`${routes.api.$2s}/${id}`).then(({ data }) => data);};"
+    ]
+  }
+}

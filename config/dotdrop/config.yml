@@ -28,6 +28,7 @@ profiles:
     dotfiles:
     - f_vscode_settings
     - f_vscode_keybindings
+    - d_vscode_snippets
 
 dotfiles:
   d_aerospace:
@@ -81,3 +82,6 @@ dotfiles:
   f_vscode_keybindings:
     src: vscode/keybindings.json
     dst: ~/Library/Application Support/Code/User/keybindings.json
+  d_vscode_snippets:
+    src: vscode/snippets
+    dst: ~/Library/Application Support/Code/User/snippets
