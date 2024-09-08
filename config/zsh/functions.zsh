@@ -59,7 +59,7 @@ man () {
       man "$@"
 }
 
-# lazygit with auto-cd
+# lazygit with auto-cd, usefull when you're working with worktrees
 lzg() {
   export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
 

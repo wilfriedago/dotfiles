@@ -24,6 +24,7 @@ export FZF_DEFAULT_COMMAND="
   --exclude ".hg" \
   --exclude "CVS" \
   --exclude ".DS_Store" \
+  --exclude ".worktrees" \
   --exclude "node_modules" \
   --exclude ".pytest_cache" \
   --exclude ".mypy_cache" \
