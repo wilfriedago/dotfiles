@@ -82,6 +82,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# Make sure hidden files are included in globbing
+setopt globdots
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # Set the default text editor
