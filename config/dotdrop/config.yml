@@ -10,7 +10,6 @@ profiles:
   default:
     dotfiles:
     - d_aerospace
-    - f_colima.yaml
     - d_fabric
     - d_gh
     - d_gh-copilot
@@ -34,9 +33,6 @@ dotfiles:
   d_aerospace:
     src: config/aerospace
     dst: ~/.config/aerospace
-  f_colima.yaml:
-    src: config/colima/default/colima.yaml
-    dst: ~/.config/colima/default/colima.yaml
   d_fabric:
     src: config/fabric
     dst: ~/.config/fabric

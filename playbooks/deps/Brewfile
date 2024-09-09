@@ -93,7 +93,6 @@ brew "docker-compose" # define and run multi-container Docker applications
 brew "docker-credential-helper" # credentials helper for Docker
 brew "lazydocker" # lazier way to manage everything docker
 brew "lazygit" # simple terminal ui for git commands
-brew "colima" # a better Docker CLI
 brew "kubectl" # kubernetes command-line tool
 brew "starship" # cross-shell prompt for astronauts
 brew "taplo" # pluggable terminal workspace with terminal multiplexer as the base feature
