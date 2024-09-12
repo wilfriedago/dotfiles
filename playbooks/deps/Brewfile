@@ -1,39 +1,39 @@
 # =============================================================================================
 # Taps
 # =============================================================================================
-tap "homebrew/core" # formulae for the Homebrew package manager
-tap "homebrew/bundle" # bundle command for installing multiple formulae
-tap "homebrew/services" # manage background services with launchctl
-tap "homebrew/cask" # formulae for the Homebrew package manager
-tap "hashicorp/tap" # HashiCorp tap
-tap "hashicorp/tap" # HashiCorp tap
-tap "tufin/homebrew-tufin" # Tufin tap
-tap "PlayCover/playcover" # PlayCover tap
-tap "koekeishiya/formulae" # koekeishiya tap
-tap "dotenv-org/brew" # dotenv-org tap
+tap 'homebrew/core' # formulae for the Homebrew package manager
+tap 'homebrew/bundle' # bundle command for installing multiple formulae
+tap 'homebrew/services' # manage background services with launchctl
+tap 'homebrew/cask' # formulae for the Homebrew package manager
+tap 'hashicorp/tap' # HashiCorp tap
+tap 'hashicorp/tap' # HashiCorp tap
+tap 'tufin/homebrew-tufin' # Tufin tap
+tap 'PlayCover/playcover' # PlayCover tap
+tap 'koekeishiya/formulae' # koekeishiya tap
+tap 'dotenv-org/brew' # dotenv-org tap
 
 # =============================================================================================
 # Fonts
 # =============================================================================================
 
-cask "font-jetbrains-mono-nerd-font" # monospaced font for developers
-cask "font-symbols-only-nerd-font" # font with only symbols for developers
+cask 'font-jetbrains-mono-nerd-font' # monospaced font for developers
+cask 'font-symbols-only-nerd-font' # font with only symbols for developers
 
 # =============================================================================================
 # Apps
 # =============================================================================================
 
-cask "basictex" # TeX distribution
-cask "bitwarden" # password manager
+cask 'basictex' # TeX distribution
+cask 'bitwarden' # password manager
 cask 'brave-browser' # web browser
-cask "discord" # voice and text chat software
-cask "insomnia" # HTTP and GraphQL Client
-cask "jetbrains-toolbox" # jetbrains tools manager
-cask "obsidian" # knowledge base that works on top of a local folder of plain text Markdown files
-cask "spotify" # music streaming service
-cask "visual-studio-code" # open-source code editor
-cask "warp" # a modern, rust-based terminal with AI built in, as alternative to Apple's Terminal app
-cask "alt-tab" # a better cmd+tab for macOS
+cask 'discord' # voice and text chat software
+cask 'insomnia' # HTTP and GraphQL Client
+cask 'jetbrains-toolbox' # jetbrains tools manager
+cask 'obsidian' # knowledge base that works on top of a local folder of plain text Markdown files
+cask 'spotify' # music streaming service
+cask 'visual-studio-code' # open-source code editor
+cask 'warp' # a modern, rust-based terminal with AI built in, as alternative to Apple's Terminal app
+cask 'alt-tab' # a better cmd+tab for macOS
 cask 'notion-calendar' # a better calendar for Notion
 cask 'raycast' # a better Spotlight for macOS
 cask 'slack' # messaging app
@@ -41,151 +41,153 @@ cask 'playcover-community' # run iOS apps and games on Apple Silicon Macs
 cask 'polypane' # a feature complete browser for web developers for accesibility
 cask 'pgadmin4' # a web-based interface for managing PostgreSQL databases
 cask 'mongodb-compass' # a GUI for MongoDB
+cask 'notesnook' # a privacy-focused note-taking app
 
 # =============================================================================================
 # QuickLook plugins
 # =============================================================================================
 
-cask "qlmarkdown" # QuickLook generator for Markdown files
-cask "syntax-highlight" # QuickLook generator for source code files with syntax highlighting
+cask 'qlmarkdown' # QuickLook generator for Markdown files
+cask 'syntax-highlight' # QuickLook generator for source code files with syntax highlighting
 
 # =============================================================================================
 # Programming languages, REPLs
 # =============================================================================================
 
-# brew "erlang" # programming language for highly scalable real-time systems
-# brew "elixir" # functional metaprogramming aware language built on Erlang VM
-# brew "gleam" # statically typed language for the Erlang VM
-# brew "lua" # powerful, lightweight programming language
-# brew "ruby" # powerful, clean, object-oriented scripting language
+# brew 'erlang' # programming language for highly scalable real-time systems
+# brew 'elixir' # functional metaprogramming aware language built on Erlang VM
+# brew 'gleam' # statically typed language for the Erlang VM
+# brew 'lua' # powerful, lightweight programming language
+# brew 'ruby' # powerful, clean, object-oriented scripting language
 
 # =============================================================================================
 # CLI tools
 # =============================================================================================
 
-brew "act" # runs GitHub Actions locally
-brew "bat" # cat with syntax highlighting and Git integration
-brew "bottom" # yet another cross-platform graphical process/system monitor
-brew "curl" # query HTTP, HTTPS or FTP server
-brew "dotdrop" # dotfiles manager
-brew "dsq" # CLI tool for running SQL queries against JSON, CSV, Excel, Parquet
-brew "duckdb" # embeddable SQL OLAP Database Management System
-brew "eza" # modern replacement for 'ls'
-brew "fd" # simple, fast and user-friendly alternative to find
-brew "fzf" # command-line fuzzy finder written in go
-brew "ffmpeg" # play, record, convert, and stream audio and video
-brew "gcc" # gnu compiler collection
-brew "gh" # github command-line tool
-brew "git-delta" # syntax-highlighting pager for git and diff output
-brew "graphviz" # graph visualization software from at&t and bell labs
-brew "jq" # lightweight and flexible command-line json processor
-brew "k9s" # kubernetes cli to manage your clusters in style!
-brew "skhd" # hotkey daemon for macOS
-brew "navi" # interactive cheatsheet tool for the command-line
-brew "neovim" # vim-fork focused on extensibility and usability
-brew "neofetch" # fast, highly customisable system info script
-brew "nvm" # manage multiple Node.js versions
-brew "pinentry-mac" # pinentry for GPG on Mac
-brew "pyenv" # python version management
-brew "ripgrep" # search tool like grep and the silver searcher
-brew "docker" # pack, ship and run any application as a lightweight container
-brew "docker-compose" # define and run multi-container Docker applications
-brew "docker-credential-helper" # credentials helper for Docker
-brew "lazydocker" # lazier way to manage everything docker
-brew "lazygit" # simple terminal ui for git commands
-brew "kubectl" # kubernetes command-line tool
-brew "starship" # cross-shell prompt for astronauts
-brew "taplo" # pluggable terminal workspace with terminal multiplexer as the base feature
-brew "tree" # display directories as trees (with optional color/html output)
-brew "unar" # command-line unarchiving tools supporting multiple formats
-brew "vhs" # your cli home video recorder
-brew "wget" # internet file retriever
-brew "zoxide" # shell extension to navigate your filesystem faster
-brew "zplug" # next-generation plugin manager for zsh
-brew "zellij" # pluggable terminal workspace with terminal multiplexer as the base feature
-brew "yazi" # blazing fast terminal file manager written in Rust, based on async I/O
-brew "oasdiff" # diff tool for OpenAPI/Swagger files
-brew "doctl" # DigitalOcean CLI
-brew "terraform" # infrastructure as code software
-brew "vault" # secrets management software
-brew "dotenv-vault" # dotenv plugin for HashiCorp Vault
+brew 'act' # runs GitHub Actions locally
+brew 'bat' # cat with syntax highlighting and Git integration
+brew 'bottom' # yet another cross-platform graphical process/system monitor
+brew 'curl' # query HTTP, HTTPS or FTP server
+brew 'dotdrop' # dotfiles manager
+brew 'dsq' # CLI tool for running SQL queries against JSON, CSV, Excel, Parquet
+brew 'duckdb' # embeddable SQL OLAP Database Management System
+brew 'eza' # modern replacement for 'ls'
+brew 'fd' # simple, fast and user-friendly alternative to find
+brew 'fzf' # command-line fuzzy finder written in go
+brew 'ffmpeg' # play, record, convert, and stream audio and video
+brew 'gcc' # gnu compiler collection
+brew 'gh' # github command-line tool
+brew 'git-delta' # syntax-highlighting pager for git and diff output
+brew 'graphviz' # graph visualization software from at&t and bell labs
+brew 'jq' # lightweight and flexible command-line json processor
+brew 'k9s' # kubernetes cli to manage your clusters in style!
+brew 'skhd' # hotkey daemon for macOS
+brew 'navi' # interactive cheatsheet tool for the command-line
+brew 'neovim' # vim-fork focused on extensibility and usability
+brew 'neofetch' # fast, highly customisable system info script
+brew 'nvm' # manage multiple Node.js versions
+brew 'pinentry-mac' # pinentry for GPG on Mac
+brew 'pyenv' # python version management
+brew 'ripgrep' # search tool like grep and the silver searcher
+brew 'docker' # pack, ship and run any application as a lightweight container
+brew 'docker-compose' # define and run multi-container Docker applications
+brew 'docker-credential-helper' # credentials helper for Docker
+brew 'lazydocker' # lazier way to manage everything docker
+brew 'lazygit' # simple terminal ui for git commands
+brew 'kubectl' # kubernetes command-line tool
+brew 'starship' # cross-shell prompt for astronauts
+brew 'taplo' # pluggable terminal workspace with terminal multiplexer as the base feature
+brew 'tree' # display directories as trees (with optional color/html output)
+brew 'unar' # command-line unarchiving tools supporting multiple formats
+brew 'vhs' # your cli home video recorder
+brew 'wget' # internet file retriever
+brew 'zoxide' # shell extension to navigate your filesystem faster
+brew 'zplug' # next-generation plugin manager for zsh
+brew 'zellij' # pluggable terminal workspace with terminal multiplexer as the base feature
+brew 'yazi' # blazing fast terminal file manager written in Rust, based on async I/O
+brew 'oasdiff' # diff tool for OpenAPI/Swagger files
+brew 'doctl' # DigitalOcean CLI
+brew 'terraform' # infrastructure as code software
+brew 'vault' # secrets management software
+brew 'dotenv-vault' # dotenv plugin for HashiCorp Vault
+brew 'orbstack' # CLI tool for managing OrbOS devices
 
 # =============================================================================================
 # Linters, formatters and LSPs
 # =============================================================================================
 
-brew "actionlint" # static checker for GitHub Actions workflow files
-brew "ansible-lint" # checks playbooks for practices and behaviour that could potentially be improved
-brew "ansible-language-server" # language server for Ansible files
-brew "bash-language-server" # bash language server that brings an IDE-like experience for bash scripts to most editors
-brew "dotenv-linter" # linter for .env files
-brew "dockerfile-language-server" # a language server for Dockerfiles powered by Node.js
-brew "efm-langserver" # general purpose language server that can handle any language
-brew "hadolint" # smarter Dockerfile linter to validate best practices
-brew "ltex-ls" # LSP for LanguageTool with support for Latex
-brew "marksman" # Language Server Protocol for Markdown
-brew "shfmt" # autoformat shell script source code
-brew "tectonic" # modernized, complete, self-contained TeX/LaTeX engine
-brew "texlab" # implementation of the Language Server Protocol for LaTeX
-brew "typescript-language-server" # LSP implementation for TypeScript wrapping
-brew "vscode-langservers-extracted" # HTML/CSS/JSON/ESLint language servers extracted from VSCode
-brew "yamlfmt" # extensible command-line tool to format YAML files
-brew "yaml-language-server" # language server for YAML Files
-brew "latexindent" # indentation of LaTeX documents
-brew "pinentry-mac" # pinentry for GPG on Mac
+brew 'actionlint' # static checker for GitHub Actions workflow files
+brew 'ansible-lint' # checks playbooks for practices and behaviour that could potentially be improved
+brew 'ansible-language-server' # language server for Ansible files
+brew 'bash-language-server' # bash language server that brings an IDE-like experience for bash scripts to most editors
+brew 'dotenv-linter' # linter for .env files
+brew 'dockerfile-language-server' # a language server for Dockerfiles powered by Node.js
+brew 'efm-langserver' # general purpose language server that can handle any language
+brew 'hadolint' # smarter Dockerfile linter to validate best practices
+brew 'ltex-ls' # LSP for LanguageTool with support for Latex
+brew 'marksman' # Language Server Protocol for Markdown
+brew 'shfmt' # autoformat shell script source code
+brew 'tectonic' # modernized, complete, self-contained TeX/LaTeX engine
+brew 'texlab' # implementation of the Language Server Protocol for LaTeX
+brew 'typescript-language-server' # LSP implementation for TypeScript wrapping
+brew 'vscode-langservers-extracted' # HTML/CSS/JSON/ESLint language servers extracted from VSCode
+brew 'yamlfmt' # extensible command-line tool to format YAML files
+brew 'yaml-language-server' # language server for YAML Files
+brew 'latexindent' # indentation of LaTeX documents
+brew 'pinentry-mac' # pinentry for GPG on Mac
 
 # =============================================================================================
 # VSCode extensions
 # =============================================================================================
 
-vscode "alefragnani.project-manager"
-vscode "charliermarsh.ruff"
-vscode "drcika.apc-extension"
-vscode "eamodio.gitlens"
-vscode "editorconfig.editorconfig"
-vscode "github.vscode-pull-request-github"
-vscode "hbenl.vscode-test-explorer"
-vscode "james-yu.latex-workshop"
-vscode "matangover.mypy"
-vscode "mikestead.dotenv"
-vscode "ms-azuretools.vscode-docker"
-vscode "ms-python.debugpy"
-vscode "ms-python.python"
-vscode "ms-python.vscode-pylance"
-vscode "ms-toolsai.jupyter"
-vscode "ms-toolsai.jupyter-renderers"
-vscode "ms-vscode-remote.remote-containers"
-vscode "ms-vscode-remote.remote-ssh"
-vscode "ms-vscode-remote.remote-ssh-edit"
-vscode "ms-vscode-remote.remote-wsl"
-vscode "ms-vscode-remote.vscode-remote-extensionpack"
-vscode "ms-vscode.live-server"
-vscode "ms-vscode.remote-explorer"
-vscode "ms-vscode.remote-server"
-vscode "ms-vscode.test-adapter-converter"
-vscode "naumovs.color-highlight"
-vscode "njpwerner.autodocstring"
-vscode "oderwat.indent-rainbow"
-vscode "robertostermann.inline-parameters-extended"
-vscode "rodolphebarbanneau.python-docstring-highlighter"
-vscode "rust-lang.rust-analyzer"
-vscode "swellaby.vscode-rust-test-adapter"
-vscode "tamasfe.even-better-toml"
-vscode "vadimcn.vscode-lldb"
-vscode "visualstudioexptteam.intellicode-api-usage-examples"
-vscode "visualstudioexptteam.vscodeintellicode"
-vscode "visualstudioexptteam.vscodeintellicode-completions"
-vscode "wakatime.vscode-wakatime"
-vscode "yzhang.markdown-all-in-one"
+vscode 'alefragnani.project-manager'
+vscode 'charliermarsh.ruff'
+vscode 'drcika.apc-extension'
+vscode 'eamodio.gitlens'
+vscode 'editorconfig.editorconfig'
+vscode 'github.vscode-pull-request-github'
+vscode 'hbenl.vscode-test-explorer'
+vscode 'james-yu.latex-workshop'
+vscode 'matangover.mypy'
+vscode 'mikestead.dotenv'
+vscode 'ms-azuretools.vscode-docker'
+vscode 'ms-python.debugpy'
+vscode 'ms-python.python'
+vscode 'ms-python.vscode-pylance'
+vscode 'ms-toolsai.jupyter'
+vscode 'ms-toolsai.jupyter-renderers'
+vscode 'ms-vscode-remote.remote-containers'
+vscode 'ms-vscode-remote.remote-ssh'
+vscode 'ms-vscode-remote.remote-ssh-edit'
+vscode 'ms-vscode-remote.remote-wsl'
+vscode 'ms-vscode-remote.vscode-remote-extensionpack'
+vscode 'ms-vscode.live-server'
+vscode 'ms-vscode.remote-explorer'
+vscode 'ms-vscode.remote-server'
+vscode 'ms-vscode.test-adapter-converter'
+vscode 'naumovs.color-highlight'
+vscode 'njpwerner.autodocstring'
+vscode 'oderwat.indent-rainbow'
+vscode 'robertostermann.inline-parameters-extended'
+vscode 'rodolphebarbanneau.python-docstring-highlighter'
+vscode 'rust-lang.rust-analyzer'
+vscode 'swellaby.vscode-rust-test-adapter'
+vscode 'tamasfe.even-better-toml'
+vscode 'vadimcn.vscode-lldb'
+vscode 'visualstudioexptteam.intellicode-api-usage-examples'
+vscode 'visualstudioexptteam.vscodeintellicode'
+vscode 'visualstudioexptteam.vscodeintellicode-completions'
+vscode 'wakatime.vscode-wakatime'
+vscode 'yzhang.markdown-all-in-one'
 
 # =============================================================================================
 # Mac App Store
 # =============================================================================================
 
-mas "keynote", id: 409183694
-mas "pages", id: 409201541
-mas "numbers", id: 409203825
-mas "hidden-bar", id: 1452453066
-mas "whatsapp", id: 310633997
-mas "telegram", id: 747648890
-mas "readkit-read-later-rss", id: 1615798039
+mas 'keynote', id: 409183694
+mas 'pages', id: 409201541
+mas 'numbers', id: 409203825
+mas 'hidden-bar', id: 1452453066
+mas 'whatsapp', id: 310633997
+mas 'telegram', id: 747648890
+mas 'readkit-read-later-rss', id: 1615798039
