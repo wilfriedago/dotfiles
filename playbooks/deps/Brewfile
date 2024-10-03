@@ -28,20 +28,20 @@ cask 'bitwarden' # password manager
 cask 'brave-browser' # web browser
 cask 'discord' # voice and text chat software
 cask 'insomnia' # HTTP and GraphQL Client
+cask 'gitkraken' # Git GUI client
 cask 'jetbrains-toolbox' # jetbrains tools manager
 cask 'obsidian' # knowledge base that works on top of a local folder of plain text Markdown files
 cask 'spotify' # music streaming service
 cask 'visual-studio-code' # open-source code editor
 cask 'warp' # a modern, rust-based terminal with AI built in, as alternative to Apple's Terminal app
 cask 'alt-tab' # a better cmd+tab for macOS
-cask 'notion-calendar' # a better calendar for Notion
 cask 'raycast' # a better Spotlight for macOS
 cask 'slack' # messaging app
-cask 'playcover-community' # run iOS apps and games on Apple Silicon Macs
 cask 'polypane' # a feature complete browser for web developers for accesibility
 cask 'pgadmin4' # a web-based interface for managing PostgreSQL databases
 cask 'mongodb-compass' # a GUI for MongoDB
 cask 'notesnook' # a privacy-focused note-taking app
+cask 'httpie' # user-friendly cURL replacement, the macOS App
 
 # =============================================================================================
 # QuickLook plugins
@@ -111,6 +111,7 @@ brew 'terraform' # infrastructure as code software
 brew 'vault' # secrets management software
 brew 'dotenv-vault' # dotenv plugin for HashiCorp Vault
 brew 'orbstack' # CLI tool for managing OrbOS devices
+brew 'httpie' # user-friendly cURL replacement, the command-line tool
 
 # =============================================================================================
 # Linters, formatters and LSPs
@@ -127,7 +128,6 @@ brew 'hadolint' # smarter Dockerfile linter to validate best practices
 brew 'ltex-ls' # LSP for LanguageTool with support for Latex
 brew 'marksman' # Language Server Protocol for Markdown
 brew 'shfmt' # autoformat shell script source code
-brew 'tectonic' # modernized, complete, self-contained TeX/LaTeX engine
 brew 'texlab' # implementation of the Language Server Protocol for LaTeX
 brew 'typescript-language-server' # LSP implementation for TypeScript wrapping
 brew 'vscode-langservers-extracted' # HTML/CSS/JSON/ESLint language servers extracted from VSCode
@@ -135,6 +135,7 @@ brew 'yamlfmt' # extensible command-line tool to format YAML files
 brew 'yaml-language-server' # language server for YAML Files
 brew 'latexindent' # indentation of LaTeX documents
 brew 'pinentry-mac' # pinentry for GPG on Mac
+brew 'oasdiff' # diff tool for OpenAPI/Swagger files
 
 # =============================================================================================
 # VSCode extensions
