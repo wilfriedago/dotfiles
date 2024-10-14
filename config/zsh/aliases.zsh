@@ -53,7 +53,7 @@ alias dkcd='docker compose down'
 alias ls='eza -a --icons --level=1' # ls with icons
 alias ll="eza -al --icons" # ls -l with icons
 alias l="eza -al --icons --git" # ls -l with icons and git status
-alias lt="eza -al --icons --tree --level=2  --git" # ls tree with icons and git status
+alias lt="eza -al --icons --tree --level=3  --git" # ls tree with icons and git status
 
 # dotdrop
 alias dot='dotdrop --profile=default --cfg=~/.dotfiles/config/dotdrop/config.yml' # dotdrop with default profile
