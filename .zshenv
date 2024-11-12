@@ -81,7 +81,7 @@ export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/platform-t
 # STARSHIP
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
-# rustup
+# RUST
 [ -d "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 
 # DENO
