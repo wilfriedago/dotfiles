@@ -83,3 +83,6 @@ export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
 # rustup
 [ -d "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+
+# DENO
+[ -d "$HOME/.deno/env" ] && source "$HOME/.deno/env"
