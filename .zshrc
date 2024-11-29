@@ -115,8 +115,5 @@ eval "$(pyenv init -)"
 # starship prompt
 eval "$(starship init zsh)"
 
-# gh copilot cli alias
-eval "$(gh copilot alias -- zsh)"
-
 # Load Angular CLI autocompletion.
 source <(ng completion script)
