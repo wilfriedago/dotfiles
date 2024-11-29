@@ -19,6 +19,7 @@ profiles:
     - d_nvim
     - d_starship
     - d_zsh
+    - f_zprofile
     - f_zshenv
     - f_zshrc
     - d_scripts
@@ -60,6 +61,9 @@ dotfiles:
   d_zsh:
     src: config/zsh
     dst: ~/.config/zsh
+  f_zprofile:
+    src: .zprofile
+    dst: ~/.zprofile
   f_zshenv:
     src: .zshenv
     dst: ~/.zshenv
