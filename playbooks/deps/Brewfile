@@ -41,7 +41,7 @@ cask 'polypane' # a feature complete browser for web developers for accesibility
 cask 'pgadmin4' # a web-based interface for managing PostgreSQL databases
 cask 'mongodb-compass' # a GUI for MongoDB
 cask 'notesnook' # a privacy-focused note-taking app
-cask 'httpie' # user-friendly cURL replacement, the macOS App
+cask 'pearcleaner' # a cleaner for macOS
 
 # =============================================================================================
 # QuickLook plugins
@@ -112,6 +112,7 @@ brew 'vault' # secrets management software
 brew 'dotenv-vault' # dotenv plugin for HashiCorp Vault
 brew 'orbstack' # CLI tool for managing OrbOS devices
 brew 'httpie' # user-friendly cURL replacement, the command-line tool
+brew 'jadx' # command-line and GUI tools to decompile Android APK files
 
 # =============================================================================================
 # Linters, formatters and LSPs

@@ -1,5 +1,10 @@
 {
   "files.associations": {
-    "*.json": "jsonc"
-  }
+    "*.json": "jsonc",
+    "*.jsonc-default": "jsonc"
+  },
+  "cSpell.words": [
+    "pyenv",
+    "strftime"
+  ]
 }
