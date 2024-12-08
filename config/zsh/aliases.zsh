@@ -86,7 +86,8 @@ alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 alias flushdns="sudo killall -HUP mDNSResponder" # flush dns cache
 alias pubkey="cat ~/.ssh/id_ed25519.pub | pbcopy | echo '=> Copied to clipboard.'" # copy ssh public key to clipboard
 alias lzd="lazydocker" # run Docker TUI
-alias lama='ollama run lama3' # run lama3
+alias llama='ollama run lama3' # run lama3
+alias yz='yazi' # run yazi
 
 # Get macOS Software Updates, and update installed Homebrew, npm, and their installed packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; pnpm add -g pnpm -g; pnpm update -g; gh extension upgrade --all; omz update'
