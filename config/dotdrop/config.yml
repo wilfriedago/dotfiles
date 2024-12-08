@@ -24,6 +24,7 @@ profiles:
     - f_zshrc
     - d_scripts
     - d_warp
+    - f_yazi.toml
   macos:
     dotfiles:
     - f_vscode_settings
@@ -85,3 +86,6 @@ dotfiles:
   d_vscode_snippets:
     src: vscode/snippets
     dst: ~/Library/Application Support/Code/User/snippets
+  f_yazi.toml:
+    src: config/yazi/yazi.toml
+    dst: ~/.config/yazi/yazi.toml
