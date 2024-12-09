@@ -46,6 +46,8 @@ alias dkps='docker ps'
 alias dkpsa='docker ps -a'
 alias dkx='docker exec -it'
 alias dki='docker images'
+alias dkrun='docker run'
+alias dkclean='docker system prune -a --volumes'
 alias dkc='docker-compose'
 alias dkcu='docker compose up'
 alias dkcd='docker compose down'
@@ -87,7 +89,7 @@ alias flushdns="sudo killall -HUP mDNSResponder" # flush dns cache
 alias pubkey="cat ~/.ssh/id_ed25519.pub | pbcopy | echo '=> Copied to clipboard.'" # copy ssh public key to clipboard
 alias lzd="lazydocker" # run Docker TUI
 alias llama='ollama run lama3' # run lama3
-alias yz='yazi' # run yazi
+alias y='yazi' # run yazi
 
 # Get macOS Software Updates, and update installed Homebrew, npm, and their installed packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; pnpm add -g pnpm -g; pnpm update -g; gh extension upgrade --all; omz update'
