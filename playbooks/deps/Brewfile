@@ -87,7 +87,6 @@ brew 'neovim' # vim-fork focused on extensibility and usability
 brew 'neofetch' # fast, highly customisable system info script
 brew 'nvm' # manage multiple Node.js versions
 brew 'pinentry-mac' # pinentry for GPG on Mac
-brew 'pyenv' # python version management
 brew 'ripgrep' # search tool like grep and the silver searcher
 brew 'docker' # pack, ship and run any application as a lightweight container
 brew 'docker-compose' # define and run multi-container Docker applications

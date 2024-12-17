@@ -26,10 +26,6 @@ export PATH="$GOROOT/bin:$GOPATH/bin:$PATH" # Add Go binaries to PATH
 # Version managers
 # =============================================================================================
 
-# PYENV
-export PYENV_ROOT="$HOME/.pyenv"
-[ -d "$PYENV_ROOT/bin" ] && export PATH="$PYENV_ROOT/bin:$PATH"
-
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm

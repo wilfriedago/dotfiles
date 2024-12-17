@@ -109,9 +109,6 @@ setopt globdots
 # Shell
 # =============================================================================================
 
-# Initialize pyenv
-eval "$(pyenv init -)"
-
 # starship prompt
 eval "$(starship init zsh)"
 
