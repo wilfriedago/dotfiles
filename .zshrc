@@ -82,9 +82,7 @@ plugins=(
   dotenv
   node
   ssh
-  exa
   zoxide
-  vsccode
 )
 
 # Load Oh My Zsh
