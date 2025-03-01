@@ -83,6 +83,4 @@ export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 # FLUTTER
 export FLUTTER_HOME="$HOME/.flutter"
 export PATH="$FLUTTER_HOME/bin:$PATH"
-
-# Since I'm not a Google Chrome user, I'll using Brave Browser instead
 export CHROME_EXECUTABLE="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
