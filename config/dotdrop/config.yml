@@ -25,7 +25,6 @@ profiles:
     - d_scripts
     - d_warp
     - f_yazi.toml
-    - d_zed
   macos:
     dotfiles:
     - f_vscode_settings
@@ -90,7 +89,4 @@ dotfiles:
   f_yazi.toml:
     src: config/yazi/yazi.toml
     dst: ~/.config/yazi/yazi.toml
-  d_zed:
-    src: config/zed
-    dst: ~/.config/zed
 
