@@ -62,6 +62,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # see 'man strftime' for details.
 HIST_STAMPS="yyyy-mm-dd"
 
+# commands starting from whitespace won't be saved in history
+HIST_IGNORE_SPACE="true"
+
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
