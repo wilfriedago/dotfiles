@@ -22,6 +22,12 @@ export GOROOT="/usr/local/go"
 export GOPATH="$HOME/.go"
 export PATH="$GOROOT/bin:$GOPATH/bin:$PATH" # Add Go binaries to PATH
 
+# PYTHON
+[ -d "$PWD/.venv" ] && source "$PWD/.venv/bin/activate" # Automatically load Python virtual environment if available
+
+# RUST
+[ -d "$HOME/.cargo/env" ] && source "$HOME/.cargo/env" # Load Rust environment
+
 # =============================================================================================
 # Version managers
 # =============================================================================================
@@ -45,11 +51,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-# BUN
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH" # Add bun to PATH
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun" # This loads bun bash_completion
-
 # =============================================================================================
 # Programming languages utils
 # =============================================================================================
@@ -57,8 +58,10 @@ export PATH="$BUN_INSTALL/bin:$PATH" # Add bun to PATH
 # NODE
 [ -d "$PWD/node_modules/.bin" ] && export PATH="$PWD/node_modules/.bin:$PATH" # Automatically add node_modules/.bin to PATH if present
 
-# PYTHON
-[ -d "$PWD/.venv" ] && source "$PWD/.venv/bin/activate" # Automatically load Python virtual environment if available
+# BUN
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH" # Add bun to PATH
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun" # This loads bun bash_completion
 
 # =============================================================================================
 # Tools
@@ -76,11 +79,3 @@ export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/platform-t
 
 # STARSHIP
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
-
-# RUST
-[ -d "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
-
-# FLUTTER
-export FLUTTER_HOME="$HOME/.flutter"
-export PATH="$FLUTTER_HOME/bin:$PATH"
-export CHROME_EXECUTABLE="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" # Set the path to the Chrome executable

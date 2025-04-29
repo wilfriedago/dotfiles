@@ -128,6 +128,3 @@ source <(ng completion script)
 
 # Load Docker completion.
 source <(docker completion zsh)
-
-# Load Flutter completion.
-source <(flutter zsh-completion)
