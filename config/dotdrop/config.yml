@@ -89,3 +89,4 @@ dotfiles:
   f_yazi.toml:
     src: config/yazi/yazi.toml
     dst: ~/.config/yazi/yazi.toml
+

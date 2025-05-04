@@ -1,3 +1,7 @@
+# corepack
+alias pnpm='corepack pnpm'
+alias pnpx='corepack pnpx'
+
 # pnpm
 alias pn='pnpm'
 alias pi='pnpm install'

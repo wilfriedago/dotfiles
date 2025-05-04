@@ -60,7 +60,10 @@ export ZSH="$HOME/.oh-my-zsh"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-HIST_STAMPS="dd.mm.yyyy"
+HIST_STAMPS="yyyy-mm-dd"
+
+# commands starting from whitespace won't be saved in history
+HIST_IGNORE_SPACE="true"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -75,6 +78,14 @@ plugins=(
   fzf-tab
   fast-syntax-highlighting
   zsh-autosuggestions
+  flutter
+  aws
+  brew
+  docker
+  dotenv
+  node
+  ssh
+  zoxide
 )
 
 # Load Oh My Zsh
@@ -109,11 +120,11 @@ setopt globdots
 # Shell
 # =============================================================================================
 
-# Initialize pyenv
-eval "$(pyenv init -)"
-
 # starship prompt
 eval "$(starship init zsh)"
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+# Load Docker completion.
+source <(docker completion zsh)
