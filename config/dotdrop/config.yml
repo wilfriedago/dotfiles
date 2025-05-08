@@ -23,7 +23,6 @@ profiles:
     - f_zshenv
     - f_zshrc
     - d_scripts
-    - d_warp
     - f_yazi.toml
   macos:
     dotfiles:
@@ -74,9 +73,6 @@ dotfiles:
   d_scripts:
     src: scripts
     dst: ~/.scripts
-  d_warp:
-    src: warp
-    dst: ~/.warp
   f_vscode_settings:
     src: vscode/settings.json
     dst: ~/Library/Application Support/Code/User/settings.json
