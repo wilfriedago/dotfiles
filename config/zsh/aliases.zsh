@@ -13,8 +13,8 @@ alias po='pnpm outdated'
 alias pnx='pnpm dlx'
 
 # neovim
-alias vim='nvim' # use neovim as vim
 alias vi='nvim' # use neovim as vi
+alias vim='nvim' # use neovim as vim
 
 # python
 alias python='python3'
