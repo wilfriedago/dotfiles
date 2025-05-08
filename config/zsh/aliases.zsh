@@ -13,8 +13,8 @@ alias po='pnpm outdated'
 alias pnx='pnpm dlx'
 
 # neovim
-alias vim='nvim' # use neovim as vim
 alias vi='nvim' # use neovim as vi
+alias vim='nvim' # use neovim as vim
 
 # python
 alias python='python3'
@@ -34,27 +34,46 @@ alias djs='python manage.py syncdb --noinput'
 alias djt='python manage.py test'
 alias djrs='python manage.py runserver'
 
-# git
-alias gs='git status'
-alias gd='git diff'
-alias gl='git log'
-alias gc='git checkout'
-alias gp='git push'
-alias gm='git merge'
-alias gpl='git pull --rebase'
-alias gca='git add . && git commit --amend'
-
-# docker
-alias dk='docker'
-alias dkps='docker ps'
-alias dkpsa='docker ps -a'
-alias dkx='docker exec -it'
-alias dki='docker images'
-alias dkrun='docker run'
-alias dkclean='docker system prune -a --volumes'
-alias dkc='docker-compose'
-alias dkcu='docker compose up'
-alias dkcd='docker compose down'
+# minikube
+alias mk='minikube'
+alias mkst='minikube start'
+alias mkst-m='minikube start --memory' # Example: mkst-m 4096
+alias mkst-c='minikube start --cpus'   # Example: mkst-c 4
+alias mksp='minikube stop'
+alias mkd='minikube delete'
+alias mknd='minikube node'
+alias mkip='minikube ip'
+alias mks='minikube service'
+alias mklo='minikube logs'
+alias mkti='minikube tunnel'
+alias mkdp='minikube dashboard'
+alias mkstat='minikube status'
+alias mkadd='minikube addons'
+alias mklist='minikube addons list'
+alias mkadd-e='minikube addons enable'  # Example: mkadd-e ingress
+alias mkadd-d='minikube addons disable' # Example: mkadd-d metrics-server
+alias mkdocker='eval $(minikube docker-env)'
+alias mkssh='minikube ssh'
+alias mkcache='minikube cache'
+alias mkcache-a='minikube cache add'    # Example: mkcache-a nginx:latest
+alias mkcache-d='minikube cache delete' # Example: mkcache-d nginx:latest
+alias mkcache-l='minikube cache list'
+alias mkimg='minikube image'
+alias mkimg-l='minikube image ls'
+alias mkimg-ls='minikube image ls -a'
+alias mkns='minikube service --namespace' # Example: mkns kube-system kubernetes-dashboard
+alias mkmount='minikube mount'           # Example: mkmount /local/path:/vm/path
+alias mkpause='minikube pause'
+alias mkunpause='minikube unpause'
+alias mkver='minikube version'
+alias mkup='minikube update-check'
+alias mkupgrade='minikube update-context'
+alias mkprofile='minikube profile'       # Example: mkprofile dev
+alias mkprofile-l='minikube profile list'
+alias mkstart-all='minikube start && minikube dashboard &'
+alias mkclean='minikube stop && minikube delete'
+alias mkrestart='minikube stop && minikube start'
+alias mkrg='minikube addons enable registry'
 
 # exa
 alias ls='eza -a --icons --level=1' # ls with icons

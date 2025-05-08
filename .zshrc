@@ -60,10 +60,16 @@ export ZSH="$HOME/.oh-my-zsh"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-HIST_STAMPS="yyyy-mm-dd"
-
-# commands starting from whitespace won't be saved in history
-HIST_IGNORE_SPACE="true"
+HIST_STAMPS="yyyy-mm-dd"      # Set the format of the history timestamp
+HIST_IGNORE_SPACE="true"      # Ignore commands that start with space
+HISTSIZE=50000                # Set the maximum number of history entries
+SAVEHIST=10000                # Set the maximum number of history entries to save in the file
+setopt extended_history       # Record timestamp of command in HISTFILE
+setopt hist_expire_dups_first # Delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # Ignore duplicated commands history list
+setopt hist_ignore_space      # Ignore commands that start with space
+setopt hist_verify            # Show command with history expansion to user before running it
+setopt share_history          # Share command history data between sessions
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -74,18 +80,27 @@ HIST_IGNORE_SPACE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
-  fzf-tab
-  fast-syntax-highlighting
-  zsh-autosuggestions
-  flutter
+  aliases
   aws
   brew
   docker
-  dotenv
+  docker-compose
+  doctl
+  eza
+  fabric
+  fzf-tab
+  fast-syntax-highlighting
+  isodate
+  git
   node
   ssh
+  kubectl
+  kubectx
+  minikube
+  vscode
+  starship
   zoxide
+  zsh-autosuggestions
 )
 
 # Load Oh My Zsh
@@ -110,21 +125,15 @@ setopt globdots
 # Functions
 [ -f "$HOME/.config/zsh/functions.zsh" ] && source "$HOME/.config/zsh/functions.zsh"
 
-# Load fzf
-[ -f "$HOME/.config/zsh/fzf.zsh" ] && source "$HOME/.config/zsh/fzf.zsh"
-
 # Load style
 [ -f "$HOME/.config/zsh/style.zsh" ] && source "$HOME/.config/zsh/style.zsh"
+
+# Load fzf
+[ -f "$HOME/.config/zsh/fzf.zsh" ] && source "$HOME/.config/zsh/fzf.zsh"
 
 # =============================================================================================
 # Shell
 # =============================================================================================
 
-# starship prompt
-eval "$(starship init zsh)"
-
 # Load Angular CLI autocompletion.
 source <(ng completion script)
-
-# Load Docker completion.
-source <(docker completion zsh)

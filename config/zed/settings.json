@@ -9,29 +9,29 @@
 {
   "assistant": {
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-4o"
+      "model": "gpt-4o",
+      "provider": "copilot_chat"
     },
     "version": "2"
   },
+  "autosave": "off",
   "base_keymap": "VSCode",
+  "buffer_font_family": "DankMono Nerd Font",
+  "buffer_font_size": 13,
   "telemetry": {
     "diagnostics": false,
     "metrics": false
   },
-  "vim_mode": true,
-  "autosave": "off",
-  "ui_font_family": "BlexMono Nerd Font",
-  "buffer_font_family": "BlexMono Nerd Font",
-  "buffer_font_size": 13,
-  "ui_font_size": 14,
   "terminal": {
-    "font_family": "BlexMono Nerd Font",
+    "font_family": "DankMono Nerd Font",
     "font_size": 13
   },
   "theme": {
-    "mode": "system",
+    "dark": "Vitesse Dark",
     "light": "One Light",
-    "dark": "Vitesse Dark"
-  }
+    "mode": "system"
+  },
+  "ui_font_family": "DankMono Nerd Font",
+  "ui_font_size": 14,
+  "vim_mode": true
 }
