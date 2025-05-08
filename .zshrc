@@ -80,20 +80,27 @@ setopt share_history          # Share command history data between sessions
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
-  fzf-tab
-  fast-syntax-highlighting
-  zsh-autosuggestions
+  aliases
   aws
   brew
   docker
-  dotenv
+  docker-compose
+  doctl
+  eza
+  fabric
+  fzf-tab
+  fast-syntax-highlighting
+  isodate
+  git
   node
   ssh
-  zoxide
   kubectl
+  kubectx
   minikube
+  vscode
   starship
+  zoxide
+  zsh-autosuggestions
 )
 
 # Load Oh My Zsh
@@ -118,18 +125,15 @@ setopt globdots
 # Functions
 [ -f "$HOME/.config/zsh/functions.zsh" ] && source "$HOME/.config/zsh/functions.zsh"
 
-# Load fzf
-[ -f "$HOME/.config/zsh/fzf.zsh" ] && source "$HOME/.config/zsh/fzf.zsh"
-
 # Load style
 [ -f "$HOME/.config/zsh/style.zsh" ] && source "$HOME/.config/zsh/style.zsh"
+
+# Load fzf
+[ -f "$HOME/.config/zsh/fzf.zsh" ] && source "$HOME/.config/zsh/fzf.zsh"
 
 # =============================================================================================
 # Shell
 # =============================================================================================
-
-# starship prompt
-eval "$(starship init zsh)"
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
