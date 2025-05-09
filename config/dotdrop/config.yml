@@ -24,6 +24,7 @@ profiles:
     - f_zshrc
     - d_scripts
     - f_yazi.toml
+    - d_gitkraken_themes
   macos:
     dotfiles:
     - f_vscode_settings
@@ -85,4 +86,6 @@ dotfiles:
   f_yazi.toml:
     src: config/yazi/yazi.toml
     dst: ~/.config/yazi/yazi.toml
-
+  d_gitkraken_themes:
+    src: config/gitkraken/themes
+    dst: ~/.gitkraken/themes
