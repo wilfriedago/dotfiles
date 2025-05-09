@@ -152,7 +152,7 @@ kns() {
   if [ -z "$1" ]; then
     kubectl get ns
   else
-    kubectl config set-context --current --namespace "$1"
+    kubectl config set-context --current --namespace $1
     echo "Switched to namespace: $1"
   fi
 }
