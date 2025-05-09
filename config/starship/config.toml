@@ -124,7 +124,7 @@ always_show_remote = false
 
 [git_status]
 disabled = false
-format = '[\[($ahead_behind)($all_status)\]]($style)'
+format = '[\[($ahead_behind)($all_status)\]]($style) '
 stashed = "*${count}"
 ahead = "⇡${count}"
 behind = "⇣${count}"
@@ -181,6 +181,11 @@ symbol = "󰍛 "
 ssh_only = true
 ssh_symbol = " "
 
+[kubernetes]
+disabled = false
+symbol = "󱃾 "
+format = '[$symbol$context \($namespace\)]($style) in [\[$cluster:$user\]]($style) '
+
 [aws]
 symbol = "󰸏 "
 
@@ -234,9 +239,6 @@ symbol = " "
 
 [kotlin]
 symbol = " "
-
-[kubernetes]
-symbol = "󱃾 "
 
 [lua]
 symbol = "󰢱 "
