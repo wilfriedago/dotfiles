@@ -75,13 +75,13 @@ dotfiles:
     src: scripts
     dst: ~/.scripts
   f_vscode_settings:
-    src: vscode/settings.json
+    src: config/vscode/settings.json
     dst: ~/Library/Application Support/Code/User/settings.json
   f_vscode_keybindings:
-    src: vscode/keybindings.json
+    src: config/vscode/keybindings.json
     dst: ~/Library/Application Support/Code/User/keybindings.json
   d_vscode_snippets:
-    src: vscode/snippets
+    src: config/vscode/snippets
     dst: ~/Library/Application Support/Code/User/snippets
   f_yazi.toml:
     src: config/yazi/yazi.toml
