@@ -1,1 +1,222 @@
-{}
+{
+  "breadcrumbs.enabled": false,
+  "chat.agent.enabled": true,
+  "chat.commandCenter.enabled": false,
+  "chat.editor.fontFamily": "Dank Mono, BlexMono Nerd Font, JetBrainsMono Nerd Font, Menlo, Monaco, 'Courier New', monospace",
+  "custom-ui-style.electron": {
+    "frame": false,
+    "titleBarStyle": "hiddenInset"
+  },
+  "custom-ui-style.external.imports": [
+    "file://${userHome}/.vscode/custom.css",
+    "file://${userHome}/.vscode/custom.js"
+  ],
+  "custom-ui-style.font.monospace": "'Dank Mono', 'BlexMono Nerd Font', 'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "custom-ui-style.font.sansSerif": "Dank Mono, BlexMono Nerd Font, JetBrainsMono Nerd Font, Menlo, Monaco, 'Courier New', monospace",
+  "debug.console.fontFamily": "Dank Mono, BlexMono Nerd Font, JetBrainsMono Nerd Font, Menlo, Monaco, 'Courier New', monospace",
+  "diffEditor.codeLens": true,
+  "diffEditor.experimental.showMoves": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.maxComputationTime": 0,
+  "diffEditor.renderSideBySide": false,
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.acceptSuggestionOnEnter": "smart",
+  "editor.accessibilitySupport": "off",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "never"
+  },
+  "editor.cursorBlinking": "expand",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorStyle": "line",
+  "editor.fontFamily": "'Dank Mono', 'BlexMono Nerd Font', 'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 13,
+  "editor.fontWeight": "normal",
+  "editor.inlineSuggest.enabled": true,
+  "editor.linkedEditing": true,
+  "editor.minimap.enabled": false,
+  "editor.quickSuggestions": {
+    "other": "off"
+  },
+  "editor.quickSuggestionsDelay": 0,
+  "editor.renderControlCharacters": true,
+  "editor.rulers": [
+    140
+  ],
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.verticalScrollbarSize": 0,
+  "editor.showFoldingControls": "mouseover",
+  "editor.snippets.codeActions.enabled": true,
+  "editor.snippetSuggestions": "inline",
+  "editor.suggest.insertMode": "replace",
+  "editor.suggest.showSnippets": false,
+  "editor.suggest.snippetsPreventQuickSuggestions": true,
+  "editor.tabSize": 2,
+  "editor.tokenColorCustomizations": {
+    "[*Dark*]": {
+      "textMateRules": [
+        {
+          "scope": "ref.matchtext",
+          "settings": {
+            "foreground": "#fff"
+          }
+        }
+      ]
+    },
+    "[*Light*]": {
+      "textMateRules": [
+        {
+          "scope": "ref.matchtext",
+          "settings": {
+            "foreground": "#000"
+          }
+        }
+      ]
+    },
+    "textMateRules": []
+  },
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "editor.wordBasedSuggestions": "off",
+  "editor.wordWrap": "on",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+  "explorer.compactFolders": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "extensions.autoUpdate": "onlyEnabledExtensions",
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
+  "extensions.ignoreRecommendations": true,
+  "files.eol": "\n",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.factorypath": true,
+    "**/.git": true,
+    "**/.hg": false,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.worktrees": true
+  },
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.watcherExclude": {
+    "**/.git/**": true,
+    "**/.git/*/**": true,
+    "**/.hg/store/**": true,
+    "**/.svn/**": true,
+    "**/.worktrees/**": true,
+    "**/.worktrees/*/**": true,
+    "**/node_modules/**": true,
+    "**/node_modules/*/**": true
+  },
+  "git.allowNoVerifyCommit": false,
+  "git.autofetch": true,
+  "git.autoStash": true,
+  "git.confirmSync": false,
+  "git.enableCommitSigning": true,
+  "git.enableSmartCommit": true,
+  "git.fetchOnPull": true,
+  "git.ignoreLegacyWarning": true,
+  "git.openRepositoryInParentFolders": "never",
+  "git.pruneOnFetch": true,
+  "github.copilot.chat.codeGeneration.instructions": [
+    {
+      "file": ".copilot-instructions.md"
+    }
+  ],
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "text": "Generate a concise conventional commit message based on the following diff. \nThe commit message should follow the format: <type>[optional scope]: <description> [blank line] [body] [blank line] [footer] \n\nTypes include:\n- feat: A new feature\n- fix: A bug fix\n- docs: Documentation changes\n- style: Code style changes (formatting, missing semicolons, etc)\n- refactor: Code changes that neither fix bugs nor add features\n- perf: Performance improvements\n- test: Adding or modifying tests\n- build: Changes to build system or dependencies\n- ci: Changes to CI configuration or scripts\n- chore: Other changes that don't modify src or test files\n\nGuidelines:\n1. Use imperative, present tense (e.g., \"change\" not \"changed\" or \"changes\")\n2. Don't capitalize the first letter\n3. No period at the end\n4. Keep it under 50 characters\n5. Focus on WHAT changed and WHY, not HOW\n6. Reference relevant issue numbers if applicable (e.g., \"#123\")\n8. Scope should be in parentheses and describe the section of code affected \n9. Description should be in present tense, lowercase, and under 70 characters\n10. Body (optional) should explain the what and why (not how), always use markdown list format, lowercase sentences and lines under 100 characters. \n11. Footer (optional) should reference issues/PRs or breaking changes Breaking change format."
+    }
+  ],
+  "github.copilot.chat.editor.temporalContext.enabled": true,
+  "github.copilot.chat.generateTests.codeLens": true,
+  "github.copilot.chat.setupTests.enabled": true,
+  "github.copilot.chat.startDebugging.enabled": true,
+  "github.copilot.chat.testGeneration.instructions": [
+    {
+      "file": ".copilot-test-instructions.md"
+    }
+  ],
+  "github.copilot.chat.useProjectTemplates": true,
+  "github.copilot.enable": {
+    "*": true,
+    "dart": true,
+    "markdown": true,
+    "plaintext": true,
+    "scminput": false
+  },
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.renameSuggestions.triggerAutomatically": true,
+  "github.gitProtocol": "ssh",
+  "javascript.format.insertSpaceAfterConstructor": true,
+  "javascript.format.semicolons": "remove",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "remote.autoForwardPortsSource": "hybrid",
+  "scm.inputFontFamily": "Dank Mono, BlexMono Nerd Font, JetBrainsMono Nerd Font, Menlo, Monaco, 'Courier New', monospace",
+  "search.exclude": {
+    "**/node_modules": true
+  },
+  "security.promptForLocalFileProtocolHandling": false,
+  "telemetry.telemetryLevel": "off",
+  "terminal.external.osxExec": "Warp.app",
+  "terminal.integrated.allowedLinkSchemes": [
+    "file",
+    "http",
+    "https",
+    "mailto",
+    "vscode",
+    "vscode-insiders",
+    "docker-desktop"
+  ],
+  "terminal.integrated.bellDuration": 400,
+  "terminal.integrated.cursorStyle": "block",
+  "terminal.integrated.cursorWidth": 2,
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "terminal.integrated.fontFamily": "'Dank Mono', 'BlexMono Nerd Font', 'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.gpuAcceleration": "on",
+  "terminal.integrated.ignoreProcessNames": [
+    "bash",
+    "zsh"
+  ],
+  "terminal.integrated.inheritEnv": true,
+  "typescript.autoClosingTags": true,
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.validate.enable": true,
+  "window.autoDetectColorScheme": true,
+  "window.autoDetectHighContrast": true,
+  "window.clickThroughInactive": true,
+  "window.commandCenter": false,
+  "window.customTitleBarVisibility": "never",
+  "window.titleBarStyle": "native",
+  "workbench.activityBar.location": "top",
+  "workbench.editor.autoLockGroups": {
+    "workbench.editorinputs.searchEditorInput": true
+  },
+  "workbench.iconTheme": "monospace-icons",
+  "workbench.layoutControl.enabled": false,
+  "workbench.list.fastScrollSensitivity": 10,
+  "workbench.navigationControl.enabled": false,
+  "workbench.preferredDarkColorTheme": "Monospace Dark",
+  "workbench.productIconTheme": "material-product-icons",
+  "workbench.secondarySideBar.showLabels": false,
+  "workbench.settings.editor": "json",
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "none",
+  "workbench.tips.enabled": false
+}

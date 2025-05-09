@@ -1,0 +1,32 @@
+.monaco-workbench .quick-input-widget {
+  box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2), 0px 0px 30px rgba(0, 123, 255, 0.3); /* White + Blue glow */
+
+  .scrollbar {
+    display: none;
+  }
+
+  .monaco-action-bar.quick-input-inline-action-bar {
+    display: none;
+  }
+}
+
+.monaco-workbench .quick-input-widget.show-file-icons {
+  box-shadow: none !important;
+}
+
+.monaco-workbench .split-view-view.visible .auxiliarybar.left > .header {
+  padding-left: 70px; /* Ensure the header is not hidden by the quick input */
+}
+
+.monaco-workbench .split-view-view:nth-of-type(1):not(.visible) + .split-view-view:nth-of-type(2) .part.editor > .content .split-view-view.visible:nth-of-type(1) .editor-group-container > .title > .tabs-and-actions-container > .monaco-scrollable-element {
+  padding-left: 70px; /* Ensure the tabs are not hidden by the quick input */
+}
+
+.monaco-workbench .pane-composite-part > .header-or-footer .composite-bar-container {
+  justify-content: space-between;
+  flex-shrink: 0 !important;
+}
+
+.monaco-split-view2 > .monaco-scrollable-element > .split-view-container .split-view-view:nth-of-type(1):not(.visible) + .split-view-view:nth-of-type(2) .monaco-split-view2 > .monaco-scrollable-element > .split-view-container .split-view-view:nth-of-type(1):not(.visible) + .split-view-view:nth-of-type(2) .part.panel.basepanel.bottom .composite.title {
+  padding-left: 70px;
+}
