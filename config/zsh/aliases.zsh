@@ -109,7 +109,7 @@ alias ip="curl https://ipinfo.io/json" # or /ip for plain-text ip
 alias localip="ipconfig getifaddr en0" # get local ip address
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -" # test internet speed
 alias flushdns="sudo killall -HUP mDNSResponder" # flush dns cache
-alias pubkey="cat ~/.ssh/id_ed25519.pub | pbcopy | echo '=> Copied to clipboard.'" # copy ssh public key to clipboard
+alias pubkey="cat ~/.ssh/id_ed25519.pub | pbcopy | echo 'Public Key => Copied to clipboard.'" # copy ssh public key to clipboard
 alias lzd="lazydocker" # run Docker TUI
 alias llama='ollama run lama3' # run lama3
 alias y='yazi' # run yazi

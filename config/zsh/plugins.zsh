@@ -81,7 +81,6 @@ export _ZO_FZF_OPTS="
 "
 
 # remap default keybinding with `z name<tab>`
-eval "$(zoxide init zsh --no-cmd)"
 z () {
   \__zoxide_z "$@"
 }
