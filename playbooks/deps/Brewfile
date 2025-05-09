@@ -6,18 +6,17 @@ tap 'homebrew/bundle' # bundle command for installing multiple formulae
 tap 'homebrew/services' # manage background services with launchctl
 tap 'homebrew/cask' # formulae for the Homebrew package manager
 tap 'hashicorp/tap' # HashiCorp tap
-tap 'hashicorp/tap' # HashiCorp tap
 tap 'tufin/homebrew-tufin' # Tufin tap
-tap 'PlayCover/playcover' # PlayCover tap
 tap 'koekeishiya/formulae' # koekeishiya tap
 tap 'dotenv-org/brew' # dotenv-org tap
+tap 'encoredev/tap' # encoredev tap
 
 # =============================================================================================
 # Fonts
 # =============================================================================================
 
-cask 'font-jetbrains-mono-nerd-font' # monospaced font for developers
 cask 'font-symbols-only-nerd-font' # font with only symbols for developers
+cask 'font-jetbrains-mono-nerd-font' # monospaced font for developers
 
 # =============================================================================================
 # Apps
@@ -25,9 +24,7 @@ cask 'font-symbols-only-nerd-font' # font with only symbols for developers
 
 cask 'basictex' # TeX distribution
 cask 'bitwarden' # password manager
-cask 'brave-browser' # web browser
 cask 'discord' # voice and text chat software
-cask 'insomnia' # HTTP and GraphQL Client
 cask 'gitkraken' # Git GUI client
 cask 'jetbrains-toolbox' # jetbrains tools manager
 cask 'obsidian' # knowledge base that works on top of a local folder of plain text Markdown files
@@ -37,10 +34,7 @@ cask 'warp' # a modern, rust-based terminal with AI built in, as alternative to 
 cask 'alt-tab' # a better cmd+tab for macOS
 cask 'raycast' # a better Spotlight for macOS
 cask 'slack' # messaging app
-cask 'polypane' # a feature complete browser for web developers for accesibility
-cask 'pgadmin4' # a web-based interface for managing PostgreSQL databases
-cask 'mongodb-compass' # a GUI for MongoDB
-cask 'notesnook' # a privacy-focused note-taking app
+cask 'polypane' # a feature complete browser for web developers for accessibility
 cask 'pearcleaner' # a cleaner for macOS
 
 # =============================================================================================
@@ -112,6 +106,7 @@ brew 'dotenv-vault' # dotenv plugin for HashiCorp Vault
 brew 'orbstack' # CLI tool for managing OrbOS devices
 brew 'httpie' # user-friendly cURL replacement, the command-line tool
 brew 'jadx' # command-line and GUI tools to decompile Android APK files
+brew 'encore' # Open Source TypeScript Backend Framework for robust type-safe applications
 
 # =============================================================================================
 # Linters, formatters and LSPs
@@ -191,4 +186,3 @@ mas 'numbers', id: 409203825
 mas 'hidden-bar', id: 1452453066
 mas 'whatsapp', id: 310633997
 mas 'telegram', id: 747648890
-mas 'readkit-read-later-rss', id: 1615798039
