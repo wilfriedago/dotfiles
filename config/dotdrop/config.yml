@@ -84,7 +84,7 @@ dotfiles:
     src: config/vscode/snippets
     dst: ~/Library/Application Support/Code/User/snippets
   f_yazi.toml:
-    src: config/yazi/yazi.toml
+    src: config/yazi/config.toml
     dst: ~/.config/yazi/yazi.toml
   d_gitkraken_themes:
     src: config/gitkraken/themes
