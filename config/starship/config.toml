@@ -117,6 +117,7 @@ show_milliseconds = false
 
 [git_branch]
 symbol = " "
+format = '[git:\($branch\)]($style) '
 only_attached = true
 truncation_length = 25
 truncation_symbol = "..."
