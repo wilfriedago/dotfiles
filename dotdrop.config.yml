@@ -1,11 +1,19 @@
 config:
+  # create a backup of the existing destination
   backup: false
+  # do not display the `dotdrop` banner
   banner: false
+  # create a directory hierarchy when installing dotfiles if it doesn't exist
   create: true
+  # path to the directory containing the dotfiles to be managed by `dotdrop`
   dotpath: ~/.dotfiles
+  # preserve leading dot when importing hidden file in the `dotpath`
   keepdot: false
+  # do not link files and copy them instead
   link_dotfile_default: nolink
   link_on_import: nolink
+  # use long keys for dotfiles when importing
+  longkey: false
 profiles:
   default:
     dotfiles:
