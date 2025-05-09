@@ -128,13 +128,8 @@ defaults write com.apple.Safari UniversalSearchEnabled -bool false
 defaults write com.apple.Safari SuppressSearchSuggestions -bool true
 
 # Improve Safari security
-defaults write com.apple.Safari \
-  com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled \
-  -bool false
-defaults write com.apple.Safari \
-  com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabledForLocalFiles \
-  -bool false
-
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled -bool false
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabledForLocalFiles -bool false
 
 # === Text editing ===
 
@@ -170,14 +165,6 @@ defaults write com.apple.ActivityMonitor IconType -int 5
 
 # Show all processes in Activity Monitor
 defaults write com.apple.ActivityMonitor ShowCategory -int 0
-
-
-# === Maccy ===
-
-# https://github.com/p0deje/Maccy
-defaults write org.p0deje.Maccy pasteByDefault true
-defaults write org.p0deje.Maccy historySize 20
-
 
 # Restarting apps:
 echo 'Restarting apps...'
