@@ -17,8 +17,8 @@ profiles:
     - d_lazygit
     - d_neofetch
     - d_nvim
-    - d_starship
     - d_zsh
+    - f_starship
     - f_zprofile
     - f_zshenv
     - f_zshrc
@@ -56,9 +56,9 @@ dotfiles:
   d_nvim:
     src: config/nvim
     dst: ~/.config/nvim
-  d_starship:
-    src: config/starship
-    dst: ~/.config/starship
+  f_starship:
+    src: config/starship/config.toml
+    dst: ~/.config/starship/starship.toml
   d_zsh:
     src: config/zsh
     dst: ~/.config/zsh

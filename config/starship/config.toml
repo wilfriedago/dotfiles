@@ -1,9 +1,8 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# Don't print a newline at the start of the prompt
-add_newline = false
+add_newline = false # Don't print a newline at the start of the prompt
 
-command_timeout = 2000
+command_timeout = 2000 # Timeout for commands in milliseconds
 
 format = """
 $os\
@@ -46,7 +45,6 @@ palette = 'default'
 color_ok = 'bright-green'
 color_danger = 'bright-red'
 color_caution = 'bright-yellow'
-
 color_os = 'red'
 color_username = 'red'
 color_directory = 'yellow'
@@ -61,7 +59,6 @@ color_container = ''
 color_other = ''
 color_time = ''
 color_duration = ''
-
 color_vimcmd_ok = 'green'
 color_vimcmd_replace = 'purple'
 color_vimcmd_visual = 'yellow'
@@ -71,7 +68,7 @@ success_symbol = '[➜](bold green)'
 error_symbol = '[➜](bold red)'
 
 [os]
-disabled = true
+disabled = true # I don't need to know the OS I'm using
 style = "fg:color_os"
 format = '[$symbol]($style)'
 
@@ -113,44 +110,35 @@ time_format = "%R"
 format = '[󰔛 $time ]($style)'
 
 [cmd_duration]
+disabled = false
 min_time = 2000
 format = '[took 󱫑 $duration ]($style)'
 show_milliseconds = false
-disabled = false
 
 [git_branch]
 symbol = " "
 only_attached = true
-ignore_branches = []
 truncation_length = 25
 truncation_symbol = "..."
 always_show_remote = false
-disabled = false
 
 [git_status]
-format = '[($ahead_behind )($all_status )]($style)'
+disabled = false
+format = '[\[($ahead_behind)($all_status)\]]($style)'
 stashed = "*${count}"
 ahead = "⇡${count}"
 behind = "⇣${count}"
 up_to_date = ""
 diverged = "⇡${ahead_count}⇣${behind_count}"
-conflicted = "=${count}"
 deleted = "×${count}"
+conflicted = "=${count}"
 renamed = "»${count}"
 modified = "!${count}"
 staged = "+${count}"
 untracked = "?${count}"
-ignore_submodules = false
-disabled = false
-
-[git_metrics]
-format = '[(([+$added]($added_style))([-$deleted]($deleted_style)) )](fg:color_git)'
-added_style = "fg:color_git_added"
-deleted_style = "fg:color_git_deleted"
-only_nonzero_diffs = true
-disabled = true
 
 [git_state]
+disabled = false
 format = '[($state( $progress_current/$progress_total) )]($style bold)'
 rebase = "REBASING"
 merge = "MERGING"
@@ -159,19 +147,25 @@ cherry_pick = "CHERRY-PICKING"
 bisect = "BISECTING"
 am = "AM"
 am_or_rebase = "AM/REBASE"
-disabled = false
 
-# [shell]
-# zsh_indicator = "󰊠"
-# style = "green bold"
-# disabled = false
+[git_metrics]
+disabled = true
+format = '[(([+$added]($added_style))([-$deleted]($deleted_style)) )](fg:color_git)'
+added_style = "fg:color_git_added"
+deleted_style = "fg:color_git_deleted"
+only_nonzero_diffs = true
 
-# [status]
-# symbol = " "
-# success_symbol = ""
-# not_executable_symbol = " "
-# map_symbol = false
-# disabled = false
+[shell]
+disabled = true
+zsh_indicator = "󰊠"
+style = "green bold"
+
+[status]
+disabled = true
+symbol = " "
+success_symbol = ""
+not_executable_symbol = " "
+map_symbol = false
 
 [directory]
 read_only = " "
@@ -179,9 +173,9 @@ truncation_length = 4
 format = '[$path ]($style)'
 truncate_to_repo = false
 
-# [memory_usage]
-# symbol = "󰍛 "
-# disabled = true
+[memory_usage]
+disabled = true
+symbol = "󰍛 "
 
 [hostname]
 ssh_only = true
@@ -189,12 +183,9 @@ ssh_symbol = " "
 
 [aws]
 symbol = "󰸏 "
-disabled = true
-force_display = false
 
 [azure]
 symbol = " "
-disabled = false
 
 [buf]
 symbol = " "
@@ -210,9 +201,6 @@ symbol = " "
 
 [dart]
 symbol = " "
-
-[docker_context]
-symbol = "󰡨 "
 
 [dotnet]
 symbol = " "
@@ -238,9 +226,6 @@ symbol = " "
 [haskell]
 symbol = " "
 
-[hg_branch]
-symbol = " "
-
 [java]
 symbol = " "
 
@@ -252,7 +237,6 @@ symbol = " "
 
 [kubernetes]
 symbol = "󱃾 "
-disabled = false
 
 [lua]
 symbol = "󰢱 "
@@ -262,9 +246,6 @@ symbol = " "
 
 [nim]
 symbol = " "
-
-[nix_shell]
-symbol = "󱄅 "
 
 [nodejs]
 symbol = "󰎙 "
@@ -280,7 +261,6 @@ symbol = " "
 
 [python]
 symbol = " "
-style = "green bold"
 
 [rlang]
 symbol = "󰟔 "
@@ -299,3 +279,12 @@ symbol = " "
 
 [terraform]
 symbol = "󱁢 "
+
+[nix_shell]
+symbol = "󱄅 "
+
+[hg_branch]
+symbol = " "
+
+[docker_context]
+symbol = "󰡨 "
