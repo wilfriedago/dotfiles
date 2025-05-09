@@ -9,55 +9,55 @@ config:
 profiles:
   default:
     dotfiles:
-    - d_aerospace
-    - d_fabric
-    - d_gh
-    - d_gh-copilot
-    - d_lazydocker
-    - d_lazygit
-    - d_neofetch
-    - d_nvim
-    - d_zsh
-    - f_starship
-    - f_zprofile
-    - f_zshenv
-    - f_zshrc
-    - d_scripts
-    - f_yazi.toml
-    - d_gitkraken_themes
+      - f_aerospace
+      - d_fabric
+      - d_gh
+      - f_gh-copilot
+      - f_lazydocker
+      - f_lazygit
+      - f_neofetch
+      - d_nvim
+      - d_zsh
+      - f_starship
+      - f_zprofile
+      - f_zshenv
+      - f_zshrc
+      - d_scripts
+      - f_yazi.toml
+      - d_gitkraken_themes
   macos:
     dotfiles:
-    - f_vscode_settings
-    - f_vscode_keybindings
-    - d_vscode_snippets
+      - f_vscode_settings
+      - f_vscode_keybindings
+      - d_vscode_snippets
 
 dotfiles:
-  d_aerospace:
-    src: config/aerospace
-    dst: ~/.config/aerospace
+  f_aerospace:
+    src: config/aerospace.toml
+    dst: ~/.config/aerospace/aerospace.toml
   d_fabric:
     src: config/fabric
     dst: ~/.config/fabric
   d_gh:
     src: config/gh
     dst: ~/.config/gh
-  d_gh-copilot:
-    src: config/gh-copilot
-    dst: ~/.config/gh-copilot
-  d_lazydocker:
-    src: config/lazydocker
-    dst: ~/.config/lazydocker
-  d_lazygit:
-    src: config/lazygit
-    dst: ~/.config/lazygit
-  d_neofetch:
-    src: config/neofetch
-    dst: ~/.config/neofetch
+  f_gh-copilot:
+    src: config/gh-copilot.yml
+    dst: ~/.config/gh-copilot/config.yml
+  f_lazydocker:
+    src: config/lazydocker.yml
+    dst: ~/.config/lazydocker/config.yml
+  f_lazygit:
+    src: config/lazygit.yml
+    dst: ~/.config/lazygit/config.yml
+  f_neofetch:
+    src: config/neofetch.conf
+    dst: ~/.config/neofetch/config.conf
   d_nvim:
     src: config/nvim
     dst: ~/.config/nvim
   f_starship:
-    src: config/starship/config.toml
+    src: config/starship.toml
     dst: ~/.config/starship/starship.toml
   d_zsh:
     src: config/zsh
@@ -84,7 +84,7 @@ dotfiles:
     src: config/vscode/snippets
     dst: ~/Library/Application Support/Code/User/snippets
   f_yazi.toml:
-    src: config/yazi/config.toml
+    src: config/yazi.toml
     dst: ~/.config/yazi/yazi.toml
   d_gitkraken_themes:
     src: config/gitkraken/themes
