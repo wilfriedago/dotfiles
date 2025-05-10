@@ -124,7 +124,7 @@ dotfiles:
     src: config/gh-copilot.yml
     dst: ~/.config/gh-copilot/config.yml
   f_k9s:
-    src: config/k9s.yml
+    src: config/k9s.yaml
     dst: ~/.config/k9s/config.yaml
   f_lazydocker:
     src: config/lazydocker.yml
