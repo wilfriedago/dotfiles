@@ -39,6 +39,7 @@ profiles:
       - f_aerospace
       - f_aws
       - f_gh-copilot
+      - f_k9s
       - f_lazydocker
       - f_lazygit
       - f_neofetch
@@ -126,6 +127,9 @@ dotfiles:
   f_gh-copilot:
     src: config/gh-copilot.yml
     dst: ~/.config/gh-copilot/config.yml
+  f_k9s:
+    src: config/k9s.yml
+    dst: ~/.config/k9s/config.yaml
   f_lazydocker:
     src: config/lazydocker.yml
     dst: ~/.config/lazydocker/config.yml
