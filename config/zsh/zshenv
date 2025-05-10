@@ -10,6 +10,7 @@ export LC_ALL=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 export EDITOR='nvim'
+export KUBE_EDITOR='nvim'
 export BUNDLER_EDITOR='nvim'
 
 # local exports
@@ -83,5 +84,13 @@ export HOMEBREW_NO_ENV_HINTS=1 # Disable Homebrew environment hints
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 
+# DOCKER
+# Use Podman socket for Docker CLI if available
+if command -v podman >/dev/null 2>&1; then
+  PODMAN_SOCKET=$(podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}' 2>/dev/null)
+  if [ -n "$PODMAN_SOCKET" ]; then
+    export DOCKER_HOST=unix://$PODMAN_SOCKET
+  fi
+fi
 # STARSHIP
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"

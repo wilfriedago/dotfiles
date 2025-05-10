@@ -1,11 +1,19 @@
 config:
+  # create a backup of the existing destination
   backup: false
+  # do not display the `dotdrop` banner
   banner: false
+  # create a directory hierarchy when installing dotfiles if it doesn't exist
   create: true
+  # path to the directory containing the dotfiles to be managed by `dotdrop`
   dotpath: ~/.dotfiles
+  # preserve leading dot when importing hidden file in the `dotpath`
   keepdot: false
+  # do not link files and copy them instead
   link_dotfile_default: nolink
   link_on_import: nolink
+  # use long keys for dotfiles when importing
+  longkey: false
 profiles:
   default:
     dotfiles:
@@ -29,8 +37,8 @@ profiles:
       - f_zshrc
 
       - f_aerospace
-      - f_aws
       - f_gh-copilot
+      - f_k9s
       - f_lazydocker
       - f_lazygit
       - f_neofetch
@@ -112,12 +120,12 @@ dotfiles:
   f_aerospace:
     src: config/aerospace.toml
     dst: ~/.config/aerospace/aerospace.toml
-  f_aws:
-    src: config/aws.toml
-    dst: ~/.aws/config
   f_gh-copilot:
     src: config/gh-copilot.yml
     dst: ~/.config/gh-copilot/config.yml
+  f_k9s:
+    src: config/k9s.yaml
+    dst: ~/.config/k9s/config.yaml
   f_lazydocker:
     src: config/lazydocker.yml
     dst: ~/.config/lazydocker/config.yml
