@@ -92,5 +92,6 @@ if command -v podman >/dev/null 2>&1; then
     export DOCKER_HOST=unix://$PODMAN_SOCKET
   fi
 fi
+
 # STARSHIP
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
