@@ -117,7 +117,7 @@ show_milliseconds = false
 
 [git_branch]
 symbol = ""
-format = '[git\($branch\):]($style)'
+format = 'on [$symbol $branch]($style):'
 only_attached = true
 truncation_length = 25
 truncation_symbol = "..."
@@ -185,7 +185,7 @@ ssh_symbol = " "
 [kubernetes]
 disabled = false
 symbol = "󱃾 "
-format = '- [kubernetes\($context\):\[$namespace\]]($style) '
+format = 'in [$symbol $context\($namespace\)]($style) '
 
 [aws]
 symbol = "󰸏 "
