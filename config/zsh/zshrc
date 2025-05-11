@@ -48,9 +48,6 @@ setopt hist_ignore_space      # Ignore commands that start with space
 setopt hist_verify            # Show command with history expansion to user before running it
 setopt share_history          # Share command history data between sessions
 
-# Make sure hidden files are included in globbing
-setopt globdots
-
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -93,4 +90,3 @@ source $ZSH/oh-my-zsh.sh
 [ -f "$HOME/.config/zsh/functions.zsh" ] && source "$HOME/.config/zsh/functions.zsh" # Functions
 [ -f "$HOME/.config/zsh/plugins.zsh" ] && source "$HOME/.config/zsh/plugins.zsh" # Plugins
 [ -f "$HOME/.config/zsh/completions.zsh" ] && source "$HOME/.config/zsh/completions.zsh" # Completions
-[ -f "$HOME/.config/zsh/style.zsh" ] && source "$HOME/.config/zsh/style.zsh" # Style

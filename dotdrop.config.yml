@@ -31,7 +31,6 @@ profiles:
       - f_zsh_completions
       - f_zsh_functions
       - f_zsh_plugins
-      - f_zsh_style
       - f_zprofile
       - f_zshenv
       - f_zshrc
@@ -108,9 +107,6 @@ dotfiles:
   f_zsh_plugins:
     src: config/zsh/plugins.zsh
     dst: ~/.config/zsh/plugins.zsh
-  f_zsh_style:
-    src: config/zsh/style.zsh
-    dst: ~/.config/zsh/style.zsh
   f_zprofile:
     src: config/zsh/zprofile
     dst: ~/.zprofile
