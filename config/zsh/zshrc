@@ -64,10 +64,8 @@ plugins=(
   fabric
   fzf-tab
   fast-syntax-highlighting
-  isodate
-  git
-  node
   ssh
+  k9s
   kubectl
   kubectx
   minikube
