@@ -30,12 +30,13 @@ cask 'jetbrains-toolbox' # jetbrains tools manager
 cask 'obsidian' # knowledge base that works on top of a local folder of plain text Markdown files
 cask 'spotify' # music streaming service
 cask 'visual-studio-code' # open-source code editor
-cask 'warp' # a modern, rust-based terminal with AI built in, as alternative to Apple's Terminal app
 cask 'alt-tab' # a better cmd+tab for macOS
 cask 'raycast' # a better Spotlight for macOS
 cask 'slack' # messaging app
 cask 'polypane' # a feature complete browser for web developers for accessibility
 cask 'pearcleaner' # a cleaner for macOS
+cask 'ghostty' # a terminal emulator for macOS
+cask 'podman-desktop' # Podman Desktop is a GUI for Podman
 
 # =============================================================================================
 # QuickLook plugins
@@ -58,52 +59,48 @@ cask 'syntax-highlight' # QuickLook generator for source code files with syntax 
 # CLI tools
 # =============================================================================================
 
-brew 'act' # runs GitHub Actions locally
 brew 'bat' # cat with syntax highlighting and Git integration
-brew 'bottom' # yet another cross-platform graphical process/system monitor
+brew 'ffmpeg' # play, record, convert and stream audio and video
+brew 'btop' # resource monitor that shows usage and stats for processor, memory, disks, network and processes
 brew 'curl' # query HTTP, HTTPS or FTP server
 brew 'dotdrop' # dotfiles manager
-brew 'dsq' # CLI tool for running SQL queries against JSON, CSV, Excel, Parquet
+brew 'dsq' # CLI tool for running SQL queries against JSON, CSV, Excel, Parquet files
 brew 'duckdb' # embeddable SQL OLAP Database Management System
+brew 'gnupg' # GNU Privacy Guard, a free software replacement for Symantec's PGP
 brew 'eza' # modern replacement for 'ls'
 brew 'fd' # simple, fast and user-friendly alternative to find
 brew 'fzf' # command-line fuzzy finder written in go
-brew 'ffmpeg' # play, record, convert, and stream audio and video
 brew 'gcc' # gnu compiler collection
 brew 'gh' # github command-line tool
 brew 'git-delta' # syntax-highlighting pager for git and diff output
-brew 'graphviz' # graph visualization software from at&t and bell labs
 brew 'jq' # lightweight and flexible command-line json processor
-brew 'k9s' # kubernetes cli to manage your clusters in style!
 brew 'skhd' # hotkey daemon for macOS
 brew 'navi' # interactive cheatsheet tool for the command-line
 brew 'neovim' # vim-fork focused on extensibility and usability
+brew 'nmap' # network exploration tool and security/port scanner
 brew 'neofetch' # fast, highly customisable system info script
 brew 'nvm' # manage multiple Node.js versions
 brew 'pinentry-mac' # pinentry for GPG on Mac
-brew 'ripgrep' # search tool like grep and the silver searcher
 brew 'docker' # pack, ship and run any application as a lightweight container
 brew 'docker-compose' # define and run multi-container Docker applications
 brew 'docker-credential-helper' # credentials helper for Docker
 brew 'lazydocker' # lazier way to manage everything docker
 brew 'lazygit' # simple terminal ui for git commands
-brew 'kubectl' # kubernetes command-line tool
+brew 'kubernetes-cli' # kubernetes command-line tool
+brew 'k9s' # kubernetes cli to manage your clusters in style!
 brew 'starship' # cross-shell prompt for astronauts
-brew 'taplo' # pluggable terminal workspace with terminal multiplexer as the base feature
 brew 'tree' # display directories as trees (with optional color/html output)
 brew 'unar' # command-line unarchiving tools supporting multiple formats
 brew 'vhs' # your cli home video recorder
 brew 'wget' # internet file retriever
 brew 'zoxide' # shell extension to navigate your filesystem faster
 brew 'zplug' # next-generation plugin manager for zsh
-brew 'zellij' # pluggable terminal workspace with terminal multiplexer as the base feature
 brew 'yazi' # blazing fast terminal file manager written in Rust, based on async I/O
 brew 'oasdiff' # diff tool for OpenAPI/Swagger files
 brew 'doctl' # DigitalOcean CLI
 brew 'terraform' # infrastructure as code software
 brew 'vault' # secrets management software
 brew 'dotenv-vault' # dotenv plugin for HashiCorp Vault
-brew 'orbstack' # CLI tool for managing OrbOS devices
 brew 'httpie' # user-friendly cURL replacement, the command-line tool
 brew 'jadx' # command-line and GUI tools to decompile Android APK files
 brew 'encore' # Open Source TypeScript Backend Framework for robust type-safe applications
@@ -117,20 +114,15 @@ brew 'ansible-lint' # checks playbooks for practices and behaviour that could po
 brew 'ansible-language-server' # language server for Ansible files
 brew 'bash-language-server' # bash language server that brings an IDE-like experience for bash scripts to most editors
 brew 'dotenv-linter' # linter for .env files
-brew 'dockerfile-language-server' # a language server for Dockerfiles powered by Node.js
-brew 'efm-langserver' # general purpose language server that can handle any language
 brew 'hadolint' # smarter Dockerfile linter to validate best practices
 brew 'ltex-ls' # LSP for LanguageTool with support for Latex
 brew 'marksman' # Language Server Protocol for Markdown
 brew 'shfmt' # autoformat shell script source code
 brew 'texlab' # implementation of the Language Server Protocol for LaTeX
-brew 'typescript-language-server' # LSP implementation for TypeScript wrapping
-brew 'vscode-langservers-extracted' # HTML/CSS/JSON/ESLint language servers extracted from VSCode
 brew 'yamlfmt' # extensible command-line tool to format YAML files
 brew 'yaml-language-server' # language server for YAML Files
 brew 'latexindent' # indentation of LaTeX documents
 brew 'pinentry-mac' # pinentry for GPG on Mac
-brew 'oasdiff' # diff tool for OpenAPI/Swagger files
 
 # =============================================================================================
 # VSCode extensions

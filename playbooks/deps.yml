@@ -8,15 +8,7 @@
       tags: homebrew
       ansible.builtin.shell:
         cmd: |
-          brew bundle --file "deps/Brewfile"
-      failed_when: false
-      changed_when: "'No changes to formulae' not in result.stdout"
-
-    - name: Pip
-      tags: pip
-      ansible.builtin.shell:
-        cmd: |
-          brew bundle --file "deps/requirements.txt"
+          brew bundle --file=~/dotfiles/Brewfile --no-lock --no-upgrade
       failed_when: false
       changed_when: "'No changes to formulae' not in result.stdout"
 
