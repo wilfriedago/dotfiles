@@ -41,6 +41,17 @@ zstyle ':fzf-tab:complete:(\\|*/|)(ls|gls|bat|cat|cd|rm|cp|mv|ln|hx|code|open|so
 # Add an additional debug line to verify when preview is called
 zstyle ':fzf-tab:complete:(\\|*/|)(ls):*' fzf-flags --preview-window=right:60%
 
+# =============================================================================================
+# fzf
+# =============================================================================================
+
+# Check if fzf is installed
+if [[ ! "$PATH" == */opt/fzf/bin* ]]; then
+  export PATH="$PATH:$(brew --prefix)/opt/fzf/bin"
+  eval "$(fzf --zsh)"
+  source "$HOME/.scripts/fzf/fzf-zsh-completion.sh"
+fi
+
 # `.fzf` is used to provide fzf configuration for the shell
 export FZF_DEFAULT_COMMAND="
   fd \

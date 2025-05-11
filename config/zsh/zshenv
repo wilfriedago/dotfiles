@@ -9,9 +9,9 @@ export LC_ALL=en_US.UTF-8
 # export ARCHFLAGS="-arch x86_64"
 
 # Preferred editor for local and remote sessions
-export EDITOR='nvim'
-export KUBE_EDITOR='nvim'
-export BUNDLER_EDITOR='nvim'
+export EDITOR="$(which nvim)"
+export KUBE_EDITOR=$EDITOR
+export BUNDLER_EDITOR=$EDITOR
 
 # local exports
 export PATH="/usr/local/bin:$PATH"
@@ -97,12 +97,6 @@ fi
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
 # FZF
-if [[ ! "$PATH" == */opt/fzf/bin* ]]; then
-  export PATH="$PATH:$(brew --prefix)/opt/fzf/bin"
-  eval "$(fzf --zsh)"
-  source "$HOME/.scripts/fzf/fzf-zsh-completion.sh"
-fi
-
 _fzf_complete_realpath() {
   local realpath="$1"
   if [ -d "$realpath" ]; then
