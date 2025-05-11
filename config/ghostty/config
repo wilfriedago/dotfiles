@@ -1,0 +1,32 @@
+# Shell
+shell-integration = zsh
+
+# Font
+font-family = "Dank Mono"
+font-size = 13
+font-thicken = true
+
+# Background
+background-opacity = 0.5
+background-blur = true
+
+# Themes
+config-file = "themes/vitesse-black"
+
+# Shaders
+# custom-shader = shaders/bloom.glsl
+# custom-shader = shaders/test.glsl
+
+# Mouse
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 2
+
+# Cursor
+cursor-style = block
+
+# Window
+window-padding-x = 10
+
+# MacOS
+macos-titlebar-style = tabs
+macos-titlebar-proxy-icon = hidden
