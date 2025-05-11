@@ -16,6 +16,7 @@ config-file = "themes/vitesse-black"
 # Shaders
 # custom-shader = shaders/bloom.glsl
 # custom-shader = shaders/test.glsl
+# custom-shader = shaders/dez.glsl
 
 # Mouse
 mouse-hide-while-typing = true
@@ -26,7 +27,13 @@ cursor-style = block
 
 # Window
 window-padding-x = 10
+window-padding-balance = true
 
 # MacOS
 macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
+
+# Keybindings
+keybind = super+r=reload_config
+keybind = super+i=inspector:toggle
+keybind = super+l=clear_screen
