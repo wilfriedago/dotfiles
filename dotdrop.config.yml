@@ -37,6 +37,7 @@ profiles:
       - f_aerospace
       - f_btop
       - f_gh-copilot
+      - f_gpg-agent
       - d_ghostty_shaders
       - d_ghostty_themes
       - f_ghostty_config
@@ -122,6 +123,9 @@ dotfiles:
   f_gh-copilot:
     src: config/gh-copilot.yml
     dst: ~/.config/gh-copilot/config.yml
+  f_gpg-agent:
+    src: config/gpg-agent.conf
+    dst: ~/.gnupg/gpg-agent.conf
   d_ghostty_shaders:
     src: config/ghostty/shaders
     dst: ~/.config/ghostty/shaders
