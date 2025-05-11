@@ -123,7 +123,6 @@ brew 'texlab' # implementation of the Language Server Protocol for LaTeX
 brew 'yamlfmt' # extensible command-line tool to format YAML files
 brew 'yaml-language-server' # language server for YAML Files
 brew 'latexindent' # indentation of LaTeX documents
-brew 'pinentry-mac' # pinentry for GPG on Mac
 
 # =============================================================================================
 # VSCode extensions
