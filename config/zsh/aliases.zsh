@@ -93,9 +93,6 @@ alias gw='./gradlew'
 # terraform
 alias tf='terraform'
 
-# doctl
-alias doc='doctl'
-
 # dotenv
 alias dotlint='dotenv-linter'
 alias dotvault='dotenv-vault'
@@ -111,7 +108,6 @@ alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 alias flushdns="sudo killall -HUP mDNSResponder" # flush dns cache
 alias pubkey="cat ~/.ssh/id_ed25519.pub | pbcopy | echo 'Public Key => Copied to clipboard.'" # copy ssh public key to clipboard
 alias lzd="lazydocker" # run Docker TUI
-alias llama='ollama run lama3' # run lama3
 alias yz='yazi' # run yazi
 alias top='btop' # run btop
 alias htop='btop' # run htop
