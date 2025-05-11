@@ -62,6 +62,7 @@ cask 'syntax-highlight' # QuickLook generator for source code files with syntax 
 brew 'bat' # cat with syntax highlighting and Git integration
 brew 'ffmpeg' # play, record, convert and stream audio and video
 brew 'btop' # resource monitor that shows usage and stats for processor, memory, disks, network and processes
+brew 'catimg' # command-line tool to display images in the terminal
 brew 'curl' # query HTTP, HTTPS or FTP server
 brew 'dotdrop' # dotfiles manager
 brew 'dsq' # CLI tool for running SQL queries against JSON, CSV, Excel, Parquet files
