@@ -37,6 +37,7 @@ profiles:
       - f_zshrc
 
       - f_aerospace
+      - f_btop
       - f_gh-copilot
       - d_ghostty_shaders
       - d_ghostty_themes
@@ -123,6 +124,9 @@ dotfiles:
   f_aerospace:
     src: config/aerospace.toml
     dst: ~/.config/aerospace/aerospace.toml
+  f_btop:
+    src: config/btop.conf
+    dst: ~/.config/btop/btop.conf
   f_gh-copilot:
     src: config/gh-copilot.yml
     dst: ~/.config/gh-copilot/config.yml
