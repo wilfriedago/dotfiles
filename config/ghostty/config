@@ -9,14 +9,10 @@ font-thicken = true
 # Background
 background-opacity = 0.7
 background-blur = true
+background-blur-radius = 20
 
 # Themes
-config-file = "themes/vitesse-black"
-
-# Shaders
-# custom-shader = shaders/bloom.glsl
-# custom-shader = shaders/test.glsl
-# custom-shader = shaders/dez.glsl
+config-file = "themes/vitesse-dark"
 
 # Mouse
 mouse-hide-while-typing = true
@@ -32,8 +28,14 @@ window-padding-balance = true
 # MacOS
 macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
+macos-option-as-alt = true
 
 # Keybindings
 keybind = super+r=reload_config
 keybind = super+i=inspector:toggle
 keybind = super+l=clear_screen
+
+# Shaders
+# custom-shader = shaders/bloom.glsl
+# custom-shader = shaders/test.glsl
+# custom-shader = shaders/dez.glsl
