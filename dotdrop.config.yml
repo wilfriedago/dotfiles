@@ -38,6 +38,9 @@ profiles:
 
       - f_aerospace
       - f_gh-copilot
+      - d_ghostty_shaders
+      - d_ghostty_themes
+      - f_ghostty_config
       - f_k9s
       - f_lazydocker
       - f_lazygit
@@ -123,6 +126,15 @@ dotfiles:
   f_gh-copilot:
     src: config/gh-copilot.yml
     dst: ~/.config/gh-copilot/config.yml
+  d_ghostty_shaders:
+    src: config/ghostty/shaders
+    dst: ~/.config/ghostty/shaders
+  d_ghostty_themes:
+    src: config/ghostty/themes
+    dst: ~/.config/ghostty/themes
+  f_ghostty_config:
+    src: config/ghostty/config
+    dst: ~/.config/ghostty/config
   f_k9s:
     src: config/k9s.yaml
     dst: ~/.config/k9s/config.yaml
