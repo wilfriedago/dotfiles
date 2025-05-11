@@ -40,7 +40,7 @@ zstyle ':fzf-tab:*' switch-group '<' '>'
 if [[ ! "$PATH" == */opt/fzf/bin* ]]; then
   export PATH="$PATH:$(brew --prefix)/opt/fzf/bin"
   eval "$(fzf --zsh)"
-  source "$HOME/.scripts/fzf/fzf-git.sh"
+
   source "$HOME/.scripts/fzf/fzf-zsh-completion.sh"
 fi
 
