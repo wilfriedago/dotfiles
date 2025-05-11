@@ -44,7 +44,6 @@ if [[ ! "$PATH" == */opt/fzf/bin* ]]; then
   source "$HOME/.scripts/fzf/fzf-zsh-completion.sh"
 fi
 
-
 export FZF_DEFAULT_COMMAND="
   fd \
   --strip-cwd-prefix \
