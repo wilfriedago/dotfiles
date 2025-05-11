@@ -13,37 +13,35 @@ setopt globdots
 # zstyle ':omz:update' frequency 13
 
 zstyle ':completion:*' fzf-search-display true
+
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
 # set descriptions format to enable group support
 # NOTE: don't use escape sequences here, fzf-tab will ignore them
 zstyle ':completion:*:descriptions' format '[%d]'
+
 # set list-colors to enable filename colorizing
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
 # force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
 zstyle ':completion:*' menu no
+
 # hide parents
 zstyle ':completion:*' ignored-patterns '.|..|.DS_Store|**/.|**/..|**/.DS_Store|**/.git'
+
 # hide `..` and `.` from file menu
 zstyle ':completion:*' ignore-parents 'parent pwd directory'
-# preview directory's content with eza when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+
 # switch group using `<` and `>`
 zstyle ':fzf-tab:*' switch-group '<' '>'
 
+# complete `ls` / `cat` / etc
+zstyle ':fzf-tab:complete:(\\|*/|)(ls|gls|bat|cat|cd|rm|cp|mv|ln|hx|code|open|source|z|eza):*' fzf-preview '_fzf_complete_realpath "$realpath"'
+
+# Add an additional debug line to verify when preview is called
+zstyle ':fzf-tab:complete:(\\|*/|)(ls):*' fzf-flags --preview-window=right:60%
+
 # `.fzf` is used to provide fzf configuration for the shell
-
-# =============================================================================================
-# fzf
-# =============================================================================================
-
-if [[ ! "$PATH" == */opt/fzf/bin* ]]; then
-  export PATH="$PATH:$(brew --prefix)/opt/fzf/bin"
-  eval "$(fzf --zsh)"
-
-  source "$HOME/.scripts/fzf/fzf-zsh-completion.sh"
-fi
-
 export FZF_DEFAULT_COMMAND="
   fd \
   --strip-cwd-prefix \

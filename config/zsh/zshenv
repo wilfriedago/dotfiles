@@ -95,3 +95,26 @@ fi
 
 # STARSHIP
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+
+# FZF
+if [[ ! "$PATH" == */opt/fzf/bin* ]]; then
+  export PATH="$PATH:$(brew --prefix)/opt/fzf/bin"
+  eval "$(fzf --zsh)"
+  source "$HOME/.scripts/fzf/fzf-zsh-completion.sh"
+fi
+
+_fzf_complete_realpath() {
+  local realpath="$1"
+  if [ -d "$realpath" ]; then
+    eza -al --tree --icons --level=3 --no-permissions --no-user --no-time --no-filesize "$realpath" | head -100
+  else
+    mime="$(file -Lbs --mime-type "$realpath")"
+    category="${mime%%/*}"
+    if [ "$category" = 'image' ]; then
+      local default_width=$(( "$FZF_PREVIEW_COLUMNS" < 60 ? 60 : "$FZF_PREVIEW_COLUMNS" ))
+      catimg -r2 -w "$default_width" "$realpath"
+    else
+      bat -n --color=always --line-range :100 "$realpath"
+    fi
+  fi
+}
