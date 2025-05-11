@@ -43,7 +43,7 @@ profiles:
       - f_lazygit
       - f_neofetch
       - f_starship
-      - f_yazi.toml
+      - f_yazi
 
       - d_scripts
   macos:
@@ -138,7 +138,7 @@ dotfiles:
   f_starship:
     src: config/starship.toml
     dst: ~/.config/starship/starship.toml
-  f_yazi.toml:
+  f_yazi:
     src: config/yazi.toml
     dst: ~/.config/yazi/yazi.toml
 
