@@ -28,7 +28,7 @@ git clone https://github.com/wilfriedago/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ```
 
-2. Install dependencies and set up environment:
+2. Install dependencies and set up the environment
 
 ```sh
 # install core: homebrew, zsh, oh-my-zsh and configs (optional)
@@ -38,7 +38,7 @@ ansible-playbook playbooks/shell.yml
 ansible-playbook playbooks/deps.yml
 ```
 
-3. Deploy dotfil
+3. Deploy dotfiles
 
 ```sh
 dotdrop install -c dotdrop.config.yaml -p default --force
@@ -68,9 +68,9 @@ A complete list of configurations for each tool can be found in the [`config`](c
 
 ### Terminal
 
-I switch from [Warp](https://warp.dev) to [Ghossty](https://ghostty.org) terminal emulator, which is a lightweight terminal emulator that supports tabs and has a minimalistic design. It is fast and responsive, making it ideal for development work. And as a bonus, it has a built-in terminal multiplexer, so I don't need to use [tmux](https://github.com/tmux/tmux).
+I switched from [Warp](https://warp.dev) to [Ghossty](https://ghostty.org) terminal emulator, which is a lightweight terminal emulator that supports tabs and has a minimalistic design. It is fast and responsive, making it ideal for development work. And as a bonus, it has a built-in terminal multiplexer, so I don't need to use [tmux](https://github.com/tmux/tmux).
 
-### Application Launcher - Raycast
+### Application Launcher
 
 I recently moved from the default macOS Spotlight to [Raycast](https://www.raycast.com). While it offers an impressive range of features and a sleek user experience, many of its advanced capabilities are locked behind a Pro subscription, which I find limiting. As a result, I'm currently exploring alternative solutions.
 
@@ -84,19 +84,18 @@ Here's a list of [extensions](Brewfile) I use daily, but I try to keep my `VSCod
 
 #### Zed
 
-Despite my love for VSCode, it still has limitations and I like to explore new tools, so currently I am trying to move my day-to-day work to [Zed](https://zed.dev), which I think, as an editor, has a bright future. I personally like how it can be configured and the way plugins are installed.
+Despite my love for VSCode, it still has limitations and I like to explore new tools, so currently I am trying to move my day-to-day work to [Zed](https://zed.dev), which I think, as an editor, has a bright future. I like how it can be configured and the way plugins are installed.
 
 My Zed plugins and configuration can be found [here](config/zed/settings.json), and the keymaps can be found [here](config/zed/keymap.json).
 
 ### Hotkey Daemons
 
-Because I am using a primarily external keyboard and in most of my apps I rely on either Vi/Kakoune motions I find it painful to use the mouse as it requires moving my right hand out of the keyboard and distracts my "zen" state :3 In most the dev apps you can enable such modes but in the default MacOS apps or windows manager such functionality is absent
+Because I am using a primarily external keyboard and in most of my apps I rely on either Vi/Kakoune motions, I find it painful to use the mouse as it requires moving my right hand out of the keyboard and distracts my "zen" state :3. In most dev apps you can enable such modes, but in the default macOS apps or window manager such functionality is absent.
 To resolve this issue I am using two daemons:
 - [`Karabiner-Elements`](https://karabiner-elements.pqrs.org/) - to remap keys and create custom keybindings
   - I have a custom profile that allows me to use `Caps Lock` as `Esc` and `Ctrl` as `Command` key
   - I also have a custom profile for `Fn` key to act as `Ctrl` when pressed with other keys
   - I have a custom profile for `Command` key to act as `Ctrl` when pressed with other keys
-- [`skhd`](https://github.com/koekeishiya/skhd) - to manage keybinding for tilling window manager
 
 ### Window Management
 
