@@ -83,6 +83,8 @@ alias lt="eza -al --icons --tree --level=3  --git" # ls tree with icons and git 
 
 # dotdrop
 alias dot='dotdrop --profile=default --cfg=~/.dotfiles/dotdrop.config.yml' # dotdrop with default profile
+alias doti='dot install' # install dotfiles
+alias dotu='dot update' # update dotfiles
 
 # zoxide
 alias cd='z' # change directory with zoxide
@@ -109,8 +111,6 @@ alias flushdns="sudo killall -HUP mDNSResponder" # flush dns cache
 alias pubkey="cat ~/.ssh/id_ed25519.pub | pbcopy | echo 'Public Key => Copied to clipboard.'" # copy ssh public key to clipboard
 alias lzd="lazydocker" # run Docker TUI
 alias yz='yazi' # run yazi
-alias top='btop' # run btop
-alias htop='btop' # run htop
 
 # Get macOS Software Updates, and update installed Homebrew, npm, and their installed packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; pnpm add -g pnpm -g; pnpm update -g; gh extension upgrade --all; omz update'
