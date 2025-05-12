@@ -62,6 +62,7 @@ plugins=(
   doctl
   eza
   fabric
+  fzf
   fzf-tab
   fast-syntax-highlighting
   ssh
