@@ -1,76 +1,70 @@
 config:
-  # create a backup of the existing destination
   backup: false
-  # do not display the `dotdrop` banner
   banner: false
-  # create a directory hierarchy when installing dotfiles if it doesn't exist
   create: true
-  # path to the directory containing the dotfiles to be managed by `dotdrop`
   dotpath: ~/.dotfiles
-  # preserve leading dot when importing hidden file in the `dotpath`
   keepdot: false
-  # do not link files and copy them instead
   link_dotfile_default: nolink
   link_on_import: nolink
-  # use long keys for dotfiles when importing
   longkey: false
 profiles:
   default:
     dotfiles:
-      - d_fabric
-      - d_gh
-      - d_gitkraken_themes
-      - d_nvim
+    - d_fabric
+    - d_gh
+    - d_gitkraken_themes
+    - d_nvim
 
       # Zed configuration files
-      - f_zed_settings
-      - f_zed_keymap
+    - f_zed_settings
+    - f_zed_keymap
 
       # Zsh configuration files
-      - f_zsh_aliases
-      - f_zsh_completions
-      - f_zsh_functions
-      - f_zprofile
-      - f_zshenv
-      - f_zshrc
+    - f_zsh_aliases
+    - f_zsh_completions
+    - f_zsh_functions
+    - f_zprofile
+    - f_zshenv
+    - f_zshrc
 
-      - f_aerospace
-      - f_btop
-      - f_gh-copilot
-      - f_gpg-agent
-      - d_ghostty_shaders
-      - d_ghostty_themes
-      - f_ghostty_config
-      - f_k9s
-      - f_lazydocker
-      - f_lazygit
-      - f_neofetch
-      - f_starship
-      - f_yazi
+    - f_aerospace
+    - f_btop
+    - f_gh-copilot
+    - f_gpg-agent
+    - d_ghostty_shaders
+    - d_ghostty_themes
+    - f_ghostty_config
+    - f_k9s
+    - f_lazydocker
+    - f_lazygit
+    - f_neofetch
+    - f_starship
+    - f_yazi
 
-      - d_scripts
+    - d_scripts
+    - d_bin
   macos:
     dotfiles:
-      - f_vscode_custom_js
-      - f_vscode_custom_css
+    - f_vscode_custom_js
+    - f_vscode_custom_css
 
       # Default profile vscode configuration files
-      - d_vscode_snippets
-      - f_vscode_settings
-      - f_vscode_extensions
-      - f_vscode_keybindings
+    - d_vscode_snippets
+    - f_vscode_settings
+    - f_vscode_extensions
+    - f_vscode_keybindings
 
       # Database profile vscode configuration files
-      - d_vscode_database_snippets
-      - f_vscode_database_settings
-      - f_vscode_database_extensions
-      - f_vscode_database_keybindings
+    - d_vscode_database_snippets
+    - f_vscode_database_settings
+    - f_vscode_database_extensions
+    - f_vscode_database_keybindings
 
       # Frontend profile vscode configuration files
-      - d_vscode_frontend_snippets
-      - f_vscode_frontend_settings
-      - f_vscode_frontend_extensions
-      - f_vscode_frontend_keybindings
+    - d_vscode_frontend_snippets
+    - f_vscode_frontend_settings
+    - f_vscode_frontend_extensions
+    - f_vscode_frontend_keybindings
 
 dotfiles:
   d_fabric:
@@ -85,16 +79,12 @@ dotfiles:
   d_nvim:
     src: config/nvim
     dst: ~/.config/nvim
-
-  # Zed configuration files
   f_zed_settings:
     src: config/zed/settings.json
     dst: ~/.config/zed/settings.json
   f_zed_keymap:
     src: config/zed/keymap.json
     dst: ~/.config/zed/keymap.json
-
-  # Zsh configuration files
   f_zsh_aliases:
     src: config/zsh/aliases.zsh
     dst: ~/.config/zsh/aliases.zsh
@@ -113,7 +103,6 @@ dotfiles:
   f_zshrc:
     src: config/zsh/zshrc
     dst: ~/.zshrc
-
   f_aerospace:
     src: config/aerospace.toml
     dst: ~/.config/aerospace/aerospace.toml
@@ -153,20 +142,15 @@ dotfiles:
   f_yazi:
     src: config/yazi.toml
     dst: ~/.config/yazi/yazi.toml
-
   d_scripts:
     src: scripts
     dst: ~/.scripts
-
-  # VSCode configuration files
   f_vscode_custom_js:
     src: config/vscode/custom.js
     dst: ~/Library/Application Support/Code/User/custom.js
   f_vscode_custom_css:
     src: config/vscode/custom.css
     dst: ~/Library/Application Support/Code/User/custom.css
-
-  # Default profile vscode configuration files
   d_vscode_snippets:
     src: config/vscode/snippets
     dst: ~/Library/Application Support/Code/User/snippets
@@ -179,8 +163,6 @@ dotfiles:
   f_vscode_keybindings:
     src: config/vscode/keybindings.json
     dst: ~/Library/Application Support/Code/User/keybindings.json
-
-  # Database profile vscode configuration files
   d_vscode_database_snippets:
     src: config/vscode/snippets
     dst: ~/Library/Application Support/Code/User/profiles/-7dccf8ce/snippets
@@ -193,8 +175,6 @@ dotfiles:
   f_vscode_database_keybindings:
     src: config/vscode/keybindings.json
     dst: ~/Library/Application Support/Code/User/profiles/-7dccf8ce/keybindings.json
-
-  # Frontend profile vscode configuration files
   d_vscode_frontend_snippets:
     src: config/vscode/snippets
     dst: ~/Library/Application Support/Code/User/profiles/13ab142b/snippets
@@ -207,3 +187,6 @@ dotfiles:
   f_vscode_frontend_keybindings:
     src: config/vscode/keybindings.json
     dst: ~/Library/Application Support/Code/User/profiles/13ab142b/keybindings.json
+  d_bin:
+    src: bin
+    dst: ~/.local/bin
