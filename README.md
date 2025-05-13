@@ -49,7 +49,7 @@ dotdrop install -c dotdrop.config.yaml -p macos --force
 
 ### Shell
 
-For the shell, I am using [Zsh](https://www.zsh.org) with [Oh My Zsh](https://ohmyz.sh) and a custom theme. I have a few plugins installed, but I try to keep them minimal to avoid clutter. My Zsh configuration is modular, with separate files for aliases, completions, functions, plugins, and styles. I also use [Starship](https://starship.rs) as my prompt. Check the [`config/zsh`](config/zsh) directory for my Zsh configuration and [`config/starship.toml`](config/starship.toml) for the Starship configuration.
+For the shell, I am using [Zsh](https://www.zsh.org). I have a few plugins installed, but I try to keep them minimal to avoid clutter. My Zsh configuration is modular, with separate files for aliases, completions and functions. I also use [Starship](https://starship.rs) as my prompt. Check the [`config/zsh`](config/zsh) directory for my Zsh configuration and [`config/starship.toml`](config/starship.toml) for the Starship configuration.
 
 In terms of command-line tools, I try to keep them minimal—only the ones I use daily, such as:
 
@@ -64,11 +64,11 @@ In terms of command-line tools, I try to keep them minimal—only the ones I use
 - [`yazi`](https://github.com/sxyazi/yazi) - A terminal file manager
 - [`zoxide`](https://github.com/ajeetdsouza/zoxide) - A smarter `cd`
 
-A complete list of configurations for each tool can be found in the [`config`](config) directory.
+A complete list of configurations for each tool can be found in the [`Brewfile`](Brewfile#L57) directory.
 
 ### Terminal
 
-I switched from [Warp](https://warp.dev) to [Ghossty](https://ghostty.org) terminal emulator, which is a lightweight terminal emulator that supports tabs and has a minimalistic design. It is fast and responsive, making it ideal for development work. And as a bonus, it has a built-in terminal multiplexer, so I don't need to use [tmux](https://github.com/tmux/tmux).
+I use [Ghossty](https://ghostty.org) as terminal emulator, which is a lightweight terminal emulator that supports tabs and has a minimalistic design. It is fast and responsive, making it ideal for development work. And as a bonus, it has a built-in terminal multiplexer.
 
 ### Application Launcher
 
@@ -78,7 +78,7 @@ I recently moved from the default macOS Spotlight to [Raycast](https://www.rayca
 
 #### VSCode
 
-I absolutely love [VSCode](https://code.visualstudio.com) - it's a simple and yet very extensible and powerful editor.
+I use [VSCode](https://code.visualstudio.com) - it's a simple and yet very extensible and powerful editor.
 
 Here's a list of [extensions](Brewfile#L124) I use daily, but I try to keep my `VSCode` setup as simple as possible. I tend to separate my work into different profiles, so I have a few profiles for different development contexts. Each profile has its own settings, keybindings, extensions, and snippets.
 
