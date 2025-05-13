@@ -1,19 +1,3 @@
-# Load Angular CLI autocompletion.
-source <(ng completion script)
-
-# Make sure hidden files are included in globbing
-setopt globdots
-
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
-
-zstyle ':completion:*' fzf-search-display true
-
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
 # set descriptions format to enable group support
@@ -32,25 +16,14 @@ zstyle ':completion:*' ignored-patterns '.|..|.DS_Store|**/.|**/..|**/.DS_Store|
 # hide `..` and `.` from file menu
 zstyle ':completion:*' ignore-parents 'parent pwd directory'
 
+# show all files in the file menu
+zstyle ':completion:*' fzf-search-display true
+
 # switch group using `<` and `>`
 zstyle ':fzf-tab:*' switch-group '<' '>'
 
 # complete `ls` / `cat` / etc
-zstyle ':fzf-tab:complete:(\\|*/|)(ls|gls|bat|cat|cd|rm|cp|mv|ln|hx|code|open|source|z|eza):*' fzf-preview '_fzf_complete_realpath "$realpath"'
-
-# Add an additional debug line to verify when preview is called
-zstyle ':fzf-tab:complete:(\\|*/|)(ls):*' fzf-flags --preview-window=right:60%
-
-# =============================================================================================
-# fzf
-# =============================================================================================
-
-# Check if fzf is installed
-if [[ ! "$PATH" == */opt/fzf/bin* ]]; then
-  export PATH="$PATH:$(brew --prefix)/opt/fzf/bin"
-  eval "$(fzf --zsh)"
-  source "$HOME/.scripts/fzf/fzf-zsh-completion.sh"
-fi
+zstyle ':fzf-tab:complete:(\\|*/|)(ls|gls|bat|cat|cd|rm|cp|mv|ln|hx|code|open|source|z|eza):*' fzf-preview 'fzf_complete_realpath "$realpath"'
 
 # `.fzf` is used to provide fzf configuration for the shell
 export FZF_DEFAULT_COMMAND="
@@ -102,8 +75,8 @@ export FZF_CTRL_R_OPTS=" \
   --color header:italic
 "
 
-export FZF_CTRL_T_OPTS="$FZF_DEFAULT_OPTS --preview '_fzf_complete_realpath {}'"
-export FZF_ALT_C_OPTS="$FZF_DEFAULT_OPTS --preview '_fzf_complete_realpath {}'"
+export FZF_CTRL_T_OPTS="$FZF_DEFAULT_OPTS --preview 'fzf_complete_realpath {}'"
+export FZF_ALT_C_OPTS="$FZF_DEFAULT_OPTS --preview 'fzf_complete_realpath {}'"
 
 # =============================================================================================
 # zoxide
@@ -118,7 +91,7 @@ export _ZO_FZF_OPTS="
   --cycle \
   --exit-0 \
   --tabstop=1 \
-  --preview='_fzf_complete_realpath {2..}'
+  --preview='fzf_complete_realpath {2..}'
 "
 
 # remap default keybinding with `z name<tab>`

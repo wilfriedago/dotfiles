@@ -18,7 +18,11 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/opt/local/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# Man
+export MANPATH="/usr/local/man:$MANPATH"
+
+# STARSHIP
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
 # =============================================================================================
 # Programming languages
@@ -63,7 +67,7 @@ esac
 # =============================================================================================
 
 # NODE
-[ -d "$PWD/node_modules/.bin" ] && export PATH="$PWD/node_modules/.bin:$PATH" # Automatically add node_modules/.bin to PATH if present
+[ -d "$PWD/node_modules/.bin" ] && export PATH="$PWD/node_modules/.bin:$PATH"
 
 # BUN
 export BUN_INSTALL="$HOME/.bun"
@@ -84,31 +88,10 @@ export HOMEBREW_NO_ENV_HINTS=1 # Disable Homebrew environment hints
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 
-# DOCKER
-# Use Podman socket for Docker CLI if available
+# PODMAN x DOCKER
 if command -v podman >/dev/null 2>&1; then
   PODMAN_SOCKET=$(podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}' 2>/dev/null)
   if [ -n "$PODMAN_SOCKET" ]; then
     export DOCKER_HOST=unix://$PODMAN_SOCKET
   fi
 fi
-
-# STARSHIP
-export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
-
-# FZF
-_fzf_complete_realpath() {
-  local realpath="$1"
-  if [ -d "$realpath" ]; then
-    eza -al --tree --icons --level=3 --no-permissions --no-user --no-time --no-filesize "$realpath" | head -100
-  else
-    mime="$(file -Lbs --mime-type "$realpath")"
-    category="${mime%%/*}"
-    if [ "$category" = 'image' ]; then
-      local default_width=$(( "$FZF_PREVIEW_COLUMNS" < 60 ? 60 : "$FZF_PREVIEW_COLUMNS" ))
-      catimg -r2 -w "$default_width" "$realpath"
-    else
-      bat -n --color=always --line-range :100 "$realpath"
-    fi
-  fi
-}
