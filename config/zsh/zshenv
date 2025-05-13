@@ -40,18 +40,6 @@ export PATH="$GOROOT/bin:$GOPATH/bin:$PATH" # Add Go binaries to PATH
 [ -d "$HOME/.cargo/env" ] && source "$HOME/.cargo/env" # Load Rust environment
 
 # =============================================================================================
-# Version managers
-# =============================================================================================
-
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# SDKMAN
-export SDKMAN_DIR="$HOME/.sdkman"
-[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
-
-# =============================================================================================
 # Dependencies managers
 # =============================================================================================
 
@@ -78,7 +66,55 @@ export PATH="$BUN_INSTALL/bin:$PATH" # Add bun to PATH
 # Tools
 # =============================================================================================
 
-# HOMEBREW (macOS-only)
+# NVM
+lazy-nvm()
+{
+  unset -f nvm node npm npx pnpm pnpx
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+}
+
+nvm()
+{
+  lazy-nvm
+  nvm $@
+}
+
+node()
+{
+  lazy-nvm
+  node $@
+}
+
+npm()
+{
+  lazy-nvm
+  npm $@
+}
+
+npx()
+{
+  lazy-nvm
+  npx $@
+}
+
+pnpm()
+{
+  lazy-nvm
+  pnpm $@
+}
+
+pnpx()
+{
+  lazy-nvm
+  pnpx $@
+}
+
+# SDKMAN
+export SDKMAN_DIR="$HOME/.sdkman"
+[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+
+# HOMEBREW
 export HOMEBREW_NO_ANALYTICS=1 # Disable Homebrew analytics
 export HOMEBREW_DEVELOPER=1 # Enable developer mode
 export HOMEBREW_AUTO_UPDATE_SECS=604800 # 1 week
