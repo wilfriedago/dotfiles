@@ -1,3 +1,6 @@
+# DEBUG: zshrc
+# zmodload zsh/zprof
+
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -95,3 +98,6 @@ source <(ng completion script)
 # Clean up PATH
 typeset -U PATH
 clean_path_silently
+
+# DEBUG: zshrc
+# zprof
