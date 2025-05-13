@@ -9,7 +9,7 @@ export LC_ALL=en_US.UTF-8
 # export ARCHFLAGS="-arch x86_64"
 
 # Preferred editor for local and remote sessions
-export EDITOR="$(which nvim)"
+export EDITOR="/opt/homebrew/bin/nvim"
 export KUBE_EDITOR=$EDITOR
 export BUNDLER_EDITOR=$EDITOR
 
@@ -59,8 +59,7 @@ esac
 
 # BUN
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH" # Add bun to PATH
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun" # This loads bun bash_completion
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 # =============================================================================================
 # Tools
