@@ -104,6 +104,13 @@ _fzf_completion() {
         if builtin zstyle -t "$_FZF_COMPLETION_CONTEXT" fzf-search-display; then
             _FZF_COMPLETION_SEARCH_DISPLAY=1
         fi
+        local _FZF_COMPLETION_SECONDARY_COLOR=
+        if ! builtin zstyle -s "$_FZF_COMPLETION_CONTEXT" fzf-completion-secondary-color _FZF_COMPLETION_SECONDARY_COLOR; then
+            _FZF_COMPLETION_SECONDARY_COLOR=white
+        fi
+        if [[ -n "$_FZF_COMPLETION_SECONDARY_COLOR" ]]; then
+            print -v _FZF_COMPLETION_SECONDARY_COLOR -P "%F{$_FZF_COMPLETION_SECONDARY_COLOR}"
+        fi
 
         set -o monitor +o notify
         exec {__evaled}>&1
@@ -207,6 +214,19 @@ _fzf_completion_post() {
 _fzf_completion_selector() {
   local lines=() reply REPLY
   exec {tty}</dev/tty
+  local fzf="$(__fzfcmd 2>/dev/null || echo fzf)"
+  local default_height="${FZF_TMUX_HEIGHT:-40%}"
+  if [[ -z "$FZF_TMUX_HEIGHT" ]]; then
+      # get the cursor pos
+      printf '\e[6n' >/dev/tty
+      local buf c match MATCH
+      until [[ "$buf" =~ $'\x1b\\[([0-9]+);[0-9]+R' ]]; do
+          read -s -k1 c </dev/tty && buf+="$c"
+      done
+      if [[ "$fzf" == fzf ]] && (( LINES - match[1] > LINES * 0.4 )); then
+          default_height="$(( LINES - match[1] ))"
+      fi
+  fi
   while (( ${#lines[@]} < 2 )); do
     zselect -r 0 "$tty"
     if (( reply[2] == 0 )); then
@@ -230,8 +250,8 @@ _fzf_completion_selector() {
   fi
 
   local flags=() keybinds=()
-  zstyle -a "$_FZF_COMPLETION_CONTEXT" fzf-completion-opts flags
-  zstyle -a "$_FZF_COMPLETION_CONTEXT" fzf-completion-keybindings keybinds
+  builtin zstyle -a "$_FZF_COMPLETION_CONTEXT" fzf-completion-opts flags
+  builtin zstyle -a "$_FZF_COMPLETION_CONTEXT" fzf-completion-keybindings keybinds
   while IFS=: read -r key action; do
     flags+=( --bind "$key:become:printf %s%q\\\\n ${(q)action}\\  {q} {+}; exit $_FZF_COMPLETION_KEYBINDINGS" )
   done < <( (( ${#keybinds[@]} )) && printf %s\\n "${keybinds[@]}")
@@ -241,8 +261,8 @@ _fzf_completion_selector() {
 
   tput cud1 >/dev/tty # fzf clears the line on exit so move down one
   # fullvalue, value, index, display, show, prefix
-  FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --reverse $FZF_DEFAULT_OPTS $FZF_COMPLETION_OPTS" \
-    $(__fzfcmd 2>/dev/null || echo fzf) --ansi --prompt "${FZF_TAB_COMPLETION_PROMPT:-> }$PREFIX" -d "[${_FZF_COMPLETION_SEP}${_FZF_COMPLETION_SPACE_SEP}]" --with-nth 6,5,4 --nth "$field" "${flags[@]}" \
+  FZF_DEFAULT_OPTS="--height $default_height --reverse $FZF_DEFAULT_OPTS $FZF_COMPLETION_OPTS" \
+    "$fzf" --ansi --prompt "${FZF_TAB_COMPLETION_PROMPT:-> }$PREFIX" -d "[${_FZF_COMPLETION_SEP}${_FZF_COMPLETION_SPACE_SEP}]" --with-nth 6,5,4 --nth "$field" "${flags[@]}" \
     < <( (( ${#lines[@]} )) && printf %s\\n "${lines[@]}"; cat)
   code="$?"
   tput cuu1 >/dev/tty
@@ -342,11 +362,11 @@ _fzf_completion_compadd() {
       __show_str="$__disp_str"
       __disp_str=
     elif (( ! _FZF_COMPLETION_SEARCH_DISPLAY )); then
-      __disp_str=$'\x1b[37m'"$__disp_str"$'\x1b[0m'
+      __disp_str="$_FZF_COMPLETION_SECONDARY_COLOR$__disp_str"$'\x1b[0m'
     fi
 
     if [[ "$__show_str" == "$PREFIX"* ]]; then
-      __show_str="${__show_str:${#PREFIX}}${_FZF_COMPLETION_SPACE_SEP}"$'\x1b[37m'"${PREFIX}"$'\x1b[0m'
+      __show_str="${__show_str:${#PREFIX}}${_FZF_COMPLETION_SPACE_SEP}${_FZF_COMPLETION_SECONDARY_COLOR}${PREFIX}"$'\x1b[0m'
     else
       __show_str+="${_FZF_COMPLETION_SEP}"
     fi
