@@ -80,7 +80,7 @@ I recently moved from the default macOS Spotlight to [Raycast](https://www.rayca
 
 I absolutely love [VSCode](https://code.visualstudio.com) - it's a simple and yet very extensible and powerful editor.
 
-Here's a list of [extensions](Brewfile) I use daily, but I try to keep my `VSCode` setup as simple as possible. I tend to separate my work into different profiles, so I have a few profiles for different development contexts. Each profile has its own settings, keybindings, extensions, and snippets.
+Here's a list of [extensions](Brewfile#L124) I use daily, but I try to keep my `VSCode` setup as simple as possible. I tend to separate my work into different profiles, so I have a few profiles for different development contexts. Each profile has its own settings, keybindings, extensions, and snippets.
 
 #### Zed
 
