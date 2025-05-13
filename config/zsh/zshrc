@@ -81,7 +81,7 @@ if [[ ! "$PATH" == */opt/fzf/bin* ]]; then
 fi
 
 # =============================================================================================
-# Misc
+# Miscellaneous
 # =============================================================================================
 
 setopt auto_cd
@@ -91,3 +91,7 @@ setopt pushdminus
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+# Clean up PATH
+typeset -U PATH
+clean_path_silently

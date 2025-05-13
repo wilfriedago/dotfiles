@@ -89,3 +89,35 @@ load-nvmrc() {
 
 type -a nvm > /dev/null && add-zsh-hook chpwd load-nvmrc
 type -a nvm > /dev/null && load-nvmrc
+
+# Clean the PATH variable by removing non-existent directories
+clean_path() {
+  # Split PATH into an array
+  local path_parts=("${(@s/:/)PATH}")
+  # Filter out non-existent directories
+  local clean_parts=()
+
+  for part in $path_parts; do
+    if [[ -d "$part" ]]; then
+      clean_parts+=("$part")
+    fi
+  done
+
+  # Rejoin with colon separator
+  export PATH="${(j/:/)clean_parts}"
+  echo "PATH cleaned. Removed non-existent directories."
+}
+
+# Clean the PATH variable silently
+clean_path_silently() {
+  local path_parts=("${(@s/:/)PATH}")
+  local clean_parts=()
+
+  for part in $path_parts; do
+    if [[ -d "$part" ]]; then
+      clean_parts+=("$part")
+    fi
+  done
+
+  export PATH="${(j/:/)clean_parts}"
+}

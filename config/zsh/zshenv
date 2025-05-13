@@ -21,9 +21,6 @@ export PATH="$HOME/.local/bin:$PATH"
 # Man
 export MANPATH="/usr/local/man:$MANPATH"
 
-# STARSHIP
-export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
-
 # =============================================================================================
 # Programming languages
 # =============================================================================================
