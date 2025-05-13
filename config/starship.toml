@@ -226,9 +226,6 @@ symbol = " "
 [golang]
 symbol = " "
 
-[gleam]
-symbol = " "
-
 [haskell]
 symbol = " "
 
