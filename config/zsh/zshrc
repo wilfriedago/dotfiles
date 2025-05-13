@@ -31,7 +31,6 @@ zinit light-mode for \
   zsh-users/zsh-autosuggestions \
   zsh-users/zsh-completions \
   zdharma-continuum/fast-syntax-highlighting \
-  zdharma-continuum/history-search-multi-word \
   Aloxaf/fzf-tab
 
 # Add in snippets
