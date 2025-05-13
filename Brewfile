@@ -16,7 +16,6 @@ tap 'encoredev/tap' # encoredev tap
 # =============================================================================================
 
 cask 'font-symbols-only-nerd-font' # font with only symbols for developers
-cask 'font-jetbrains-mono-nerd-font' # monospaced font for developers
 
 # =============================================================================================
 # Apps
@@ -84,13 +83,11 @@ brew 'nvm' # manage multiple Node.js versions
 brew 'pinentry-mac' # pinentry for GPG on Mac
 brew 'docker' # pack, ship and run any application as a lightweight container
 brew 'docker-compose' # define and run multi-container Docker applications
-brew 'docker-credential-helper' # credentials helper for Docker
 brew 'lazydocker' # lazier way to manage everything docker
 brew 'lazygit' # simple terminal ui for git commands
 brew 'kubernetes-cli' # kubernetes command-line tool
 brew 'k9s' # kubernetes cli to manage your clusters in style!
 brew 'starship' # cross-shell prompt for astronauts
-brew 'tree' # display directories as trees (with optional color/html output)
 brew 'unar' # command-line unarchiving tools supporting multiple formats
 brew 'vhs' # your cli home video recorder
 brew 'wget' # internet file retriever
