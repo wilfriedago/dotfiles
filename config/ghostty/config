@@ -22,6 +22,7 @@ mouse-scroll-multiplier = 2
 
 # Cursor
 cursor-style = block
+cursor-style-blink = true
 
 # Window
 window-padding-x = 10
