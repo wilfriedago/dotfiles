@@ -12,7 +12,7 @@ export LC_ALL=en_US.UTF-8
 export GPG_TTY=$(tty)
 
 # Preferred editor for local and remote sessions
-export EDITOR="/opt/homebrew/bin/nvim"
+export EDITOR="$(which nvim)"
 export KUBE_EDITOR=$EDITOR
 export BUNDLER_EDITOR=$EDITOR
 
@@ -46,9 +46,6 @@ export PATH="$GOROOT/bin:$GOPATH/bin:$PATH" # Add Go binaries to PATH
 # Versions managers
 # =============================================================================================
 
-# FNM
-export FNM_COREPACK_ENABLED="true" # Enable Corepack
-
 # SDKMAN
 export SDKMAN_DIR="$HOME/.sdkman"
 [ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
@@ -57,12 +54,12 @@ export SDKMAN_DIR="$HOME/.sdkman"
 #  Runtime environments
 # =============================================================================================
 
-# NODE
-[ -d "$PWD/node_modules/.bin" ] && export PATH="$PWD/node_modules/.bin:$PATH"
-
 # BUN
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# NODE Binaries
+[ -d "$PWD/node_modules/.bin" ] && export PATH="$PWD/node_modules/.bin:$PATH"
 
 # =============================================================================================
 # Package managers
@@ -95,4 +92,9 @@ if command -v podman >/dev/null 2>&1; then
   if [ -n "$PODMAN_SOCKET" ]; then
     export DOCKER_HOST=unix://$PODMAN_SOCKET
   fi
+fi
+
+# FZF
+if [[ ! "$PATH" == */opt/fzf/bin* ]]; then
+  export PATH="$PATH:$HOMEBREW_PREFIX/opt/fzf/bin"
 fi
