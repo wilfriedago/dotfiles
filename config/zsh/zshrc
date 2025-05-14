@@ -56,7 +56,12 @@ setopt hist_verify                    # show command with history expansion to u
 setopt share_history                  # share command history data between sessions
 
 # Initialize completion
-autoload -U compinit; compinit
+autoload -Uz compinit
+if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
+  compinit
+else
+  compinit -C
+fi
 
 # =============================================================================================
 # Shell
