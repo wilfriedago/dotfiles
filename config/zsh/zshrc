@@ -96,7 +96,7 @@ source <(ng completion script)
 
 # Clean up PATH
 typeset -U PATH
-clean_path_silently
+clean_path
 
 # DEBUG: zshrc
 # zprof

@@ -109,7 +109,7 @@ clean_path() {
 }
 
 # Clean the PATH variable silently
-clean_path_silently() {
+clean_path() {
   local path_parts=("${(@s/:/)PATH}")
   local clean_parts=()
 
