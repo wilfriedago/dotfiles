@@ -46,9 +46,8 @@ export PATH="$GOROOT/bin:$GOPATH/bin:$PATH" # Add Go binaries to PATH
 # Versions managers
 # =============================================================================================
 
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# FNM
+export FNM_COREPACK_ENABLED="true" # Enable Corepack
 
 # SDKMAN
 export SDKMAN_DIR="$HOME/.sdkman"

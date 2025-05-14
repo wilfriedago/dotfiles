@@ -79,7 +79,7 @@ brew 'navi' # interactive cheatsheet tool for the command-line
 brew 'neovim' # vim-fork focused on extensibility and usability
 brew 'nmap' # network exploration tool and security/port scanner
 brew 'neofetch' # fast, highly customisable system info script
-brew 'nvm' # manage multiple Node.js versions
+# brew 'nvm' # manage multiple Node.js versions - I'm not using it anymore, i switched to fnm
 brew 'pinentry-mac' # pinentry for GPG on Mac
 brew 'docker' # pack, ship and run any application as a lightweight container
 brew 'docker-compose' # define and run multi-container Docker applications
@@ -102,6 +102,7 @@ brew 'dotenv-vault' # dotenv plugin for HashiCorp Vault
 brew 'httpie' # user-friendly cURL replacement, the command-line tool
 brew 'jadx' # command-line and GUI tools to decompile Android APK files
 brew 'encore' # Open Source TypeScript Backend Framework for robust type-safe applications
+brew 'fnm' # fast and simple Node.js version manager
 
 # =============================================================================================
 # Linters, formatters and LSPs

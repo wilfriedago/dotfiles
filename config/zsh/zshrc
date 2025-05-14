@@ -82,6 +82,11 @@ if [[ ! "$PATH" == */opt/fzf/bin* ]]; then
   source "$HOME/.scripts/fzf/fzf-zsh-completion.sh"
 fi
 
+# FNM
+eval "`fnm env`"
+eval "$(fnm completions --shell zsh)"
+eval "$(fnm env --use-on-cd --shell zsh)"
+
 # =============================================================================================
 # Miscellaneous
 # =============================================================================================
