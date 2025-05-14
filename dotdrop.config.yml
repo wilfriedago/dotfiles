@@ -38,6 +38,7 @@ profiles:
     - f_lazydocker
     - f_lazygit
     - f_neofetch
+    - f_sdkman
     - f_starship
     - f_yazi
 
@@ -136,6 +137,9 @@ dotfiles:
   f_neofetch:
     src: config/neofetch.conf
     dst: ~/.config/neofetch/config.conf
+  f_sdkman:
+    src: config/sdkman.conf
+    dst: ~/.sdkman/etc/config
   f_starship:
     src: config/starship.toml
     dst: ~/.config/starship/starship.toml
