@@ -8,6 +8,9 @@ export LC_ALL=en_US.UTF-8
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# GPG
+export GPG_TTY=$(tty)
+
 # Preferred editor for local and remote sessions
 export EDITOR="/opt/homebrew/bin/nvim"
 export KUBE_EDITOR=$EDITOR
@@ -40,18 +43,19 @@ export PATH="$GOROOT/bin:$GOPATH/bin:$PATH" # Add Go binaries to PATH
 [ -d "$HOME/.cargo/env" ] && source "$HOME/.cargo/env" # Load Rust environment
 
 # =============================================================================================
-# Dependencies managers
+# Versions managers
 # =============================================================================================
 
-# PNPM
-export PNPM_HOME="$HOME/.pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# SDKMAN
+export SDKMAN_DIR="$HOME/.sdkman"
+[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
 # =============================================================================================
-# Programming languages utils
+#  Runtime environments
 # =============================================================================================
 
 # NODE
@@ -62,62 +66,25 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # =============================================================================================
-# Tools
+# Package managers
 # =============================================================================================
-
-# NVM
-lazy-nvm()
-{
-  unset -f nvm node npm npx pnpm pnpx
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-}
-
-nvm()
-{
-  lazy-nvm
-  nvm $@
-}
-
-node()
-{
-  lazy-nvm
-  node $@
-}
-
-npm()
-{
-  lazy-nvm
-  npm $@
-}
-
-npx()
-{
-  lazy-nvm
-  npx $@
-}
-
-pnpm()
-{
-  lazy-nvm
-  pnpm $@
-}
-
-pnpx()
-{
-  lazy-nvm
-  pnpx $@
-}
-
-# SDKMAN
-export SDKMAN_DIR="$HOME/.sdkman"
-[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
 
 # HOMEBREW
 export HOMEBREW_NO_ANALYTICS=1 # Disable Homebrew analytics
 export HOMEBREW_DEVELOPER=1 # Enable developer mode
 export HOMEBREW_AUTO_UPDATE_SECS=604800 # 1 week
 export HOMEBREW_NO_ENV_HINTS=1 # Disable Homebrew environment hints
+
+# PNPM
+export PNPM_HOME="$HOME/.pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+# =============================================================================================
+# Miscellaneous
+# =============================================================================================
 
 # ANDROID
 export ANDROID_HOME="$HOME/Library/Android/sdk"
