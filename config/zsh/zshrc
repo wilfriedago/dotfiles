@@ -1,16 +1,18 @@
 # DEBUG: zshrc
 # zmodload zsh/zprof
 
-# Set the directory we want to store zinit and plugins
+# =============================================================================================
+# ZSH Configuration
+# =============================================================================================
+
+# Zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+ZINIT_HOME_DIR="$(dirname "$ZINIT_HOME")"
 
 # Download Zinit, if it's not there yet
 if [[ ! -f $ZINIT_HOME/zinit.zsh ]]; then
-  print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
-  command mkdir -p "$(dirname $ZINIT_HOME)" && command chmod g-rwX "$(dirname $ZINIT_HOME)"
-  command git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME" && \
-    print -P "%F{33} %F{34}Installation successful.%f%b" || \
-    print -P "%F{160} The clone has failed.%f%b"
+  command mkdir -p "$ZINIT_HOME_DIR" && command chmod g-rwX "$ZINIT_HOME_DIR"
+  command git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
 # Source/Load zinit
@@ -55,8 +57,6 @@ setopt share_history                  # share command history data between sessi
 
 # Initialize completion
 autoload -U compinit; compinit
-
-# User configuration
 
 # =============================================================================================
 # Shell
