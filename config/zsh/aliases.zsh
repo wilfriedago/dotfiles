@@ -96,7 +96,7 @@ alias mkrg='minikube addons enable registry'
 # eza
 alias l="eza -al --icons" # ls -l with icons
 alias ls='eza -a --icons --level=1' # ls with icons
-alias lt="eza -al --icons --level=3 --tree" # ls tree with icons
+alias lt="eza -al --icons --level=3 --tree --git-ignore" # ls tree with icons
 
 # dotdrop
 alias dot='dotdrop --profile=default --cfg=~/.dotfiles/dotdrop.config.yml' # dotdrop with default profile
