@@ -23,15 +23,12 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 # Load starship theme
-zinit ice as"command" from"gh-r" \
-          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-          atpull"%atclone" src"init.zsh"
+zinit ice as"command" from"gh-r" atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" atpull"%atclone" src"init.zsh"
 zinit light starship/starship
 
 # Plugins
 zinit light-mode for \
   zsh-users/zsh-autosuggestions \
-  zsh-users/zsh-completions \
   zdharma-continuum/fast-syntax-highlighting \
   Aloxaf/fzf-tab
 
@@ -75,22 +72,16 @@ fi
 # Initialization
 # =============================================================================================
 
-if (( $+commands[zoxide] )); then
-  eval "$(zoxide init --cmd ${ZOXIDE_CMD_OVERRIDE:-z} zsh)"
-else
-  echo '[oh-my-zsh] zoxide not found, please install it from https://github.com/ajeetdsouza/zoxide'
-fi
-
-if [[ ! "$PATH" == */opt/fzf/bin* ]]; then
-  export PATH="$PATH:$(brew --prefix)/opt/fzf/bin"
-  eval "$(fzf --zsh)"
-  source "$HOME/.scripts/fzf/fzf-zsh-completion.sh"
-fi
-
 # FNM
-eval "`fnm env`"
-eval "$(fnm completions --shell zsh)"
 eval "$(fnm env --use-on-cd --shell zsh)"
+eval "$(fnm completions --shell zsh)"
+
+# ZOXIDE
+eval "$(zoxide init --cmd ${ZOXIDE_CMD_OVERRIDE:-z} zsh)"
+
+# FZF
+eval "$(fzf --zsh)"
+source "$HOME/.scripts/fzf/fzf-zsh-completion.sh"
 
 # =============================================================================================
 # Miscellaneous
@@ -101,8 +92,8 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
 
-# Load Angular CLI autocompletion.
-source <(ng completion script)
+autoload -U add-zsh-hook
+add-zsh-hook precmd _load_ssh_agent
 
 # Clean up PATH
 typeset -U PATH
