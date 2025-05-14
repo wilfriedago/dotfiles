@@ -1,5 +1,6 @@
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
+
 # set descriptions format to enable group support
 # NOTE: don't use escape sequences here, fzf-tab will ignore them
 zstyle ':completion:*:descriptions' format '[%d]'
@@ -78,12 +79,8 @@ export FZF_CTRL_R_OPTS=" \
 export FZF_CTRL_T_OPTS="$FZF_DEFAULT_OPTS --preview 'fzf_complete_realpath {}'"
 export FZF_ALT_C_OPTS="$FZF_DEFAULT_OPTS --preview 'fzf_complete_realpath {}'"
 
-# =============================================================================================
-# zoxide
-# =============================================================================================
-
 export _ZO_FZF_OPTS="
-  --height 40% -1 \
+  --height 50% -1 \
   --select-1 \
   --reverse \
   --preview-window='right:wrap' \
