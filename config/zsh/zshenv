@@ -96,5 +96,5 @@ fi
 
 # FZF
 if [[ ! "$PATH" == */opt/fzf/bin* ]]; then
-  export PATH="$PATH:$HOMEBREW_PREFIX/opt/fzf/bin"
+  export PATH="$HOMEBREW_PREFIX/opt/fzf/bin:$PATH"
 fi
