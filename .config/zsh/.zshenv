@@ -1,5 +1,9 @@
-# XDG Base Directory Specification
-export XDG_CONFIG_HOME="$HOME/.config"
+# Set XDG directories
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_BIN_HOME="${HOME}/.local/bin"
+export XDG_LIB_HOME="${HOME}/.local/lib"
+export XDG_CACHE_HOME="${HOME}/.cache"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -13,6 +17,8 @@ export GPG_TTY=$(tty)
 
 # Preferred editor for local and remote sessions
 export EDITOR="$(which nvim)"
+export VISUAL=$EDITOR
+export GIT_EDITOR=$EDITOR
 export KUBE_EDITOR=$EDITOR
 export BUNDLER_EDITOR=$EDITOR
 
@@ -83,8 +89,8 @@ esac
 # =============================================================================================
 
 # ANDROID
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
+export ANDROID_HOME="${HOME}/Library/Android/sdk"
+export PATH="${ANDROID_HOME}/emulator:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${PATH}"
 
 # PODMAN x DOCKER
 if command -v podman >/dev/null 2>&1; then

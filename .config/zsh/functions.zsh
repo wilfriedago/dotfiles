@@ -78,14 +78,6 @@ clean_path() {
   export PATH="${(j/:/)clean_parts}"
 }
 
-# Lazy load SSH agent
-function _load_ssh_agent() {
-  if [ -z "$$SSH_AUTH_SOCK" ]; then
-    eval "$(ssh-agent -s)" > /dev/null
-    ssh-add ~/.ssh/id_github_sign_and_auth 2>/dev/null
-  fi
-}
-
 # clone a repo from url (https|git) and cd into it
 function clone() {
 	local url=$1;

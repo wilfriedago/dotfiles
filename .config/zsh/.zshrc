@@ -1,4 +1,16 @@
-# DEBUG: zshrc
+########################################################################
+# ~/.config/zsh/.zshrc                                                 #
+########################################################################
+# Instructions to be executed when a new ZSH session is launched       #
+# Imports all plugins, aliases, helper functions, and configurations   #
+#                                                                      #
+# After editing, re-source .zshrc for new changes to take effect       #
+# For docs and more info, see: https://github.com/wilfriedago/dotfiles #
+#####################################################################  #
+# Licensed under MIT (C) Alicia Sykes 2025 <https://wilfriedago.dev>   #
+########################################################################
+
+# Profiling
 # zmodload zsh/zprof
 
 # =============================================================================================
@@ -7,11 +19,10 @@
 
 # Zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-ZINIT_HOME_DIR="$(dirname "$ZINIT_HOME")"
 
 # Download Zinit, if it's not there yet
 if [[ ! -f $ZINIT_HOME/zinit.zsh ]]; then
-  command mkdir -p "$ZINIT_HOME_DIR" && command chmod g-rwX "$ZINIT_HOME_DIR"
+  command mkdir -p "$(dirname "$ZINIT_HOME")" && command chmod g-rwX "$(dirname "$ZINIT_HOME")"
   command git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
@@ -31,13 +42,6 @@ zinit light-mode for \
   zsh-users/zsh-autosuggestions \
   zdharma-continuum/fast-syntax-highlighting \
   Aloxaf/fzf-tab
-
-# Add in snippets
-zinit snippet OMZL::git.zsh
-zinit snippet OMZP::git
-zinit snippet OMZP::kubectl
-zinit snippet OMZP::kubectx
-zinit snippet OMZP::command-not-found
 
 # History
 HIST_STAMPS="yyyy-mm-dd"              # Set the format of the history timestamp
@@ -92,12 +96,9 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
 
-autoload -U add-zsh-hook
-add-zsh-hook precmd _load_ssh_agent
-
 # Clean up PATH
 typeset -U PATH
 clean_path
 
-# DEBUG: zshrc
+# Profiling
 # zprof
