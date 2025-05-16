@@ -3,7 +3,7 @@ config:
   banner: false
   create: true
   dotpath: ~/.dotfiles
-  keepdot: false
+  keepdot: true
   link_dotfile_default: nolink
   link_on_import: nolink
   longkey: false
