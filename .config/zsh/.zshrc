@@ -87,6 +87,9 @@ eval "$(zoxide init --cmd ${ZOXIDE_CMD_OVERRIDE:-z} zsh)"
 eval "$(fzf --zsh)"
 source "$HOME/.scripts/fzf/fzf-zsh-completion.sh"
 
+# DOCKER
+eval "$(docker completion zsh)"
+
 # =============================================================================================
 # Miscellaneous
 # =============================================================================================
