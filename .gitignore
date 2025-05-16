@@ -125,6 +125,7 @@ dmypy.json
 .pyre/
 
 # IDEs
+.vscode
 .idea
 
 # OS
