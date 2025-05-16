@@ -98,13 +98,13 @@ dotfiles:
     src: .config/zsh/functions.zsh
     dst: ~/.config/zsh/functions.zsh
   f_zprofile:
-    src: .config/zsh/zprofile
+    src: .config/zsh/.zprofile
     dst: ~/.zprofile
   f_zshenv:
-    src: .config/zsh/zshenv
+    src: .config/zsh/.zshenv
     dst: ~/.zshenv
   f_zshrc:
-    src: .config/zsh/zshrc
+    src: .config/zsh/.zshrc
     dst: ~/.zshrc
   f_aerospace:
     src: .config/aerospace.toml
