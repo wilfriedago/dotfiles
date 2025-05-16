@@ -116,3 +116,10 @@ To install your dotfiles on a new system:
 ```zsh
 dotdrop install
 ```
+
+## Acknowledgements
+
+Inspiration and code was taken from many sources, including:
+
+- [Alicia Sykes](https://www.aliciasykes.com) - https://github.com/Lissy93/dotfiles
+- [Volodymyr Pivoshenko](https://github.com/pivoshenko) - https://github.com/pivoshenko/dotfiles
