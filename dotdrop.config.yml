@@ -14,18 +14,22 @@ profiles:
     - d_gh
     - d_gitkraken_themes
     - d_nvim
+    - d_scripts
+    - d_bin
 
       # Zed configuration files
     - f_zed_settings
     - f_zed_keymap
 
       # Zsh configuration files
-    - f_zsh_aliases
-    - f_zsh_completions
-    - f_zsh_functions
+    - f_zlogin
+    - f_zlogout
     - f_zprofile
     - f_zshenv
     - f_zshrc
+    - f_zsh_aliases
+    - f_zsh_completions
+    - f_zsh_functions
 
     - f_aerospace
     - f_btop
@@ -43,10 +47,8 @@ profiles:
     - f_starship
     - f_yazi
 
-    - d_scripts
-    - d_bin
     - f_gitconfig
-    - f_gitignore
+    - f_gitignore_global
   macos:
     dotfiles:
     - f_vscode_custom_js
@@ -98,6 +100,12 @@ dotfiles:
   f_zsh_functions:
     src: .config/zsh/functions.zsh
     dst: ~/.config/zsh/functions.zsh
+  f_zlogin:
+    src: .config/zsh/.zlogin
+    dst: ~/.zlogin
+  f_zlogout:
+    src: .config/zsh/.zlogout
+    dst: ~/.zlogout
   f_zprofile:
     src: .config/zsh/.zprofile
     dst: ~/.zprofile
@@ -201,8 +209,8 @@ dotfiles:
     src: .local/bin
     dst: ~/.local/bin
   f_gitconfig:
-    src: .config/git/config
+    src: .config/.gitconfig
     dst: ~/.gitconfig
-  f_gitignore:
-    src: .config/git/ignore
+  f_gitignore_global:
+    src: .config/.gitignore_global
     dst: ~/.gitignore_global
