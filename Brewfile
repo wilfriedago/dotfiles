@@ -79,6 +79,7 @@ brew 'navi' # interactive cheatsheet tool for the command-line
 brew 'neovim' # vim-fork focused on extensibility and usability
 brew 'nmap' # network exploration tool and security/port scanner
 brew 'neofetch' # fast, highly customisable system info script
+brew 'git-cliff' # changelog generator that uses git commit messages to generate the changelog
 # brew 'nvm' # manage multiple Node.js versions - I'm not using it anymore, i switched to fnm
 brew 'pinentry-mac' # pinentry for GPG on Mac
 brew 'docker' # pack, ship and run any application as a lightweight container

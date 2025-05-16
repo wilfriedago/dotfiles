@@ -29,6 +29,7 @@ profiles:
 
     - f_aerospace
     - f_btop
+    - f_cliff
     - f_gh-copilot
     - f_gpg-agent
     - d_ghostty_shaders
@@ -112,6 +113,9 @@ dotfiles:
   f_btop:
     src: .config/btop.conf
     dst: ~/.config/btop/btop.conf
+  f_cliff:
+    src: .config/cliff.toml
+    dst: ~/.config/git-cliff/cliff.toml
   f_gh-copilot:
     src: .config/gh-copilot.yml
     dst: ~/.config/gh-copilot/config.yml
