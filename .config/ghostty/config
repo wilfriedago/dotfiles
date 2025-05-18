@@ -6,7 +6,7 @@ shell-integration = zsh
 
 # Font
 font-family = "Dank Mono"
-font-size = 13
+font-size = 14
 font-thicken = true
 
 # Background
