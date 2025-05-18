@@ -17,7 +17,8 @@ export LC_ALL=en_US.UTF-8
 export GPG_TTY=$(tty)
 
 # Preferred editor for local and remote sessions
-export EDITOR="/opt/homebrew/bin/nvim"
+export PAGER="less"
+export EDITOR="nvim"
 export VISUAL=$EDITOR
 export GIT_EDITOR=$EDITOR
 export KUBE_EDITOR=$EDITOR
