@@ -72,13 +72,18 @@ fi
 [ -f "$XDG_CONFIG_HOME/zsh/functions.zsh" ] && source "$XDG_CONFIG_HOME/zsh/functions.zsh" # Functions
 [ -f "$XDG_CONFIG_HOME/zsh/completions.zsh" ] && source "$XDG_CONFIG_HOME/zsh/completions.zsh" # Completions
 
+# Plugins
+[ -f "$XDG_CONFIG_HOME/zsh/plugins/docker.zsh" ] && source "$XDG_CONFIG_HOME/zsh/plugins/docker.zsh"
+[ -f "$XDG_CONFIG_HOME/zsh/plugins/kubectl.zsh" ] && source "$XDG_CONFIG_HOME/zsh/plugins/kubectl.zsh"
+[ -f "$XDG_CONFIG_HOME/zsh/plugins/minikube.zsh" ] && source "$XDG_CONFIG_HOME/zsh/plugins/minikube.zsh"
+
 # =============================================================================================
 # Initialization
 # =============================================================================================
 
 # FNM
-eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(fnm completions --shell zsh)"
+eval "$(fnm env --use-on-cd --shell zsh)"
 
 # ZOXIDE
 eval "$(zoxide init --cmd ${ZOXIDE_CMD_OVERRIDE:-z} zsh)"
@@ -86,9 +91,6 @@ eval "$(zoxide init --cmd ${ZOXIDE_CMD_OVERRIDE:-z} zsh)"
 # FZF
 eval "$(fzf --zsh)"
 source "$HOME/.scripts/fzf/fzf-zsh-completion.sh"
-
-# DOCKER
-eval "$(docker completion zsh)"
 
 # =============================================================================================
 # Miscellaneous

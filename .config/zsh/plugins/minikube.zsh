@@ -1,0 +1,43 @@
+# Completion
+eval "$(minikube completion zsh)"
+
+# Aliases
+alias mk='minikube'
+alias mkst='minikube start'
+alias mkst-m='minikube start --memory' # Example: mkst-m 4096
+alias mkst-c='minikube start --cpus'   # Example: mkst-c 4
+alias mksp='minikube stop'
+alias mkd='minikube delete'
+alias mknd='minikube node'
+alias mkip='minikube ip'
+alias mks='minikube service'
+alias mklo='minikube logs'
+alias mkti='minikube tunnel'
+alias mkdp='minikube dashboard'
+alias mkstat='minikube status'
+alias mkadd='minikube addons'
+alias mklist='minikube addons list'
+alias mkadd-e='minikube addons enable'  # Example: mkadd-e ingress
+alias mkadd-d='minikube addons disable' # Example: mkadd-d metrics-server
+alias mkdocker='eval $(minikube docker-env)'
+alias mkssh='minikube ssh'
+alias mkcache='minikube cache'
+alias mkcache-a='minikube cache add'    # Example: mkcache-a nginx:latest
+alias mkcache-d='minikube cache delete' # Example: mkcache-d nginx:latest
+alias mkcache-l='minikube cache list'
+alias mkimg='minikube image'
+alias mkimg-l='minikube image ls'
+alias mkimg-ls='minikube image ls -a'
+alias mkns='minikube service --namespace' # Example: mkns kube-system kubernetes-dashboard
+alias mkmount='minikube mount'           # Example: mkmount /local/path:/vm/path
+alias mkpause='minikube pause'
+alias mkunpause='minikube unpause'
+alias mkver='minikube version'
+alias mkup='minikube update-check'
+alias mkupgrade='minikube update-context'
+alias mkprofile='minikube profile'       # Example: mkprofile dev
+alias mkprofile-l='minikube profile list'
+alias mkstart-all='minikube start && minikube dashboard &'
+alias mkclean='minikube stop && minikube delete'
+alias mkrestart='minikube stop && minikube start'
+alias mkrg='minikube addons enable registry'

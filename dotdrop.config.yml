@@ -18,20 +18,16 @@ profiles:
     - d_nvim
     - d_scripts
     - d_bin
-
-      # Zed configuration files
-    - f_zed_settings
-    - f_zed_keymap
+    - d_zed
 
       # Zsh configuration files
-    - f_zlogin
-    - f_zlogout
     - f_zprofile
     - f_zshenv
     - f_zshrc
     - f_zsh_aliases
     - f_zsh_completions
     - f_zsh_functions
+    - d_zsh_plugins
 
     - f_aerospace
     - f_btop
@@ -47,6 +43,7 @@ profiles:
 
     - f_gitconfig
     - f_gitignore_global
+    - d_helm
   macos:
     dotfiles:
     - f_vscode_custom_js
@@ -77,18 +74,25 @@ dotfiles:
   d_gh:
     src: .config/gh
     dst: ~/.config/gh
+  d_ghostty:
+    src: .config/ghostty
+    dst: ~/.config/ghostty
   d_gitkraken_themes:
     src: .config/gitkraken/themes
     dst: ~/.gitkraken/themes
+  d_helm:
+    src: .config/helm
+    dst: ~/.config/helm
+  d_k9s:
+    src: .config/k9s
+    dst: ~/.config/k9s
   d_nvim:
     src: .config/nvim
     dst: ~/.config/nvim
-  f_zed_settings:
-    src: .config/zed/settings.json
-    dst: ~/.config/zed/settings.json
-  f_zed_keymap:
-    src: .config/zed/keymap.json
-    dst: ~/.config/zed/keymap.json
+  d_zed:
+    src: .config/zed
+    dst: ~/.config/zed
+
   f_zsh_aliases:
     src: .config/zsh/aliases.zsh
     dst: ~/.config/zsh/aliases.zsh
@@ -98,12 +102,9 @@ dotfiles:
   f_zsh_functions:
     src: .config/zsh/functions.zsh
     dst: ~/.config/zsh/functions.zsh
-  f_zlogin:
-    src: .config/zsh/.zlogin
-    dst: ~/.zlogin
-  f_zlogout:
-    src: .config/zsh/.zlogout
-    dst: ~/.zlogout
+  d_zsh_plugins:
+    src: .config/zsh/plugins
+    dst: ~/.config/zsh/plugins
   f_zprofile:
     src: .config/zsh/.zprofile
     dst: ~/.zprofile
@@ -128,12 +129,6 @@ dotfiles:
   f_gpg-agent:
     src: .config/gpg-agent.conf
     dst: ~/.gnupg/gpg-agent.conf
-  d_ghostty:
-    src: .config/ghostty
-    dst: ~/.config/ghostty
-  d_k9s:
-    src: .config/k9s
-    dst: ~/.config/k9s
   f_lazydocker:
     src: .config/lazydocker.yml
     dst: ~/.config/lazydocker/config.yml
