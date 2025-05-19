@@ -2,7 +2,7 @@
 
 k9s:
   # Enable periodic refresh of resource browser windows. Default false
-  liveViewAutoRefresh: false
+  liveViewAutoRefresh: true
   # The path to screen dump. Default: '%temp_dir%/k9s-screens-%username%' (k9s info)
   screenDumpDir: /tmp/dumps
   # Represents ui poll intervals in seconds. Default 2secs
@@ -30,7 +30,7 @@ k9s:
     # Set to true to suppress the K9s splash screen on start. Default false. Note that for larger clusters or higher latency connections, there may be no resources visible initially until local caches have finished populating.
     splashless: true
     # Toggles icons display as not all terminal support these chars. Default: true
-    noIcons: false
+    noIcons: true
     # Toggles reactive UI. This option provide for watching on disk artifacts changes and update the UI live Defaults to false.
     reactive: false
     # By default all contexts will use the rose-pine skin unless explicitly overridden in the context config file.
