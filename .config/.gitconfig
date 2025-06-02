@@ -4,13 +4,13 @@
 
 [user]
 	name = Wilfried AGO
-	email = wilfriedago@pm.me
+	email = 68906789+wilfriedago@users.noreply.github.com
 	username = wilfriedago
-	signingKey = DCCB00ADCCA66A94EF99D726BB76A1B270F9B8BB
+	signingKey = 63B083B382E2CB3C8764042344FF24F26FCE4AA9
 
 [github]
 	user = wilfriedago
-	email = wilfriedago@pm.me
+	email = 68906789+wilfriedago@users.noreply.github.com
 
 [init]
 	defaultBranch = main
@@ -35,7 +35,7 @@
 	autoupdate = 1
 
 [pull]
-	rebase = true
+  rebase = true
 
 [commit]
 	gpgsign = true
@@ -59,17 +59,14 @@
   protocol = https
 
 [filter "lfs"]
-	required = true
+	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-	clean = git-lfs clean -- %f
+	required = true
 
 [gpg]
 	program = gpg
 
-# -----------------------------------------------------------------------------
-# Aliases
-# -----------------------------------------------------------------------------
 [alias]
     # Adding files
     a = add --all
@@ -294,12 +291,3 @@
     theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
     subrepo = "!sh -c 'git filter-branch --prune-empty --subdirectory-filter $1 master' -"
     human = "name-rev --name-only --refs=refs/heads/*"
-
-# -----------------------------------------------------------------------------
-# Git LFS
-# -----------------------------------------------------------------------------
-[filter "lfs"]
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    required = true
