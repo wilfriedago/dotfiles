@@ -1,4 +1,20 @@
 # =============================================================================================
+# ~/.Brewfile - Software Installs for MacOS                                                   #
+#                                                                                             #
+# List of packages to be installed / updated via Homebrew                                     #
+# Apps are sorted by category, and arranged alphabetically                                    #
+# Be sure to delete / comment out anything you do not need                                    #
+# Usage, run: $ brew bundle --global --file $HOME/.Brewfile                                   #
+# Source GH repository: https://github.com/wilfriedago/Brewfile                               #
+# See brew docs for more info: https://docs.brew.sh/Manpage                                   #
+#                                                                                             #
+# License: MIT © Wilfrieds AGO 2025 <https://wilfriedago.dev>                                 #
+# =============================================================================================
+
+# Options
+cask_args appdir: '~/Applications', require_sha: true
+
+# =============================================================================================
 # Taps
 # =============================================================================================
 tap 'homebrew/core' # formulae for the Homebrew package manager
@@ -61,7 +77,6 @@ cask 'syntax-highlight' # QuickLook generator for source code files with syntax 
 brew 'bat' # cat with syntax highlighting and Git integration
 brew 'ffmpeg' # play, record, convert and stream audio and video
 brew 'btop' # resource monitor that shows usage and stats for processor, memory, disks, network and processes
-brew 'catimg' # command-line tool to display images in the terminal
 brew 'curl' # query HTTP, HTTPS or FTP server
 brew 'dotdrop' # dotfiles manager
 brew 'dsq' # CLI tool for running SQL queries against JSON, CSV, Excel, Parquet files
@@ -72,6 +87,7 @@ brew 'fd' # simple, fast and user-friendly alternative to find
 brew 'fzf' # command-line fuzzy finder written in go
 brew 'gcc' # gnu compiler collection
 brew 'gh' # github command-line tool
+brew 'glab' # gitLab command-line tool
 brew 'git-delta' # syntax-highlighting pager for git and diff output
 brew 'jq' # lightweight and flexible command-line json processor
 brew 'skhd' # hotkey daemon for macOS
@@ -80,7 +96,6 @@ brew 'neovim' # vim-fork focused on extensibility and usability
 brew 'nmap' # network exploration tool and security/port scanner
 brew 'neofetch' # fast, highly customisable system info script
 brew 'git-cliff' # changelog generator that uses git commit messages to generate the changelog
-# brew 'nvm' # manage multiple Node.js versions - I'm not using it anymore, i switched to fnm
 brew 'pinentry-mac' # pinentry for GPG on Mac
 brew 'docker' # pack, ship and run any application as a lightweight container
 brew 'docker-compose' # define and run multi-container Docker applications
@@ -90,20 +105,18 @@ brew 'kubernetes-cli' # kubernetes command-line tool
 brew 'k9s' # kubernetes cli to manage your clusters in style!
 brew 'starship' # cross-shell prompt for astronauts
 brew 'unar' # command-line unarchiving tools supporting multiple formats
-brew 'vhs' # your cli home video recorder
-brew 'wget' # internet file retriever
 brew 'zoxide' # shell extension to navigate your filesystem faster
-brew 'zplug' # next-generation plugin manager for zsh
 brew 'yazi' # blazing fast terminal file manager written in Rust, based on async I/O
 brew 'oasdiff' # diff tool for OpenAPI/Swagger files
 brew 'doctl' # DigitalOcean CLI
 brew 'terraform' # infrastructure as code software
 brew 'vault' # secrets management software
 brew 'dotenv-vault' # dotenv plugin for HashiCorp Vault
-brew 'httpie' # user-friendly cURL replacement, the command-line tool
 brew 'jadx' # command-line and GUI tools to decompile Android APK files
 brew 'encore' # Open Source TypeScript Backend Framework for robust type-safe applications
 brew 'fnm' # fast and simple Node.js version manager
+brew 'ripgrep' # line-oriented search tool that recursively searches your current directory for a regex pattern
+brew 'xh' # friendly and fast replacement for curl
 
 # =============================================================================================
 # Linters, formatters and LSPs
@@ -121,7 +134,7 @@ brew 'shfmt' # autoformat shell script source code
 brew 'texlab' # implementation of the Language Server Protocol for LaTeX
 brew 'yamlfmt' # extensible command-line tool to format YAML files
 brew 'yaml-language-server' # language server for YAML Files
-brew 'latexindent' # indentation of LaTeX documents
+brew 'latexindent' # indentation of LaTeX documentsi
 
 # =============================================================================================
 # VSCode extensions
