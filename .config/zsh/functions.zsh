@@ -84,3 +84,18 @@ function clone() {
 	local repo=$(echo $url | awk -F/ '{print $NF}' | sed -e 's/.git$//');
 	git clone $url $repo && cd $repo;
 }
+
+# fzf-tab completion for `ls`, `cat`, etc.
+fzf_complete_realpath() {
+  if [ -d "$1" ]; then
+    eza -al --tree --icons --level=3 --no-permissions --no-user --no-time --no-filesize "$1" | head -100
+  else
+    mime="$(file -Lbs --mime-type "$1")"
+    category="${mime%%/*}"
+    if [ "$category" = 'image' ]; then
+      catimg -r2 -w 100 "$1"
+    else
+      bat -n --color=always --line-range :100 "$1"
+    fi
+  fi
+}

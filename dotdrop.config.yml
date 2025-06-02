@@ -17,7 +17,6 @@ profiles:
     - d_ghostty
     - d_nvim
     - d_scripts
-    - d_bin
     - d_zed
 
       # Zsh configuration files
@@ -192,9 +191,6 @@ dotfiles:
   f_vscode_frontend_keybindings:
     src: .config/vscode/keybindings.json
     dst: ~/Library/Application Support/Code/User/profiles/13ab142b/keybindings.json
-  d_bin:
-    src: .local/bin
-    dst: ~/.local/bin
   f_gitconfig:
     src: .config/.gitconfig
     dst: ~/.gitconfig
