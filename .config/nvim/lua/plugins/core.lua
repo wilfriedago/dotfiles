@@ -9,20 +9,10 @@ if true then return {} end
 -- * disable/enabled LazyVim plugins
 -- * override the configuration of LazyVim plugins
 return {
-  -- add solarized-osaka
-  {
-    "craftzdog/solarized-osaka.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-  },
-
   -- Configure LazyVim to load solarized-osaka
   {
     "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "solarized-osaka",
-    },
+    opts = {},
   },
 
   -- change trouble config
