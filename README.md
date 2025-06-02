@@ -1,6 +1,6 @@
  🏠 Wilfried's Dotfiles
 
-This repository contains my personal dotfiles and system configuration for macOS. It uses [`dotdrop`](https://github.com/deadc0de6/dotdrop) and [`ansible`](https://github.com/ansible/ansible) to manage and deploy configuration files across different systems.
+This repository contains my personal dotfiles and system configuration for macOS. It uses [`dotdrop`](https://github.com/deadc0de6/dotdrop).
 
 ## Overview
 
@@ -17,13 +17,12 @@ This dotfiles repository aims to:
 ### Prerequisites
 
 - Git
-- Ansible
 
 ### Installation
 
 1. Clone the repository:
 
-```zsh
+```sh
 git clone https://github.com/wilfriedago/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ```
@@ -31,11 +30,6 @@ cd ~/.dotfiles
 2. Install dependencies and set up the environment
 
 ```sh
-# install core: homebrew, zsh, oh-my-zsh and configs (optional)
-ansible-playbook playbooks/shell.yml
-
-# install dependencies
-ansible-playbook playbooks/deps.yml
 ```
 
 3. Deploy dotfiles
@@ -106,14 +100,14 @@ It works perfectly with `skhd` which allows me to focus and modify the layout wi
 
 To update your dotfiles after making changes:
 
-```zsh
+```sh
 # From the dotfiles directory
 dotdrop update
 ```
 
 To install your dotfiles on a new system:
 
-```zsh
+```sh
 dotdrop install
 ```
 
