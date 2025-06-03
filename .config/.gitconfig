@@ -67,6 +67,17 @@
 [gpg]
 	program = gpg
 
+[gitflow "branch"]
+  master = main
+  develop = develop
+
+[gitflow "prefix"]
+  feature = feat/
+  release = release/
+  hotfix = hotfix/
+  bugfix = bugfix/
+  versiontag = v
+
 [alias]
     # Adding files
     a = add --all
