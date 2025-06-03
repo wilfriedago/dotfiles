@@ -92,6 +92,9 @@ eval "$(zoxide init --cmd ${ZOXIDE_CMD_OVERRIDE:-z} zsh)"
 eval "$(fzf --zsh)"
 source "$HOME/.scripts/fzf/fzf-zsh-completion.sh"
 
+# Github CLI
+eval "$(gh completion -s zsh)"
+
 # ARTISAN
 if [[ -s "$PWD/artisan" ]]; then
   eval "$(php artisan completion zsh)"
