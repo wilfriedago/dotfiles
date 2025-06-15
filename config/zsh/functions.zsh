@@ -108,25 +108,25 @@ load_completion() {
   if [[ ! -f "$completion_file" ]] && command -v "$cmd" &> /dev/null; then
     case "$cmd" in
       bun)
-        /opt/homebrew/bin/bun completions > "$completion_file" 2>/dev/null
+        bun completions > "$completion_file" 2>/dev/null
         ;;
       docker)
-        /usr/local/bin/docker completion zsh > "$completion_file" 2>/dev/null
+        docker completion zsh > "$completion_file" 2>/dev/null
         ;;
       kubectl)
-        /opt/homebrew/bin/kubectl completion zsh > "$completion_file" 2>/dev/null
+        kubectl completion zsh > "$completion_file" 2>/dev/null
         ;;
       gh)
-        /opt/homebrew/bin/gh completion -s zsh > "$completion_file" 2>/dev/null
+        gh completion -s zsh > "$completion_file" 2>/dev/null
         ;;
       helm)
-        /opt/homebrew/bin/helm completion zsh > "$completion_file" 2>/dev/null
+        helm completion zsh > "$completion_file" 2>/dev/null
         ;;
       terraform)
-        complete -C /opt/homebrew/bin/terraform terraform 2>/dev/null
+        complete -C terraform terraform 2>/dev/null
         ;;
       aws)
-        complete -C '/usr/local/bin/aws_completer' aws 2>/dev/null
+        complete -C 'aws_completer' aws 2>/dev/null
         ;;
       *)
         # Try generic completion generation
