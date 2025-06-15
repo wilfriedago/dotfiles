@@ -99,3 +99,69 @@ fzf_complete_realpath() {
     fi
   fi
 }
+
+# Load completions for common tools if not already loaded
+load_completion() {
+  local cmd="$1"
+  local completion_file="$ZSH_COMPLETIONS_DIR/_$cmd"
+
+  if [[ ! -f "$completion_file" ]] && command -v "$cmd" &> /dev/null; then
+    case "$cmd" in
+      docker)
+        docker completion zsh > "$completion_file" 2>/dev/null
+        ;;
+      kubectl)
+        kubectl completion zsh > "$completion_file" 2>/dev/null
+        ;;
+      gh)
+        gh completion -s zsh > "$completion_file" 2>/dev/null
+        ;;
+      helm)
+        helm completion zsh > "$completion_file" 2>/dev/null
+        ;;
+      terraform)
+        complete -C /opt/homebrew/bin/terraform terraform 2>/dev/null
+        ;;
+      aws)
+        complete -C '/usr/local/bin/aws_completer' aws 2>/dev/null
+        ;;
+      *)
+        # Try generic completion generation
+        "$cmd" completion zsh > "$completion_file" 2>/dev/null || \
+        "$cmd" --completion zsh > "$completion_file" 2>/dev/null
+        ;;
+    esac
+
+    if [[ -f "$completion_file" ]]; then
+      source "$completion_file"
+      echo "✓ Loaded completion for $cmd"
+    fi
+  fi
+}
+
+# Auto-load completions for common tools
+autoload_completions() {
+  local tools=(docker kubectl gh helm terraform aws gcloud)
+  for tool in $tools; do
+    if command -v "$tool" &> /dev/null; then
+      load_completion "$tool"
+    fi
+  done
+}
+
+# Update completions for all tools
+update_completions() {
+  echo "🔄 Updating completions..."
+
+  # Remove old completions
+  rm -f "$ZSH_COMPLETIONS_DIR"/_*
+
+  # Regenerate completions
+  autoload_completions
+
+  # Rebuild completion cache
+  rm -f "${ZDOTDIR:-$HOME}/.zcompdump"
+  compinit
+
+  echo "✅ Completions updated!"
+}

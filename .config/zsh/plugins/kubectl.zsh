@@ -1,6 +1,3 @@
-# Completion
-eval "$(kubectl completion zsh)"
-
 # Aliases
 alias k='kubectl'
 alias ksys='kubectl --namespace=kube-system'

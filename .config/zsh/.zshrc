@@ -51,6 +51,7 @@ setopt hist_verify                    # show command with history expansion to u
 setopt share_history                  # share command history data between sessions
 
 # Initialize completion
+fpath=("$ZSH_COMPLETIONS_DIR" $fpath)
 autoload -Uz compinit
 if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
   compinit
@@ -67,7 +68,6 @@ fi
 [ -f "$XDG_CONFIG_HOME/zsh/completions.zsh" ] && source "$XDG_CONFIG_HOME/zsh/completions.zsh" # Completions
 
 # Plugins
-[ -f "$XDG_CONFIG_HOME/zsh/plugins/docker.zsh" ] && source "$XDG_CONFIG_HOME/zsh/plugins/docker.zsh"
 [ -f "$XDG_CONFIG_HOME/zsh/plugins/kubectl.zsh" ] && source "$XDG_CONFIG_HOME/zsh/plugins/kubectl.zsh"
 [ -f "$XDG_CONFIG_HOME/zsh/plugins/minikube.zsh" ] && source "$XDG_CONFIG_HOME/zsh/plugins/minikube.zsh"
 
@@ -76,7 +76,6 @@ fi
 # =============================================================================================
 
 # FNM
-eval "$(fnm completions --shell zsh)"
 eval "$(fnm env --use-on-cd --shell zsh)"
 
 # ZOXIDE
@@ -85,9 +84,6 @@ eval "$(zoxide init --cmd ${ZOXIDE_CMD_OVERRIDE:-z} zsh)"
 # FZF
 eval "$(fzf --zsh)"
 source "$HOME/.scripts/fzf/fzf-zsh-completion.sh"
-
-# Github CLI
-eval "$(gh completion -s zsh)"
 
 # ARTISAN
 if [[ -s "$PWD/artisan" ]]; then

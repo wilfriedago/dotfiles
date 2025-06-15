@@ -98,3 +98,6 @@ export PATH="${ANDROID_HOME}/emulator:${ANDROID_HOME}/tools:${ANDROID_HOME}/plat
 if [[ ! "$PATH" == */opt/fzf/bin* ]]; then
   export PATH="$HOMEBREW_PREFIX/opt/fzf/bin:$PATH"
 fi
+
+# ZSH
+export ZSH_COMPLETIONS_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completions"

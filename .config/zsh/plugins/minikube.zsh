@@ -1,6 +1,3 @@
-# Completion
-eval "$(minikube completion zsh)"
-
 # Aliases
 alias mk='minikube'
 alias mkst='minikube start'
