@@ -107,17 +107,20 @@ load_completion() {
 
   if [[ ! -f "$completion_file" ]] && command -v "$cmd" &> /dev/null; then
     case "$cmd" in
+      bun)
+        /opt/homebrew/bin/bun completions > "$completion_file" 2>/dev/null
+        ;;
       docker)
-        docker completion zsh > "$completion_file" 2>/dev/null
+        /usr/local/bin/docker completion zsh > "$completion_file" 2>/dev/null
         ;;
       kubectl)
-        kubectl completion zsh > "$completion_file" 2>/dev/null
+        /opt/homebrew/bin/kubectl completion zsh > "$completion_file" 2>/dev/null
         ;;
       gh)
-        gh completion -s zsh > "$completion_file" 2>/dev/null
+        /opt/homebrew/bin/gh completion -s zsh > "$completion_file" 2>/dev/null
         ;;
       helm)
-        helm completion zsh > "$completion_file" 2>/dev/null
+        /opt/homebrew/bin/helm completion zsh > "$completion_file" 2>/dev/null
         ;;
       terraform)
         complete -C /opt/homebrew/bin/terraform terraform 2>/dev/null
@@ -127,6 +130,8 @@ load_completion() {
         ;;
       *)
         # Try generic completion generation
+        "$cmd" completion > "$completion_file" 2>/dev/null || \
+        "$cmd" completions > "$completion_file" 2>/dev/null || \
         "$cmd" completion zsh > "$completion_file" 2>/dev/null || \
         "$cmd" --completion zsh > "$completion_file" 2>/dev/null || \
         "$cmd" completion -s zsh > "$completion_file" 2>/dev/null || \
@@ -143,7 +148,7 @@ load_completion() {
 
 # Auto-load completions for common tools
 autoload_completions() {
-  local tools=(docker fnm gh helm kubectl minikube terraform aws)
+  local tools=(bun docker fnm gh helm kubectl minikube terraform aws)
   for tool in $tools; do
     if command -v "$tool" &> /dev/null; then
       load_completion "$tool"
