@@ -69,135 +69,135 @@ profiles:
 
 dotfiles:
   d_fabric:
-    src: .config/fabric
+    src: config/fabric
     dst: ~/.config/fabric
   d_gh:
-    src: .config/gh
+    src: config/gh
     dst: ~/.config/gh
   d_ghostty:
-    src: .config/ghostty
+    src: config/ghostty
     dst: ~/.config/ghostty
   d_gitkraken_themes:
-    src: .config/gitkraken/themes
+    src: config/gitkraken/themes
     dst: ~/.gitkraken/themes
   d_helm:
-    src: .config/helm
+    src: config/helm
     dst: ~/.config/helm
   d_k9s:
-    src: .config/k9s
+    src: config/k9s
     dst: ~/.config/k9s
   d_nvim:
-    src: .config/nvim
+    src: config/nvim
     dst: ~/.config/nvim
   d_zed:
-    src: .config/zed
+    src: config/zed
     dst: ~/.config/zed
 
   f_zsh_aliases:
-    src: .config/zsh/aliases.zsh
+    src: config/zsh/aliases.zsh
     dst: ~/.config/zsh/aliases.zsh
   f_zsh_completions:
-    src: .config/zsh/completions.zsh
+    src: config/zsh/completions.zsh
     dst: ~/.config/zsh/completions.zsh
   f_zsh_functions:
-    src: .config/zsh/functions.zsh
+    src: config/zsh/functions.zsh
     dst: ~/.config/zsh/functions.zsh
   d_zsh_plugins:
-    src: .config/zsh/plugins
+    src: config/zsh/plugins
     dst: ~/.config/zsh/plugins
   f_zprofile:
-    src: .config/zsh/.zprofile
+    src: config/zsh/.zprofile
     dst: ~/.zprofile
   f_zshenv:
-    src: .config/zsh/.zshenv
+    src: config/zsh/.zshenv
     dst: ~/.zshenv
   f_zshrc:
-    src: .config/zsh/.zshrc
+    src: config/zsh/.zshrc
     dst: ~/.zshrc
   f_aerospace:
-    src: .config/aerospace.toml
+    src: config/aerospace.toml
     dst: ~/.config/aerospace/aerospace.toml
   f_btop:
-    src: .config/btop.conf
+    src: config/btop.conf
     dst: ~/.config/btop/btop.conf
   f_cliff:
-    src: .config/cliff.toml
+    src: config/cliff.toml
     dst: ~/.config/git-cliff/cliff.toml
   f_gh-copilot:
-    src: .config/gh-copilot.yml
+    src: config/gh-copilot.yml
     dst: ~/.config/gh-copilot/config.yml
   f_gpg-agent:
-    src: .config/gpg-agent.conf
+    src: config/gpg-agent.conf
     dst: ~/.gnupg/gpg-agent.conf
   f_lazydocker:
-    src: .config/lazydocker.yml
+    src: config/lazydocker.yml
     dst: ~/.config/lazydocker/config.yml
   f_lazygit:
-    src: .config/lazygit.yml
+    src: config/lazygit.yml
     dst: ~/.config/lazygit/config.yml
   f_neofetch:
-    src: .config/neofetch.conf
+    src: config/neofetch.conf
     dst: ~/.config/neofetch/config.conf
   f_sdkman:
-    src: .config/sdkman.conf
+    src: config/sdkman.conf
     dst: ~/.sdkman/etc/config
   f_starship:
-    src: .config/starship.toml
+    src: config/starship.toml
     dst: ~/.config/starship/starship.toml
   f_yazi:
-    src: .config/yazi.toml
+    src: config/yazi.toml
     dst: ~/.config/yazi/yazi.toml
   d_scripts:
     src: scripts
     dst: ~/.scripts
   f_vscode_custom_js:
-    src: .config/vscode/custom.js
+    src: config/vscode/custom.js
     dst: ~/Library/Application Support/Code/User/custom.js
   f_vscode_custom_css:
-    src: .config/vscode/custom.css
+    src: config/vscode/custom.css
     dst: ~/Library/Application Support/Code/User/custom.css
   d_vscode_snippets:
-    src: .config/vscode/snippets
+    src: config/vscode/snippets
     dst: ~/Library/Application Support/Code/User/snippets
   f_vscode_settings:
-    src: .config/vscode/settings.json
+    src: config/vscode/settings.json
     dst: ~/Library/Application Support/Code/User/settings.json
   f_vscode_extensions:
-    src: .config/vscode/extensions.json
+    src: config/vscode/extensions.json
     dst: ~/.vscode/extensions/extensions.json
   f_vscode_keybindings:
-    src: .config/vscode/keybindings.json
+    src: config/vscode/keybindings.json
     dst: ~/Library/Application Support/Code/User/keybindings.json
   d_vscode_database_snippets:
-    src: .config/vscode/snippets
+    src: config/vscode/snippets
     dst: ~/Library/Application Support/Code/User/profiles/-7dccf8ce/snippets
   f_vscode_database_settings:
-    src: .config/vscode/settings.json
+    src: config/vscode/settings.json
     dst: ~/Library/Application Support/Code/User/profiles/-7dccf8ce/settings.json
   f_vscode_database_extensions:
-    src: .config/vscode/extensions.json
+    src: config/vscode/extensions.json
     dst: ~/Library/Application Support/Code/User/profiles/-7dccf8ce/extensions.json
   f_vscode_database_keybindings:
-    src: .config/vscode/keybindings.json
+    src: config/vscode/keybindings.json
     dst: ~/Library/Application Support/Code/User/profiles/-7dccf8ce/keybindings.json
   d_vscode_frontend_snippets:
-    src: .config/vscode/snippets
+    src: config/vscode/snippets
     dst: ~/Library/Application Support/Code/User/profiles/13ab142b/snippets
   f_vscode_frontend_settings:
-    src: .config/vscode/settings.json
+    src: config/vscode/settings.json
     dst: ~/Library/Application Support/Code/User/profiles/13ab142b/settings.json
   f_vscode_frontend_extensions:
-    src: .config/vscode/extensions.json
+    src: config/vscode/extensions.json
     dst: ~/Library/Application Support/Code/User/profiles/13ab142b/extensions.json
   f_vscode_frontend_keybindings:
-    src: .config/vscode/keybindings.json
+    src: config/vscode/keybindings.json
     dst: ~/Library/Application Support/Code/User/profiles/13ab142b/keybindings.json
   f_gitconfig:
-    src: .config/.gitconfig
+    src: config/.gitconfig
     dst: ~/.gitconfig
   f_gitignore_global:
-    src: .config/.gitignore_global
+    src: config/.gitignore_global
     dst: ~/.gitignore_global
   f_ssh_config:
-    src: .config/ssh/config
+    src: config/ssh/config
     dst: ~/.ssh/config
