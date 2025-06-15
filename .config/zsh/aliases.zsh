@@ -87,6 +87,7 @@ alias pubkey="cat ~/.ssh/id_ed25519.pub | pbcopy | echo 'Public Key => Copied to
 alias lzd="lazydocker" # run Docker TUI
 alias yz='yazi' # run yazi
 alias claude="~/.claude/local/claude" # run local Claude Code
+alias artisan='php artisan' # Laravel artisan command
 
 # Get macOS Software Updates, and update installed Homebrew, npm, and their installed packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; pnpm add -g pnpm -g; pnpm update -g; gh extension upgrade --all; omz update'

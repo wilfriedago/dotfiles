@@ -86,9 +86,7 @@ eval "$(fzf --zsh)"
 source "$HOME/.scripts/fzf/fzf-zsh-completion.sh"
 
 # ARTISAN
-if [[ -s "$PWD/artisan" ]]; then
-  eval "$(php artisan completion zsh)"
-fi
+[[ -s "$PWD/artisan" && -x "$PWD/artisan" ]] && eval "$(php artisan completion zsh)"
 
 # =============================================================================================
 # Miscellaneous
