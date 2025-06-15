@@ -61,16 +61,6 @@ cask 'qlmarkdown' # QuickLook generator for Markdown files
 cask 'syntax-highlight' # QuickLook generator for source code files with syntax highlighting
 
 # =============================================================================================
-# Programming languages, REPLs
-# =============================================================================================
-
-# brew 'erlang' # programming language for highly scalable real-time systems
-# brew 'elixir' # functional metaprogramming aware language built on Erlang VM
-# brew 'gleam' # statically typed language for the Erlang VM
-# brew 'lua' # powerful, lightweight programming language
-# brew 'ruby' # powerful, clean, object-oriented scripting language
-
-# =============================================================================================
 # CLI tools
 # =============================================================================================
 
@@ -97,8 +87,6 @@ brew 'nmap' # network exploration tool and security/port scanner
 brew 'neofetch' # fast, highly customisable system info script
 brew 'git-cliff' # changelog generator that uses git commit messages to generate the changelog
 brew 'pinentry-mac' # pinentry for GPG on Mac
-brew 'docker' # pack, ship and run any application as a lightweight container
-brew 'docker-compose' # define and run multi-container Docker applications
 brew 'lazydocker' # lazier way to manage everything docker
 brew 'lazygit' # simple terminal ui for git commands
 brew 'kubernetes-cli' # kubernetes command-line tool
