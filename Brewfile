@@ -51,7 +51,7 @@ cask 'slack' # messaging app
 cask 'polypane' # a feature complete browser for web developers for accessibility
 cask 'pearcleaner' # a cleaner for macOS
 cask 'ghostty' # a terminal emulator for macOS
-cask 'podman-desktop' # Podman Desktop is a GUI for Podman
+cask 'docker-desktop' # Docker Desktop for Mac
 
 # =============================================================================================
 # QuickLook plugins
