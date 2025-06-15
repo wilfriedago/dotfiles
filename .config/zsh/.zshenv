@@ -94,14 +94,6 @@ esac
 export ANDROID_HOME="${HOME}/Library/Android/sdk"
 export PATH="${ANDROID_HOME}/emulator:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${PATH}"
 
-# PODMAN x DOCKER
-if command -v podman >/dev/null 2>&1; then
-  PODMAN_SOCKET=$(podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}' 2>/dev/null)
-  if [ -n "$PODMAN_SOCKET" ]; then
-    export DOCKER_HOST=unix://$PODMAN_SOCKET
-  fi
-fi
-
 # FZF
 if [[ ! "$PATH" == */opt/fzf/bin* ]]; then
   export PATH="$HOMEBREW_PREFIX/opt/fzf/bin:$PATH"
