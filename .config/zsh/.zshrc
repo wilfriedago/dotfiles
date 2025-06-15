@@ -13,18 +13,12 @@
 # Profiling
 # zmodload zsh/zprof
 
-# =============================================================================================
-# ZSH Configuration
-# =============================================================================================
-
 # Zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 # Download Zinit, if it's not there yet
-if [[ ! -f $ZINIT_HOME/zinit.zsh ]]; then
-  command mkdir -p "$(dirname "$ZINIT_HOME")" && command chmod g-rwX "$(dirname "$ZINIT_HOME")"
-  command git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-fi
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)" && chmod g-rwX "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
