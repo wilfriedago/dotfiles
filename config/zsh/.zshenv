@@ -62,10 +62,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 #  Runtime environments
 # =============================================================================================
 
-# BUN
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
 # NODE Binaries
 [ -d "$PWD/node_modules/.bin" ] && export PATH="$PWD/node_modules/.bin:$PATH"
 
