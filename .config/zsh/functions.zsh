@@ -128,7 +128,9 @@ load_completion() {
       *)
         # Try generic completion generation
         "$cmd" completion zsh > "$completion_file" 2>/dev/null || \
-        "$cmd" --completion zsh > "$completion_file" 2>/dev/null
+        "$cmd" --completion zsh > "$completion_file" 2>/dev/null || \
+        "$cmd" completion -s zsh > "$completion_file" 2>/dev/null || \
+        "$cmd" completions --shell zsh > "$completion_file" 2>/dev/null
         ;;
     esac
 
@@ -141,7 +143,7 @@ load_completion() {
 
 # Auto-load completions for common tools
 autoload_completions() {
-  local tools=(docker kubectl gh helm terraform aws gcloud)
+  local tools=(docker fnm gh helm kubectl minikube terraform aws)
   for tool in $tools; do
     if command -v "$tool" &> /dev/null; then
       load_completion "$tool"

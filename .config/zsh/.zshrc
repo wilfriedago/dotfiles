@@ -85,6 +85,16 @@ eval "$(zoxide init --cmd ${ZOXIDE_CMD_OVERRIDE:-z} zsh)"
 eval "$(fzf --zsh)"
 source "$HOME/.scripts/fzf/fzf-zsh-completion.sh"
 
+# AWS
+if command -v aws_completer &> /dev/null; then
+  complete -C aws_completer aws
+fi
+
+# TERRAFORM
+if command -v terraform &> /dev/null; then
+  complete -C "$(command -v terraform)" terraform
+fi
+
 # ARTISAN
 [[ -s "$PWD/artisan" && -x "$PWD/artisan" ]] && eval "$(php artisan completion zsh)"
 
