@@ -1,14 +1,14 @@
-########################################################################
-# ~/.config/zsh/.zshrc                                                 #
-########################################################################
-# Instructions to be executed when a new ZSH session is launched       #
-# Imports all plugins, aliases, helper functions, and configurations   #
-#                                                                      #
-# After editing, re-source .zshrc for new changes to take effect       #
-# For docs and more info, see: https://github.com/wilfriedago/dotfiles #
-#####################################################################  #
-# Licensed under MIT (C) Alicia Sykes 2025 <https://wilfriedago.dev>   #
-########################################################################
+# =============================================================================================
+# ~/.config/zsh/.zshrc                                                                        #
+# =============================================================================================
+# Instructions to be executed when a new ZSH session is launched                              #
+# Imports all plugins, aliases, helper functions, and configurations                          #
+#                                                                                             #
+# After editing, re-source .zshrc for new changes to take effect                              #
+# For docs and more info, see: https://github.com/wilfriedago/dotfiles                        #
+# =============================================================================================
+# License: MIT © Wilfrieds AGO 2025 <https://wilfriedago.dev>                                 #
+# =============================================================================================
 
 # Profiling
 # zmodload zsh/zprof
