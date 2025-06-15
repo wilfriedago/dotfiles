@@ -97,3 +97,5 @@ fi
 
 # ZSH
 export ZSH_COMPLETIONS_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completions"
+[[ ! -d "$ZSH_COMPLETIONS_DIR" ]] && mkdir -p "$ZSH_COMPLETIONS_DIR"
+fpath=("$ZSH_COMPLETIONS_DIR" $fpath)

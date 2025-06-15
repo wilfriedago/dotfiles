@@ -50,15 +50,6 @@ setopt hist_ignore_space              # ignore commands that start with space
 setopt hist_verify                    # show command with history expansion to user before running it
 setopt share_history                  # share command history data between sessions
 
-# Initialize completion
-fpath=("$ZSH_COMPLETIONS_DIR" $fpath)
-autoload -Uz compinit
-if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
-  compinit
-else
-  compinit -C
-fi
-
 # =============================================================================================
 # Shell
 # =============================================================================================
@@ -106,6 +97,9 @@ setopt auto_cd
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
+
+autoload -Uz compinit
+compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/.zcompdump"
 
 # Clean up PATH
 typeset -U PATH
