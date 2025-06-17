@@ -138,7 +138,7 @@ dotfiles:
     src: config/gh-copilot.yml
     dst: ~/.config/gh-copilot/config.yml
   f_git-cliff:
-    src: config/cliff.toml
+    src: config/git-cliff.toml
     dst: ~/.config/git-cliff/cliff.toml
   f_gpg-agent:
     src: config/gpg-agent.conf
