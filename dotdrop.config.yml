@@ -21,7 +21,6 @@ profiles:
     - f_zsh_history
 
     # Other configuration files
-    - d_fabric
     - d_gh
     - d_ghostty
     - d_gitkraken_themes
@@ -99,9 +98,6 @@ dotfiles:
     dst: ~/.config/zsh/history.zsh
 
   # Other configuration files
-  d_fabric:
-    src: config/fabric
-    dst: ~/.config/fabric
   d_gh:
     src: config/gh
     dst: ~/.config/gh
