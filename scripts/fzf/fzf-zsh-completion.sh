@@ -377,6 +377,20 @@ _fzf_completion_compadd() {
   return "$__code"
 }
 
+_fzf_completion_realpath() {
+  if [ -d "$1" ]; then
+    eza -al --tree --icons --level=3 --no-permissions --no-user --no-time --no-filesize "$1" | head -100
+  else
+    mime="$(file -Lbs --mime-type "$1")"
+    category="${mime%%/*}"
+    if [ "$category" = 'image' ]; then
+      chafa -r2 -w 100 "$1"
+    else
+      bat -n --color=always --line-range :100 "$1"
+    fi
+  fi
+}
+
 zle -C _fzf_completion complete-word _fzf_completion
 zle -N fzf_completion
 fzf_default_completion=fzf_completion

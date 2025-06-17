@@ -37,19 +37,6 @@ zinit light-mode for \
   zdharma-continuum/fast-syntax-highlighting \
   Aloxaf/fzf-tab
 
-# History
-HIST_STAMPS="yyyy-mm-dd"              # Set the format of the history timestamp
-HIST_IGNORE_SPACE="true"              # Ignore commands that start with space
-HISTFILE="$HOME/.zsh_history"
-HISTSIZE=50000                        # Set the maximum number of history entries
-SAVEHIST=10000                        # Set the maximum number of history entries to save in the file
-setopt extended_history               # record timestamp of command in HISTFILE
-setopt hist_expire_dups_first         # delete duplicates first when HISTFILE size exceeds HISTSIZE
-setopt hist_ignore_dups               # ignore duplicated commands history list
-setopt hist_ignore_space              # ignore commands that start with space
-setopt hist_verify                    # show command with history expansion to user before running it
-setopt share_history                  # share command history data between sessions
-
 # =============================================================================================
 # Shell
 # =============================================================================================
@@ -57,6 +44,7 @@ setopt share_history                  # share command history data between sessi
 [ -f "$XDG_CONFIG_HOME/zsh/aliases.zsh" ] && source "$XDG_CONFIG_HOME/zsh/aliases.zsh" # Aliases
 [ -f "$XDG_CONFIG_HOME/zsh/functions.zsh" ] && source "$XDG_CONFIG_HOME/zsh/functions.zsh" # Functions
 [ -f "$XDG_CONFIG_HOME/zsh/completions.zsh" ] && source "$XDG_CONFIG_HOME/zsh/completions.zsh" # Completions
+[ -f "$XDG_CONFIG_HOME/zsh/history.zsh" ] && source "$XDG_CONFIG_HOME/zsh/history.zsh" # History
 
 # Plugins
 [ -f "$XDG_CONFIG_HOME/zsh/plugins/kubectl.zsh" ] && source "$XDG_CONFIG_HOME/zsh/plugins/kubectl.zsh"
@@ -97,9 +85,6 @@ setopt auto_cd
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
-
-autoload -Uz compinit
-compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/.zcompdump"
 
 # Clean up PATH
 typeset -U PATH

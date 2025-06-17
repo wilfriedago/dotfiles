@@ -10,40 +10,44 @@ config:
 profiles:
   default:
     dotfiles:
-    - d_fabric
-    - d_gh
-    - d_gitkraken_themes
-    - d_helm
-    - d_k9s
-    - d_ghostty
-    - d_nvim
-    - d_scripts
-    - d_zed
-
-      # Zsh configuration files
+    # Zsh configuration files
+    - d_zsh_plugins
     - f_zprofile
     - f_zshenv
     - f_zshrc
     - f_zsh_aliases
     - f_zsh_completions
     - f_zsh_functions
-    - d_zsh_plugins
+    - f_zsh_history
 
+    # Other configuration files
+    - d_fabric
+    - d_gh
+    - d_ghostty
+    - d_gitkraken_themes
+    - d_helm
+    - d_k9s
+    - d_nvim
+    - d_zed
+    - f_gitconfig
+    - f_gitignore_global
     - f_aerospace
     - f_btop
     - f_cliff
+    - f_curlrc
     - f_gh-copilot
     - f_gpg-agent
     - f_lazydocker
     - f_lazygit
     - f_neofetch
     - f_sdkman
+    - f_ssh
     - f_starship
+    - f_wgetrc
     - f_yazi
 
-    - f_gitconfig
-    - f_gitignore_global
-    - f_ssh_config
+    # Scripts directory
+    - d_scripts
   macos:
     dotfiles:
     - f_vscode_custom_js
@@ -68,6 +72,33 @@ profiles:
     - f_vscode_frontend_keybindings
 
 dotfiles:
+  # Zsh configuration files
+  d_zsh_plugins:
+    src: config/zsh/plugins
+    dst: ~/.config/zsh/plugins
+  f_zprofile:
+    src: config/zsh/.zprofile
+    dst: ~/.zprofile
+  f_zshenv:
+    src: config/zsh/.zshenv
+    dst: ~/.zshenv
+  f_zshrc:
+    src: config/zsh/.zshrc
+    dst: ~/.zshrc
+  f_zsh_aliases:
+    src: config/zsh/aliases.zsh
+    dst: ~/.config/zsh/aliases.zsh
+  f_zsh_completions:
+    src: config/zsh/completions.zsh
+    dst: ~/.config/zsh/completions.zsh
+  f_zsh_functions:
+    src: config/zsh/functions.zsh
+    dst: ~/.config/zsh/functions.zsh
+  f_zsh_history:
+    src: config/zsh/history.zsh
+    dst: ~/.config/zsh/history.zsh
+
+  # Other configuration files
   d_fabric:
     src: config/fabric
     dst: ~/.config/fabric
@@ -92,28 +123,12 @@ dotfiles:
   d_zed:
     src: config/zed
     dst: ~/.config/zed
-
-  f_zsh_aliases:
-    src: config/zsh/aliases.zsh
-    dst: ~/.config/zsh/aliases.zsh
-  f_zsh_completions:
-    src: config/zsh/completions.zsh
-    dst: ~/.config/zsh/completions.zsh
-  f_zsh_functions:
-    src: config/zsh/functions.zsh
-    dst: ~/.config/zsh/functions.zsh
-  d_zsh_plugins:
-    src: config/zsh/plugins
-    dst: ~/.config/zsh/plugins
-  f_zprofile:
-    src: config/zsh/.zprofile
-    dst: ~/.zprofile
-  f_zshenv:
-    src: config/zsh/.zshenv
-    dst: ~/.zshenv
-  f_zshrc:
-    src: config/zsh/.zshrc
-    dst: ~/.zshrc
+  f_gitconfig:
+    src: config/.gitconfig
+    dst: ~/.gitconfig
+  f_gitignore_global:
+    src: config/.gitignore_global
+    dst: ~/.gitignore_global
   f_aerospace:
     src: config/aerospace.toml
     dst: ~/.config/aerospace/aerospace.toml
@@ -123,6 +138,9 @@ dotfiles:
   f_cliff:
     src: config/cliff.toml
     dst: ~/.config/git-cliff/cliff.toml
+  f_curlrc:
+    src: config/curlrc.conf
+    dst: ~/.curlrc
   f_gh-copilot:
     src: config/gh-copilot.yml
     dst: ~/.config/gh-copilot/config.yml
@@ -141,15 +159,25 @@ dotfiles:
   f_sdkman:
     src: config/sdkman.conf
     dst: ~/.sdkman/etc/config
+  f_ssh:
+    src: config/ssh.conf
+    dst: ~/.ssh/config
   f_starship:
     src: config/starship.toml
     dst: ~/.config/starship/starship.toml
+  f_wgetrc:
+    src: config/wgetrc.conf
+    dst: ~/.wgetrc
   f_yazi:
     src: config/yazi.toml
     dst: ~/.config/yazi/yazi.toml
+
+  # Scripts directory
   d_scripts:
     src: scripts
     dst: ~/.scripts
+
+  # MacOS specific configuration files
   f_vscode_custom_js:
     src: config/vscode/custom.js
     dst: ~/Library/Application Support/Code/User/custom.js
@@ -192,12 +220,3 @@ dotfiles:
   f_vscode_frontend_keybindings:
     src: config/vscode/keybindings.json
     dst: ~/Library/Application Support/Code/User/profiles/13ab142b/keybindings.json
-  f_gitconfig:
-    src: config/.gitconfig
-    dst: ~/.gitconfig
-  f_gitignore_global:
-    src: config/.gitignore_global
-    dst: ~/.gitignore_global
-  f_ssh_config:
-    src: config/ssh/config
-    dst: ~/.ssh/config
