@@ -49,7 +49,7 @@ In terms of command-line tools, I try to keep them minimal—only the ones I use
 
 - [`bat`](https://github.com/sharkdp/bat) - A cat clone with syntax highlighting and Git integration
 - [`btop`](https://github.com/ClementTsang/btop) - A terminal dashboard
-- [`exa`](https://github.com/ogham/exa) - A modern replacement for `ls`
+- [`eza`](https://github.com/eza-community/eza) - A modern alternative to `ls`
 - [`fd`](https://github.com/sharkdp/fd) - A simple, fast and user-friendly alternative to `find`
 - [`fzf`](https://github.com/junegunn/fzf) - A command-line fuzzy finder
 - [`k9s`](https://github.com/derailed/k9s) - A terminal UI for Kubernetes
