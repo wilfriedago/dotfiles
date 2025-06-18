@@ -16,37 +16,37 @@ _fzf_bash_completion_awk="$( builtin command -v gawk &>/dev/null && echo gawk ||
 _fzf_bash_completion_grep="$( builtin command -v ggrep &>/dev/null && echo ggrep || echo grep )"
 
 repeat-fzf-completion() {
-  __repeat=1
-  __query="$1"
+    __repeat=1
+    __query="$1"
 }
 
 fzf_completion() {
-  local __repeat=1 __code= __action= __query=
-  while (( __repeat )); do
-    __code=
-    __repeat=0
-    __action=
-    # run the actual completion widget
-    zle _fzf_completion
+    local __repeat=1 __code= __action= __query=
+    while (( __repeat )); do
+        __code=
+        __repeat=0
+        __action=
+        # run the actual completion widget
+        zle _fzf_completion
 
-    if [[ -n "$__action" ]]; then
-      eval "$__action"
-      zle reset-prompt
-    fi
-  done
+        if [[ -n "$__action" ]]; then
+            eval "$__action"
+            zle reset-prompt
+        fi
+    done
 }
 
 _fzf_completion() {
-  emulate -LR zsh +o ALIASES
-  setopt interactivecomments
-  local __value= __stderr=
-  local __compadd_args=()
+    emulate -LR zsh +o ALIASES
+    setopt interactivecomments
+    local __value= __stderr=
+    local __compadd_args=()
 
-  __code=
-  __stderr=
-  if zstyle -t ':completion:' show-completer; then
-    zle -R 'Loading matches ...'
-  fi
+    __code=
+    __stderr=
+    if zstyle -t ':completion:' show-completer; then
+        zle -R 'Loading matches ...'
+    fi
 
     eval "$(
     local _fzf_sentinel1=b5a0da60-3378-4afd-ba00-bc1c269bef68
@@ -145,7 +145,7 @@ _fzf_completion() {
                 printf '%s\n' "$_FZF_COMPLETION_SEP$_fzf_sentinel1$_fzf_sentinel2"
             # need to get awk to be unbuffered either by using -W interactive or system("")
             ) | sed -un "/$_fzf_sentinel1$_fzf_sentinel2/q; p" \
-            | "$_fzf_bash_completion_awk" -W interactive -F"$_FZF_COMPLETION_SEP" '/^$/{exit}; $1!="" && !x[$1]++ { print $0; system("") }' 2>/dev/null
+              | "$_fzf_bash_completion_awk" -W interactive -F"$_FZF_COMPLETION_SEP" '/^$/{exit}; $1!="" && !x[$1]++ { print $0; system("") }' 2>/dev/null
         )
         coproc_pid="$!"
         __value="$(_fzf_completion_selector "$__code" <&p)"
@@ -201,194 +201,182 @@ _fzf_completion() {
 }
 
 _fzf_completion_post() {
-  local stderr="$1" code="$2"
-  if [ -n "$stderr" ]; then
-    zle -M -- "$stderr"
-  elif (( code == 1 )); then
-    zle -R ' '
-  else
-    zle -R ' ' ' '
-  fi
+    local stderr="$1" code="$2"
+    if [ -n "$stderr" ]; then
+        zle -M -- "$stderr"
+    elif (( code == 1 )); then
+        zle -R ' '
+    else
+        zle -R ' ' ' '
+    fi
 }
 
 _fzf_completion_selector() {
-  local lines=() reply REPLY
-  exec {tty}</dev/tty
-  local fzf="$(__fzfcmd 2>/dev/null || echo fzf)"
-  local default_height="${FZF_TMUX_HEIGHT:-40%}"
-  if [[ -z "$FZF_TMUX_HEIGHT" ]]; then
-      # get the cursor pos
-      printf '\e[6n' >/dev/tty
-      local buf c match MATCH
-      until [[ "$buf" =~ $'\x1b\\[([0-9]+);[0-9]+R' ]]; do
-          read -s -k1 c </dev/tty && buf+="$c"
-      done
-      if [[ "$fzf" == fzf ]] && (( LINES - match[1] > LINES * 0.4 )); then
-          default_height="$(( LINES - match[1] ))"
-      fi
-  fi
-  while (( ${#lines[@]} < 2 )); do
-    zselect -r 0 "$tty"
-    if (( reply[2] == 0 )); then
-      if IFS= read -r; then
-        lines+=( "$REPLY" )
-      elif (( ${#lines[@]} == 1 )); then # only one input
-        printf %s\\n "${lines[1]}" && return
-      else # no input
-        return 1
-      fi
-    else
-      sysread -c 5 -t0.05 <&"$tty"
-      [ "$REPLY" = $'\x1b' ] && return 130 # escape pressed
-      __query+="$REPLY"
+    local lines=() reply REPLY
+    exec {tty}</dev/tty
+
+    local fzf="$(__fzfcmd 2>/dev/null || echo fzf)"
+    local default_height="${FZF_TMUX_HEIGHT:-40%}"
+    if [[ -z "$FZF_TMUX_HEIGHT" ]]; then
+        # get the cursor pos
+        printf '\e[6n' >/dev/tty
+        local buf c match MATCH
+        until [[ "$buf" =~ $'\x1b\\[([0-9]+);[0-9]+R' ]]; do
+            read -s -k1 c </dev/tty && buf+="$c"
+        done
+        if [[ "$fzf" == fzf ]] && (( LINES - match[1] > LINES * 0.4 )); then
+            default_height="$(( LINES - match[1] ))"
+        fi
     fi
-  done
 
-  local field=2
-  if (( _FZF_COMPLETION_SEARCH_DISPLAY )); then
-    field=2,3
-  fi
+    while (( ${#lines[@]} < 2 )); do
+        zselect -r 0 "$tty"
+        if (( reply[2] == 0 )); then
+            if IFS= read -r; then
+                lines+=( "$REPLY" )
+            elif (( ${#lines[@]} == 1 )); then # only one input
+                printf %s\\n "${lines[1]}" && return
+            else # no input
+                return 1
+            fi
+        else
+            sysread -c 5 -t0.05 <&"$tty"
+            [ "$REPLY" = $'\x1b' ] && return 130 # escape pressed
+            __query+="$REPLY"
+        fi
+    done
 
-  local flags=() keybinds=()
-  builtin zstyle -a "$_FZF_COMPLETION_CONTEXT" fzf-completion-opts flags
-  builtin zstyle -a "$_FZF_COMPLETION_CONTEXT" fzf-completion-keybindings keybinds
-  while IFS=: read -r key action; do
-    flags+=( --bind "$key:become:printf %s%q\\\\n ${(q)action}\\  {q} {+}; exit $_FZF_COMPLETION_KEYBINDINGS" )
-  done < <( (( ${#keybinds[@]} )) && printf %s\\n "${keybinds[@]}")
-  if [[ -n "$__query" ]]; then
-    flags+=( --query="$__query" )
-  fi
+    local field=2
+    if (( _FZF_COMPLETION_SEARCH_DISPLAY )); then
+        field=2,3
+    fi
 
-  tput cud1 >/dev/tty # fzf clears the line on exit so move down one
-  # fullvalue, value, index, display, show, prefix
-  FZF_DEFAULT_OPTS="--height $default_height --reverse $FZF_DEFAULT_OPTS $FZF_COMPLETION_OPTS" \
-    "$fzf" --ansi --prompt "${FZF_TAB_COMPLETION_PROMPT:-> }$PREFIX" -d "[${_FZF_COMPLETION_SEP}${_FZF_COMPLETION_SPACE_SEP}]" --with-nth 6,5,4 --nth "$field" "${flags[@]}" \
-    < <( (( ${#lines[@]} )) && printf %s\\n "${lines[@]}"; cat)
-  code="$?"
-  tput cuu1 >/dev/tty
-  return "$code"
+    local flags=() keybinds=()
+    builtin zstyle -a "$_FZF_COMPLETION_CONTEXT" fzf-completion-opts flags
+    builtin zstyle -a "$_FZF_COMPLETION_CONTEXT" fzf-completion-keybindings keybinds
+    while IFS=: read -r key action; do
+        flags+=( --bind "$key:become:printf %s%q\\\\n ${(q)action}\\  {q} {+}; exit $_FZF_COMPLETION_KEYBINDINGS" )
+    done < <( (( ${#keybinds[@]} )) && printf %s\\n "${keybinds[@]}")
+    if [[ -n "$__query" ]]; then
+        flags+=( --query="$__query" )
+    fi
+
+    tput cud1 >/dev/tty # fzf clears the line on exit so move down one
+    # fullvalue, value, index, display, show, prefix
+    FZF_DEFAULT_OPTS="--height $default_height --reverse $FZF_DEFAULT_OPTS $FZF_COMPLETION_OPTS" \
+        "$fzf" --ansi --prompt "${FZF_TAB_COMPLETION_PROMPT:-> }$PREFIX" -d "[${_FZF_COMPLETION_SEP}${_FZF_COMPLETION_SPACE_SEP}]" --with-nth 6,5,4 --nth "$field" "${flags[@]}" \
+        < <( (( ${#lines[@]} )) && printf %s\\n "${lines[@]}"; cat)
+    code="$?"
+    tput cuu1 >/dev/tty
+    return "$code"
 }
 
 _fzf_completion_zstyle() {
-  if [[ "$1" != -* ]]; then
-    { printf 'zstyle %q ' "$@"; printf \\n } >&"${__evaled}"
-  fi
-  builtin zstyle "$@"
+    if [[ "$1" != -* ]]; then
+        { printf 'zstyle %q ' "$@"; printf \\n } >&"${__evaled}"
+    fi
+    builtin zstyle "$@"
 }
 
 _fzf_completion_compadd() {
-  local __flags=()
-  local __OAD=()
-  local __disp __hits __ipre __apre __hpre __hsuf __asuf __isuf __opts __optskv
-  zparseopts -D -a __opts -A __optskv -- "${^_FZF_COMPLETION_FLAGS[@]}+=__flags" F+: P:=__apre S:=__asuf o+:: p:=__hpre s:=__hsuf i:=__ipre I:=__isuf W+: d:=__disp J+: V+: X+: x+: r+: R+: D+: O+: A+: E+: M+:
-  local __filenames="${__flags[(r)-f]}"
-  local __noquote="${__flags[(r)-Q]}"
-  local __is_param="${__flags[(r)-e]}"
-  local __no_matching="${__flags[(r)-U]}"
+    local __flags=()
+    local __OAD=()
+    local __disp __hits __ipre __apre __hpre __hsuf __asuf __isuf __opts __optskv
+    zparseopts -D -a __opts -A __optskv -- "${^_FZF_COMPLETION_FLAGS[@]}+=__flags" F+: P:=__apre S:=__asuf o+:: p:=__hpre s:=__hsuf i:=__ipre I:=__isuf W+: d:=__disp J+: V+: X+: x+: r+: R+: D+: O+: A+: E+: M+:
+    local __filenames="${__flags[(r)-f]}"
+    local __noquote="${__flags[(r)-Q]}"
+    local __is_param="${__flags[(r)-e]}"
+    local __no_matching="${__flags[(r)-U]}"
 
-  if [ -n "${__optskv[(i)-A]}${__optskv[(i)-O]}${__optskv[(i)-D]}" ]; then
-    # handle -O -A -D
-    builtin compadd "${__flags[@]}" "${__opts[@]}" "${__ipre[@]}" "${__hpre[@]}" -- "$@"
-    return "$?"
-  fi
+    if [ -n "${__optskv[(i)-A]}${__optskv[(i)-O]}${__optskv[(i)-D]}" ]; then
+        # handle -O -A -D
+        builtin compadd "${__flags[@]}" "${__opts[@]}" "${__ipre[@]}" "${__hpre[@]}" -- "$@"
+        return "$?"
+    fi
 
-  if [[ "${__disp[2]}" =~ '^\(((\\.|[^)])*)\)' ]]; then
-    IFS=$' \t\n\0' read -A __disp <<<"${match[1]}"
-  else
-    __disp=( "${(@P)__disp[2]}" )
-  fi
-
-  builtin compadd -Q -A __hits -D __disp "${__flags[@]}" "${__opts[@]}" "${__ipre[@]}" "${__apre[@]}" "${__hpre[@]}" "${__hsuf[@]}" "${__asuf[@]}" "${__isuf[@]}" -- "$@"
-  # have to run it for real as some completion functions check compstate[nmatches]
-  builtin compadd $__no_matching -a __hits
-  local __code="$?"
-  __flags="${(j..)__flags//[ak-]}"
-  if [ -z "${__optskv[(i)-U]}" ]; then
-    # -U ignores $IPREFIX so add it to -i
-    __ipre[2]="${IPREFIX}${__ipre[2]}"
-    __ipre=( -i "${__ipre[2]}" )
-    IPREFIX=
-  fi
-  local compadd_args="$(printf '%q ' PREFIX="$PREFIX" IPREFIX="$IPREFIX" SUFFIX="$SUFFIX" ISUFFIX="$ISUFFIX" compadd ${__flags:+-$__flags} "${__opts[@]}" "${__ipre[@]}" "${__apre[@]}" "${__hpre[@]}" "${__hsuf[@]}" "${__asuf[@]}" "${__isuf[@]}" -U)"
-  printf "__compadd_args+=( '%s' )\n" "${compadd_args//'/'\\''}" >&"${__evaled}"
-  (( __comp_index++ ))
-
-  local file_prefix="${__optskv[-W]:-.}"
-  local __disp_str __hit_str __show_str __real_str __suffix
-
-  local prefix="${IPREFIX}${__ipre[2]}${__apre[2]}${__hpre[2]}"
-  local suffix="${__hsuf[2]}${__asuf[2]}${__isuf[2]}"
-  if [ -n "$__is_param" -a "$prefix" = '${' -a -z "$suffix" ]; then
-    suffix+=}
-  fi
-
-  local i
-  for ((i = 1; i <= $#__hits; i++)); do
-    # actual match
-    __hit_str="${__hits[$i]}"
-    # full display string
-    __disp_str="${__disp[$i]}"
-    __suffix="$suffix"
-
-    # part of display string containing match
-    if [ -n "$__noquote" ]; then
-      __show_str="${(Q)__hit_str}"
+    if [[ "${__disp[2]}" =~ '^\(((\\.|[^)])*)\)' ]]; then
+        IFS=$' \t\n\0' read -A __disp <<<"${match[1]}"
     else
-      __show_str="${__hit_str}"
-    fi
-    __real_str="${__show_str}"
-
-    if [[ -n "$__filenames" && -n "$__show_str" && -d "${file_prefix}/${__show_str}" ]]; then
-      __show_str+=/
-      __suffix+=/
+        __disp=( "${(@P)__disp[2]}" )
     fi
 
-    if [[ -z "$__disp_str" || "$__disp_str" == "$__show_str"* ]]; then
-      # remove prefix from display string
-      __disp_str="${__disp_str:${#__show_str}}"
-    else
-      # display string does not match, clear it
-      __show_str=
+    builtin compadd -Q -A __hits -D __disp "${__flags[@]}" "${__opts[@]}" "${__ipre[@]}" "${__apre[@]}" "${__hpre[@]}" "${__hsuf[@]}" "${__asuf[@]}" "${__isuf[@]}" -- "$@"
+    # have to run it for real as some completion functions check compstate[nmatches]
+    builtin compadd $__no_matching -a __hits
+    local __code="$?"
+    __flags="${(j..)__flags//[ak-]}"
+    if [ -z "${__optskv[(i)-U]}" ]; then
+        # -U ignores $IPREFIX so add it to -i
+        __ipre[2]="${IPREFIX}${__ipre[2]}"
+        __ipre=( -i "${__ipre[2]}" )
+        IPREFIX=
+    fi
+    local compadd_args="$(printf '%q ' PREFIX="$PREFIX" IPREFIX="$IPREFIX" SUFFIX="$SUFFIX" ISUFFIX="$ISUFFIX" compadd ${__flags:+-$__flags} "${__opts[@]}" "${__ipre[@]}" "${__apre[@]}" "${__hpre[@]}" "${__hsuf[@]}" "${__asuf[@]}" "${__isuf[@]}" -U)"
+    printf "__compadd_args+=( '%s' )\n" "${compadd_args//'/'\\''}" >&"${__evaled}"
+    (( __comp_index++ ))
+
+    local file_prefix="${__optskv[-W]:-.}"
+    local __disp_str __hit_str __show_str __real_str __suffix
+
+    local prefix="${IPREFIX}${__ipre[2]}${__apre[2]}${__hpre[2]}"
+    local suffix="${__hsuf[2]}${__asuf[2]}${__isuf[2]}"
+    if [ -n "$__is_param" -a "$prefix" = '${' -a -z "$suffix" ]; then
+        suffix+=}
     fi
 
-    if [[ "$__show_str" =~ [^[:print:]] ]]; then
-      __show_str="${(q)__show_str}"
-    fi
-    if [[ "$__disp_str" =~ [^[:print:]] ]]; then
-      __disp_str="${(q)__disp_str}"
-    fi
-    # use display as fallback
-    if [[ -z "$__show_str" ]]; then
-      __show_str="$__disp_str"
-      __disp_str=
-    elif (( ! _FZF_COMPLETION_SEARCH_DISPLAY )); then
-      __disp_str="$_FZF_COMPLETION_SECONDARY_COLOR$__disp_str"$'\x1b[0m'
-    fi
+    local i
+    for ((i = 1; i <= $#__hits; i++)); do
+        # actual match
+        __hit_str="${__hits[$i]}"
+        # full display string
+        __disp_str="${__disp[$i]}"
+        __suffix="$suffix"
 
-    if [[ "$__show_str" == "$PREFIX"* ]]; then
-      __show_str="${__show_str:${#PREFIX}}${_FZF_COMPLETION_SPACE_SEP}${_FZF_COMPLETION_SECONDARY_COLOR}${PREFIX}"$'\x1b[0m'
-    else
-      __show_str+="${_FZF_COMPLETION_SEP}"
-    fi
+        # part of display string containing match
+        if [ -n "$__noquote" ]; then
+            __show_str="${(Q)__hit_str}"
+        else
+            __show_str="${__hit_str}"
+        fi
+        __real_str="${__show_str}"
 
-    # fullvalue, value, index, display, show, prefix
-    printf %s\\n "${(q)prefix}${(q)__real_str}${(q)__suffix}${_FZF_COMPLETION_SEP}${(q)__hit_str}${_FZF_COMPLETION_SEP}${__comp_index}${_FZF_COMPLETION_SEP}${__disp_str}${_FZF_COMPLETION_SEP}${__show_str}${_FZF_COMPLETION_SPACE_SEP}" >&"${__stdout}"
-  done
-  return "$__code"
-}
+        if [[ -n "$__filenames" && -n "$__show_str" && -d "${file_prefix}/${__show_str}" ]]; then
+            __show_str+=/
+            __suffix+=/
+        fi
 
-_fzf_completion_realpath() {
-  if [ -d "$1" ]; then
-    eza -al --tree --icons --level=3 --no-permissions --no-user --no-time --no-filesize "$1" | head -100
-  else
-    mime="$(file -Lbs --mime-type "$1")"
-    category="${mime%%/*}"
-    if [ "$category" = 'image' ]; then
-      chafa -r2 -w 100 "$1"
-    else
-      bat -n --color=always --line-range :100 "$1"
-    fi
-  fi
+        if [[ -z "$__disp_str" || "$__disp_str" == "$__show_str"* ]]; then
+            # remove prefix from display string
+            __disp_str="${__disp_str:${#__show_str}}"
+        else
+            # display string does not match, clear it
+            __show_str=
+        fi
+
+        if [[ "$__show_str" =~ [^[:print:]] ]]; then
+            __show_str="${(q)__show_str}"
+        fi
+        if [[ "$__disp_str" =~ [^[:print:]] ]]; then
+            __disp_str="${(q)__disp_str}"
+        fi
+        # use display as fallback
+        if [[ -z "$__show_str" ]]; then
+            __show_str="$__disp_str"
+            __disp_str=
+        elif (( ! _FZF_COMPLETION_SEARCH_DISPLAY )); then
+            __disp_str="$_FZF_COMPLETION_SECONDARY_COLOR$__disp_str"$'\x1b[0m'
+        fi
+
+        if [[ "$__show_str" == "$PREFIX"* ]]; then
+            __show_str="${__show_str:${#PREFIX}}${_FZF_COMPLETION_SPACE_SEP}${_FZF_COMPLETION_SECONDARY_COLOR}${PREFIX}"$'\x1b[0m'
+        else
+            __show_str+="${_FZF_COMPLETION_SEP}"
+        fi
+
+        # fullvalue, value, index, display, show, prefix
+        printf %s\\n "${(q)prefix}${(q)__real_str}${(q)__suffix}${_FZF_COMPLETION_SEP}${(q)__hit_str}${_FZF_COMPLETION_SEP}${__comp_index}${_FZF_COMPLETION_SEP}${__disp_str}${_FZF_COMPLETION_SEP}${__show_str}${_FZF_COMPLETION_SPACE_SEP}" >&"${__stdout}"
+    done
+    return "$__code"
 }
 
 zle -C _fzf_completion complete-word _fzf_completion
