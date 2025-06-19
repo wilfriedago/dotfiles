@@ -31,6 +31,7 @@ profiles:
     - f_gitconfig
     - f_gitignore_global
     - f_aerospace
+    - f_bat
     - f_btop
     - f_curlrc
     - f_gh-copilot
@@ -128,6 +129,9 @@ dotfiles:
   f_aerospace:
     src: config/aerospace.toml
     dst: ~/.config/aerospace/aerospace.toml
+  f_bat:
+    src: config/bat.conf
+    dst: ~/.config/bat/config
   f_btop:
     src: config/btop.conf
     dst: ~/.config/btop/btop.conf
