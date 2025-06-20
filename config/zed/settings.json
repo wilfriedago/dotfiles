@@ -20,8 +20,9 @@
   "buffer_font_family": "Dank Mono",
   "buffer_font_size": 13,
   "features": {
-    "edit_prediction_provider": "zed"
+    "edit_prediction_provider": "copilot"
   },
+  "vim": {},
   "icon_theme": "Colored Zed Icons Theme Dark",
   "notification_panel": {
     "dock": "left"
@@ -38,7 +39,7 @@
     "font_size": 13
   },
   "theme": {
-    "dark": "Tokyo Night",
+    "dark": "Ayu Dark",
     "light": "One Light",
     "mode": "system"
   },

@@ -63,18 +63,6 @@
       "text-dimmed": "fade(@text-normal, 20%)",
       "text-dimmed-selected": "fade(@text-dimmed, 50%)",
       "text-selected-row": "@text-selected",
-      "gkftux-teal": "#0C9689",
-      "gkftux-bg": "#ffffff",
-      "gkftux-getstarted-bg": "rgba(249, 249, 249, 1)",
-      "gkftux-getstarted-bg-hover": "#FFFFFF",
-      "gkftux-getstarted-border": "rgba(226, 226, 226, 1)",
-      "gkftux-getstarted-icon": "rgba(108, 108, 108, 1)",
-      "gkftux-repo-tab-border": "#E9EBF0",
-      "gkftux-repo-tab-border-selected": "@gkftux-teal",
-      "gkftux-repo-tab-bg": "#E9EBF0",
-      "gkftux-repo-tab-bg-selected": "@gkftux-bg",
-      "gkftux-repo-tab-icon": "fade(@gkftux-teal, 50%)",
-      "gkftux-repo-tab-icon-selected": "@gkftux-teal",
 
       // Buttons
       "btn-text": "@text-normal",

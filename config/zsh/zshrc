@@ -7,7 +7,7 @@
 # After editing, re-source .zshrc for new changes to take effect                              #
 # For docs and more info, see: https://github.com/wilfriedago/dotfiles                        #
 # =============================================================================================
-# License: MIT © Wilfrieds AGO 2025 <https://wilfriedago.dev>                                 #
+# License: MIT Copyright (c) 2024 Wilfried Kirin AGO <https://wilfriedago.dev>                #
 # =============================================================================================
 
 # Profiling
@@ -41,50 +41,21 @@ zinit light-mode for \
 # Shell
 # =============================================================================================
 
-[ -f "$XDG_CONFIG_HOME/zsh/aliases.zsh" ] && source "$XDG_CONFIG_HOME/zsh/aliases.zsh" # Aliases
-[ -f "$XDG_CONFIG_HOME/zsh/functions.zsh" ] && source "$XDG_CONFIG_HOME/zsh/functions.zsh" # Functions
-[ -f "$XDG_CONFIG_HOME/zsh/completions.zsh" ] && source "$XDG_CONFIG_HOME/zsh/completions.zsh" # Completions
-[ -f "$XDG_CONFIG_HOME/zsh/history.zsh" ] && source "$XDG_CONFIG_HOME/zsh/history.zsh" # History
+[ -f "$ZSH_CONFIG_DIR/aliases.zsh" ] && source "$ZSH_CONFIG_DIR/aliases.zsh" # Aliases
+[ -f "$ZSH_CONFIG_DIR/configs.zsh" ] && source "$ZSH_CONFIG_DIR/configs.zsh" # Configs
+[ -f "$ZSH_CONFIG_DIR/functions.zsh" ] && source "$ZSH_CONFIG_DIR/functions.zsh" # Functions
+[ -f "$ZSH_CONFIG_DIR/completions.zsh" ] && source "$ZSH_CONFIG_DIR/completions.zsh" # Completions
 
 # Plugins
-[ -f "$XDG_CONFIG_HOME/zsh/plugins/kubectl.zsh" ] && source "$XDG_CONFIG_HOME/zsh/plugins/kubectl.zsh"
-[ -f "$XDG_CONFIG_HOME/zsh/plugins/minikube.zsh" ] && source "$XDG_CONFIG_HOME/zsh/plugins/minikube.zsh"
-
-# =============================================================================================
-# Initialization
-# =============================================================================================
-
-# FNM
-eval "$(fnm env --use-on-cd --shell zsh)"
-
-# ZOXIDE
-eval "$(zoxide init --cmd ${ZOXIDE_CMD_OVERRIDE:-z} zsh)"
-
-# FZF
-eval "$(fzf --zsh)"
-source "$HOME/.scripts/fzf/fzf-zsh-completion.sh"
-
-# AWS
-if command -v aws_completer &> /dev/null; then
-  complete -C aws_completer aws
-fi
-
-# TERRAFORM
-if command -v terraform &> /dev/null; then
-  complete -C "$(command -v terraform)" terraform
-fi
-
-# ARTISAN
-[[ -s "$PWD/artisan" && -x "$PWD/artisan" ]] && eval "$(php artisan completion zsh)"
-
-# =============================================================================================
-# Miscellaneous
-# =============================================================================================
-
-setopt auto_cd
-setopt auto_pushd
-setopt pushd_ignore_dups
-setopt pushdminus
+[ -f "$ZSH_PLUGINS_DIR/directories.zsh" ] && source "$ZSH_PLUGINS_DIR/directories.zsh"
+[ -f "$ZSH_PLUGINS_DIR/django.zsh" ] && source "$ZSH_PLUGINS_DIR/django.zsh"
+[ -f "$ZSH_PLUGINS_DIR/fnm.zsh" ] && source "$ZSH_PLUGINS_DIR/fnm.zsh"
+[ -f "$ZSH_PLUGINS_DIR/fzf.zsh" ] && source "$ZSH_PLUGINS_DIR/fzf.zsh"
+[ -f "$ZSH_PLUGINS_DIR/kubectl.zsh" ] && source "$ZSH_PLUGINS_DIR/kubectl.zsh"
+[ -f "$ZSH_PLUGINS_DIR/minikube.zsh" ] && source "$ZSH_PLUGINS_DIR/minikube.zsh"
+[ -f "$ZSH_PLUGINS_DIR/nvim.zsh" ] && source "$ZSH_PLUGINS_DIR/nvim.zsh"
+[ -f "$ZSH_PLUGINS_DIR/pnpm.zsh" ] && source "$ZSH_PLUGINS_DIR/pnpm.zsh"
+[ -f "$ZSH_PLUGINS_DIR/python.zsh" ] && source "$ZSH_PLUGINS_DIR/python.zsh"
 
 # Clean up PATH
 typeset -U PATH

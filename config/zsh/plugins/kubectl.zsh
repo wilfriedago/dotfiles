@@ -1,4 +1,6 @@
-# Aliases
+#!/usr/bin/env zsh
+
+# aliases
 alias k='kubectl'
 alias ksys='kubectl --namespace=kube-system'
 alias ka='kubectl apply --recursive -f'

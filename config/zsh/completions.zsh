@@ -19,12 +19,6 @@ zstyle ':completion:*' ignore-parents 'parent pwd directory'
 # show all files in the file menu
 zstyle ':completion:*' fzf-search-display true
 
-# switch group using `<` and `>`
-zstyle ':fzf-tab:*' switch-group '<' '>'
-
-# complete `ls` / `cat` / etc
-zstyle ':fzf-tab:complete:(\\|*/|)(ls|gls|bat|cat|cd|rm|cp|mv|ln|hx|code|open|source|z|eza):*' fzf-preview '_fzf_completion_realpath "$realpath"'
-
 # Configure completion of directories.
 zstyle ':completion:*'              list-colors         ${(s.:.)LS_COLORS}  # Enable $LS_COLORS for directories in completion menu.
 zstyle ':completion:*'              special-dirs        yes                 # Enable completion menu of ./ and ../ special directories.
@@ -51,85 +45,33 @@ setopt extendedglob
 zcompdump="${XDG_CACHE_HOME:-${HOME}/.cache}/zsh/.zcompdump"
 
 # If completions present, then load them
-if [ -f $zsh_dump_file ]; then
+if [ -f $zcompdump ]; then
   compinit -d $zcompdump
 fi
 
 # Perform compinit only once a day.
-if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]];
-then
+if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then
   zcompile "$zcompdump"
 fi
 
 # Disable extended globbing so that ^ will behave as normal.
 unsetopt extendedglob
 
-# `.fzf` is used to provide fzf configuration for the shell
-export FZF_DEFAULT_COMMAND="
-  fd \
-  --strip-cwd-prefix \
-  --type f \
-  --type l \
-  --hidden \
-  --follow \
-  --exclude ".git" \
-  --exclude ".svn" \
-  --exclude ".hg" \
-  --exclude "CVS" \
-  --exclude ".DS_Store" \
-  --exclude ".worktrees" \
-  --exclude "node_modules" \
-  --exclude ".pytest_cache" \
-  --exclude ".mypy_cache" \
-  --exclude ".ropeproject" \
-  --exclude ".hypothesis" \
-  --exclude ".ruff_cache" \
-  --exclude ".ipynb_checkpoints" \
-  --exclude "__pycache__" \
-  --exclude "coverage.xml" \
-  --exclude ".cache" \
-  --exclude ".idea" \
-  --exclude ".venv" \
-  --exclude "venv" \
-  --exclude ".coverage" \
-  --exclude "htmlcoverage" \
-  --exclude "build" \
-  --exclude "dist"
-"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+# Load completions from Homebrew
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
-export FZF_DEFAULT_OPTS=" \
-  --height 30% -1 \
-  --select-1 \
-  --reverse \
-  --preview-window='right:wrap' \
-  --inline-info
-"
-export FZF_CTRL_R_OPTS=" \
-  --preview 'echo {}' \
-  --preview-window up:3:hidden:wrap \
-  --bind 'ctrl-/:toggle-preview' \
-  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort' \
-  --color header:italic
-"
+# Load completions from XDG_CONFIG_HOME
+FPATH="${ZSH_COMPLETIONS_DIR}:${FPATH}"
 
-export FZF_CTRL_T_OPTS="$FZF_DEFAULT_OPTS --preview '_fzf_completion_realpath {}'"
-export FZF_ALT_C_OPTS="$FZF_DEFAULT_OPTS --preview '_fzf_completion_realpath {}'"
+# AWS
+if command -v aws_completer &> /dev/null; then
+  complete -C aws_completer aws
+fi
 
-export _ZO_FZF_OPTS="
-  --height 50% -1 \
-  --select-1 \
-  --reverse \
-  --preview-window='right:wrap' \
-  --inline-info \
-  --cycle \
-  --exit-0 \
-  --tabstop=1 \
-  --preview='_fzf_completion_realpath {2..}'
-"
+# TERRAFORM
+if command -v terraform &> /dev/null; then
+  complete -C "$(command -v terraform)" terraform
+fi
 
-# remap default keybinding with `z name<tab>`
-z () {
-  \__zoxide_z "$@"
-}
+# ARTISAN
+[[ -s "$PWD/artisan" && -x "$PWD/artisan" ]] && eval "$(php artisan completion zsh)"

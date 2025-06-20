@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 
 # Configure history file.
+HISTFILE="${XDG_CACHE_HOME}/.zsh_history" # Set the history file location
 HIST_STAMPS="yyyy-mm-dd"              # Set the format of the history timestamp
-HISTFILE="${XDG_CACHE_HOME}/.zsh_history"
 HISTSIZE=50000                        # Set the maximum number of history entries
 SAVEHIST=10000                        # Set the maximum number of history entries to save in the file
 

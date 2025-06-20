@@ -2,7 +2,7 @@
   "breadcrumbs.enabled": false,
   "chat.agent.enabled": true,
   "chat.commandCenter.enabled": false,
-  "chat.editor.fontFamily": "Dank Mono, BlexMono Nerd Font, JetBrainsMono Nerd Font, Menlo, Monaco, 'Courier New', monospace",
+  "chat.editor.fontFamily": "'BlexMono Nerd Font', 'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "custom-ui-style.electron": {
     "frame": false,
     "titleBarStyle": "hiddenInset"
@@ -11,9 +11,9 @@
     "file://${userHome}/.vscode/custom.css",
     "file://${userHome}/.vscode/custom.js"
   ],
-  "custom-ui-style.font.monospace": "'Dank Mono', 'BlexMono Nerd Font', 'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
-  "custom-ui-style.font.sansSerif": "Dank Mono, BlexMono Nerd Font, JetBrainsMono Nerd Font, Menlo, Monaco, 'Courier New', monospace",
-  "debug.console.fontFamily": "Dank Mono, BlexMono Nerd Font, JetBrainsMono Nerd Font, Menlo, Monaco, 'Courier New', monospace",
+  "custom-ui-style.font.monospace": "'BlexMono Nerd Font', 'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "custom-ui-style.font.sansSerif": "'BlexMono Nerd Font', 'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "debug.console.fontFamily": "'BlexMono Nerd Font', 'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "diffEditor.codeLens": true,
   "diffEditor.experimental.showMoves": true,
   "diffEditor.ignoreTrimWhitespace": false,
@@ -31,7 +31,7 @@
   "editor.cursorBlinking": "expand",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorStyle": "line",
-  "editor.fontFamily": "'Dank Mono', 'BlexMono Nerd Font', 'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "'BlexMono Nerd Font', 'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 13,
   "editor.fontWeight": "normal",
@@ -166,7 +166,7 @@
   "javascript.format.semicolons": "remove",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "remote.autoForwardPortsSource": "hybrid",
-  "scm.inputFontFamily": "Dank Mono, BlexMono Nerd Font, JetBrainsMono Nerd Font, Menlo, Monaco, 'Courier New', monospace",
+  "scm.inputFontFamily": "'BlexMono Nerd Font', 'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "search.exclude": {
     "**/node_modules": true
   },
@@ -186,7 +186,7 @@
   "terminal.integrated.cursorStyle": "block",
   "terminal.integrated.cursorWidth": 2,
   "terminal.integrated.enableMultiLinePasteWarning": "never",
-  "terminal.integrated.fontFamily": "'Dank Mono', 'BlexMono Nerd Font', 'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "terminal.integrated.fontFamily": "'BlexMono Nerd Font', 'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.fontSize": 13,
   "terminal.integrated.gpuAcceleration": "on",
   "terminal.integrated.ignoreProcessNames": [

@@ -1,4 +1,6 @@
-# Aliases
+#!/usr/bin/env zsh
+
+# aliases
 alias mk='minikube'
 alias mkst='minikube start'
 alias mkst-m='minikube start --memory' # Example: mkst-m 4096

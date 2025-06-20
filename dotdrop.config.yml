@@ -3,7 +3,7 @@ config:
   banner: false
   create: true
   dotpath: ~/.dotfiles
-  keepdot: true
+  keepdot: false
   link_dotfile_default: nolink
   link_on_import: nolink
   longkey: false
@@ -12,39 +12,41 @@ profiles:
     dotfiles:
     # Zsh configuration files
     - d_zsh_plugins
+    - f_zsh_aliases
+    - f_zsh_completions
+    - f_zsh_configs
+    - f_zsh_functions
     - f_zprofile
     - f_zshenv
     - f_zshrc
-    - f_zsh_aliases
-    - f_zsh_completions
-    - f_zsh_functions
-    - f_zsh_history
 
     # Other configuration files
+    - d_aerospace
+    - d_bat
+    - d_btop
+    - d_eza
     - d_gh
+    - d_gh-copilot
     - d_ghostty
+    - d_git-cliff
     - d_gitkraken_themes
     - d_helm
     - d_k9s
+    - d_lazydocker
+    - d_lazygit
+    - d_lporg
+    - d_neofetch
     - d_nvim
+    - d_starship
+    - d_yazi
     - d_zed
+    - f_curlrc
     - f_gitconfig
     - f_gitignore_global
-    - f_aerospace
-    - f_bat
-    - f_btop
-    - f_curlrc
-    - f_gh-copilot
-    - f_git-cliff
     - f_gpg-agent
-    - f_lazydocker
-    - f_lazygit
-    - f_neofetch
     - f_sdkman
     - f_ssh
-    - f_starship
     - f_wgetrc
-    - f_yazi
 
     # Scripts directory
     - d_scripts
@@ -72,39 +74,54 @@ profiles:
     - f_vscode_frontend_keybindings
 
 dotfiles:
-  # Zsh configuration files
   d_zsh_plugins:
     src: config/zsh/plugins
     dst: ~/.config/zsh/plugins
-  f_zprofile:
-    src: config/zsh/.zprofile
-    dst: ~/.zprofile
-  f_zshenv:
-    src: config/zsh/.zshenv
-    dst: ~/.zshenv
-  f_zshrc:
-    src: config/zsh/.zshrc
-    dst: ~/.zshrc
   f_zsh_aliases:
     src: config/zsh/aliases.zsh
     dst: ~/.config/zsh/aliases.zsh
   f_zsh_completions:
     src: config/zsh/completions.zsh
     dst: ~/.config/zsh/completions.zsh
+  f_zsh_configs:
+    src: config/zsh/configs.zsh
+    dst: ~/.config/zsh/configs.zsh
   f_zsh_functions:
     src: config/zsh/functions.zsh
     dst: ~/.config/zsh/functions.zsh
-  f_zsh_history:
-    src: config/zsh/history.zsh
-    dst: ~/.config/zsh/history.zsh
-
-  # Other configuration files
+  f_zprofile:
+    src: config/zsh/zprofile
+    dst: ~/.zprofile
+  f_zshenv:
+    src: config/zsh/zshenv
+    dst: ~/.zshenv
+  f_zshrc:
+    src: config/zsh/zshrc
+    dst: ~/.zshrc
+  d_aerospace:
+    src: config/aerospace
+    dst: ~/.config/aerospace
+  d_bat:
+    src: config/bat
+    dst: ~/.config/bat
+  d_btop:
+    src: config/btop
+    dst: ~/.config/btop
+  d_eza:
+    src: config/eza
+    dst: ~/.config/eza
   d_gh:
     src: config/gh
     dst: ~/.config/gh
+  d_gh-copilot:
+    src: config/gh-copilot
+    dst: ~/.config/gh-copilot
   d_ghostty:
     src: config/ghostty
     dst: ~/.config/ghostty
+  d_git-cliff:
+    src: config/git-cliff
+    dst: ~/.config/git-cliff
   d_gitkraken_themes:
     src: config/gitkraken/themes
     dst: ~/.gitkraken/themes
@@ -114,70 +131,58 @@ dotfiles:
   d_k9s:
     src: config/k9s
     dst: ~/.config/k9s
+  d_lazydocker:
+    src: config/lazydocker
+    dst: ~/.config/lazydocker
+  d_lazygit:
+    src: config/lazygit
+    dst: ~/.config/lazygit
+  d_lporg:
+    src: config/lporg
+    dst: ~/.config/lporg
+    chmod: '750'
+  d_neofetch:
+    src: config/neofetch
+    dst: ~/.config/neofetch
   d_nvim:
     src: config/nvim
     dst: ~/.config/nvim
+  d_starship:
+    src: config/starship
+    dst: ~/.config/starship
+  d_yazi:
+    src: config/yazi
+    dst: ~/.config/yazi
   d_zed:
     src: config/zed
     dst: ~/.config/zed
+  d_zsh:
+    src: config/zsh
+    dst: ~/.config/zsh
+  f_curlrc:
+    src: config/curlrc
+    dst: ~/.curlrc
   f_gitconfig:
-    src: config/.gitconfig
+    src: config/gitconfig
     dst: ~/.gitconfig
   f_gitignore_global:
-    src: config/.gitignore_global
+    src: config/gitignore_global
     dst: ~/.gitignore_global
-  f_aerospace:
-    src: config/aerospace.toml
-    dst: ~/.config/aerospace/aerospace.toml
-  f_bat:
-    src: config/bat.conf
-    dst: ~/.config/bat/config
-  f_btop:
-    src: config/btop.conf
-    dst: ~/.config/btop/btop.conf
-  f_curlrc:
-    src: config/curlrc.conf
-    dst: ~/.curlrc
-  f_gh-copilot:
-    src: config/gh-copilot.yml
-    dst: ~/.config/gh-copilot/config.yml
-  f_git-cliff:
-    src: config/git-cliff.toml
-    dst: ~/.config/git-cliff/cliff.toml
   f_gpg-agent:
-    src: config/gpg-agent.conf
+    src: config/gnupg/gpg-agent.conf
     dst: ~/.gnupg/gpg-agent.conf
-  f_lazydocker:
-    src: config/lazydocker.yml
-    dst: ~/.config/lazydocker/config.yml
-  f_lazygit:
-    src: config/lazygit.yml
-    dst: ~/.config/lazygit/config.yml
-  f_neofetch:
-    src: config/neofetch.conf
-    dst: ~/.config/neofetch/config.conf
   f_sdkman:
     src: config/sdkman.conf
     dst: ~/.sdkman/etc/config
   f_ssh:
     src: config/ssh.conf
     dst: ~/.ssh/config
-  f_starship:
-    src: config/starship.toml
-    dst: ~/.config/starship/starship.toml
   f_wgetrc:
-    src: config/wgetrc.conf
+    src: config/wgetrc
     dst: ~/.wgetrc
-  f_yazi:
-    src: config/yazi.toml
-    dst: ~/.config/yazi/yazi.toml
-
-  # Scripts directory
   d_scripts:
     src: scripts
     dst: ~/.scripts
-
-  # MacOS specific configuration files
   f_vscode_custom_js:
     src: config/vscode/custom.js
     dst: ~/Library/Application Support/Code/User/custom.js
@@ -201,13 +206,16 @@ dotfiles:
     dst: ~/Library/Application Support/Code/User/profiles/-7dccf8ce/snippets
   f_vscode_database_settings:
     src: config/vscode/settings.json
-    dst: ~/Library/Application Support/Code/User/profiles/-7dccf8ce/settings.json
+    dst: ~/Library/Application
+      Support/Code/User/profiles/-7dccf8ce/settings.json
   f_vscode_database_extensions:
     src: config/vscode/extensions.json
-    dst: ~/Library/Application Support/Code/User/profiles/-7dccf8ce/extensions.json
+    dst: ~/Library/Application
+      Support/Code/User/profiles/-7dccf8ce/extensions.json
   f_vscode_database_keybindings:
     src: config/vscode/keybindings.json
-    dst: ~/Library/Application Support/Code/User/profiles/-7dccf8ce/keybindings.json
+    dst: ~/Library/Application
+      Support/Code/User/profiles/-7dccf8ce/keybindings.json
   d_vscode_frontend_snippets:
     src: config/vscode/snippets
     dst: ~/Library/Application Support/Code/User/profiles/13ab142b/snippets
@@ -216,7 +224,9 @@ dotfiles:
     dst: ~/Library/Application Support/Code/User/profiles/13ab142b/settings.json
   f_vscode_frontend_extensions:
     src: config/vscode/extensions.json
-    dst: ~/Library/Application Support/Code/User/profiles/13ab142b/extensions.json
+    dst: ~/Library/Application
+      Support/Code/User/profiles/13ab142b/extensions.json
   f_vscode_frontend_keybindings:
     src: config/vscode/keybindings.json
-    dst: ~/Library/Application Support/Code/User/profiles/13ab142b/keybindings.json
+    dst: ~/Library/Application
+      Support/Code/User/profiles/13ab142b/keybindings.json

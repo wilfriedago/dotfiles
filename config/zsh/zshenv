@@ -1,3 +1,6 @@
+# Skip the not really helping global compinit
+skip_global_compinit=1
+
 # Set XDG directories
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_DATA_HOME="${HOME}/.local/share"
@@ -5,6 +8,12 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 export XDG_BIN_HOME="${HOME}/.local/bin"
 export XDG_LIB_HOME="${HOME}/.local/lib"
 export XDG_CACHE_HOME="${HOME}/.cache"
+
+# ZSH
+export ZSH_CONFIG_DIR="${XDG_CONFIG_HOME}/zsh"
+export ZSH_PLUGINS_DIR="${XDG_CONFIG_HOME}/zsh/plugins"
+export ZSH_FUNCTIONS_DIR="${XDG_CONFIG_HOME}/zsh/functions"
+export ZSH_COMPLETIONS_DIR="${XDG_CONFIG_HOME}/zsh/completions"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -43,9 +52,6 @@ export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 export GOROOT="/usr/local/go"
 export GOPATH="$HOME/.go"
 export PATH="$GOROOT/bin:$GOPATH/bin:$PATH" # Add Go binaries to PATH
-
-# PYTHON
-[ -d "$PWD/.venv" ] && source "$PWD/.venv/bin/activate" # Automatically load Python virtual environment if available
 
 # RUST
 [ -d "$HOME/.cargo/env" ] && source "$HOME/.cargo/env" # Load Rust environment
@@ -90,12 +96,5 @@ esac
 export ANDROID_HOME="${HOME}/Library/Android/sdk"
 export PATH="${ANDROID_HOME}/emulator:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${PATH}"
 
-# FZF
-if [[ ! "$PATH" == */opt/fzf/bin* ]]; then
-  export PATH="$HOMEBREW_PREFIX/opt/fzf/bin:$PATH"
-fi
-
-# ZSH
-export ZSH_COMPLETIONS_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/completions"
-[[ ! -d "$ZSH_COMPLETIONS_DIR" ]] && mkdir -p "$ZSH_COMPLETIONS_DIR"
-fpath=("$ZSH_COMPLETIONS_DIR" $fpath)
+# EZA
+export EZA_CONFIG_DIR="${XDG_CONFIG_HOME}/eza"

@@ -5,8 +5,8 @@ command = "zsh -l"
 shell-integration = zsh
 
 # Font
-font-family = "Dank Mono"
-font-size = 13
+font-family = "BlexMono Nerd Font"
+font-size = 12
 font-thicken = true
 
 # Background
@@ -28,6 +28,10 @@ cursor-style-blink = true
 window-padding-x = 10
 window-padding-balance = true
 
+# Clipboard
+clipboard-read = "allow"
+clipboard-paste-protection = false
+
 # MacOS
 macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
@@ -39,6 +43,4 @@ keybind = super+i=inspector:toggle
 keybind = super+l=clear_screen
 
 # Shaders
-# custom-shader = shaders/bloom.glsl
-# custom-shader = shaders/test.glsl
 # custom-shader = shaders/dez.glsl

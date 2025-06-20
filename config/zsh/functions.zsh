@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # `.functions` provides helper functions for the shell
 
 # iterate over directories and pulls git repositories
@@ -113,6 +115,9 @@ load_completion() {
       aws)
         complete -C 'aws_completer' aws 2>/dev/null
         ;;
+      pnpm)
+        pnpm completion zsh > "$completion_file" 2>/dev/null
+        ;;
       *)
         # Try generic completion generation
         "$cmd" completion > "$completion_file" 2>/dev/null || \
@@ -133,7 +138,7 @@ load_completion() {
 
 # Auto-load completions for common tools
 autoload_completions() {
-  local tools=(bun docker fnm gh helm kubectl minikube terraform aws)
+  local tools=(bun docker fnm gh helm kubectl minikube terraform aws pnpm)
   for tool in $tools; do
     if command -v "$tool" &> /dev/null; then
       load_completion "$tool"

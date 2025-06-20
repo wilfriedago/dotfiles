@@ -27,6 +27,7 @@ tap 'koekeishiya/formulae' # koekeishiya tap
 tap 'dotenv-org/brew' # dotenv-org tap
 tap 'encoredev/tap' # encoredev tap
 tap 'oven-sh/bun' # bun tap
+tap 'blacktop/tap' # blacktop tap
 
 # =============================================================================================
 # Fonts
@@ -107,6 +108,7 @@ brew 'fnm' # fast and simple Node.js version manager
 brew 'ripgrep' # line-oriented search tool that recursively searches your current directory for a regex pattern
 brew 'xh' # friendly and fast replacement for curl
 brew 'bun' # fast all-in-one JavaScript runtime
+brew 'lporg' # command-line tool to organize your macos launchpad apps
 
 # =============================================================================================
 # Linters, formatters and LSPs
