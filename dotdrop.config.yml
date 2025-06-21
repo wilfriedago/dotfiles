@@ -25,6 +25,7 @@ profiles:
     - d_bat
     - d_btop
     - d_eza
+    - d_fastfetch
     - d_gh
     - d_gh-copilot
     - d_ghostty
@@ -35,7 +36,6 @@ profiles:
     - d_lazydocker
     - d_lazygit
     - d_lporg
-    - d_neofetch
     - d_nvim
     - d_starship
     - d_yazi
@@ -98,6 +98,9 @@ dotfiles:
   d_eza:
     src: config/eza
     dst: ~/.config/eza
+  d_fastfetch:
+    src: config/fastfetch
+    dst: ~/.config/fastfetch
   d_gh:
     src: config/gh
     dst: ~/.config/gh
@@ -129,9 +132,6 @@ dotfiles:
     src: config/lporg
     dst: ~/.config/lporg
     chmod: '750'
-  d_neofetch:
-    src: config/neofetch
-    dst: ~/.config/neofetch
   d_nvim:
     src: config/nvim
     dst: ~/.config/nvim
