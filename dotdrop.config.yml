@@ -61,18 +61,6 @@ profiles:
     - f_vscode_extensions
     - f_vscode_keybindings
 
-      # Database profile vscode configuration files
-    - d_vscode_database_snippets
-    - f_vscode_database_settings
-    - f_vscode_database_extensions
-    - f_vscode_database_keybindings
-
-      # Frontend profile vscode configuration files
-    - d_vscode_frontend_snippets
-    - f_vscode_frontend_settings
-    - f_vscode_frontend_extensions
-    - f_vscode_frontend_keybindings
-
 dotfiles:
   d_zsh_plugins:
     src: config/zsh/plugins
@@ -201,32 +189,3 @@ dotfiles:
   f_vscode_keybindings:
     src: config/vscode/keybindings.json
     dst: ~/Library/Application Support/Code/User/keybindings.json
-  d_vscode_database_snippets:
-    src: config/vscode/snippets
-    dst: ~/Library/Application Support/Code/User/profiles/-7dccf8ce/snippets
-  f_vscode_database_settings:
-    src: config/vscode/settings.json
-    dst: ~/Library/Application
-      Support/Code/User/profiles/-7dccf8ce/settings.json
-  f_vscode_database_extensions:
-    src: config/vscode/extensions.json
-    dst: ~/Library/Application
-      Support/Code/User/profiles/-7dccf8ce/extensions.json
-  f_vscode_database_keybindings:
-    src: config/vscode/keybindings.json
-    dst: ~/Library/Application
-      Support/Code/User/profiles/-7dccf8ce/keybindings.json
-  d_vscode_frontend_snippets:
-    src: config/vscode/snippets
-    dst: ~/Library/Application Support/Code/User/profiles/13ab142b/snippets
-  f_vscode_frontend_settings:
-    src: config/vscode/settings.json
-    dst: ~/Library/Application Support/Code/User/profiles/13ab142b/settings.json
-  f_vscode_frontend_extensions:
-    src: config/vscode/extensions.json
-    dst: ~/Library/Application
-      Support/Code/User/profiles/13ab142b/extensions.json
-  f_vscode_frontend_keybindings:
-    src: config/vscode/keybindings.json
-    dst: ~/Library/Application
-      Support/Code/User/profiles/13ab142b/keybindings.json
