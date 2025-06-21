@@ -21,19 +21,17 @@ tap 'homebrew/core' # formulae for the Homebrew package manager
 tap 'homebrew/bundle' # bundle command for installing multiple formulae
 tap 'homebrew/services' # manage background services with launchctl
 tap 'homebrew/cask' # formulae for the Homebrew package manager
-tap 'hashicorp/tap' # HashiCorp tap
 tap 'tufin/homebrew-tufin' # Tufin tap
 tap 'koekeishiya/formulae' # koekeishiya tap
 tap 'dotenv-org/brew' # dotenv-org tap
-tap 'encoredev/tap' # encoredev tap
-tap 'oven-sh/bun' # bun tap
 tap 'blacktop/tap' # blacktop tap
 
 # =============================================================================================
 # Fonts
 # =============================================================================================
 
-cask 'font-symbols-only-nerd-font' # font with only symbols for developers
+cask 'font-symbols-nerd-font' # Symbols Nerd Font, a collection of popular glyphs and symbols
+cask 'font-blex-mono-nerd-font' # Blex Mono Nerd Font, a monospaced font for developers
 
 # =============================================================================================
 # Apps
@@ -69,10 +67,8 @@ cask 'syntax-highlight' # QuickLook generator for source code files with syntax 
 brew 'bat' # cat with syntax highlighting and Git integration
 brew 'ffmpeg' # play, record, convert and stream audio and video
 brew 'btop' # resource monitor that shows usage and stats for processor, memory, disks, network and processes
-brew 'curl' # query HTTP, HTTPS or FTP server
 brew 'dotdrop' # dotfiles manager
 brew 'dsq' # CLI tool for running SQL queries against JSON, CSV, Excel, Parquet files
-brew 'duckdb' # embeddable SQL OLAP Database Management System
 brew 'gnupg' # GNU Privacy Guard, a free software replacement for Symantec's PGP
 brew 'eza' # modern replacement for 'ls'
 brew 'fd' # simple, fast and user-friendly alternative to find
@@ -86,7 +82,7 @@ brew 'skhd' # hotkey daemon for macOS
 brew 'navi' # interactive cheatsheet tool for the command-line
 brew 'neovim' # vim-fork focused on extensibility and usability
 brew 'nmap' # network exploration tool and security/port scanner
-brew 'neofetch' # fast, highly customisable system info script
+brew 'fastfetch' # fast system information tool written in Rust, similar to neofetch
 brew 'git-cliff' # changelog generator that uses git commit messages to generate the changelog
 brew 'pinentry-mac' # pinentry for GPG on Mac
 brew 'lazydocker' # lazier way to manage everything docker
@@ -99,15 +95,15 @@ brew 'zoxide' # shell extension to navigate your filesystem faster
 brew 'yazi' # blazing fast terminal file manager written in Rust, based on async I/O
 brew 'oasdiff' # diff tool for OpenAPI/Swagger files
 brew 'doctl' # DigitalOcean CLI
-brew 'terraform' # infrastructure as code software
+brew 'hashicorp/tap/terraform' # infrastructure as code software
 brew 'vault' # secrets management software
 brew 'dotenv-vault' # dotenv plugin for HashiCorp Vault
 brew 'jadx' # command-line and GUI tools to decompile Android APK files
-brew 'encore' # Open Source TypeScript Backend Framework for robust type-safe applications
+brew 'encoredev/tap/encore' # Open Source TypeScript Backend Framework for robust type-safe applications
 brew 'fnm' # fast and simple Node.js version manager
 brew 'ripgrep' # line-oriented search tool that recursively searches your current directory for a regex pattern
 brew 'xh' # friendly and fast replacement for curl
-brew 'bun' # fast all-in-one JavaScript runtime
+brew 'oven-sh/bun/bun' # fast all-in-one JavaScript runtime
 brew 'lporg' # command-line tool to organize your macos launchpad apps
 
 # =============================================================================================
@@ -126,7 +122,7 @@ brew 'shfmt' # autoformat shell script source code
 brew 'texlab' # implementation of the Language Server Protocol for LaTeX
 brew 'yamlfmt' # extensible command-line tool to format YAML files
 brew 'yaml-language-server' # language server for YAML Files
-brew 'latexindent' # indentation of LaTeX documentsi
+brew 'latexindent' # indentation of LaTeX documents
 
 # =============================================================================================
 # VSCode extensions
