@@ -10,56 +10,54 @@
 # License: MIT Copyright (c) 2024 Wilfried Kirin AGO <https://wilfriedago.dev>                #
 # =============================================================================================
 
-# Profiling
-# zmodload zsh/zprof
-
-# Zinit
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-
 # Download Zinit, if it's not there yet
-[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)" && chmod g-rwX "$(dirname $ZINIT_HOME)"
-[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+[ ! -d $ZINIT_BIN_DIR ] && mkdir -p "$(dirname $ZINIT_BIN_DIR)"
+[ ! -d $ZINIT_BIN_DIR/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_BIN_DIR"
+
+[ ! -d $ZINIT_PLUGINS_DIR ] && mkdir -p "$ZINIT_PLUGINS_DIR"
+[ ! -d $ZINIT_COMPLETIONS_DIR ] && mkdir -p "$ZINIT_COMPLETIONS_DIR"
+[ ! -d $ZINIT_SNIPPETS_DIR ] && mkdir -p "$ZINIT_SNIPPETS_DIR"
 
 # Source/Load zinit
-source "${ZINIT_HOME}/zinit.zsh"
+source "${ZINIT_BIN_DIR}/zinit.zsh"
 
 # Load zinit's completion system
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 # Load starship theme
-zinit ice as"command" from"gh-r" atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" atpull"%atclone" src"init.zsh"
-zinit light starship/starship
+zi ice \
+   as"command" \
+   from"gh-r" \
+   atclone"./starship init zsh > starship.zsh; ./starship completions zsh > _starship" \
+   atpull"%atclone" \
+   src"starship.zsh"
+zi light starship/starship
 
 # Plugins
-zinit light-mode for \
-  zsh-users/zsh-autosuggestions \
-  zdharma-continuum/fast-syntax-highlighting \
-  Aloxaf/fzf-tab
+zi light-mode for \
+   aloxaf/fzf-tab \
+   zsh-users/zsh-autosuggestions \
+   zdharma-continuum/fast-syntax-highlighting
+
+# Snippets
+zi snippet https://github.com/lincheney/fzf-tab-completion/blob/master/zsh/fzf-zsh-completion.sh
+
+# Autoloads
+autoload -Uz compinit
 
 # =============================================================================================
 # Shell
 # =============================================================================================
 
 [ -f "$ZSH_CONFIG_DIR/aliases.zsh" ] && source "$ZSH_CONFIG_DIR/aliases.zsh" # Aliases
-[ -f "$ZSH_CONFIG_DIR/configs.zsh" ] && source "$ZSH_CONFIG_DIR/configs.zsh" # Configs
+[ -f "$ZSH_CONFIG_DIR/settings.zsh" ] && source "$ZSH_CONFIG_DIR/settings.zsh" # Settings
 [ -f "$ZSH_CONFIG_DIR/functions.zsh" ] && source "$ZSH_CONFIG_DIR/functions.zsh" # Functions
 [ -f "$ZSH_CONFIG_DIR/completions.zsh" ] && source "$ZSH_CONFIG_DIR/completions.zsh" # Completions
 
 # Plugins
-[ -f "$ZSH_PLUGINS_DIR/directories.zsh" ] && source "$ZSH_PLUGINS_DIR/directories.zsh"
-[ -f "$ZSH_PLUGINS_DIR/django.zsh" ] && source "$ZSH_PLUGINS_DIR/django.zsh"
-[ -f "$ZSH_PLUGINS_DIR/fnm.zsh" ] && source "$ZSH_PLUGINS_DIR/fnm.zsh"
-[ -f "$ZSH_PLUGINS_DIR/fzf.zsh" ] && source "$ZSH_PLUGINS_DIR/fzf.zsh"
-[ -f "$ZSH_PLUGINS_DIR/kubectl.zsh" ] && source "$ZSH_PLUGINS_DIR/kubectl.zsh"
-[ -f "$ZSH_PLUGINS_DIR/minikube.zsh" ] && source "$ZSH_PLUGINS_DIR/minikube.zsh"
-[ -f "$ZSH_PLUGINS_DIR/nvim.zsh" ] && source "$ZSH_PLUGINS_DIR/nvim.zsh"
-[ -f "$ZSH_PLUGINS_DIR/pnpm.zsh" ] && source "$ZSH_PLUGINS_DIR/pnpm.zsh"
-[ -f "$ZSH_PLUGINS_DIR/python.zsh" ] && source "$ZSH_PLUGINS_DIR/python.zsh"
+for plugin in "$ZSH_PLUGINS_DIR"/*; do source "$plugin"; done
 
 # Clean up PATH
 typeset -U PATH
 clean_path
-
-# Profiling
-# zprof

@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 # aliases
 alias -g ..='..'
 alias -g ...='../..'
