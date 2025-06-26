@@ -28,8 +28,3 @@ zstyle ':completion:*:*:kill:*:processes'   list-colors         '=(#b) #([0-9]#)
 zstyle ':completion:*:*:kill:*'             menu                yes select
 zstyle ':completion:*:*:kill:*'             force-list          always
 zstyle ':completion:*:*:kill:*'             insert-ids          single
-
-# TERRAFORM
-if command -v terraform &> /dev/null; then
-  complete -C "$(command -v terraform)" terraform
-fi

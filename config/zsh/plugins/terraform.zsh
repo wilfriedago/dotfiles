@@ -15,3 +15,7 @@ alias tfv='terraform validate'
 alias tfs='terraform state'
 alias tft='terraform test'
 alias tfsh='terraform show'
+
+if command -v terraform &> /dev/null; then
+  complete -C "$(command -v terraform)" terraform
+fi
