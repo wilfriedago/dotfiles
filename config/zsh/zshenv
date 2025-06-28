@@ -76,13 +76,6 @@ export HOMEBREW_DEVELOPER=1 # Enable developer mode
 export HOMEBREW_AUTO_UPDATE_SECS=604800 # 1 week
 export HOMEBREW_NO_ENV_HINTS=1 # Disable Homebrew environment hints
 
-# PNPM
-export PNPM_HOME="$HOME/.pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
 # =============================================================================================
 #  Runtime environments
 # =============================================================================================

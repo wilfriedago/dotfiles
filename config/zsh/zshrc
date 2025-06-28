@@ -11,14 +11,13 @@
 # =============================================================================================
 
 # Download Zinit, if it's not there yet
-[ ! -d $ZINIT_BIN_DIR ] && mkdir -p "$(dirname $ZINIT_BIN_DIR)"
-[ ! -d $ZINIT_BIN_DIR/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_BIN_DIR"
+[ ! -d $ZINIT_BIN_DIR ] && mkdir -p "$ZINIT_HOME_DIR" && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_BIN_DIR"
 
 [ ! -d $ZINIT_PLUGINS_DIR ] && mkdir -p "$ZINIT_PLUGINS_DIR"
 [ ! -d $ZINIT_COMPLETIONS_DIR ] && mkdir -p "$ZINIT_COMPLETIONS_DIR"
 [ ! -d $ZINIT_SNIPPETS_DIR ] && mkdir -p "$ZINIT_SNIPPETS_DIR"
 
-# Source/Load zinit
+# Load Zinit
 source "${ZINIT_BIN_DIR}/zinit.zsh"
 
 # Load zinit's completion system
