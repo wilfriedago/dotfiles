@@ -13,12 +13,6 @@ rgc () {
   git fetch -p
 }
 
-# delete backup files
-bakclean () {
-  find . -name "*.*.dotdropbak" -type f -delete
-  find . -name "*.dotdropbak" -type f -delete
-}
-
 # empty the Trash
 osclean () {
   rm -rf ~/.Trash/*
@@ -78,11 +72,4 @@ clean_path() {
   done
 
   export PATH="${(j/:/)clean_parts}"
-}
-
-# clone a repo from url (https|git) and cd into it
-function clone() {
-	local url=$1;
-	local repo=$(echo $url | awk -F/ '{print $NF}' | sed -e 's/.git$//');
-	git clone $url $repo && cd $repo;
 }
