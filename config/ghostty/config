@@ -5,16 +5,16 @@ command = "zsh -l"
 shell-integration = zsh
 
 # Font
-font-family = "BlexMono Nerd Font"
-font-size = 12
+font-family = "Dank Mono"
+font-size = 13
 font-thicken = true
 
 # Background
-background-opacity = 0.9
-background-blur-radius = 50
+background-opacity = 0.7
+background-blur-radius = 30
 
 # Themes
-config-file = "themes/vitesse-dark"
+theme = rose-pine
 
 # Mouse
 mouse-hide-while-typing = true
