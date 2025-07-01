@@ -1,1 +1,0 @@
-- [ ] Implement the correct rose-pine theme for opencode.
