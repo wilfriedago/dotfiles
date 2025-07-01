@@ -133,3 +133,5 @@ dmypy.json
 
 # homebrew
 Brewfile.lock.json
+
+.secrets
