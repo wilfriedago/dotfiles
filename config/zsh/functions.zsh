@@ -59,17 +59,3 @@ lzg() {
     rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
   fi
 }
-
-# Clean the PATH variable silently
-clean_path() {
-  local path_parts=("${(@s/:/)PATH}")
-  local clean_parts=()
-
-  for part in $path_parts; do
-    if [[ -d "$part" ]]; then
-      clean_parts+=("$part")
-    fi
-  done
-
-  export PATH="${(j/:/)clean_parts}"
-}
