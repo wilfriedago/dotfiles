@@ -52,6 +52,7 @@ cask 'polypane' # a feature complete browser for web developers for accessibilit
 cask 'pearcleaner' # a cleaner for macOS
 cask 'ghostty' # a terminal emulator for macOS
 cask 'docker-desktop' # Docker Desktop for Mac
+cask 'warp' # a modern terminal for macOS
 
 # =============================================================================================
 # QuickLook plugins
@@ -96,8 +97,8 @@ brew 'yazi' # blazing fast terminal file manager written in Rust, based on async
 brew 'oasdiff' # diff tool for OpenAPI/Swagger files
 brew 'doctl' # DigitalOcean CLI
 brew 'hashicorp/tap/terraform' # infrastructure as code software
-brew 'vault' # secrets management software
-brew 'dotenv-vault' # dotenv plugin for HashiCorp Vault
+brew 'hashicorp/tap/vault' # secrets management software
+brew 'hashicorp/tap/hashicorp-vagrant' # Vagrant, a tool for building and managing virtualized development environments
 brew 'jadx' # command-line and GUI tools to decompile Android APK files
 brew 'encoredev/tap/encore' # Open Source TypeScript Backend Framework for robust type-safe applications
 brew 'fnm' # fast and simple Node.js version manager
@@ -107,6 +108,8 @@ brew 'oven-sh/bun/bun' # fast all-in-one JavaScript runtime
 brew 'lporg' # command-line tool to organize your macos launchpad apps
 brew 'quarkusio/tap/quarkus' # Quarkus CLI, a Kubernetes-native Java framework tailored for GraalVM and OpenJDK HotSpot
 brew 'sst/tap/opencode' # OpenCode CLI, a tool for managing and generating code snippets
+brew 'composer' # dependency manager for PHP
+brew 'kind' # tool for running local Kubernetes clusters using Docker container "nodes"
 
 # =============================================================================================
 # Linters, formatters and LSPs
