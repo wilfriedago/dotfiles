@@ -51,7 +51,7 @@ cask 'slack' # messaging app
 cask 'polypane' # a feature complete browser for web developers for accessibility
 cask 'pearcleaner' # a cleaner for macOS
 cask 'ghostty' # a terminal emulator for macOS
-cask 'docker-desktop' # Docker Desktop for Mac
+cask 'orbstack' # a modern Docker Desktop alternative for macOS
 cask 'warp' # a modern terminal for macOS
 
 # =============================================================================================
