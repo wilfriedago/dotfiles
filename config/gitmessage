@@ -1,0 +1,37 @@
+# <type>(<scope>): <short summary>
+#
+# Example:
+# feat(auth): add JWT token expiration check
+
+# Commit types:
+# - feat     : A new feature
+# - fix      : A bug fix
+# - chore    : Maintenance (build, deps, infra)
+# - docs     : Documentation only
+# - style    : Formatting, no logic change
+# - refactor : Refactoring code
+# - test     : Adding or updating tests
+# - perf     : Performance improvements
+# - ci       : CI/CD config
+
+# Optional scopes (use your domain: auth, api, db, ui, kafka, etc.)
+# Keep the summary under 72 characters.
+
+# --- BODY (optional, remove this line if unused) ---
+#
+# Add detailed explanation of the commit.
+# Describe the motivation and the context.
+# Use bullet points if needed:
+#
+# - What changed and why
+# - Side effects or risks
+# - How to test it
+#
+
+# --- FOOTERS (optional, remove any line not needed) ---
+#
+# Closes: #123              # Closes the related issue
+# Fixes: #456               # Fixes a specific bug
+# Co-authored-by: Full Name <email@example.com>  # Multiple authors
+# Reviewed-by: Full Name <email@example.com>     # Code review credit
+# BREAKING CHANGE: description of breaking change

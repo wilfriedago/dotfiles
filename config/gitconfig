@@ -45,7 +45,7 @@
 
 [commit]
   gpgsign = true
-  template = ~/.gitmessage
+  # template = ~/.gitmessage
 
 [tag]
 	forceSignAnnotated = true
