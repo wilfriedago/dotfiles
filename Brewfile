@@ -31,7 +31,6 @@ tap 'blacktop/tap' # blacktop tap
 # =============================================================================================
 
 cask 'font-symbols-nerd-font' # Symbols Nerd Font, a collection of popular glyphs and symbols
-cask 'font-blex-mono-nerd-font' # Blex Mono Nerd Font, a monospaced font for developers
 
 # =============================================================================================
 # Apps
