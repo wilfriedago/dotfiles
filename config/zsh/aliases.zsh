@@ -21,8 +21,6 @@ alias lzd="lazydocker" # run Docker TUI
 alias rm='trash' # move to trash
 alias tf='terraform' # run Terraform
 alias yz='yazi' # run yazi
-alias artisan='php artisan' # Laravel artisan command
-alias claude="~/.claude/local/claude" # run local Claude Code
 alias lporg='lporg -c $XDG_CONFIG_HOME/lporg/config.yaml' # run lporg with custom config
 
 # utils
