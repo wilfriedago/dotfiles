@@ -1,26 +1,24 @@
 # =============================================================================================
-# ~/.config/zsh/plugins/pnpm.zsh
+# ~/.config/zsh/plugins/bws.zsh
 # =============================================================================================
-# PNPM Zsh Plugin
-# This plugin provides aliases and completion for PNPM.
+# Bitwarden Secret Manager Zsh Plugin
+# This plugin provides aliases and completion for Bitwarden Secret Manager.
 #
-# It makes managing Node.js packages directly from the command line easier.
+# It makes managing Bitwarden Secret Manager commands directly from the command line easier.
 # For docs and more info, see: https://github.com/wilfriedago/dotfiles
 # =============================================================================================
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
-# Check if PNPM is installed
-if (( ! $+commands[pnpm] )); then
+# Check if Bitwarden Secret Manager is installed
+if (( ! $+commands[bws] )); then
   return
 fi
 
-# Aliases
-alias pn='pnpm'
-alias pi='pnpm install'
-alias pd='pnpm dev'
-alias pt='pnpm test'
-alias pb='pnpm build'
-alias pu='pnpm update'
-alias po='pnpm outdated'
-alias pnx='pnpm dlx'
+# Completions
+if [[ ! -f "$ZSH_CACHE_DIR/completions/_bws" ]]; then
+  typeset -g -A _comps
+  autoload -Uz _bws
+  _comps[bws]=_bws
+  bws completions zsh >| "$ZSH_CACHE_DIR/completions/_bws" &|
+fi

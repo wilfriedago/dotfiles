@@ -1,26 +1,27 @@
 # =============================================================================================
-# ~/.config/zsh/plugins/pnpm.zsh
+# ~/.config/zsh/plugins/yarn.zsh
 # =============================================================================================
-# PNPM Zsh Plugin
-# This plugin provides aliases and completion for PNPM.
+# Yarn Zsh Plugin
+# This plugin provides aliases and completion for Yarn.
 #
-# It makes managing Node.js packages directly from the command line easier.
+# Makes life easier when working with Yarn projects.
 # For docs and more info, see: https://github.com/wilfriedago/dotfiles
 # =============================================================================================
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
-# Check if PNPM is installed
-if (( ! $+commands[pnpm] )); then
+# Check if Yarn is installed
+if (( ! $+commands[corepack] )); then
   return
 fi
 
-# Aliases
-alias pn='pnpm'
-alias pi='pnpm install'
-alias pd='pnpm dev'
-alias pt='pnpm test'
-alias pb='pnpm build'
-alias pu='pnpm update'
-alias po='pnpm outdated'
-alias pnx='pnpm dlx'
+# Yarn Aliases
+alias yarn='corepack yarn'
+alias y='yarn'
+alias ya='yarn add'
+alias yar='yarn remove'
+alias yau='yarn upgrade'
+alias ypl='yarn plugin'
+alias yst='yarn start'
+alias yte='yarn test'
+alias ybu='yarn build'
