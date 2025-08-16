@@ -1,8 +1,21 @@
-#!/usr/bin/env zsh
+# =============================================================================================
+# ~/.config/zsh/plugins/django.zsh
+# =============================================================================================
+# Django Zsh Plugin
+# This plugin provides aliases and completion for Django.
+#
+# Makes life easier when working with Django projects.
+# For docs and more info, see: https://github.com/wilfriedago/dotfiles
+# =============================================================================================
+# License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
+# =============================================================================================
 
-# Django
+# Check if Python is installed
+if (( ! $+commands[python] )); then
+  return
+fi
 
-# aliases
+# Aliases
 alias dj='python manage.py'
 alias djdd='python manage.py dumpdata'
 alias djld='python manage.py loaddata'

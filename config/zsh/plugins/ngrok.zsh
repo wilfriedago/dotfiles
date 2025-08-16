@@ -9,6 +9,5 @@ if [[ ! -f "$ZSH_CACHE_DIR/completions/_ngrok" ]]; then
   typeset -g -A _comps
   autoload -Uz _ngrok
   _comps[ngrok]=_ngrok
+  ngrok completion zsh >| "$ZSH_CACHE_DIR/completions/_ngrok" &|
 fi
-
-ngrok completion zsh >| "$ZSH_CACHE_DIR/completions/_ngrok" &|

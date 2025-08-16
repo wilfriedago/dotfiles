@@ -1,8 +1,25 @@
-# aliases
+# =============================================================================================
+# ~/.config/zsh/plugins/docker.zsh
+# =============================================================================================
+# Docker Zsh Plugin
+# This plugin provides aliases and completion for Docker.
+#
+# It makes managing Docker containers, images, networks, and volumes directly from the command line easier.
+# For docs and more info, see: https://github.com/wilfriedago/dotfiles
+# =============================================================================================
+# License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
+# =============================================================================================
+
+# Check if Docker is installed
+if (( ! $+commands[docker] )); then
+  return
+fi
+
+# Aliases
 alias dk='docker'
-alias dbl='docker build'
-alias dcin='docker container inspect'
-alias dcls='docker container ls'
+alias dkbl='docker build'
+alias dkin='docker container inspect'
+alias dkcls='docker container ls'
 alias dclsa='docker container ls -a'
 alias dib='docker image build'
 alias dii='docker image inspect'
@@ -36,44 +53,27 @@ alias dvls='docker volume ls'
 alias dvprune='docker volume prune'
 alias dxc='docker container exec'
 alias dxcit='docker container exec -it'
+alias dco="docker compose"
+alias dcb="docker compose build"
+alias dce="docker compose exec"
+alias dcps="docker compose ps"
+alias dcrestart="docker compose restart"
+alias dcrm="docker compose rm"
+alias dcr="docker compose run"
+alias dcstop="docker compose stop"
+alias dcup="docker compose up"
+alias dcupb="docker compose up --build"
+alias dcupd="docker compose up -d"
+alias dcupdb="docker compose up -d --build"
+alias dcdn="docker compose down"
+alias dcl="docker compose logs"
+alias dclf="docker compose logs -f"
+alias dclF="docker compose logs -f --tail 0"
+alias dcpull="docker compose pull"
+alias dcstart="docker compose start"
+alias dck="docker compose kill"
 
-# This tests that the (old) docker-compose command is in $PATH and that
-# it resolves to an existing executable file if it's a symlink.
-[[ -x "${commands[docker-compose]:A}" ]] && dccmd='docker-compose' || dccmd='docker compose'
-
-alias dco="$dccmd"
-alias dcb="$dccmd build"
-alias dce="$dccmd exec"
-alias dcps="$dccmd ps"
-alias dcrestart="$dccmd restart"
-alias dcrm="$dccmd rm"
-alias dcr="$dccmd run"
-alias dcstop="$dccmd stop"
-alias dcup="$dccmd up"
-alias dcupb="$dccmd up --build"
-alias dcupd="$dccmd up -d"
-alias dcupdb="$dccmd up -d --build"
-alias dcdn="$dccmd down"
-alias dcl="$dccmd logs"
-alias dclf="$dccmd logs -f"
-alias dclF="$dccmd logs -f --tail 0"
-alias dcpull="$dccmd pull"
-alias dcstart="$dccmd start"
-alias dck="$dccmd kill"
-
-unset dccmd
-
-if (( ! $+commands[docker] )); then
-  return
-fi
-
-# Standardized $0 handling
-# https://zdharma-continuum.github.io/Zsh-100-Commits-Club/Zsh-Plugin-Standard.html
-0="${${ZERO:-${0:#$ZSH_ARGZERO}}:-${(%):-%N}}"
-0="${${(M)0:#/*}:-$PWD/$0}"
-
-# If the completion file doesn't exist yet, we need to autoload it and
-# bind it to `docker`. Otherwise, compinit will have already done that.
+# Completions
 if [[ ! -f "$ZSH_CACHE_DIR/completions/_docker" ]]; then
   typeset -g -A _comps
   autoload -Uz _docker
