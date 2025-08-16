@@ -7,15 +7,11 @@
 # After editing, re-source .zshrc for new changes to take effect                              #
 # For docs and more info, see: https://github.com/wilfriedago/dotfiles                        #
 # =============================================================================================
-# License: MIT Copyright (c) 2024 Wilfried Kirin AGO <https://wilfriedago.dev>                #
+# License: MIT Copyright (c) 2024 Wilfried Kirin AGO <https://wilfriedago.me>                 #
 # =============================================================================================
 
 # Download Zinit, if it's not there yet
-[ ! -d $ZINIT_BIN_DIR ] && mkdir -p "$ZINIT_HOME_DIR" && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_BIN_DIR"
-
-[ ! -d $ZINIT_PLUGINS_DIR ] && mkdir -p "$ZINIT_PLUGINS_DIR"
-[ ! -d $ZINIT_COMPLETIONS_DIR ] && mkdir -p "$ZINIT_COMPLETIONS_DIR"
-[ ! -d $ZINIT_SNIPPETS_DIR ] && mkdir -p "$ZINIT_SNIPPETS_DIR"
+[[ ! -d "$ZINIT_BIN_DIR" ]] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_BIN_DIR"
 
 # Load Zinit
 source "${ZINIT_BIN_DIR}/zinit.zsh"
@@ -26,18 +22,18 @@ autoload -Uz _zinit
 
 # Load starship theme
 zi ice \
-   as"command" \
-   from"gh-r" \
-   atclone"./starship init zsh > starship.zsh; ./starship completions zsh > _starship" \
-   atpull"%atclone" \
-   src"starship.zsh"
+  as"command" \
+  from"gh-r" \
+  atclone"./starship init zsh > starship.zsh; ./starship completions zsh > _starship" \
+  atpull"%atclone" \
+  src"starship.zsh"
 zi light starship/starship
 
 # Plugins
 zi light-mode for \
-   aloxaf/fzf-tab \
-   zsh-users/zsh-autosuggestions \
-   zdharma-continuum/fast-syntax-highlighting
+  aloxaf/fzf-tab \
+  zsh-users/zsh-autosuggestions \
+  zdharma-continuum/fast-syntax-highlighting
 
 # Snippets
 zi snippet https://github.com/lincheney/fzf-tab-completion/blob/master/zsh/fzf-zsh-completion.sh
@@ -54,5 +50,4 @@ autoload -Uz compinit
 [ -f "$ZSH_CONFIG_DIR/functions.zsh" ] && source "$ZSH_CONFIG_DIR/functions.zsh" # Functions
 [ -f "$ZSH_CONFIG_DIR/completions.zsh" ] && source "$ZSH_CONFIG_DIR/completions.zsh" # Completions
 
-# Plugins
-for plugin in "$ZSH_PLUGINS_DIR"/*; do source "$plugin"; done
+for plugin in "$ZSH_PLUGINS_DIR"/*; do source "$plugin"; done # Plugins
