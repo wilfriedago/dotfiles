@@ -1,19 +1,24 @@
+# =============================================================================================
+# ~/.config/zsh/plugins/kubectl.zsh
+# =============================================================================================
+# Kubectl Zsh Plugin
+# This plugin provides aliases and completion for Kubectl.
+#
+# It makes managing Kubernetes clusters directly from the command line easier.
+# For docs and more info, see: https://github.com/wilfriedago/dotfiles
+# =============================================================================================
+# License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
+# =============================================================================================
+
+# Check if Kubectl is installed
 if (( ! $+commands[kubectl] )); then
   return
 fi
 
-# If the completion file doesn't exist yet, we need to autoload it and
-# bind it to `kubectl`. Otherwise, compinit will have already done that.
-if [[ ! -f "$ZSH_CACHE_DIR/completions/_kubectl" ]]; then
-  typeset -g -A _comps
-  autoload -Uz _kubectl
-  _comps[kubectl]=_kubectl
-fi
-
-kubectl completion zsh 2> /dev/null >| "$ZSH_CACHE_DIR/completions/_kubectl" &|
+# Aliases
 
 # This command is used a LOT both below and in daily life
-alias k=kubectl
+alias k='kubectl'
 
 # Execute a kubectl command against all namespaces
 alias kca='_kca(){ kubectl "$@" --all-namespaces;  unset -f _kca; }; _kca'
@@ -99,10 +104,6 @@ alias kdeld='kubectl delete deployment'
 alias ksd='kubectl scale deployment'
 alias krsd='kubectl rollout status deployment'
 
-function kres(){
-  kubectl set env $@ REFRESHED_AT=$(date +%Y%m%d%H%M%S)
-}
-
 # Rollout management.
 alias kgrs='kubectl get replicaset'
 alias kdrs='kubectl describe replicaset'
@@ -179,6 +180,21 @@ alias kgj='kubectl get job'
 alias kej='kubectl edit job'
 alias kdj='kubectl describe job'
 alias kdelj='kubectl delete job'
+
+# Completions
+if [[ ! -f "$ZSH_CACHE_DIR/completions/_kubectl" ]]; then
+  typeset -g -A _comps
+  autoload -Uz _kubectl
+  _comps[kubectl]=_kubectl
+  kubectl completion zsh 2> /dev/null >| "$ZSH_CACHE_DIR/completions/_kubectl" &|
+fi
+
+# Functions
+
+# Refresh environment variable
+function kres(){
+  kubectl set env $@ REFRESHED_AT=$(date +%Y%m%d%H%M%S)
+}
 
 # Utility print functions (json / yaml)
 function _build_kubectl_out_alias {
