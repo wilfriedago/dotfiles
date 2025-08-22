@@ -87,6 +87,9 @@ export HOMEBREW_NO_ENV_HINTS=1 # Disable Homebrew environment hints
 # NODE Binaries
 [ -d "$PWD/node_modules/.bin" ] && export PATH="$PWD/node_modules/.bin:$PATH"
 
+# Custom Binaries
+[ -d "$PWD/.bin" ] && export PATH="$PWD/.bin:$PATH"
+
 # =============================================================================================
 # Miscellaneous
 # =============================================================================================
@@ -104,3 +107,8 @@ export EZA_CONFIG_DIR="${XDG_CONFIG_HOME}/eza"
 
 # SECRETS
 [ -f "${HOME}/.secrets" ] && source "${HOME}/.secrets"
+
+# .env files
+if [ -f "$PWD/.env" ]; then
+  set -a; source "$PWD/.env"; set +a;
+fi

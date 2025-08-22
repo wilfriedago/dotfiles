@@ -8,7 +8,7 @@
 # Source GH repository: https://github.com/wilfriedago/Brewfile                               #
 # See brew docs for more info: https://docs.brew.sh/Manpage                                   #
 # =============================================================================================
-# License: MIT © Wilfrieds AGO 2025 <https://wilfriedago.dev>                                 #
+# License: MIT © Wilfrieds AGO 2025 <https://wilfriedago.me>                                 #
 # =============================================================================================
 
 # Options
