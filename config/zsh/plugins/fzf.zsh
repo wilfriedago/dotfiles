@@ -1,6 +1,14 @@
-#!/usr/bin/env zsh
-
-# FZF (Fuzzy Finder)
+# =============================================================================================
+# ~/.config/zsh/plugins/fzf.zsh
+# =============================================================================================
+# FZF (Fuzzy Finder) Zsh Plugin
+# This plugin provides aliases and completion for FZF.
+#
+# It makes searching and navigating files and directories easier.
+# For docs and more info, see: https://github.com/wilfriedago/dotfiles
+# =============================================================================================
+# License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
+# =============================================================================================
 
 # Initialization
 eval "$(fzf --zsh)"

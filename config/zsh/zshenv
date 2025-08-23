@@ -7,10 +7,9 @@ export XDG_LIB_HOME="${HOME}/.local/lib"
 export XDG_CACHE_HOME="${HOME}/.cache"
 
 # ZSH
-export ZSH_CACHE_DIR="${XDG_CACHE_HOME}/zsh"
 export ZSH_CONFIG_DIR="${XDG_CONFIG_HOME}/zsh"
-export ZSH_PLUGINS_DIR="${ZSH_CONFIG_DIR}/plugins"
-export ZSH_FUNCTIONS_DIR="${ZSH_CONFIG_DIR}/functions"
+export ZSH_CACHE_DIR="${XDG_CACHE_HOME}/zsh"
+export ZSH_DATA_DIR="${XDG_DATA_HOME}/zsh"
 
 # Zinit
 export ZINIT_CACHE_DIR="${XDG_CACHE_HOME}/zinit"

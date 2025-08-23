@@ -50,4 +50,4 @@ autoload -Uz compinit
 [ -f "$ZSH_CONFIG_DIR/functions.zsh" ] && source "$ZSH_CONFIG_DIR/functions.zsh" # Functions
 [ -f "$ZSH_CONFIG_DIR/completions.zsh" ] && source "$ZSH_CONFIG_DIR/completions.zsh" # Completions
 
-for plugin in "$ZSH_PLUGINS_DIR"/*; do source "$plugin"; done # Plugins
+for plugin in "$ZSH_CONFIG_DIR/plugins"/*; do source "$plugin"; done # Plugins
