@@ -11,7 +11,7 @@
 # =============================================================================================
 
 # Check if Python is installed
-if (( ! $+commands[python] )); then
+if (( ! $+commands[python3] )); then
   return
 fi
 
