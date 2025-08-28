@@ -1,10 +1,19 @@
-# Set XDG directories
+export SYSTEM=$(uname -s)
+
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# XDG directories
 export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_STATE_HOME="${HOME}/.local/state"
 export XDG_BIN_HOME="${HOME}/.local/bin"
 export XDG_LIB_HOME="${HOME}/.local/lib"
-export XDG_CACHE_HOME="${HOME}/.cache"
 
 # ZSH
 export ZSH_CONFIG_DIR="${XDG_CONFIG_HOME}/zsh"
@@ -18,13 +27,6 @@ export ZINIT_INSTALL_DIR="${ZINIT_HOME_DIR}/zinit.git"
 export ZINIT_PLUGINS_DIR="${ZINIT_HOME_DIR}/plugins"
 export ZINIT_SNIPPETS_DIR="${ZINIT_HOME_DIR}/snippets"
 export ZINIT_COMPLETIONS_DIR="${ZINIT_HOME_DIR}/completions"
-
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 # GPG
 export GPG_TTY=$(tty)
@@ -40,7 +42,7 @@ export BUNDLER_EDITOR=$EDITOR
 # local exports
 export PATH="/usr/local/bin:$PATH"
 export PATH="/opt/local/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$XDG_BIN_HOME:$PATH"
 
 # Man
 export MANPATH="/usr/local/man:$MANPATH"
