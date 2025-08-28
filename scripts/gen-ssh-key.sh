@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 echo "Generating a new SSH key..."
 
@@ -21,3 +21,5 @@ ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 # Adding your SSH key to your GitHub account
 # https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
 echo "run 'pbcopy < ~/.ssh/id_ed25519.pub' to copy the ssh public key to your clipboard"
+
+# id_rsa or id_ed25519 ? - https://www.reddit.com/r/sysadmin/comments/4gktbr/ssh_ed25519_keys_vs_rsa_benefits_and_drawbacks/
