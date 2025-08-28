@@ -30,6 +30,10 @@ alias localip="ipconfig getifaddr en0" # get local ip address
 alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -" # test internet speed
 alias flushdns="sudo killall -HUP mDNSResponder" # flush dns cache
 alias pubkey="cat ~/.ssh/id_ed25519.pub | pbcopy | echo 'Public Key => Copied to clipboard.'" # copy ssh public key to clipboard
+alias sysinfo='fastfetch'
+alias ports='lsof -iTCP -sTCP:LISTEN -n -P'
+alias diskusage='du -sh * | sort -hr'
+alias meminfo='vm_stat | awk "NR==1{print; next} {print \$1, \$2*4096/1024/1024 \"MB\"}"'
 
 # Get macOS Software Updates, and update installed Homebrew, npm, and their installed packages
 alias update='sudo softwareupdate -i -a;'
