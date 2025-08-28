@@ -38,9 +38,6 @@ zi light-mode for \
 # Snippets
 zi snippet https://github.com/lincheney/fzf-tab-completion/blob/master/zsh/fzf-zsh-completion.sh
 
-# Autoloads
-autoload -Uz compinit
-
 # =============================================================================================
 # Shell
 # =============================================================================================
