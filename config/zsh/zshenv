@@ -12,9 +12,9 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME}/zsh"
 export ZSH_DATA_DIR="${XDG_DATA_HOME}/zsh"
 
 # Zinit
-export ZINIT_CACHE_DIR="${XDG_CACHE_HOME}/zinit"
 export ZINIT_HOME_DIR="${XDG_DATA_HOME}/zinit"
-export ZINIT_BIN_DIR="${ZINIT_HOME_DIR}/zinit.git"
+export ZINIT_CACHE_DIR="${XDG_CACHE_HOME}/zinit"
+export ZINIT_INSTALL_DIR="${ZINIT_HOME_DIR}/zinit.git"
 export ZINIT_PLUGINS_DIR="${ZINIT_HOME_DIR}/plugins"
 export ZINIT_SNIPPETS_DIR="${ZINIT_HOME_DIR}/snippets"
 export ZINIT_COMPLETIONS_DIR="${ZINIT_HOME_DIR}/completions"

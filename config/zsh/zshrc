@@ -11,10 +11,10 @@
 # =============================================================================================
 
 # Download Zinit, if it's not there yet
-[[ ! -d "$ZINIT_BIN_DIR" ]] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_BIN_DIR"
+[[ ! -d "$ZINIT_INSTALL_DIR" ]] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_INSTALL_DIR"
 
 # Load Zinit
-source "${ZINIT_BIN_DIR}/zinit.zsh"
+source "${ZINIT_INSTALL_DIR}/zinit.zsh"
 
 # Load zinit's completion system
 autoload -Uz _zinit
@@ -49,5 +49,4 @@ autoload -Uz compinit
 [ -f "$ZSH_CONFIG_DIR/settings.zsh" ] && source "$ZSH_CONFIG_DIR/settings.zsh" # Settings
 [ -f "$ZSH_CONFIG_DIR/functions.zsh" ] && source "$ZSH_CONFIG_DIR/functions.zsh" # Functions
 [ -f "$ZSH_CONFIG_DIR/completions.zsh" ] && source "$ZSH_CONFIG_DIR/completions.zsh" # Completions
-
-for plugin in "$ZSH_CONFIG_DIR/plugins"/*; do source "$plugin"; done # Plugins
+[ -d "$ZSH_CONFIG_DIR/plugins" ] && for plugin in "$ZSH_CONFIG_DIR/plugins"/*; do source "$plugin"; done # Plugins
