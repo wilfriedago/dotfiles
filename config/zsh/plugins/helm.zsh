@@ -27,5 +27,6 @@ if [[ ! -f "$ZSH_CACHE_DIR/completions/_helm" ]]; then
   typeset -g -A _comps
   autoload -Uz _helm
   _comps[helm]=_helm
+  _comps[h]=_helm
   helm completion zsh >| "$ZSH_CACHE_DIR/completions/_helm" &|
 fi

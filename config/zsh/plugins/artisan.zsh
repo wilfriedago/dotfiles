@@ -50,5 +50,6 @@ if [[ ! -f "$ZSH_CACHE_DIR/completions/_artisan" ]]; then
   typeset -g -A _comps
   autoload -Uz _artisan
   _comps[artisan]=_artisan
+  _comps[a]=_artisan
   artisan completion zsh >| "$ZSH_CACHE_DIR/completions/_artisan" &|
 fi

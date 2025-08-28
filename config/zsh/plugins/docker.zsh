@@ -78,5 +78,6 @@ if [[ ! -f "$ZSH_CACHE_DIR/completions/_docker" ]]; then
   typeset -g -A _comps
   autoload -Uz _docker
   _comps[docker]=_docker
+  _comps[dk]=_docker
   docker completion zsh >| "$ZSH_CACHE_DIR/completions/_docker" &|
 fi
