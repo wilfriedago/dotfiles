@@ -79,9 +79,7 @@ export STARSHIP_CACHE="${XDG_CACHE_HOME}/starship"
 export EZA_CONFIG_DIR="${XDG_CONFIG_HOME}/eza"
 
 # SECRETS
-[ -f "${HOME}/.secrets" ] && source "${HOME}/.secrets"
+[ -f "${HOME}/.secrets" ] && source "${HOME}/.secrets" # FIXME: Look for alternatives using a secrets manager (Bitwarden Secrets Manager)
 
 # .env files
-if [ -f "$PWD/.env" ]; then
-  set -a; source "$PWD/.env"; set +a;
-fi
+if [ -f "$PWD/.env" ]; then set -a; source "$PWD/.env"; set +a; fi # FIXME: Make sure this is secure
