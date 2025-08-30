@@ -24,3 +24,13 @@ alias pb='pnpm build'
 alias pu='pnpm update'
 alias po='pnpm outdated'
 alias pnx='pnpm dlx'
+
+
+# Completions
+if [[ ! -f "$ZSH_CACHE_DIR/completions/_pnpm" ]]; then
+  typeset -g -A _comps
+  autoload -Uz _pnpm
+  _comps[pnpm]=_pnpm
+  _comps[pn]=_pnpm
+  pnpm completion zsh >| "$ZSH_CACHE_DIR/completions/_pnpm" &|
+fi
