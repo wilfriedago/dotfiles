@@ -24,6 +24,16 @@ cdf () {
   z "$path"
 }
 
+# kill a process by its listening port
+killport () {
+  local port=$1
+  if [ -z "$port" ]; then
+    echo "Usage: killport <port>"
+    return 1
+  fi
+  lsof -ti:"$port" | xargs -r kill
+}
+
 # load `.env` file from a filename passed as an argument
 loadenv () {
   while read line; do
