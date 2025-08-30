@@ -222,7 +222,7 @@
   res = reset --soft
   rehh = reset --hard HEAD
   remh = reset --mixed HEAD
-  resh = reset --soft HEAD
+  undo = reset --soft HEAD^
   rehom = reset --hard origin/master
 
   # Remote
