@@ -52,8 +52,6 @@ profiles:
     # Scripts directory
     - d_scripts
 
-    # Secrets file
-    - f_secrets
   macos:
     dotfiles:
     - f_vscode_custom_js
@@ -178,9 +176,6 @@ dotfiles:
   d_scripts:
     src: scripts
     dst: ~/.scripts
-  f_secrets:
-    src: .secrets
-    dst: ~/.secrets
   f_vscode_custom_js:
     src: config/vscode/custom.js
     dst: ~/Library/Application Support/Code/User/custom.js
