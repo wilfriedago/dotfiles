@@ -21,6 +21,11 @@ if (( ! $+commands[bws] )); then
 fi
 
 # =============================================================================================
+# Load Secrets
+# =============================================================================================
+export BWS_ACCESS_TOKEN=$(security find-generic-password -a "$USER" -s "BWS_ACCESS_TOKEN" -w)
+
+# =============================================================================================
 # Configuration Variables
 # =============================================================================================
 
@@ -124,6 +129,7 @@ bws-refresh() {
 
   # Fetch secrets with error handling
   local secrets_json
+  local personal_project_id=$(security find-generic-password -a "$USER" -s "BWS_PROJECT_ID" -w 2>/dev/null)
   if ! secrets_json=$(bws secret list 2>/dev/null); then
     echo "❌ Failed to fetch secrets from Bitwarden Secret Manager"
     echo "   Make sure you're authenticated: bws auth"
