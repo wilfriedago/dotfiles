@@ -1,0 +1,55 @@
+# Hardware configuration template for NixOS
+# This file should be generated using: nixos-generate-config
+# and then copied to this location as hardware-configuration.nix
+
+{ config, lib, pkgs, modulesPath, ... }:
+
+{
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
+
+  # Boot configuration - update based on your system
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-intel" ]; # or "kvm-amd" for AMD systems
+  boot.extraModulePackages = [ ];
+
+  # File systems - update based on your system
+  # Example configuration - REPLACE WITH YOUR ACTUAL HARDWARE CONFIG
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/REPLACE-WITH-YOUR-ROOT-UUID";
+    fsType = "ext4";
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/REPLACE-WITH-YOUR-BOOT-UUID";
+    fsType = "vfat";
+  };
+
+  # Swap configuration - update based on your system
+  # swapDevices = [
+  #   { device = "/dev/disk/by-uuid/REPLACE-WITH-YOUR-SWAP-UUID"; }
+  # ];
+
+  # Networking
+  networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp0s3.useDHCP = lib.mkDefault true;
+
+  # Hardware optimization
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  # For AMD systems, use:
+  # hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  # Graphics
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+
+  # Note: This is a template file. Run the following command to generate
+  # your actual hardware configuration:
+  # sudo nixos-generate-config --show-hardware-config > ~/.dotfiles/nixos/hardware-configuration.nix
+}

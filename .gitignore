@@ -134,4 +134,9 @@ dmypy.json
 # homebrew
 Brewfile.lock.json
 
+# NixOS
+result
+result-*
+nixos/hardware-configuration.nix
+
 .secrets
