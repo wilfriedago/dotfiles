@@ -15,14 +15,18 @@ if (( ! $+commands[helm] )); then
   return
 fi
 
-# aliases
+# =============================================================================================
+# Aliases
+# =============================================================================================
 alias h='helm'
 alias hin='helm install'
 alias hun='helm uninstall'
 alias hse='helm search'
 alias hup='helm upgrade'
 
-# completions
+# =============================================================================================
+# Completions
+# =============================================================================================
 if [[ ! -f "$ZSH_CACHE_DIR/completions/_helm" ]]; then
   typeset -g -A _comps
   autoload -Uz _helm

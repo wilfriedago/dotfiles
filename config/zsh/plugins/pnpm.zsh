@@ -15,7 +15,9 @@ if (( ! $+commands[pnpm] )); then
   return
 fi
 
+# =============================================================================================
 # Aliases
+# =============================================================================================
 alias pn='pnpm'
 alias pi='pnpm install'
 alias pd='pnpm dev'
@@ -25,8 +27,9 @@ alias pu='pnpm update'
 alias po='pnpm outdated'
 alias pnx='pnpm dlx'
 
-
+# =============================================================================================
 # Completions
+# =============================================================================================
 if [[ ! -f "$ZSH_CACHE_DIR/completions/_pnpm" ]]; then
   typeset -g -A _comps
   autoload -Uz _pnpm

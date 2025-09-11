@@ -15,7 +15,9 @@ if (( ! $+commands[doctl] )); then
   return
 fi
 
+# =============================================================================================
 # Aliases
+# =============================================================================================
 alias doc='doctl'
 alias docg='doctl compute droplet create'
 alias docl='doctl compute droplet list'
@@ -25,7 +27,9 @@ alias docp='doctl compute droplet power-on'
 alias docf='doctl compute droplet shutdown'
 alias docb='doctl compute droplet reboot'
 
+# =============================================================================================
 # Completions
+# =============================================================================================
 if [[ ! -f "$ZSH_CACHE_DIR/completions/_doctl" ]]; then
   typeset -g -A _comps
   autoload -Uz _doctl

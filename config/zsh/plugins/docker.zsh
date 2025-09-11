@@ -15,7 +15,9 @@ if (( ! $+commands[docker] )); then
   return
 fi
 
+# =============================================================================================
 # Aliases
+# =============================================================================================
 alias dk='docker'
 alias dkbl='docker build'
 alias dkin='docker container inspect'
@@ -73,7 +75,9 @@ alias dcpull="docker compose pull"
 alias dcstart="docker compose start"
 alias dck="docker compose kill"
 
+# =============================================================================================
 # Completions
+# =============================================================================================
 if [[ ! -f "$ZSH_CACHE_DIR/completions/_docker" ]]; then
   typeset -g -A _comps
   autoload -Uz _docker
