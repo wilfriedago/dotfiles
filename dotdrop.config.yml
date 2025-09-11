@@ -64,6 +64,50 @@ profiles:
     - f_vscode_settings
     - f_vscode_extensions
     - f_vscode_keybindings
+  nixos:
+    dotfiles:
+    # NixOS-specific configurations
+    - d_i3
+    - d_sway
+    - d_vscode_snippets_linux
+    - f_vscode_settings_linux
+    - f_vscode_extensions_linux
+    - f_vscode_keybindings_linux
+
+    # Shared configurations (inherit from default)
+    - d_zsh_plugins
+    - f_zsh_aliases
+    - f_zsh_completions
+    - f_zsh_functions
+    - f_zsh_settings
+    - f_zprofile
+    - f_zshenv
+    - f_zshrc
+    - d_bat
+    - d_btop
+    - d_eza
+    - d_fastfetch
+    - d_gh
+    - d_gh-copilot
+    - d_ghostty
+    - d_git-cliff
+    - d_helm
+    - d_k9s
+    - d_lazydocker
+    - d_lazygit
+    - d_nvim
+    - d_opencode
+    - d_starship
+    - d_yazi
+    - d_zed
+    - f_curlrc
+    - f_gitconfig
+    - f_gitignore_global
+    - f_gpg-agent
+    - f_ssh
+    - f_wgetrc
+    - d_scripts
+    - f_secrets
 
 dotfiles:
   d_zsh_plugins:
@@ -199,3 +243,22 @@ dotfiles:
   f_vscode_keybindings:
     src: config/vscode/keybindings.json
     dst: ~/Library/Application Support/Code/User/keybindings.json
+  # NixOS-specific dotfiles
+  d_i3:
+    src: config/i3
+    dst: ~/.config/i3
+  d_sway:
+    src: config/sway
+    dst: ~/.config/sway
+  d_vscode_snippets_linux:
+    src: config/vscode/snippets
+    dst: ~/.config/Code/User/snippets
+  f_vscode_settings_linux:
+    src: config/vscode/settings.json
+    dst: ~/.config/Code/User/settings.json
+  f_vscode_extensions_linux:
+    src: config/vscode/extensions.json
+    dst: ~/.config/Code/User/extensions.json
+  f_vscode_keybindings_linux:
+    src: config/vscode/keybindings.json
+    dst: ~/.config/Code/User/keybindings.json

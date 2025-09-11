@@ -1,6 +1,6 @@
  🏠 Wilfried's Dotfiles
 
-This repository contains my personal dotfiles and system configuration for macOS. It uses [`dotdrop`](https://github.com/deadc0de6/dotdrop).
+This repository contains my personal dotfiles and system configuration for macOS and NixOS. It uses [`dotdrop`](https://github.com/deadc0de6/dotdrop) for configuration management and Nix flakes for NixOS systems.
 
 ## Overview
 
@@ -18,7 +18,7 @@ This dotfiles repository aims to:
 
 - Git
 
-### Installation
+### macOS Installation
 
 1. Clone the repository:
 
@@ -38,6 +38,49 @@ cd ~/.dotfiles
 dotdrop install -c dotdrop.config.yaml -p default --force
 dotdrop install -c dotdrop.config.yaml -p macos --force
 ```
+
+### NixOS Installation
+
+1. Clone the repository:
+
+```sh
+git clone https://github.com/wilfriedago/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+```
+
+2. Run the NixOS setup script:
+
+```sh
+./scripts/nixos/setup.sh
+```
+
+This will:
+- Enable Nix flakes
+- Generate hardware configuration
+- Build and apply NixOS system configuration
+- Set up Home Manager for user configuration
+- Deploy additional dotfiles via dotdrop
+
+3. Apply system settings (optional):
+
+```sh
+./scripts/nixos/settings.sh
+```
+
+#### Manual NixOS Setup
+
+If you prefer manual setup:
+
+1. Enable flakes in your Nix configuration
+2. Update your `flake.nix` hostname and user details
+3. Build the system:
+   ```sh
+   sudo nixos-rebuild switch --flake .#nixos
+   ```
+4. Set up Home Manager:
+   ```sh
+   nix run home-manager/master -- switch --flake .#wilfried
+   ```
 
 ## Configuration Details
 
@@ -93,10 +136,55 @@ To resolve this issue I am using two daemons:
 
 ### Window Management
 
+#### macOS
 As my main windows manager, I am using [`aerospace`](https://github.com/nikitabobko/AeroSpace) which is light and very configurable, and doesn't require to disable system integrity protection.
 It works perfectly with `skhd` which allows me to focus and modify the layout without distractions.
 
+#### NixOS
+For NixOS, I use either [i3](https://i3wm.org) (for X11) or [Sway](https://swaywm.org) (for Wayland) as tiling window managers. Both provide similar functionality to AeroSpace with vim-like keybindings:
+
+- **i3**: A lightweight X11 tiling window manager
+- **Sway**: A Wayland compositor compatible with i3 configuration
+
+The key bindings are configured to be similar to AeroSpace:
+- `Alt + h/j/k/l` for focus navigation
+- `Alt + Shift + h/j/k/l` for moving windows  
+- `Alt + 1-9` for workspace switching
+- `Alt + Shift + 1-9` for moving windows to workspaces
+
+Configuration files are available in [`config/i3/config`](config/i3/config) and [`config/sway/config`](config/sway/config).
+
+### Package Management
+
+#### macOS
+Uses [Homebrew](https://brew.sh) with packages defined in the [`Brewfile`](Brewfile). Install packages with:
+```sh
+brew bundle --global --file ~/.dotfiles/Brewfile
+```
+
+#### NixOS
+Uses [Nix package manager](https://nixos.org/nix/) with packages defined declaratively in:
+- [`nixos/configuration.nix`](nixos/configuration.nix) - System-wide packages
+- [`nixos/home.nix`](nixos/home.nix) - User packages via Home Manager
+- [`flake.nix`](flake.nix) - Flake inputs and outputs
+
+See [`nixos/packages.md`](nixos/packages.md) for package equivalents between macOS and NixOS.
+
+Update packages with:
+```sh
+# Update flake inputs
+nix flake update
+
+# Rebuild system
+sudo nixos-rebuild switch --flake ~/.dotfiles#nixos
+
+# Update user packages
+home-manager switch --flake ~/.dotfiles#wilfried
+```
+
 ## Update and Sync
+
+### macOS
 
 To update your dotfiles after making changes:
 
@@ -108,7 +196,26 @@ dotdrop update
 To install your dotfiles on a new system:
 
 ```sh
-dotdrop install
+dotdrop install -c dotdrop.config.yaml -p default --force
+dotdrop install -c dotdrop.config.yaml -p macos --force
+```
+
+### NixOS
+
+To update system configuration:
+
+```sh
+# Update flake inputs
+nix flake update
+
+# Rebuild system configuration
+sudo nixos-rebuild switch --flake ~/.dotfiles#nixos
+
+# Update user configuration
+home-manager switch --flake ~/.dotfiles#wilfried
+
+# Update dotfiles managed by dotdrop
+dotdrop install -c dotdrop.config.yaml -p nixos --force
 ```
 
 ## Acknowledgements
