@@ -25,6 +25,7 @@ tap 'tufin/homebrew-tufin' # Tufin tap
 tap 'koekeishiya/formulae' # koekeishiya tap
 tap 'dotenv-org/brew' # dotenv-org tap
 tap 'blacktop/tap' # blacktop tap
+tap 'atlassian/homebrew-acli' # atlassian tap
 
 # =============================================================================================
 # Fonts
@@ -64,6 +65,7 @@ cask 'syntax-highlight' # QuickLook generator for source code files with syntax 
 # CLI tools
 # =============================================================================================
 
+brew 'acli' # atlassian command line interface
 brew 'bat' # cat with syntax highlighting and Git integration
 brew 'ffmpeg' # play, record, convert and stream audio and video
 brew 'btop' # resource monitor that shows usage and stats for processor, memory, disks, network and processes
