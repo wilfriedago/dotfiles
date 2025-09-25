@@ -40,4 +40,4 @@ keybind = super+i=inspector:toggle
 keybind = super+l=clear_screen
 
 # Shaders
-# custom-shader = shaders/dez.glsl
+custom-shader = shaders/cursor_frozen.glsl
