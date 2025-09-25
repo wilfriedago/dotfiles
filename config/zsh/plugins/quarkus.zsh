@@ -19,3 +19,15 @@ fi
 # Aliases
 # =============================================================================================
 alias q='quarkus'
+
+
+# =============================================================================================
+# Completions
+# =============================================================================================
+if [[ ! -f "$ZSH_CACHE_DIR/completions/_quarkus" ]]; then
+  typeset -g -A _comps
+  autoload -Uz _quarkus
+  _comps[quarkus]=_quarkus
+  _comps[q]=_quarkus
+  quarkus completion >| "$ZSH_CACHE_DIR/completions/_quarkus" &|
+fi
