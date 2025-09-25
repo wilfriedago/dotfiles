@@ -15,7 +15,6 @@ alias envlint='dotenv-linter'
 alias envvault='dotenv-vault'
 
 alias mw='./mvnw' # run Maven Wrapper
-alias gw='./gradlew' # run Gradle Wrapper
 alias cat='bat' # cat with syntax highlighting
 alias lzd="lazydocker" # run Docker TUI
 alias rm='trash' # move to trash

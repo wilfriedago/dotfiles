@@ -1,8 +1,32 @@
-# Looks for a gradlew file in the current working directory
-# or any of its parent directories, and executes it if found.
-# Otherwise it will call gradle directly.
+# =============================================================================================
+# ~/.config/zsh/plugins/gradle.zsh
+# =============================================================================================
+# Gradle Zsh Plugin
+# This plugin provides aliases and completion for Gradle.
+#
+# It makes managing Gradle projects and tasks directly from the command line easier.
+# For docs and more info, see: https://github.com/wilfriedago/dotfiles
+# =============================================================================================
+# License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
+# =============================================================================================
+
+# Check if Gradle is installed
+if (( ! $+commands[gradle] )); then
+  return
+fi
+
+# =============================================================================================
+# Aliases
+# =============================================================================================
+alias gw='./gradlew'
+alias gradlew='./gradlew'
+alias gradle='gradle-or-gradlew'
+
+# =============================================================================================
+# Functions
+# =============================================================================================
+# Use gradlew if available, otherwise fall back to gradle
 function gradle-or-gradlew() {
-  # find project root
   # taken from https://github.com/gradle/gradle-completion
   local dir="$PWD" project_root="$PWD"
   while [[ "$dir" != / ]]; do
