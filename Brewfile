@@ -106,7 +106,6 @@ brew 'fnm' # fast and simple Node.js version manager
 brew 'ripgrep' # line-oriented search tool that recursively searches your current directory for a regex pattern
 brew 'xh' # friendly and fast replacement for curl
 brew 'oven-sh/bun/bun' # fast all-in-one JavaScript runtime
-brew 'lporg' # command-line tool to organize your macos launchpad apps
 brew 'quarkusio/tap/quarkus' # Quarkus CLI, a Kubernetes-native Java framework tailored for GraalVM and OpenJDK HotSpot
 brew 'sst/tap/opencode' # OpenCode CLI, a tool for managing and generating code snippets
 brew 'composer' # dependency manager for PHP

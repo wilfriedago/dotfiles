@@ -35,7 +35,6 @@ profiles:
     - d_k9s
     - d_lazydocker
     - d_lazygit
-    - d_lporg
     - d_nvim
     - d_opencode
     - d_starship
@@ -130,10 +129,6 @@ dotfiles:
   d_lazygit:
     src: config/lazygit
     dst: ~/.config/lazygit
-  d_lporg:
-    src: config/lporg
-    dst: ~/.config/lporg
-    chmod: '750'
   d_nvim:
     src: config/nvim
     dst: ~/.config/nvim
