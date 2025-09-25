@@ -10,15 +10,18 @@ font-size = 13
 font-thicken = true
 
 # Background
-background-opacity = 0.9
+background-opacity = 0.7
 background-blur-radius = 40
+
+# Theme
+theme = Rose Pine
 
 # Mouse
 mouse-hide-while-typing = true
 mouse-scroll-multiplier = 2
 
 # Cursor
-cursor-style = block
+cursor-style = bar
 cursor-style-blink = true
 
 # Window
@@ -33,6 +36,7 @@ clipboard-paste-protection = false
 macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
 macos-option-as-alt = true
+macos-icon = xray
 
 # Keybindings
 keybind = super+r=reload_config
