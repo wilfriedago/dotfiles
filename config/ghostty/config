@@ -13,9 +13,6 @@ font-thicken = true
 background-opacity = 0.9
 background-blur-radius = 40
 
-# Themes
-theme = rose-pine
-
 # Mouse
 mouse-hide-while-typing = true
 mouse-scroll-multiplier = 2
