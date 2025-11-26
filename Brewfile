@@ -28,12 +28,6 @@ tap 'blacktop/tap' # blacktop tap
 tap 'atlassian/homebrew-acli' # atlassian tap
 
 # =============================================================================================
-# Fonts
-# =============================================================================================
-
-cask 'font-symbols-nerd-font' # Symbols Nerd Font, a collection of popular glyphs and symbols
-
-# =============================================================================================
 # Apps
 # =============================================================================================
 
@@ -53,13 +47,6 @@ cask 'pearcleaner' # a cleaner for macOS
 cask 'ghostty' # a terminal emulator for macOS
 cask 'orbstack' # a modern Docker Desktop alternative for macOS
 cask 'warp' # a modern terminal for macOS
-
-# =============================================================================================
-# QuickLook plugins
-# =============================================================================================
-
-cask 'qlmarkdown' # QuickLook generator for Markdown files
-cask 'syntax-highlight' # QuickLook generator for source code files with syntax highlighting
 
 # =============================================================================================
 # CLI tools
@@ -110,6 +97,7 @@ brew 'quarkusio/tap/quarkus' # Quarkus CLI, a Kubernetes-native Java framework t
 brew 'sst/tap/opencode' # OpenCode CLI, a tool for managing and generating code snippets
 brew 'composer' # dependency manager for PHP
 brew 'kind' # tool for running local Kubernetes clusters using Docker container "nodes"
+brew 'nikitabobko/tap/aerospace' # A fast, minimalistic workspace manager for macOS
 
 # =============================================================================================
 # Linters, formatters and LSPs
