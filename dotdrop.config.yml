@@ -31,7 +31,6 @@ profiles:
     - d_ghostty
     - d_git-cliff
     - d_gitkraken_themes
-    - d_helm
     - d_k9s
     - d_lazydocker
     - d_lazygit
@@ -117,9 +116,6 @@ dotfiles:
   d_gitkraken_themes:
     src: config/gitkraken/themes
     dst: ~/.gitkraken/themes
-  d_helm:
-    src: config/helm
-    dst: ~/.config/helm
   d_k9s:
     src: config/k9s
     dst: ~/.config/k9s
