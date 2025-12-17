@@ -184,7 +184,7 @@ ssh_symbol = " "
 
 [kubernetes]
 disabled = false
-symbol = "󱃾 "
+symbol = "󱃾"
 format = 'in [$symbol $context\($namespace\)]($style) '
 
 [aws]
