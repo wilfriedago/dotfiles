@@ -44,6 +44,21 @@ key-mapping.preset = 'qwerty'
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
+# See: https://nikitabobko.github.io/AeroSpace/guide#on-window-detected-callback
+# [[on-window-detected]]
+#   if.app-id = 'com.apple.systempreferences'
+#   if.app-name-regex-substring = 'settings'
+#   if.window-title-regex-substring = 'substring'
+#   if.workspace = 'workspace-name'
+#   if.during-aerospace-startup = true
+#   check-further-callbacks = true
+#   run = ['layout floating', 'move-node-to-workspace S']  # The callback itself
+
+# Ignore Preview application - set to floating mode
+[[on-window-detected]]
+  if.app-id = 'com.apple.Preview'
+  run = ['layout floating']
+
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
 # - Constant:     gaps.outer.top = 8
@@ -130,6 +145,7 @@ alt-shift-c = 'reload-config'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
