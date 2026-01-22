@@ -134,4 +134,8 @@ dmypy.json
 # homebrew
 Brewfile.lock.json
 
+# secret files
 .secrets
+
+# Microsoft Access files
+*.mdb
