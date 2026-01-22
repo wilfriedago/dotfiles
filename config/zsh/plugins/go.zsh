@@ -10,17 +10,17 @@
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
-# Check if Go is installed
-if (( ! $+commands[go] )); then
-  return
-fi
-
 # =============================================================================================
-# Variables
+# Environment variables
 # =============================================================================================
 export GOROOT="/usr/local/go"
 export GOPATH="$HOME/.go"
 export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
+
+# Check if Go is installed
+if (( ! $+commands[go] )); then
+  return
+fi
 
 # =============================================================================================
 # Aliases

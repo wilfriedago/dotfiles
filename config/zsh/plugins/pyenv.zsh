@@ -10,16 +10,16 @@
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
-# Check if pyenv is installed
-if (( ! $+commands[pyenv] )); then
-  return
-fi
-
 # =============================================================================================
 # Environment variables
 # =============================================================================================
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+
+# Check if pyenv is installed
+if (( ! $+commands[pyenv] )); then
+  return
+fi
 
 # =============================================================================================
 # Initialization

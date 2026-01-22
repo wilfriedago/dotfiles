@@ -85,3 +85,6 @@ export EZA_CONFIG_DIR="${XDG_CONFIG_HOME}/eza"
 
 # .env files
 if [ -f "$PWD/.env" ]; then set -a; source "$PWD/.env"; set +a; fi # FIXME: Make sure this is secure
+
+# True color support
+export COLORTERM="truecolor"

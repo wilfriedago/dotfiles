@@ -10,11 +10,16 @@
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
+# =============================================================================================
+# Environment variables
+# =============================================================================================
+export COMPOSER_HOME="$XDG_CONFIG_HOME/composer"
+case ":$PATH:" in
+  *":$COMPOSER_HOME/vendor/bin:"*) ;;
+  *) export PATH="$COMPOSER_HOME/vendor/bin:$PATH" ;;
+esac
+
 # Check if Composer is installed
 if (( ! $+commands[composer] )); then
   return
 fi
-
-# Environment variables
-export COMPOSER_HOME="$XDG_CONFIG_HOME/composer"
-export PATH="$COMPOSER_HOME/vendor/bin:$PATH"
