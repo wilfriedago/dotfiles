@@ -36,10 +36,11 @@ profiles:
     - d_lazygit
     - d_nvim
     - d_opencode
+    - d_spotifyd
+    - f_spotatui
     - d_starship
     - d_yazi
     - d_zed
-    - f_spotatui
     - f_curlrc
     - f_gitconfig
     - f_gitignore_global
@@ -132,6 +133,12 @@ dotfiles:
   d_opencode:
     src: config/opencode
     dst: ~/.config/opencode
+  d_spotifyd:
+    src: config/spotifyd
+    dst: ~/.config/spotifyd
+  f_spotatui:
+    src: config/spotatui/config.yml
+    dst: ~/.config/spotatui/config.yml
   d_starship:
     src: config/starship
     dst: ~/.config/starship
@@ -186,6 +193,3 @@ dotfiles:
   f_vscode_keybindings:
     src: config/vscode/keybindings.json
     dst: ~/Library/Application Support/Code/User/keybindings.json
-  f_spotatui:
-    src: config/spotatui/config.yml
-    dst: ~/.config/spotatui/config.yml
