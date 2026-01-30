@@ -18,22 +18,3 @@ setopt share_history          # Share history between different instances of the
 setopt hist_save_no_dups      # Do not save duplicates in history file.
 setopt hist_find_no_dups      # Ignore duplicates when searching in history.
 setopt hist_reduce_blanks     # Remove superfluous blanks from history items.
-
-alias hi='history'
-alias hil='history | less'
-alias his='history | grep'
-alias hisi='history | grep -i'
-
-# =============================================================================================
-# Completion settings
-# =============================================================================================
-
-COMPDUMP="${ZSH_CACHE_DIR}/.zcompdump" # Set the location for the completion dump file
-if [[ -f $COMPDUMP ]]; then
-  compinit -d $COMPDUMP # Load the completion dump file if it exists
-fi
-
-# Perform compinit only once a day.
-if [[ -s "$COMPDUMP" && (! -s "${COMPDUMP}.zwc" || "$COMPDUMP" -nt "${COMPDUMP}.zwc") ]]; then
-  zcompile "$COMPDUMP" # Compile the completion dump file if it is not already compiled
-fi

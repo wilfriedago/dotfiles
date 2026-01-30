@@ -51,3 +51,18 @@ zi snippet https://github.com/lincheney/fzf-tab-completion/blob/master/zsh/fzf-z
 [ -f "$ZSH_CONFIG_DIR/functions.zsh" ] && source "$ZSH_CONFIG_DIR/functions.zsh" # Functions
 [ -f "$ZSH_CONFIG_DIR/completions.zsh" ] && source "$ZSH_CONFIG_DIR/completions.zsh" # Completions
 [ -d "$ZSH_CONFIG_DIR/plugins" ] && for plugin in "$ZSH_CONFIG_DIR/plugins"/*; do source "$plugin"; done # Plugins
+
+# =============================================================================================
+# Completion initialization — must run AFTER all plugins are loaded
+# =============================================================================================
+COMPDUMP="${ZSH_CACHE_DIR}/.zcompdump"
+autoload -Uz compinit
+if [[ -n "$COMPDUMP"(#qN.mh+24) ]]; then
+  compinit -d "$COMPDUMP"
+else
+  compinit -C -d "$COMPDUMP"
+fi
+# Compile compdump in background if stale
+if [[ -s "$COMPDUMP" && (! -s "${COMPDUMP}.zwc" || "$COMPDUMP" -nt "${COMPDUMP}.zwc") ]]; then
+  zcompile "$COMPDUMP"
+fi
