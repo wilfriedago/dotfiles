@@ -8,6 +8,7 @@
 _cache_eval() {
   local name="$1" cmd="$2" binary="$3"
   local cache_file="$ZSH_CACHE_DIR/${name}.zsh"
+  [[ -d "$ZSH_CACHE_DIR" ]] || mkdir -p "$ZSH_CACHE_DIR"
   if [[ ! -f "$cache_file" ]] || [[ -n "$binary" && "$binary" -nt "$cache_file" ]]; then
     eval "$cmd" >| "$cache_file" 2>/dev/null
   fi

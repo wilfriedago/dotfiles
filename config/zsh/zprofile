@@ -2,6 +2,7 @@
 
 # Homebrew initialization — cached for faster startup
 _brew_cache="${ZSH_CACHE_DIR:-$HOME/.cache/zsh}/brew-shellenv.zsh"
+[[ -d "${_brew_cache:h}" ]] || mkdir -p "${_brew_cache:h}"
 if [[ -f /opt/homebrew/bin/brew ]]; then
   if [[ ! -f "$_brew_cache" ]] || [[ /opt/homebrew/bin/brew -nt "$_brew_cache" ]]; then
     /opt/homebrew/bin/brew shellenv >| "$_brew_cache"

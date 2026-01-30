@@ -10,10 +10,11 @@
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
-# Check if PHP and Composer are installed
-if (( ! $+commands[php] )) || (( ! $+commands[composer] )); then
-  return
-fi
+# Check if php is available
+(( $+commands[php] )) || return
+
+# Laravel context
+[[ -f artisan ]] || return
 
 # Aliases
 alias a="php artisan"

@@ -36,7 +36,7 @@ zi light aloxaf/fzf-tab
 zi ice wait lucid atload"_zsh_autosuggest_start"
 zi light zsh-users/zsh-autosuggestions
 
-zi ice wait lucid atinit"zicompinit; zicdreplay"
+zi ice wait lucid atinit"zicdreplay"
 zi light zdharma-continuum/fast-syntax-highlighting
 
 # Snippets
@@ -50,10 +50,9 @@ zi snippet https://github.com/lincheney/fzf-tab-completion/blob/master/zsh/fzf-z
 [ -f "$ZSH_CONFIG_DIR/settings.zsh" ] && source "$ZSH_CONFIG_DIR/settings.zsh" # Settings
 [ -f "$ZSH_CONFIG_DIR/functions.zsh" ] && source "$ZSH_CONFIG_DIR/functions.zsh" # Functions
 [ -f "$ZSH_CONFIG_DIR/completions.zsh" ] && source "$ZSH_CONFIG_DIR/completions.zsh" # Completions
-[ -d "$ZSH_CONFIG_DIR/plugins" ] && for plugin in "$ZSH_CONFIG_DIR/plugins"/*; do source "$plugin"; done # Plugins
 
 # =============================================================================================
-# Completion initialization — must run AFTER all plugins are loaded
+# Completion initialization — must run BEFORE plugins that call compdef
 # =============================================================================================
 COMPDUMP="${ZSH_CACHE_DIR}/.zcompdump"
 autoload -Uz compinit
@@ -62,6 +61,9 @@ if [[ -n "$COMPDUMP"(#qN.mh+24) ]]; then
 else
   compinit -C -d "$COMPDUMP"
 fi
+
+[ -d "$ZSH_CONFIG_DIR/plugins" ] && for plugin in "$ZSH_CONFIG_DIR/plugins"/*; do source "$plugin"; done # Plugins
+
 # Compile compdump in background if stale
 if [[ -s "$COMPDUMP" && (! -s "${COMPDUMP}.zwc" || "$COMPDUMP" -nt "${COMPDUMP}.zwc") ]]; then
   zcompile "$COMPDUMP"
