@@ -29,11 +29,15 @@ zi ice \
   src"starship.zsh"
 zi light starship/starship
 
-# Plugins
-zi light-mode for \
-  aloxaf/fzf-tab \
-  zsh-users/zsh-autosuggestions \
-  zdharma-continuum/fast-syntax-highlighting
+# Plugins — turbo mode defers loading until after first prompt for faster startup
+zi ice wait lucid
+zi light aloxaf/fzf-tab
+
+zi ice wait lucid atload"_zsh_autosuggest_start"
+zi light zsh-users/zsh-autosuggestions
+
+zi ice wait lucid atinit"zicompinit; zicdreplay"
+zi light zdharma-continuum/fast-syntax-highlighting
 
 # Snippets
 zi snippet https://github.com/lincheney/fzf-tab-completion/blob/master/zsh/fzf-zsh-completion.sh
