@@ -56,12 +56,6 @@ export MANPATH="/usr/local/man:$MANPATH"
 # True color support
 export COLORTERM="truecolor"
 
-# ANDROID — only add to PATH if SDK is installed
-export ANDROID_HOME="${HOME}/Library/Android/sdk"
-if [[ -d "$ANDROID_HOME" ]]; then
-  export PATH="${ANDROID_HOME}/emulator:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${PATH}"
-fi
-
 # STARSHIP
 export STARSHIP_CONFIG="${XDG_CONFIG_HOME}/starship/starship.toml"
 export STARSHIP_CACHE="${XDG_CACHE_HOME}/starship"
