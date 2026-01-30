@@ -10,8 +10,8 @@
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
-# Check if PHP, Composer are installed and artisan binary exists
-if (( ! $+commands[php] )) || (( ! $+commands[composer] )) || [[ ! -f "artisan" ]]; then
+# Check if PHP and Composer are installed
+if (( ! $+commands[php] )) || (( ! $+commands[composer] )); then
   return
 fi
 
