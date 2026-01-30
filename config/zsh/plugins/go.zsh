@@ -13,9 +13,11 @@
 # =============================================================================================
 # Environment variables
 # =============================================================================================
-export GOROOT="/usr/local/go"
 export GOPATH="$HOME/.go"
-export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
+case ":$PATH:" in
+  *":$GOPATH/bin:"*) ;;
+  *) export PATH="$GOPATH/bin:$PATH" ;;
+esac
 
 # Check if Go is installed
 if (( ! $+commands[go] )); then
