@@ -134,7 +134,7 @@ _bw_refresh() {
   # Check cache validity unless forced
   if [[ "$force" != "true" ]] && _bws_cache_valid; then
     local remaining=$(( BWS_CACHE_DURATION - $(_bws_cache_age) ))
-    _bws_log "🔒 Cache valid (expires in $(_bws_format_duration $remaining)), use --force to refresh"
+    _bws_log " Cache valid (expires in $(_bws_format_duration $remaining)), use --force to refresh"
     BWS_SILENT="$original_silent"
     return 0
   fi
@@ -143,7 +143,7 @@ _bw_refresh() {
   if [[ -z "$BWS_ACCESS_TOKEN" ]]; then
     BWS_ACCESS_TOKEN=$(_bws_get_keychain_value "BWS_ACCESS_TOKEN")
     if [[ -z "$BWS_ACCESS_TOKEN" ]]; then
-      _bws_error "❌ BWS_ACCESS_TOKEN not found"
+      _bws_error " BWS_ACCESS_TOKEN not found"
       _bws_error "   Set it via: security add-generic-password -a \"\$USER\" -s \"BWS_ACCESS_TOKEN\" -w \"<token>\""
       _bws_error "   Or export BWS_ACCESS_TOKEN=\"<token>\""
       BWS_SILENT="$original_silent"
@@ -155,14 +155,14 @@ _bw_refresh() {
   # Validate project ID
   local project_id="${BWS_PROJECT_ID:-$(_bws_get_keychain_value "BWS_PROJECT_ID")}"
   if [[ -z "$project_id" ]]; then
-    _bws_error "❌ BWS_PROJECT_ID not found"
+    _bws_error " BWS_PROJECT_ID not found"
     _bws_error "   Set it via: security add-generic-password -a \"\$USER\" -s \"BWS_PROJECT_ID\" -w \"<project-id>\""
     _bws_error "   Or export BWS_PROJECT_ID=\"<project-id>\""
     BWS_SILENT="$original_silent"
     return 1
   fi
 
-  _bws_log "🔄 Fetching secrets from Bitwarden..."
+  _bws_log "󰑓 Fetching secrets from Bitwarden..."
 
   # Fetch secrets with timeout
   local secrets_json
@@ -171,9 +171,9 @@ _bw_refresh() {
   if ! secrets_json=$(timeout "$BWS_TIMEOUT" bws secret list "$project_id" 2>&1); then
     local exit_code=$?
     if (( exit_code == 124 )); then
-      _bws_error "❌ Request timed out after ${BWS_TIMEOUT}s"
+      _bws_error " Request timed out after ${BWS_TIMEOUT}s"
     else
-      _bws_error "❌ Failed to fetch secrets"
+      _bws_error " Failed to fetch secrets"
       _bws_error "   Error: $secrets_json"
       _bws_error "   Verify your access token and project ID are correct"
     fi
@@ -182,11 +182,11 @@ _bw_refresh() {
   fi
 
   local fetch_time=$(( EPOCHSECONDS - start_time ))
-  _bws_log "⏱️  Fetched in ${fetch_time}s"
+  _bws_log "󰥔 Fetched in ${fetch_time}s"
 
   # Validate JSON response
   if ! echo "$secrets_json" | jq -e 'type == "array"' &>/dev/null; then
-    _bws_error "❌ Invalid response from bws (expected JSON array)"
+    _bws_error " Invalid response from bws (expected JSON array)"
     _bws_error "   Response: ${secrets_json:0:200}..."
     BWS_SILENT="$original_silent"
     return 1
@@ -197,7 +197,7 @@ _bw_refresh() {
   secrets_count=$(echo "$secrets_json" | jq 'length')
 
   if (( secrets_count == 0 )); then
-    _bws_log "⚠️  No secrets found in project"
+    _bws_log "  No secrets found in project"
     BWS_SILENT="$original_silent"
     return 0
   fi
@@ -211,7 +211,7 @@ _bw_refresh() {
   ' 2>/dev/null)
 
   if [[ -z "$export_commands" ]]; then
-    _bws_error "❌ Failed to parse secrets"
+    _bws_error " Failed to parse secrets"
     BWS_SILENT="$original_silent"
     return 1
   fi
@@ -226,7 +226,7 @@ _bw_refresh() {
   echo "$EPOCHSECONDS" > "$BWS_CACHE_META"
   chmod 600 "$BWS_CACHE_META"
 
-  _bws_log "✅ Cached $secrets_count secrets (valid for $(_bws_format_duration $BWS_CACHE_DURATION))"
+  _bws_log " Cached $secrets_count secrets (valid for $(_bws_format_duration $BWS_CACHE_DURATION))"
 
   BWS_SILENT="$original_silent"
 
@@ -239,13 +239,13 @@ _bw_load() {
   _bws_init_cache
 
   if [[ ! -f "$BWS_CACHE_FILE" ]]; then
-    _bws_log "📭 No cache found, fetching..."
+    _bws_log "󰀁 No cache found, fetching..."
     _bw_refresh
     return $?
   fi
 
   if ! _bws_cache_valid; then
-    _bws_log "⏰ Cache expired, refreshing..."
+    _bws_log "󰥔 Cache expired, refreshing..."
     _bw_refresh
     return $?
   fi
@@ -256,7 +256,7 @@ _bw_load() {
   local secrets_count=$(grep -c '^export ' "$BWS_CACHE_FILE" 2>/dev/null || echo 0)
   local remaining=$(( BWS_CACHE_DURATION - $(_bws_cache_age) ))
 
-  _bws_log "🔑 Loaded $secrets_count secrets (expires in $(_bws_format_duration $remaining))"
+  _bws_log "󰌆 Loaded $secrets_count secrets (expires in $(_bws_format_duration $remaining))"
 }
 
 # Clear cache files
@@ -273,9 +273,9 @@ _bw_clear_cache() {
   [[ -f "$BWS_CACHE_META" ]] && rm -f "$BWS_CACHE_META"
 
   if [[ "$cleared" == "true" ]]; then
-    _bws_log "🗑️  Cache cleared"
+    _bws_log "󰩺 Cache cleared"
   else
-    _bws_log "📭 No cache to clear"
+    _bws_log "󰀁 No cache to clear"
   fi
 }
 
@@ -283,7 +283,7 @@ _bw_clear_cache() {
 _bw_status() {
   _bws_init_cache
 
-  echo '🔒 Bitwarden Secret Manager Status'
+  echo ' Bitwarden Secret Manager Status'
   echo '══════════════════════════════════'
   echo "Cache Directory:  $BWS_CACHE_DIR"
   echo "Cache Duration:   $(_bws_format_duration $BWS_CACHE_DURATION)"
@@ -312,16 +312,16 @@ _bw_status() {
     local remaining=$(( BWS_CACHE_DURATION - age ))
 
     if (( remaining > 0 )); then
-      echo "Status:           ✅ Valid"
+      echo "Status:            Valid"
       echo "Secrets:          $secrets_count"
       echo "Age:              $(_bws_format_duration $age)"
       echo "Expires In:       $(_bws_format_duration $remaining)"
     else
-      echo "Status:           ⚠️  Expired ($(( -remaining ))s ago)"
+      echo "Status:            Expired ($(( -remaining ))s ago)"
       echo "Secrets:          $secrets_count (stale)"
     fi
   else
-    echo "Status:           ❌ No cache"
+    echo "Status:            No cache"
   fi
 
   echo ''
@@ -338,11 +338,11 @@ _bw_status() {
 # List currently loaded BWS variables
 _bw_list() {
   if [[ ! -f "$BWS_CACHE_FILE" ]]; then
-    _bws_error "❌ No cache found. Run: bw refresh"
+    _bws_error " No cache found. Run: bw refresh"
     return 1
   fi
 
-  echo "🔑 Bitwarden Secrets"
+  echo "󰌆 Bitwarden Secrets"
   echo "════════════════════"
 
   local loaded=0 not_loaded=0
@@ -351,10 +351,10 @@ _bw_list() {
     if [[ "$line" =~ ^export\ ([^=]+)= ]]; then
       local var_name="${match[1]}"
       if [[ -n "${(P)var_name:-}" ]]; then
-        echo "  ✅ $var_name"
+        echo "   $var_name"
         (( loaded++ ))
       else
-        echo "  ❌ $var_name (not in environment)"
+        echo "   $var_name (not in environment)"
         (( not_loaded++ ))
       fi
     fi
@@ -392,7 +392,7 @@ _bw_get() {
     fi
   fi
 
-  _bws_error "❌ Secret '$key' not found"
+  _bws_error " Secret '$key' not found"
   return 1
 }
 
@@ -469,6 +469,61 @@ _bws_completion_setup() {
 }
 
 _bws_completion_setup
+
+# Completion for the `bw` wrapper function
+_bw() {
+  local -a subcmds
+  subcmds=(
+    'refresh:Fetch and cache secrets from Bitwarden'
+    'r:Fetch and cache secrets from Bitwarden'
+    'load:Load cached secrets into environment'
+    'l:Load cached secrets into environment'
+    'clear:Clear cache securely'
+    'c:Clear cache securely'
+    'status:Show status information'
+    's:Show status information'
+    'list:List loaded variables'
+    'ls:List loaded variables'
+    'get:Get a specific secret value'
+    'g:Get a specific secret value'
+    'help:Show help message'
+  )
+
+  if (( CURRENT == 2 )); then
+    _describe -t commands 'bw command' subcmds
+  elif (( CURRENT == 3 )); then
+    case "${words[2]}" in
+      get|g)
+        # Complete secret keys from cache
+        if [[ -f "$BWS_CACHE_FILE" ]]; then
+          local -a keys
+          keys=( ${(f)"$(grep '^export ' "$BWS_CACHE_FILE" 2>/dev/null | sed 's/^export //; s/=.*//')"} )
+          # Strip prefix if set, so user types the short name
+          if [[ -n "$BWS_VAR_PREFIX" ]]; then
+            keys=( ${keys#${BWS_VAR_PREFIX}} )
+          fi
+          _describe -t secrets 'secret key' keys
+        else
+          _message 'no cache — run: bw refresh'
+        fi
+        ;;
+      refresh|r)
+        local -a opts
+        opts=(
+          '-f:Force refresh even if cache is valid'
+          '--force:Force refresh even if cache is valid'
+          '-s:Suppress output'
+          '--silent:Suppress output'
+          '-v:Show detailed output'
+          '--verbose:Show detailed output'
+        )
+        _describe -t options 'option' opts
+        ;;
+    esac
+  fi
+}
+
+compdef _bw bw
 
 # =============================================================================================
 # Auto-load on shell startup (background, non-blocking)
