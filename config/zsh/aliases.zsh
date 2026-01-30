@@ -18,7 +18,6 @@ alias mw='./mvnw' # run Maven Wrapper
 alias cat='bat' # cat with syntax highlighting
 alias lzd="lazydocker" # run Docker TUI
 alias rm='trash' # move to trash
-alias tf='terraform' # run Terraform
 alias yz='yazi' # run yazi
 
 # utils
@@ -38,6 +37,12 @@ alias brewupdate='brew update; brew upgrade; brew cleanup' # update Homebrew
 alias ghupdate='gh extension upgrade --all' # update GitHub CLI extensions
 alias npmupdate='npm install -g npm; npm update -g' # update npm and global packages
 alias pnpmupdate='pnpm add -g pnpm; pnpm update -g' # update pnpm and global packages
+
+# history
+alias hi='history'
+alias hil='history | less'
+alias his='history | grep'
+alias hisi='history | grep -i'
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
