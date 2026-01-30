@@ -9,7 +9,7 @@ keybindings:
   jump_to_context: o
   manage_devices: d
   decrease_volume: '-'
-  increase_volume: +
+  increase_volume: =
   toggle_playback: space
   seek_backwards: <
   seek_forwards: '>'
