@@ -81,30 +81,30 @@ function jira() {
 
   if [[ $action == "new" ]]; then
     echo "Opening new issue"
-    open_command "${jira_url}/secure/CreateIssue!default.jspa"
+    open "${jira_url}/secure/CreateIssue!default.jspa"
   elif [[ "$action" == "assigned" || "$action" == "reported" ]]; then
     _jira_query ${@:-$action}
   elif [[ "$action" == "help" || "$action" == "usage" ]]; then
     _jira_usage
   elif [[ "$action" == "mine" ]]; then
     echo "Opening my issues"
-    open_command "${jira_url}/issues/?filter=-1"
+    open "${jira_url}/issues/?filter=-1"
   elif [[ "$action" == "project" ]]; then
     echo "Opening project"
-    open_command "${jira_url}/jira/software/c/projects/${2}/summary"
+    open "${jira_url}/jira/software/c/projects/${2}/summary"
   elif [[ "$action" == "dashboard" ]]; then
     echo "Opening dashboard"
     if [[ "$JIRA_RAPID_BOARD" == "true" ]]; then
       _jira_rapid_board ${@}
     else
-      open_command "${jira_url}/secure/Dashboard.jspa"
+      open "${jira_url}/secure/Dashboard.jspa"
     fi
   elif [[ "$action" == "tempo" ]]; then
     echo "Opening tempo"
     if [[ -n "$JIRA_TEMPO_PATH" ]]; then
-      open_command "${jira_url}${JIRA_TEMPO_PATH}"
+      open "${jira_url}${JIRA_TEMPO_PATH}"
     else
-      open_command "${jira_url}/secure/Tempo.jspa"
+      open "${jira_url}/secure/Tempo.jspa"
     fi
   elif [[ "$action" == "dumpconfig" ]]; then
     echo "JIRA_URL=$jira_url"
@@ -132,7 +132,7 @@ function jira() {
     else
       echo "Opening issue #$issue"
     fi
-    open_command "${jira_url}/browse/${issue}${url_fragment}"
+    open "${jira_url}/browse/${issue}${url_fragment}"
   fi
 }
 
@@ -151,9 +151,9 @@ function _jira_rapid_board() {
   rapid_view=${2:=$JIRA_RAPID_VIEW}
 
   if [[ -z $rapid_view ]]; then
-    open_command "${jira_url}/secure/RapidBoard.jspa"
+    open "${jira_url}/secure/RapidBoard.jspa"
   else
-    open_command "${jira_url}/secure/RapidBoard.jspa?rapidView=$rapid_view"
+    open "${jira_url}/secure/RapidBoard.jspa?rapidView=$rapid_view"
   fi
 }
 
@@ -179,5 +179,5 @@ function _jira_query() {
 
   echo "Browsing issues ${verb} ${preposition} ${jira_name}"
   query="${lookup}+%3D+%22${jira_name}%22+AND+resolution+%3D+unresolved+ORDER+BY+priority+DESC%2C+created+ASC"
-  open_command "${jira_url}/secure/IssueNavigator.jspa?reset=true&jqlQuery=${query}"
+  open "${jira_url}/secure/IssueNavigator.jspa?reset=true&jqlQuery=${query}"
 }
