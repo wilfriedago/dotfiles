@@ -2,6 +2,18 @@
 
 # `.functions` provides helper functions for the shell
 
+# Cache the output of an eval command to avoid forking on every shell start.
+# Usage: _cache_eval <name> <command> <binary_path>
+# Invalidates cache when the binary is newer than the cache file.
+_cache_eval() {
+  local name="$1" cmd="$2" binary="$3"
+  local cache_file="$ZSH_CACHE_DIR/${name}.zsh"
+  if [[ ! -f "$cache_file" ]] || [[ -n "$binary" && "$binary" -nt "$cache_file" ]]; then
+    eval "$cmd" >| "$cache_file" 2>/dev/null
+  fi
+  source "$cache_file"
+}
+
 # iterate over directories and pulls git repositories
 rgp () {
   find . -name ".git" -type d | sed 's/\/.git//' |  xargs -P10 -I{} git -C {} pull
