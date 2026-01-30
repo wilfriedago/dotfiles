@@ -1,12 +1,17 @@
 #  ~/.zlogin
 
-# Compile .zcompdump file, if modified, to increase startup speed
-# Executed on startin the background, so won't afftect current session
+# Background compilation for faster subsequent startup
 # Credit @htr3n. More info: https://htr3n.github.io/2018/07/faster-zsh/
 {
-  zcompdump="${ZDOTDIR:-$HOME}/.zcompdump"
-  if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]];
-  then
+  # Compile zcompdump (use the same path as zshrc)
+  zcompdump="${ZSH_CACHE_DIR:-$HOME/.cache/zsh}/.zcompdump"
+  if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then
     zcompile "$zcompdump"
   fi
+
+  # Compile all zsh config and plugin files to wordcode for faster sourcing
+  local f
+  for f in "${ZSH_CONFIG_DIR:-$HOME/.config/zsh}"/*.zsh "${ZSH_CONFIG_DIR:-$HOME/.config/zsh}"/plugins/*.zsh; do
+    [[ -f "$f" && "$f" -nt "${f}.zwc" ]] && zcompile "$f"
+  done
 } &!

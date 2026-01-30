@@ -1,8 +1,11 @@
 
+# Check if zoxide is installed
+if (( ! $+commands[zoxide] )); then
+  return
+fi
 
-
-# Initializations
-eval "$(zoxide init --cmd ${ZOXIDE_CMD_OVERRIDE:-z} zsh)"
+# Initialization — cached for faster startup
+_cache_eval "zoxide" "zoxide init --cmd ${ZOXIDE_CMD_OVERRIDE:-z} zsh" "$(command -v zoxide)"
 
 # Settings
 setopt auto_cd
@@ -38,3 +41,8 @@ function d () {
   fi
 }
 compdef _dirs d
+
+# Override z to enable fzf-tab completion with `z name<tab>`
+z () {
+  \__zoxide_z "$@"
+}

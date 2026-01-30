@@ -1,17 +1,22 @@
 # .zprofile is sourced on login shells and before .zshrc.
 
-# Homebrew initialization
+# Homebrew initialization — cached for faster startup
+_brew_cache="${ZSH_CACHE_DIR:-$HOME/.cache/zsh}/brew-shellenv.zsh"
 if [[ -f /opt/homebrew/bin/brew ]]; then
-  # Homebrew exists at /opt/homebrew for arm64 macos
-  eval $(/opt/homebrew/bin/brew shellenv)
+  if [[ ! -f "$_brew_cache" ]] || [[ /opt/homebrew/bin/brew -nt "$_brew_cache" ]]; then
+    /opt/homebrew/bin/brew shellenv >| "$_brew_cache"
+  fi
+  source "$_brew_cache"
 elif [[ -f /usr/local/bin/brew ]]; then
-  # or at /usr/local for intel macos
-  eval $(/usr/local/bin/brew shellenv)
+  if [[ ! -f "$_brew_cache" ]] || [[ /usr/local/bin/brew -nt "$_brew_cache" ]]; then
+    /usr/local/bin/brew shellenv >| "$_brew_cache"
+  fi
+  source "$_brew_cache"
 elif [[ -d /home/linuxbrew/.linuxbrew ]]; then
-  # or from linuxbrew
   test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
   test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
+unset _brew_cache
 
 # eliminates duplicates in *paths
 typeset -gU cdpath fpath path

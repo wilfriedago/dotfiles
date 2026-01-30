@@ -10,8 +10,13 @@
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
-# Initialization
-eval "$(fzf --zsh)"
+# Check if FZF is installed
+if (( ! $+commands[fzf] )); then
+  return
+fi
+
+# Initialization — cached for faster startup
+_cache_eval "fzf" "fzf --zsh" "$(command -v fzf)"
 
 _fzf_completion_realpath() {
   if [ -d "$1" ]; then
@@ -103,7 +108,4 @@ export _ZO_FZF_OPTS="
   --preview='_fzf_completion_realpath {2..}'
 "
 
-# remap default keybinding with `z name<tab>`
-z () {
-  \__zoxide_z "$@"
-}
+# z() wrapper moved to directories.zsh where __zoxide_z is defined
