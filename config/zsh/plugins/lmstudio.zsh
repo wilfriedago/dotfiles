@@ -13,7 +13,7 @@
 # =============================================================================================
 # Environment variables
 # =============================================================================================
-export LMSTUDIO_HOME="/Users/wilfriedago/.lmstudio"
+export LMSTUDIO_HOME="$HOME/.lmstudio"
 case ":$PATH:" in
   *":$LMSTUDIO_HOME/bin:"*) ;;
   *) export PATH="$LMSTUDIO_HOME/bin:$PATH" ;;
