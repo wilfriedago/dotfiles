@@ -1,7 +1,8 @@
 # https://blog.patshead.com/2011/04/improve-your-oh-my-zsh-startup-time-maybe.html
 skip_global_compinit=1
 
-export SYSTEM=$(uname -s)
+# Use $OSTYPE (zsh built-in) instead of $(uname -s) to avoid forking a subprocess
+export SYSTEM="${OSTYPE}"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -31,8 +32,10 @@ export ZINIT_PLUGINS_DIR="${ZINIT_HOME_DIR}/plugins"
 export ZINIT_SNIPPETS_DIR="${ZINIT_HOME_DIR}/snippets"
 export ZINIT_COMPLETIONS_DIR="${ZINIT_HOME_DIR}/completions"
 
-# GPG
-export GPG_TTY=$(tty)
+# GPG — only set for interactive shells (avoids subprocess fork in scripts)
+if [[ -o interactive ]]; then
+  export GPG_TTY=$(tty)
+fi
 
 # Preferred editor for local and remote sessions
 export PAGER="less"
@@ -50,31 +53,14 @@ export PATH="$XDG_BIN_HOME:$PATH"
 # Man
 export MANPATH="/usr/local/man:$MANPATH"
 
-# =============================================================================================
-# Versions managers
-# =============================================================================================
+# True color support
+export COLORTERM="truecolor"
 
-# SDKMAN
-export SDKMAN_DIR="$HOME/.sdkman"
-[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
-
-# =============================================================================================
-#  Runtime environments
-# =============================================================================================
-
-# NODE Binaries
-[ -d "$PWD/node_modules/.bin" ] && export PATH="$PWD/node_modules/.bin:$PATH"
-
-# Custom Binaries
-[ -d "$PWD/.bin" ] && export PATH="$PWD/.bin:$PATH"
-
-# =============================================================================================
-# Miscellaneous
-# =============================================================================================
-
-# ANDROID
+# ANDROID — only add to PATH if SDK is installed
 export ANDROID_HOME="${HOME}/Library/Android/sdk"
-export PATH="${ANDROID_HOME}/emulator:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${PATH}"
+if [[ -d "$ANDROID_HOME" ]]; then
+  export PATH="${ANDROID_HOME}/emulator:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${PATH}"
+fi
 
 # STARSHIP
 export STARSHIP_CONFIG="${XDG_CONFIG_HOME}/starship/starship.toml"
@@ -83,8 +69,4 @@ export STARSHIP_CACHE="${XDG_CACHE_HOME}/starship"
 # EZA
 export EZA_CONFIG_DIR="${XDG_CONFIG_HOME}/eza"
 
-# .env files
-if [ -f "$PWD/.env" ]; then set -a; source "$PWD/.env"; set +a; fi # FIXME: Make sure this is secure
-
-# True color support
-export COLORTERM="truecolor"
+# Install direnv and use `direnv allow` per directory for safe .env loading
