@@ -140,7 +140,6 @@ brew 'zplug' # next-generation plugin manager for zsh
 # VSCode extensions
 # =============================================================================================
 
-vscode 'anthropic.claude-code'
 vscode 'github.copilot'
 vscode 'github.copilot-chat'
 vscode 'pkief.material-icon-theme'
