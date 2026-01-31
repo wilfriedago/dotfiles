@@ -17,35 +17,48 @@ cask_args appdir: '~/Applications', require_sha: true
 # =============================================================================================
 # Taps
 # =============================================================================================
-tap 'homebrew/core' # formulae for the Homebrew package manager
-tap 'homebrew/bundle' # bundle command for installing multiple formulae
-tap 'homebrew/services' # manage background services with launchctl
-tap 'homebrew/cask' # formulae for the Homebrew package manager
-tap 'tufin/homebrew-tufin' # Tufin tap
-tap 'koekeishiya/formulae' # koekeishiya tap
-tap 'dotenv-org/brew' # dotenv-org tap
-tap 'blacktop/tap' # blacktop tap
 tap 'atlassian/homebrew-acli' # atlassian tap
+tap 'derailed/k9s' # k9s tap
+tap 'hashicorp/tap' # hashicorp tap
+tap 'localstack/tap' # localstack tap
+tap 'nikitabobko/tap' # aerospace tap
+tap 'oven-sh/bun' # bun tap
+tap 'quarkusio/tap' # quarkus tap
+tap 'tw93/tap' # tw93 tap
 
 # =============================================================================================
 # Apps
 # =============================================================================================
 
-cask 'basictex' # TeX distribution
-cask 'bitwarden' # password manager
+cask 'chatgpt' # OpenAI's official ChatGPT desktop app
+cask 'claude' # Anthropic's official Claude AI desktop app
+cask 'conductor' # Claude code parallelisation
 cask 'discord' # voice and text chat software
-cask 'gitkraken' # Git GUI client
-cask 'jetbrains-toolbox' # jetbrains tools manager
-cask 'obsidian' # knowledge base that works on top of a local folder of plain text Markdown files
-cask 'spotify' # music streaming service
-cask 'visual-studio-code' # open-source code editor
-cask 'alt-tab' # a better cmd+tab for macOS
-cask 'raycast' # a better Spotlight for macOS
-cask 'slack' # messaging app
-cask 'polypane' # a feature complete browser for web developers for accessibility
-cask 'pearcleaner' # a cleaner for macOS
+cask 'expo-orbit' # launch builds and start simulators from your menu bar
+cask 'figma' # collaborative team software
+cask 'firefox@developer-edition' # web browser (developer edition)
+cask 'folo' # information browser
 cask 'ghostty' # a terminal emulator for macOS
+cask 'github-copilot-for-xcode' # Xcode extension for GitHub Copilot
+cask 'gitkraken' # Git GUI client
+cask 'helium-browser' # Chromium-based web browser
+cask 'iina' # free and open-source media player
+cask 'launchos' # Launchpad alternative
+cask 'linear-linear' # app to manage software development and track bugs
+cask 'lm-studio' # discover, download, and run local LLMs
+cask 'megasync' # syncs files between computers and MEGA Cloud drives
+cask 'ngrok' # reverse proxy, secure introspectable tunnels to localhost
+cask 'obsidian' # knowledge base that works on top of a local folder of plain text Markdown files
+cask 'onlyoffice' # document editor
 cask 'orbstack' # a modern Docker Desktop alternative for macOS
+cask 'pearcleaner' # a cleaner for macOS
+cask 'postman' # collaboration platform for API development
+cask 'raycast' # a better Spotlight for macOS
+cask 'signal' # instant messaging application focusing on security
+cask 'slack' # messaging app
+cask 'spotify' # music streaming service
+cask 'transmission' # open-source BitTorrent client
+cask 'visual-studio-code' # open-source code editor
 cask 'warp' # a modern terminal for macOS
 
 # =============================================================================================
@@ -54,120 +67,93 @@ cask 'warp' # a modern terminal for macOS
 
 brew 'acli' # atlassian command line interface
 brew 'bat' # cat with syntax highlighting and Git integration
-brew 'ffmpeg' # play, record, convert and stream audio and video
 brew 'btop' # resource monitor that shows usage and stats for processor, memory, disks, network and processes
+brew 'clang-format' # formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript
+brew 'cmake' # cross-platform make
+brew 'cocoapods' # dependency manager for Cocoa projects
+brew 'composer' # dependency manager for PHP
+brew 'coreutils' # GNU File, Shell, and Text utilities
+brew 'cppcheck' # static analysis of C and C++ code
+brew 'curl' # get a file from an HTTP, HTTPS or FTP server
+brew 'doctl' # DigitalOcean CLI
 brew 'dotdrop' # dotfiles manager
-brew 'dsq' # CLI tool for running SQL queries against JSON, CSV, Excel, Parquet files
-brew 'gnupg' # GNU Privacy Guard, a free software replacement for Symantec's PGP
 brew 'eza' # modern replacement for 'ls'
+brew 'fastfetch' # fast system information tool written in Rust, similar to neofetch
 brew 'fd' # simple, fast and user-friendly alternative to find
+brew 'ffmpeg' # play, record, convert and stream audio and video
+brew 'ffuf' # fast web fuzzer written in Go
+brew 'flawfinder' # examines code and reports possible security weaknesses
+brew 'fnm' # fast and simple Node.js version manager
 brew 'fzf' # command-line fuzzy finder written in go
+brew 'gawk' # GNU awk utility
 brew 'gcc' # gnu compiler collection
 brew 'gh' # github command-line tool
-brew 'glab' # gitLab command-line tool
-brew 'git-delta' # syntax-highlighting pager for git and diff output
-brew 'jq' # lightweight and flexible command-line json processor
-brew 'skhd' # hotkey daemon for macOS
-brew 'navi' # interactive cheatsheet tool for the command-line
-brew 'neovim' # vim-fork focused on extensibility and usability
-brew 'nmap' # network exploration tool and security/port scanner
-brew 'fastfetch' # fast system information tool written in Rust, similar to neofetch
 brew 'git-cliff' # changelog generator that uses git commit messages to generate the changelog
-brew 'pinentry-mac' # pinentry for GPG on Mac
+brew 'git-delta' # syntax-highlighting pager for git and diff output
+brew 'git-lfs' # Git extension for versioning large files
+brew 'glassfish' # Java EE application server
+brew 'gnupg' # GNU Privacy Guard, a free software replacement for Symantec's PGP
+brew 'gnu-sed' # GNU implementation of the famous stream editor
+brew 'grep' # GNU grep, egrep and fgrep
+brew 'hashicorp/tap/terraform' # infrastructure as code software
+brew 'helm' # Kubernetes package manager
+brew 'jq' # lightweight and flexible command-line json processor
+brew 'k6' # modern load testing tool, using Go and JavaScript
+brew 'k9s' # kubernetes cli to manage your clusters in style!
+brew 'kubernetes-cli' # kubernetes command-line tool
+brew 'latexindent' # indentation of LaTeX documents
 brew 'lazydocker' # lazier way to manage everything docker
 brew 'lazygit' # simple terminal ui for git commands
-brew 'kubernetes-cli' # kubernetes command-line tool
-brew 'k9s' # kubernetes cli to manage your clusters in style!
-brew 'starship' # cross-shell prompt for astronauts
-brew 'unar' # command-line unarchiving tools supporting multiple formats
-brew 'zoxide' # shell extension to navigate your filesystem faster
-brew 'yazi' # blazing fast terminal file manager written in Rust, based on async I/O
+brew 'lizard-analyzer' # extensible Cyclomatic Complexity Analyzer
+brew 'localstack-cli' # LocalStack CLI for local AWS cloud emulation
+brew 'mas' # Mac App Store command-line interface
+brew 'mint' # dependency manager that installs and runs Swift command-line tool packages
+brew 'mkcert' # simple tool to make locally trusted development certificates
+brew 'mole' # deep clean and optimize your Mac
+brew 'neovim' # vim-fork focused on extensibility and usability
+brew 'nikitabobko/tap/aerospace' # a fast, minimalistic workspace manager for macOS
+brew 'nmap' # network exploration tool and security/port scanner
 brew 'oasdiff' # diff tool for OpenAPI/Swagger files
-brew 'doctl' # DigitalOcean CLI
-brew 'hashicorp/tap/terraform' # infrastructure as code software
-brew 'hashicorp/tap/vault' # secrets management software
-brew 'hashicorp/tap/hashicorp-vagrant' # Vagrant, a tool for building and managing virtualized development environments
-brew 'jadx' # command-line and GUI tools to decompile Android APK files
-brew 'encoredev/tap/encore' # Open Source TypeScript Backend Framework for robust type-safe applications
-brew 'fnm' # fast and simple Node.js version manager
-brew 'ripgrep' # line-oriented search tool that recursively searches your current directory for a regex pattern
-brew 'xh' # friendly and fast replacement for curl
 brew 'oven-sh/bun/bun' # fast all-in-one JavaScript runtime
+brew 'pandoc' # Swiss-army knife of markup format conversion
+brew 'php' # general-purpose scripting language
+brew 'pinentry-mac' # pinentry for GPG on Mac
+brew 'pipx' # execute binaries from Python packages in isolated environments
+brew 'pyenv' # Python version management
 brew 'quarkusio/tap/quarkus' # Quarkus CLI, a Kubernetes-native Java framework tailored for GraalVM and OpenJDK HotSpot
-brew 'sst/tap/opencode' # OpenCode CLI, a tool for managing and generating code snippets
-brew 'composer' # dependency manager for PHP
-brew 'kind' # tool for running local Kubernetes clusters using Docker container "nodes"
-brew 'nikitabobko/tap/aerospace' # A fast, minimalistic workspace manager for macOS
-
-# =============================================================================================
-# Linters, formatters and LSPs
-# =============================================================================================
-
-brew 'actionlint' # static checker for GitHub Actions workflow files
-brew 'ansible-lint' # checks playbooks for practices and behaviour that could potentially be improved
-brew 'ansible-language-server' # language server for Ansible files
-brew 'bash-language-server' # bash language server that brings an IDE-like experience for bash scripts to most editors
-brew 'dotenv-linter' # linter for .env files
-brew 'hadolint' # smarter Dockerfile linter to validate best practices
-brew 'ltex-ls' # LSP for LanguageTool with support for Latex
-brew 'marksman' # Language Server Protocol for Markdown
-brew 'shfmt' # autoformat shell script source code
-brew 'texlab' # implementation of the Language Server Protocol for LaTeX
-brew 'yamlfmt' # extensible command-line tool to format YAML files
-brew 'yaml-language-server' # language server for YAML Files
-brew 'latexindent' # indentation of LaTeX documents
+brew 'ripgrep' # line-oriented search tool that recursively searches your current directory for a regex pattern
+brew 'starship' # cross-shell prompt for astronauts
+brew 'tectonic' # modernized, complete, self-contained TeX/LaTeX engine
+brew 'telnet' # user interface to the TELNET protocol
+brew 'terragrunt' # thin wrapper for Terraform e.g. for locking state
+brew 'tmux' # terminal multiplexer
+brew 'trash' # CLI tool that moves files or folder to the trash
+brew 'unar' # command-line unarchiving tools supporting multiple formats
+brew 'watchman' # watch files and take action when they change
+brew 'wget' # Internet file retriever
+brew 'yazi' # blazing fast terminal file manager written in Rust, based on async I/O
+brew 'yq' # process YAML, JSON, XML, CSV and properties documents from the CLI
+brew 'zoxide' # shell extension to navigate your filesystem faster
+brew 'zplug' # next-generation plugin manager for zsh
 
 # =============================================================================================
 # VSCode extensions
 # =============================================================================================
 
-vscode 'alefragnani.project-manager'
-vscode 'charliermarsh.ruff'
-vscode 'drcika.apc-extension'
-vscode 'eamodio.gitlens'
-vscode 'editorconfig.editorconfig'
-vscode 'github.vscode-pull-request-github'
-vscode 'hbenl.vscode-test-explorer'
-vscode 'james-yu.latex-workshop'
-vscode 'matangover.mypy'
-vscode 'mikestead.dotenv'
-vscode 'ms-azuretools.vscode-docker'
-vscode 'ms-python.debugpy'
-vscode 'ms-python.python'
-vscode 'ms-python.vscode-pylance'
-vscode 'ms-toolsai.jupyter'
-vscode 'ms-toolsai.jupyter-renderers'
-vscode 'ms-vscode-remote.remote-containers'
-vscode 'ms-vscode-remote.remote-ssh'
-vscode 'ms-vscode-remote.remote-ssh-edit'
-vscode 'ms-vscode-remote.remote-wsl'
-vscode 'ms-vscode-remote.vscode-remote-extensionpack'
-vscode 'ms-vscode.live-server'
-vscode 'ms-vscode.remote-explorer'
-vscode 'ms-vscode.remote-server'
-vscode 'ms-vscode.test-adapter-converter'
-vscode 'naumovs.color-highlight'
-vscode 'njpwerner.autodocstring'
-vscode 'oderwat.indent-rainbow'
-vscode 'robertostermann.inline-parameters-extended'
-vscode 'rodolphebarbanneau.python-docstring-highlighter'
-vscode 'rust-lang.rust-analyzer'
-vscode 'swellaby.vscode-rust-test-adapter'
-vscode 'tamasfe.even-better-toml'
-vscode 'vadimcn.vscode-lldb'
-vscode 'visualstudioexptteam.intellicode-api-usage-examples'
-vscode 'visualstudioexptteam.vscodeintellicode'
-vscode 'visualstudioexptteam.vscodeintellicode-completions'
-vscode 'wakatime.vscode-wakatime'
-vscode 'yzhang.markdown-all-in-one'
+vscode 'anthropic.claude-code'
+vscode 'github.copilot'
+vscode 'github.copilot-chat'
+vscode 'pkief.material-icon-theme'
+vscode 'pkief.material-product-icons'
+vscode 'subframe7536.custom-ui-style'
 
 # =============================================================================================
 # Mac App Store
 # =============================================================================================
 
-mas 'keynote', id: 409183694
-mas 'pages', id: 409201541
-mas 'numbers', id: 409203825
+mas 'bitwarden', id: 1352778147
+mas 'goodnotes-2', id: 1444383602
 mas 'hidden-bar', id: 1452453066
+mas 'termius', id: 1176074088
 mas 'whatsapp', id: 310633997
-mas 'telegram', id: 747648890
+mas 'xcode', id: 497799835
