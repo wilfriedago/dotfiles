@@ -39,6 +39,7 @@ profiles:
     - d_spotifyd
     - f_spotatui
     - d_starship
+    - d_warp
     - d_yazi
     - d_zed
     - f_curlrc
@@ -142,6 +143,9 @@ dotfiles:
   d_starship:
     src: config/starship
     dst: ~/.config/starship
+  d_warp:
+    src: config/warp
+    dst: ~/.warp
   d_yazi:
     src: config/yazi
     dst: ~/.config/yazi
