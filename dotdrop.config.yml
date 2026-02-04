@@ -36,8 +36,6 @@ profiles:
     - d_lazygit
     - d_nvim
     - d_opencode
-    - d_spotifyd
-    - f_spotatui
     - d_starship
     - d_warp
     - d_yazi
@@ -134,12 +132,6 @@ dotfiles:
   d_opencode:
     src: config/opencode
     dst: ~/.config/opencode
-  d_spotifyd:
-    src: config/spotifyd
-    dst: ~/.config/spotifyd
-  f_spotatui:
-    src: config/spotatui/config.yml
-    dst: ~/.config/spotatui/config.yml
   d_starship:
     src: config/starship
     dst: ~/.config/starship
