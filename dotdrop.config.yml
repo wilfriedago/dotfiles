@@ -35,7 +35,6 @@ profiles:
     - d_lazydocker
     - d_lazygit
     - d_nvim
-    - d_opencode
     - d_starship
     - d_warp
     - d_yazi
@@ -129,9 +128,6 @@ dotfiles:
   d_nvim:
     src: config/nvim
     dst: ~/.config/nvim
-  d_opencode:
-    src: config/opencode
-    dst: ~/.config/opencode
   d_starship:
     src: config/starship
     dst: ~/.config/starship
