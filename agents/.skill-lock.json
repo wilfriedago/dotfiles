@@ -8,7 +8,8 @@
     "gemini-cli",
     "github-copilot",
     "kimi-cli",
-    "opencode"
+    "opencode",
+    "replit"
   ],
   "skills": {
     "agent-browser": {
@@ -129,13 +130,13 @@
       "updatedAt": "2026-02-05T01:17:49.821Z"
     },
     "shadcn-ui": {
-      "installedAt": "2026-02-05T01:05:17.106Z",
-      "skillFolderHash": "def8b780a6f3857ca964d1a02c144ef6f86fb21c",
-      "skillPath": "skills/shadcn-ui/SKILL.md",
-      "source": "google-labs-code/stitch-skills",
+      "source": "giuseppe-trisciuoglio/developer-kit",
       "sourceType": "github",
-      "sourceUrl": "https://github.com/google-labs-code/stitch-skills.git",
-      "updatedAt": "2026-02-05T01:05:17.106Z"
+      "sourceUrl": "https://github.com/giuseppe-trisciuoglio/developer-kit.git",
+      "skillPath": "skills/shadcn-ui/SKILL.md",
+      "skillFolderHash": "5cefbbb22eaf4f3380cb45b5022c7c1ff0383ea2",
+      "installedAt": "2026-02-05T01:05:17.106Z",
+      "updatedAt": "2026-02-05T01:43:28.068Z"
     },
     "stitch-loop": {
       "installedAt": "2026-02-05T01:05:17.239Z",
@@ -181,6 +182,186 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
       "updatedAt": "2026-02-05T01:10:21.906Z"
+    },
+    "seo-geo": {
+      "source": "resciencelab/opc-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/resciencelab/opc-skills.git",
+      "skillPath": "skills/seo-geo/SKILL.md",
+      "skillFolderHash": "8b6db1e2305acb1a381bc82ff6db414981d102e9",
+      "installedAt": "2026-02-05T01:31:14.297Z",
+      "updatedAt": "2026-02-05T01:31:14.297Z"
+    },
+    "java-spring-boot": {
+      "source": "pluginagentmarketplace/custom-plugin-java",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/pluginagentmarketplace/custom-plugin-java.git",
+      "skillPath": "skills/java-spring-boot/SKILL.md",
+      "skillFolderHash": "f8c6700a7fe97b26b4fe279b3ffc93c236a26539",
+      "installedAt": "2026-02-05T01:31:59.000Z",
+      "updatedAt": "2026-02-05T01:31:59.000Z"
+    },
+    "spring-boot-engineer": {
+      "source": "jeffallan/claude-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/jeffallan/claude-skills.git",
+      "skillPath": "skills/spring-boot-engineer/SKILL.md",
+      "skillFolderHash": "b0c820b1b164762ca716247b04df2b85d7ab3866",
+      "installedAt": "2026-02-05T01:32:24.466Z",
+      "updatedAt": "2026-02-05T01:32:24.466Z"
+    },
+    "springboot-patterns": {
+      "source": "affaan-m/everything-claude-code",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/affaan-m/everything-claude-code.git",
+      "skillPath": "skills/springboot-patterns/SKILL.md",
+      "skillFolderHash": "a4a01eba307ba5503d6a8216e624297d0e3abcd0",
+      "installedAt": "2026-02-05T01:33:11.384Z",
+      "updatedAt": "2026-02-05T01:33:11.384Z"
+    },
+    "springboot-security": {
+      "source": "affaan-m/everything-claude-code",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/affaan-m/everything-claude-code.git",
+      "skillPath": "skills/springboot-security/SKILL.md",
+      "skillFolderHash": "cd30c3838f2cf3585469c0ec9923a77a9c245b46",
+      "installedAt": "2026-02-05T01:34:05.845Z",
+      "updatedAt": "2026-02-05T01:34:05.845Z"
+    },
+    "spring-boot-development": {
+      "source": "manutej/luxor-claude-marketplace",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/manutej/luxor-claude-marketplace.git",
+      "skillPath": "plugins/luxor-backend-toolkit/skills/spring-boot-development/SKILL.md",
+      "skillFolderHash": "844715e930d3a94e5ceb4f065b22528790c2c0d9",
+      "installedAt": "2026-02-05T01:34:52.576Z",
+      "updatedAt": "2026-02-05T01:34:52.576Z"
+    },
+    "react-patterns": {
+      "source": "giuseppe-trisciuoglio/developer-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/giuseppe-trisciuoglio/developer-kit.git",
+      "skillPath": "skills/react-patterns/SKILL.md",
+      "skillFolderHash": "3479d534a08fe44c0c12657f8a5c436a5271f916",
+      "installedAt": "2026-02-05T01:43:27.927Z",
+      "updatedAt": "2026-02-05T01:43:27.927Z"
+    },
+    "tailwind-css-patterns": {
+      "source": "giuseppe-trisciuoglio/developer-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/giuseppe-trisciuoglio/developer-kit.git",
+      "skillPath": "skills/tailwind-css-patterns/SKILL.md",
+      "skillFolderHash": "7dce5e6f7979066c0d629bd23ef4e845bb2b64f3",
+      "installedAt": "2026-02-05T01:43:28.236Z",
+      "updatedAt": "2026-02-05T01:43:28.236Z"
+    },
+    "typescript-docs": {
+      "source": "giuseppe-trisciuoglio/developer-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/giuseppe-trisciuoglio/developer-kit.git",
+      "skillPath": "skills/typescript-docs/SKILL.md",
+      "skillFolderHash": "5d4b547aed0e861c4cb5b3a519e78e3689b04971",
+      "installedAt": "2026-02-05T01:43:28.372Z",
+      "updatedAt": "2026-02-05T01:43:28.372Z"
+    },
+    "prompt-engineering": {
+      "source": "giuseppe-trisciuoglio/developer-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/giuseppe-trisciuoglio/developer-kit.git",
+      "skillPath": "skills/ai/prompt-engineering/SKILL.md",
+      "skillFolderHash": "2e9c6afac88b7506c6dd5f7a07664911e62a1431",
+      "installedAt": "2026-02-05T01:43:28.542Z",
+      "updatedAt": "2026-02-05T01:43:28.542Z"
+    },
+    "spring-boot-actuator": {
+      "source": "giuseppe-trisciuoglio/developer-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/giuseppe-trisciuoglio/developer-kit.git",
+      "skillPath": "skills/spring-boot/spring-boot-actuator/SKILL.md",
+      "skillFolderHash": "c4cce5b273de0dcbbb356f582c88f4210da179ba",
+      "installedAt": "2026-02-05T01:43:28.683Z",
+      "updatedAt": "2026-02-05T01:43:28.683Z"
+    },
+    "spring-boot-cache": {
+      "source": "giuseppe-trisciuoglio/developer-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/giuseppe-trisciuoglio/developer-kit.git",
+      "skillPath": "skills/spring-boot/spring-boot-cache/SKILL.md",
+      "skillFolderHash": "83f1d9e85379e6856245fda71dc6a843a1660920",
+      "installedAt": "2026-02-05T01:43:28.821Z",
+      "updatedAt": "2026-02-05T01:43:28.821Z"
+    },
+    "spring-boot-crud-patterns": {
+      "source": "giuseppe-trisciuoglio/developer-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/giuseppe-trisciuoglio/developer-kit.git",
+      "skillPath": "skills/spring-boot/spring-boot-crud-patterns/SKILL.md",
+      "skillFolderHash": "04780833d9c7326124cfcf3a0dcf6e4d00544a61",
+      "installedAt": "2026-02-05T01:43:28.962Z",
+      "updatedAt": "2026-02-05T01:43:28.962Z"
+    },
+    "spring-boot-dependency-injection": {
+      "source": "giuseppe-trisciuoglio/developer-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/giuseppe-trisciuoglio/developer-kit.git",
+      "skillPath": "skills/spring-boot/spring-boot-dependency-injection/SKILL.md",
+      "skillFolderHash": "04265d7d6a14baf109127288d19ff4b0ef0a5fec",
+      "installedAt": "2026-02-05T01:43:29.104Z",
+      "updatedAt": "2026-02-05T01:43:29.104Z"
+    },
+    "spring-boot-event-driven-patterns": {
+      "source": "giuseppe-trisciuoglio/developer-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/giuseppe-trisciuoglio/developer-kit.git",
+      "skillPath": "skills/spring-boot/spring-boot-event-driven-patterns/SKILL.md",
+      "skillFolderHash": "69e45f37273d07eb05ee36fd308ee579d4504e8b",
+      "installedAt": "2026-02-05T01:43:29.244Z",
+      "updatedAt": "2026-02-05T01:43:29.244Z"
+    },
+    "spring-boot-resilience4j": {
+      "source": "giuseppe-trisciuoglio/developer-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/giuseppe-trisciuoglio/developer-kit.git",
+      "skillPath": "skills/spring-boot/spring-boot-resilience4j/SKILL.md",
+      "skillFolderHash": "84165443f672426c10076821debf9fd7f9719372",
+      "installedAt": "2026-02-05T01:43:29.385Z",
+      "updatedAt": "2026-02-05T01:43:29.385Z"
+    },
+    "spring-boot-saga-pattern": {
+      "source": "giuseppe-trisciuoglio/developer-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/giuseppe-trisciuoglio/developer-kit.git",
+      "skillPath": "skills/spring-boot/spring-boot-saga-pattern/SKILL.md",
+      "skillFolderHash": "a754818555f2a5e31fd9abcea1df8158305646a2",
+      "installedAt": "2026-02-05T01:43:29.552Z",
+      "updatedAt": "2026-02-05T01:43:29.552Z"
+    },
+    "spring-boot-test-patterns": {
+      "source": "giuseppe-trisciuoglio/developer-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/giuseppe-trisciuoglio/developer-kit.git",
+      "skillPath": "skills/spring-boot/spring-boot-test-patterns/SKILL.md",
+      "skillFolderHash": "0a81227071aa1c02c69388305bba66f92fba0e16",
+      "installedAt": "2026-02-05T01:43:29.686Z",
+      "updatedAt": "2026-02-05T01:43:29.686Z"
+    },
+    "spring-ai-mcp-server-patterns": {
+      "source": "giuseppe-trisciuoglio/developer-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/giuseppe-trisciuoglio/developer-kit.git",
+      "skillPath": "skills/spring-ai/spring-ai-mcp-server-patterns/SKILL.md",
+      "skillFolderHash": "69957b8a431b76286c16620d492b628661c38c9c",
+      "installedAt": "2026-02-05T01:43:29.858Z",
+      "updatedAt": "2026-02-05T01:43:29.858Z"
+    },
+    "unit-test-mapper-converter": {
+      "source": "giuseppe-trisciuoglio/developer-kit",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/giuseppe-trisciuoglio/developer-kit.git",
+      "skillPath": "skills/junit-test/unit-test-mapper-converter/SKILL.md",
+      "skillFolderHash": "318f55847930af6a8b19e028ae9c6fb5c6c0b9a2",
+      "installedAt": "2026-02-05T01:45:15.025Z",
+      "updatedAt": "2026-02-05T01:45:15.025Z"
     }
   },
   "version": 3
