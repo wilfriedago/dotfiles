@@ -1,0 +1,178 @@
+{
+  "version": 3,
+  "skills": {
+    "react:components": {
+      "source": "google-labs-code/stitch-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/google-labs-code/stitch-skills.git",
+      "skillPath": "skills/react-components/SKILL.md",
+      "skillFolderHash": "784f115209bae95a12e356b2085d029b6352cd72",
+      "installedAt": "2026-02-02T09:44:10.611Z",
+      "updatedAt": "2026-02-05T01:05:16.800Z"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "c2f31172b6f256272305a5e6e7228b258446899f",
+      "installedAt": "2026-02-02T09:44:16.344Z",
+      "updatedAt": "2026-02-02T09:44:16.344Z"
+    },
+    "design-md": {
+      "source": "google-labs-code/stitch-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/google-labs-code/stitch-skills.git",
+      "skillPath": "skills/design-md/SKILL.md",
+      "skillFolderHash": "be4509d7f3959c8920991c5df87667f13b24807c",
+      "installedAt": "2026-02-05T01:05:16.460Z",
+      "updatedAt": "2026-02-05T01:05:16.460Z"
+    },
+    "enhance-prompt": {
+      "source": "google-labs-code/stitch-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/google-labs-code/stitch-skills.git",
+      "skillPath": "skills/enhance-prompt/SKILL.md",
+      "skillFolderHash": "a11a8be47c56a2e84bf4ff737c98364129a7a9a7",
+      "installedAt": "2026-02-05T01:05:16.621Z",
+      "updatedAt": "2026-02-05T01:05:16.621Z"
+    },
+    "remotion": {
+      "source": "google-labs-code/stitch-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/google-labs-code/stitch-skills.git",
+      "skillPath": "skills/remotion/SKILL.md",
+      "skillFolderHash": "616728acabc4acac106ea28b21b49157e85af7e4",
+      "installedAt": "2026-02-05T01:05:16.950Z",
+      "updatedAt": "2026-02-05T01:05:16.950Z"
+    },
+    "shadcn-ui": {
+      "source": "google-labs-code/stitch-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/google-labs-code/stitch-skills.git",
+      "skillPath": "skills/shadcn-ui/SKILL.md",
+      "skillFolderHash": "def8b780a6f3857ca964d1a02c144ef6f86fb21c",
+      "installedAt": "2026-02-05T01:05:17.106Z",
+      "updatedAt": "2026-02-05T01:05:17.106Z"
+    },
+    "stitch-loop": {
+      "source": "google-labs-code/stitch-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/google-labs-code/stitch-skills.git",
+      "skillPath": "skills/stitch-loop/SKILL.md",
+      "skillFolderHash": "61da6a8b5a2b332659eac40a869f8807e0f28c6e",
+      "installedAt": "2026-02-05T01:05:17.239Z",
+      "updatedAt": "2026-02-05T01:05:17.239Z"
+    },
+    "vercel-composition-patterns": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
+      "skillPath": "skills/composition-patterns/SKILL.md",
+      "skillFolderHash": "bf90d0a4b83ea054653350f9c67f6de235d3a368",
+      "installedAt": "2026-02-05T01:10:21.421Z",
+      "updatedAt": "2026-02-05T01:10:21.421Z"
+    },
+    "vercel-react-best-practices": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
+      "skillPath": "skills/react-best-practices/SKILL.md",
+      "skillFolderHash": "079b06a135401704ea94ab74c7c9d86c92ba259f",
+      "installedAt": "2026-02-05T01:10:21.563Z",
+      "updatedAt": "2026-02-05T01:10:21.563Z"
+    },
+    "vercel-react-native-skills": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
+      "skillPath": "skills/react-native-skills/SKILL.md",
+      "skillFolderHash": "8b4c6a51914e2111ab6f4f00cb81778652aa241d",
+      "installedAt": "2026-02-05T01:10:21.770Z",
+      "updatedAt": "2026-02-05T01:10:21.770Z"
+    },
+    "web-design-guidelines": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-skills.git",
+      "skillPath": "skills/web-design-guidelines/SKILL.md",
+      "skillFolderHash": "3116f3e62dbd02b44a598b1aa690d2a8938e8f89",
+      "installedAt": "2026-02-05T01:10:21.906Z",
+      "updatedAt": "2026-02-05T01:10:21.906Z"
+    },
+    "remotion-best-practices": {
+      "source": "remotion-dev/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/remotion-dev/skills.git",
+      "skillPath": "skills/remotion/SKILL.md",
+      "skillFolderHash": "30c245f92efe99aa4ee9c3db79861c99ca02b313",
+      "installedAt": "2026-02-05T01:13:52.320Z",
+      "updatedAt": "2026-02-05T01:13:52.320Z"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/anthropics/skills.git",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "skillFolderHash": "928950704df8a8b885c03de5da626331e6f29cf8",
+      "installedAt": "2026-02-05T01:15:09.297Z",
+      "updatedAt": "2026-02-05T01:15:09.297Z"
+    },
+    "agent-browser": {
+      "source": "vercel-labs/agent-browser",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/agent-browser.git",
+      "skillPath": "skills/agent-browser/SKILL.md",
+      "skillFolderHash": "fe7cba547a645dd6a21d56680db033f2d82dff3a",
+      "installedAt": "2026-02-05T01:16:12.606Z",
+      "updatedAt": "2026-02-05T01:16:12.606Z"
+    },
+    "audit-website": {
+      "source": "squirrelscan/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/squirrelscan/skills.git",
+      "skillPath": "audit-website/SKILL.md",
+      "skillFolderHash": "31da6765265037cf326e1c7d65250fc050c19ef1",
+      "installedAt": "2026-02-05T01:17:16.242Z",
+      "updatedAt": "2026-02-05T01:17:16.242Z"
+    },
+    "seo-audit": {
+      "source": "coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/coreyhaines31/marketingskills.git",
+      "skillPath": "skills/seo-audit/SKILL.md",
+      "skillFolderHash": "a98fae5eae7cf90e32520fd1144e8c69f26c354c",
+      "installedAt": "2026-02-05T01:17:49.821Z",
+      "updatedAt": "2026-02-05T01:17:49.821Z"
+    },
+    "next-best-practices": {
+      "source": "vercel-labs/next-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/next-skills.git",
+      "skillPath": "skills/next-best-practices/SKILL.md",
+      "skillFolderHash": "ad17eb27952b39a6ab0061bd50e8a2213b63a3ec",
+      "installedAt": "2026-02-05T01:18:17.822Z",
+      "updatedAt": "2026-02-05T01:18:17.822Z"
+    },
+    "create-remotion-geist": {
+      "source": "vercel-labs/skill-remotion-geist",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skill-remotion-geist.git",
+      "skillPath": "skills/create-remotion-geist/SKILL.md",
+      "skillFolderHash": "3ff060986a349a675b250ada41d525296ecc1b95",
+      "installedAt": "2026-02-05T01:20:48.338Z",
+      "updatedAt": "2026-02-05T01:20:48.338Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "codex",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-cli",
+    "opencode"
+  ]
+}
