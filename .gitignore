@@ -139,3 +139,6 @@ Brewfile.lock.json
 
 # Microsoft Access files
 *.mdb
+
+# Worktrees
+.worktrees/
