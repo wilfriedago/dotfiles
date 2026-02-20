@@ -2,9 +2,7 @@
   "dismissed": {
     "findSkillsPrompt": true
   },
-  "lastSelectedAgents": [
-    "github-copilot"
-  ],
+  "lastSelectedAgents": [],
   "skills": {
     "agent-browser": {
       "installedAt": "2026-02-05T01:16:12.606Z",
@@ -194,6 +192,42 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/anthropics/skills.git",
       "updatedAt": "2026-02-05T01:15:09.297Z"
+    },
+    "gemini-api-dev": {
+      "installedAt": "2026-02-13T23:19:43.835Z",
+      "skillFolderHash": "5c9c6bc8cf2ef3e3b11d784a97281d721fdac0ca",
+      "skillPath": "skills/gemini-api-dev/SKILL.md",
+      "source": "google-gemini/gemini-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/google-gemini/gemini-skills.git",
+      "updatedAt": "2026-02-13T23:19:43.835Z"
+    },
+    "heroui-native": {
+      "installedAt": "2026-02-11T08:23:36.019Z",
+      "skillFolderHash": "",
+      "skillPath": "skills/heroui-native/SKILL.md",
+      "source": "heroui-inc/heroui",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/heroui-inc/heroui.git",
+      "updatedAt": "2026-02-11T08:23:36.019Z"
+    },
+    "heroui-react": {
+      "installedAt": "2026-02-11T08:23:35.760Z",
+      "skillFolderHash": "",
+      "skillPath": "skills/heroui-react/SKILL.md",
+      "source": "heroui-inc/heroui",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/heroui-inc/heroui.git",
+      "updatedAt": "2026-02-11T08:23:35.760Z"
+    },
+    "interface-design": {
+      "installedAt": "2026-02-14T14:43:23.625Z",
+      "skillFolderHash": "3c1c18ac9f9732a8be68cb8504bf234fdafcf5c8",
+      "skillPath": ".claude/skills/interface-design/SKILL.md",
+      "source": "dammyjay93/interface-design",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/dammyjay93/interface-design.git",
+      "updatedAt": "2026-02-14T14:43:23.625Z"
     },
     "java-spring-boot": {
       "installedAt": "2026-02-05T01:31:59.000Z",
