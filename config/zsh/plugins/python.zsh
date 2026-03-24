@@ -15,8 +15,13 @@ if (( ! $+commands[python3] )); then
   return
 fi
 
+export PATH="$(brew --prefix python@3.11)/libexec/bin:$PATH"
+
 # =============================================================================================
 # Aliases
 # =============================================================================================
+alias python='python3'
+alias pip='pip3'
 alias py='python3'
 alias pir='pip install -r requirements.txt'
+

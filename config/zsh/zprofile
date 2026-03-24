@@ -19,5 +19,6 @@ elif [[ -d /home/linuxbrew/.linuxbrew ]]; then
 fi
 unset _brew_cache
 
-# eliminates duplicates in *paths
+# Remove non-existent paths, then deduplicate
+path=($^path(N-/))
 typeset -gU cdpath fpath path manpath infopath mailpath
