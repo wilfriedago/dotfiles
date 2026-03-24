@@ -62,7 +62,45 @@ else
   compinit -C -d "$COMPDUMP"
 fi
 
-[ -d "$ZSH_CONFIG_DIR/plugins" ] && for plugin in "$ZSH_CONFIG_DIR/plugins"/*; do source "$plugin"; done # Plugins
+[ -d "$ZSH_CONFIG_DIR/plugins" ] && {
+  source "$ZSH_CONFIG_DIR/plugins/acli.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/android.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/angular.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/artisan.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/brew.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/bws.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/composer.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/directories.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/django.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/docker.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/doctl.zsh"
+  # source "$ZSH_CONFIG_DIR/plugins/fnm.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/fzf.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/gitlab.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/glassfish.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/go.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/gradle.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/grep.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/helm.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/jira.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/k9s.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/kind.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/kubectl.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/lmstudio.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/minikube.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/ngrok.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/node.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/nvim.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/pnpm.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/python.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/quarkus.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/rust.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/sdkman.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/search.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/terraform.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/vite-plus.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/yarn.zsh"
+}
 
 # Compile compdump in background if stale
 if [[ -s "$COMPDUMP" && (! -s "${COMPDUMP}.zwc" || "$COMPDUMP" -nt "${COMPDUMP}.zwc") ]]; then

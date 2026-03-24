@@ -1,8 +1,9 @@
-
 # Check if zoxide is installed
 if (( ! $+commands[zoxide] )); then
   return
 fi
+
+export _ZO_DOCTOR=0 # Disable zoxide doctor checks (optional, but can speed up startup)
 
 # Initialization — cached for faster startup
 _cache_eval "zoxide" "zoxide init --cmd ${ZOXIDE_CMD_OVERRIDE:-z} zsh" "$(command -v zoxide)"

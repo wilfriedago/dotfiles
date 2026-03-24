@@ -62,5 +62,3 @@ export STARSHIP_CACHE="${XDG_CACHE_HOME}/starship"
 
 # EZA
 export EZA_CONFIG_DIR="${XDG_CONFIG_HOME}/eza"
-
-# Install direnv and use `direnv allow` per directory for safe .env loading

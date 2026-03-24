@@ -20,4 +20,4 @@ fi
 unset _brew_cache
 
 # eliminates duplicates in *paths
-typeset -gU cdpath fpath path
+typeset -gU cdpath fpath path manpath infopath mailpath
