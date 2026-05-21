@@ -10,8 +10,6 @@ config:
 profiles:
   default:
     dotfiles:
-    - d_agents
-
     # Zsh configuration files
     - d_zsh_plugins
     - f_zsh_aliases
@@ -64,9 +62,6 @@ profiles:
     - f_vscode_keybindings
 
 dotfiles:
-  d_agents:
-    src: agents
-    dst: ~/.agents
   d_zsh_plugins:
     src: config/zsh/plugins
     dst: ~/.config/zsh/plugins
