@@ -135,6 +135,11 @@
   dck = diff --cached --check
   dt = difftool
   dct = difftool --cached
+  dft = "!f() { GIT_EXTERNAL_DIFF=difft git diff $@; }; f"
+  dfts = "!f() { GIT_EXTERNAL_DIFF=difft git diff --staged $@; }; f"
+
+  # Absorb (automatic fixup commits)
+  absorb = !git-absorb --and-rebase
 
   # Fetch
   f = fetch
