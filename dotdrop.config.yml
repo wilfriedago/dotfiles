@@ -36,14 +36,13 @@ profiles:
     - d_lazygit
     - d_nvim
     - d_starship
+    - d_television
     - d_warp
     - d_yazi
-    - d_zed
     - f_curlrc
     - f_gitconfig
     - f_gitignore_global
     - f_gpg-agent
-    - f_sdkman
     - f_ssh
     - f_wgetrc
 
@@ -131,15 +130,15 @@ dotfiles:
   d_starship:
     src: config/starship
     dst: ~/.config/starship
+  d_television:
+    src: config/television
+    dst: ~/.config/television
   d_warp:
     src: config/warp
     dst: ~/.warp
   d_yazi:
     src: config/yazi
     dst: ~/.config/yazi
-  d_zed:
-    src: config/zed
-    dst: ~/.config/zed
   d_zsh:
     src: config/zsh
     dst: ~/.config/zsh
@@ -155,9 +154,6 @@ dotfiles:
   f_gpg-agent:
     src: config/gnupg/gpg-agent.conf
     dst: ~/.gnupg/gpg-agent.conf
-  f_sdkman:
-    src: config/sdkman.conf
-    dst: ~/.sdkman/etc/config
   f_ssh:
     src: config/ssh.conf
     dst: ~/.ssh/config

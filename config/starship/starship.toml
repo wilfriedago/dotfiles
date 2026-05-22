@@ -1,6 +1,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-add_newline = false # Don't print a newline at the start of the prompt
+add_newline = false
 
 command_timeout = 2000 # Timeout for commands in milliseconds
 
@@ -28,14 +28,14 @@ $kubernetes\
 $shell\
 $container\
 $jobs\
-${custom.memory_usage}\
-${custom.battery}\
-${custom.keyboard_layout}\
 $time\
-$cmd_duration\
-$status\
 $line_break\
 $character\
+"""
+
+right_format = """
+$cmd_duration\
+$status\
 """
 
 palette = 'default'
@@ -64,8 +64,11 @@ color_vimcmd_replace = 'purple'
 color_vimcmd_visual = 'yellow'
 
 [character]
-success_symbol = '[➜](bold green)'
-error_symbol = '[➜](bold red)'
+success_symbol = '[➜](green)'
+error_symbol = '[➜](red)'
+vimcmd_symbol = '[➜](color_vimcmd_ok)'
+vimcmd_replace_one_symbol = '[➜](color_vimcmd_replace)'
+vimcmd_visual_symbol = '[➜](color_vimcmd_visual)'
 
 [os]
 disabled = true # I don't need to know the OS I'm using
@@ -149,6 +152,14 @@ bisect = "BISECTING"
 am = "AM"
 am_or_rebase = "AM/REBASE"
 
+[git_commit]
+disabled = false
+tag_disabled = false
+only_detached = true
+tag_symbol = ' '
+commit_hash_length = 7
+format = '[\($hash$tag\)]($style) '
+
 [git_metrics]
 disabled = true
 format = '[(([+$added]($added_style))([-$deleted]($deleted_style)) )](fg:color_git)'
@@ -162,7 +173,7 @@ zsh_indicator = "󰊠"
 style = "green bold"
 
 [status]
-disabled = true
+disabled = false
 symbol = " "
 success_symbol = ""
 not_executable_symbol = " "
@@ -172,7 +183,7 @@ map_symbol = false
 read_only = " "
 truncation_length = 4
 format = '[$path ]($style)'
-truncate_to_repo = false
+truncate_to_repo = true
 
 [memory_usage]
 disabled = true
@@ -186,6 +197,21 @@ ssh_symbol = " "
 disabled = false
 symbol = "󱃾"
 format = 'in [$symbol $context\($namespace\)]($style) '
+style = 'fg:color_kubernetes'
+
+[kubernetes.context_aliases]
+'arn:aws:eks:.*:.*:cluster/(?P<name>.*)' = '$name'
+'gke_.*_(?P<name>.+)' = '$name'
+
+[[kubernetes.contexts]]
+context_pattern = '.*prod.*'
+symbol = '󱃾 '
+style = 'bold fg:color_danger'
+
+[[kubernetes.contexts]]
+context_pattern = '.*staging.*'
+symbol = '󱃾 '
+style = 'bold fg:color_caution'
 
 [aws]
 symbol = "󰸏 "

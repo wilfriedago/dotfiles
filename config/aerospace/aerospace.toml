@@ -54,10 +54,69 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 #   check-further-callbacks = true
 #   run = ['layout floating', 'move-node-to-workspace S']  # The callback itself
 
-# Ignore Preview application - set to floating mode
+# ── Floating apps ────────────────────────────────────────────────────────────
 [[on-window-detected]]
   if.app-id = 'com.apple.Preview'
   run = ['layout floating']
+
+[[on-window-detected]]
+  if.app-id = 'com.apple.systempreferences'
+  run = ['layout floating']
+
+# ── Per-app workspace assignments ────────────────────────────────────────────
+# 1: Terminal  2: Browser  3: Editor  4: Communication  5: Design  6: Notes
+
+[[on-window-detected]]
+  if.app-id = 'com.mitchellh.ghostty'
+  run = ['move-node-to-workspace 1']
+
+[[on-window-detected]]
+  if.app-id = 'dev.warp.Warp-Stable'
+  run = ['move-node-to-workspace 1']
+
+[[on-window-detected]]
+  if.app-id = 'org.mozilla.firefoxdeveloperedition'
+  run = ['move-node-to-workspace 2']
+
+[[on-window-detected]]
+  if.app-id = 'browser.helium'
+  run = ['move-node-to-workspace 2']
+
+[[on-window-detected]]
+  if.app-id = 'com.microsoft.VSCode'
+  run = ['move-node-to-workspace 3']
+
+[[on-window-detected]]
+  if.app-id = 'dev.zed.Zed'
+  run = ['move-node-to-workspace 3']
+
+[[on-window-detected]]
+  if.app-id = 'com.jetbrains.intellij'
+  run = ['move-node-to-workspace 3']
+
+[[on-window-detected]]
+  if.app-id = 'com.tinyspeck.slackmacgap'
+  run = ['move-node-to-workspace 4']
+
+[[on-window-detected]]
+  if.app-id = 'com.hnc.Discord'
+  run = ['move-node-to-workspace 4']
+
+[[on-window-detected]]
+  if.app-id = 'org.whispersystems.signal-desktop'
+  run = ['move-node-to-workspace 4']
+
+[[on-window-detected]]
+  if.app-id = 'com.figma.Desktop'
+  run = ['move-node-to-workspace 5']
+
+[[on-window-detected]]
+  if.app-id = 'md.obsidian'
+  run = ['move-node-to-workspace 6']
+
+[[on-window-detected]]
+  if.app-id = 'notion.id'
+  run = ['move-node-to-workspace 6']
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
