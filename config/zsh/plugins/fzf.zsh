@@ -18,25 +18,25 @@ fi
 # Initialization — cached for faster startup
 _cache_eval "fzf" "fzf --zsh" "$(command -v fzf)"
 
-_fzf_completion_realpath() {
+# Preview snippet — runs in fzf's `--preview` subshell, so it can NOT reference
+# zsh functions from the parent shell. Reused below for both fzf-tab (via $realpath)
+# and standalone fzf bindings (via {} placeholder).
+_FZF_PREVIEW_SNIPPET='
   if [ -d "$1" ]; then
     eza -al --tree --icons --level=3 --no-permissions --no-user --no-time --no-filesize "$1" | head -100
+  elif [ "$(file -Lbs --mime-type "$1" | cut -d/ -f1)" = "image" ]; then
+    chafa -r2 -w 100 "$1"
   else
-    mime="$(file -Lbs --mime-type "$1")"
-    category="${mime%%/*}"
-    if [ "$category" = 'image' ]; then
-      chafa -r2 -w 100 "$1"
-    else
-      bat -n --color=always --line-range :100 "$1"
-    fi
+    bat -n --color=always --line-range :100 "$1"
   fi
-}
+'
 
 # switch group using `<` and `>`
 zstyle ':fzf-tab:*' switch-group '<' '>'
 
-# complete `ls` / `cat` / etc
-zstyle ':fzf-tab:complete:(\\|*/|)(ls|gls|bat|cat|cd|rm|cp|mv|ln|hx|code|open|source|z|eza):*' fzf-preview '_fzf_completion_realpath "$realpath"'
+# complete `ls` / `cat` / etc — preview the highlighted candidate
+zstyle ':fzf-tab:complete:(\\|*/|)(ls|gls|bat|cat|cd|rm|cp|mv|ln|hx|code|open|source|z|eza):*' \
+  fzf-preview "zsh -c '$_FZF_PREVIEW_SNIPPET' _fzf_preview \"\$realpath\""
 
 # `.fzf` is used to provide fzf configuration for the shell
 export FZF_DEFAULT_COMMAND="
@@ -74,10 +74,10 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export FZF_DEFAULT_OPTS=" \
-  --height 30% -1 \
+  --height 60% -1 \
   --select-1 \
   --reverse \
-  --preview-window='right:wrap' \
+  --preview-window='right:60%:wrap' \
   --inline-info \
 	--color=fg:#908caa,hl:#ebbcba \
 	--color=fg+:#e0def4,hl+:#ebbcba \
@@ -93,8 +93,8 @@ export FZF_CTRL_R_OPTS=" \
   --color header:italic
 "
 
-export FZF_CTRL_T_OPTS="$FZF_DEFAULT_OPTS --preview '_fzf_completion_realpath {}'"
-export FZF_ALT_C_OPTS="$FZF_DEFAULT_OPTS --preview '_fzf_completion_realpath {}'"
+export FZF_CTRL_T_OPTS="$FZF_DEFAULT_OPTS --preview \"zsh -c '$_FZF_PREVIEW_SNIPPET' _fzf_preview {}\""
+export FZF_ALT_C_OPTS="$FZF_DEFAULT_OPTS --preview \"zsh -c '$_FZF_PREVIEW_SNIPPET' _fzf_preview {}\""
 
 export _ZO_FZF_OPTS="
   --height 50% -1 \
@@ -105,7 +105,7 @@ export _ZO_FZF_OPTS="
   --cycle \
   --exit-0 \
   --tabstop=1 \
-  --preview='_fzf_completion_realpath {2..}'
+  --preview=\"zsh -c '$_FZF_PREVIEW_SNIPPET' _fzf_preview {2..}\"
 "
 
 # z() wrapper moved to directories.zsh where __zoxide_z is defined

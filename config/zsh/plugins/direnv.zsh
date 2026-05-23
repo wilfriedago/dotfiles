@@ -1,24 +1,22 @@
 # =============================================================================================
-# ~/.config/zsh/plugins/python.zsh
+# ~/.config/zsh/plugins/direnv.zsh
 # =============================================================================================
-# Python Zsh Plugin
-# This plugin provides aliases and completion for Python.
+# direnv Zsh Plugin
+# This plugin initializes direnv for automatic per-directory environment loading.
 #
-# It makes managing Python environments and packages directly from the command line easier.
-# For docs and more info, see: https://github.com/wilfriedago/dotfiles
+# Automatically loads/unloads .envrc files when entering/leaving directories.
+# Replaces manual `loadenv` usage with seamless project switching.
+# For docs and more info, see: https://direnv.net
 # =============================================================================================
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
-# Check if Python is installed
-if (( ! $+commands[python3] )); then
+# Check if direnv is installed
+if (( ! $+commands[direnv] )); then
   return
 fi
 
 # =============================================================================================
-# Aliases
+# Initialization
 # =============================================================================================
-alias python='python3'
-alias pip='pip3'
-alias py='python3'
-
+_cache_eval "direnv" "direnv hook zsh" "$(command -v direnv)"

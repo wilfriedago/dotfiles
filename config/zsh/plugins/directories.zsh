@@ -30,8 +30,11 @@ alias 6='cd -6'
 alias 7='cd -7'
 alias 8='cd -8'
 alias 9='cd -9'
-alias md='mkdir -p'
-alias rd=rmdir
+alias l="eza -al --icons" # ls -l with icons
+alias ll='eza -l --icons' # ls long format with icons
+alias la='eza -a --icons' # ls all files with icons
+alias ls='eza -a --icons --level=1' # ls with icons
+alias lt="eza -al --icons --level=3 --tree --git-ignore" # ls tree with icons
 
 # Functions
 function d () {

@@ -39,6 +39,5 @@ alias tfsh='terraform show'
 # =============================================================================================
 # Completions
 # =============================================================================================
-if command -v terraform &> /dev/null; then
-  complete -C "$(command -v terraform)" terraform
-fi
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
