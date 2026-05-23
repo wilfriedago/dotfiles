@@ -67,7 +67,6 @@ fi
   source "$ZSH_CONFIG_DIR/plugins/search.zsh"
 
   # ── Environment & secrets ──────────────────────────────────────────────
-  source "$ZSH_CONFIG_DIR/plugins/mise.zsh"
   source "$ZSH_CONFIG_DIR/plugins/direnv.zsh"
   source "$ZSH_CONFIG_DIR/plugins/atuin.zsh"
   source "$ZSH_CONFIG_DIR/plugins/bws.zsh"
