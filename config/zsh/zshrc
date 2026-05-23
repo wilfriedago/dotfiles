@@ -29,18 +29,13 @@ zi ice \
   src"starship.zsh"
 zi light starship/starship
 
-# Plugins — turbo mode defers loading until after first prompt for faster startup
-zi ice wait lucid
-zi light aloxaf/fzf-tab
-
+# Deferred plugins — turbo mode loads them after the first prompt for faster startup.
+# fzf-tab is loaded eagerly below (after compinit) so Tab completion works on the first prompt.
 zi ice wait lucid atload"_zsh_autosuggest_start"
 zi light zsh-users/zsh-autosuggestions
 
 zi ice wait lucid atinit"zicdreplay"
 zi light zdharma-continuum/fast-syntax-highlighting
-
-# Snippets
-zi snippet https://github.com/lincheney/fzf-tab-completion/blob/master/zsh/fzf-zsh-completion.sh
 
 # =============================================================================================
 # Shell
@@ -63,44 +58,57 @@ else
 fi
 
 [ -d "$ZSH_CONFIG_DIR/plugins" ] && {
-  source "$ZSH_CONFIG_DIR/plugins/acli.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/android.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/angular.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/artisan.zsh"
+  # ── Core (always loaded) ───────────────────────────────────────────────
   source "$ZSH_CONFIG_DIR/plugins/brew.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/bws.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/composer.zsh"
   source "$ZSH_CONFIG_DIR/plugins/directories.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/django.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/docker.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/doctl.zsh"
-  # source "$ZSH_CONFIG_DIR/plugins/fnm.zsh"
   source "$ZSH_CONFIG_DIR/plugins/fzf.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/gitlab.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/glassfish.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/go.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/gradle.zsh"
   source "$ZSH_CONFIG_DIR/plugins/grep.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/nvim.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/search.zsh"
+
+  # ── Environment & secrets ──────────────────────────────────────────────
+  source "$ZSH_CONFIG_DIR/plugins/mise.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/direnv.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/atuin.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/bws.zsh"
+
+  # ── Languages & runtimes ───────────────────────────────────────────────
+  source "$ZSH_CONFIG_DIR/plugins/go.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/rust.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/python.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/node.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/pnpm.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/yarn.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/composer.zsh"
+
+  # ── Git & DevOps ───────────────────────────────────────────────────────
+  source "$ZSH_CONFIG_DIR/plugins/docker.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/kubectl.zsh"
   source "$ZSH_CONFIG_DIR/plugins/helm.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/jira.zsh"
   source "$ZSH_CONFIG_DIR/plugins/k9s.zsh"
   source "$ZSH_CONFIG_DIR/plugins/kind.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/kubectl.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/lmstudio.zsh"
   source "$ZSH_CONFIG_DIR/plugins/minikube.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/ngrok.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/node.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/nvim.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/pnpm.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/python.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/quarkus.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/rust.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/sdkman.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/search.zsh"
   source "$ZSH_CONFIG_DIR/plugins/terraform.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/gitlab.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/doctl.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/ngrok.zsh"
+
+  # ── Framework-specific (guarded — only load in relevant projects) ──────
+  [[ -f artisan ]] && source "$ZSH_CONFIG_DIR/plugins/artisan.zsh"
+  [[ -f manage.py ]] && source "$ZSH_CONFIG_DIR/plugins/django.zsh"
+  [[ -f angular.json ]] && source "$ZSH_CONFIG_DIR/plugins/angular.zsh"
+  [[ -f build.gradle || -f build.gradle.kts ]] && source "$ZSH_CONFIG_DIR/plugins/gradle.zsh"
+  [[ -f pom.xml ]] && source "$ZSH_CONFIG_DIR/plugins/maven.zsh"
+  [[ -d "$ANDROID_HOME" ]] && source "$ZSH_CONFIG_DIR/plugins/android.zsh"
+  [[ -f pom.xml || -f quarkus.properties ]] && source "$ZSH_CONFIG_DIR/plugins/quarkus.zsh"
+
+  # ── Niche tools (loaded only if installed) ─────────────────────────────
   source "$ZSH_CONFIG_DIR/plugins/vite-plus.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/yarn.zsh"
 }
+
+# fzf-tab must load AFTER compinit (it wraps `_main_complete`) and AFTER fzf.zsh
+# (whose `fzf --zsh` integration would otherwise re-bind `^I` to `fzf-completion`).
+zi light aloxaf/fzf-tab
 
 # Compile compdump in background if stale
 if [[ -s "$COMPDUMP" && (! -s "${COMPDUMP}.zwc" || "$COMPDUMP" -nt "${COMPDUMP}.zwc") ]]; then

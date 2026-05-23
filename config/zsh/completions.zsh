@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
-bindkey '^I' fzf_completion
+# Tab binding is owned by aloxaf/fzf-tab (loaded via zinit turbo in zshrc),
+# which installs its own `^I` → `fzf-tab-complete` widget. Do not bind here.
 
 # set descriptions format to enable group support
 # NOTE: don't use escape sequences here, fzf-tab will ignore them
