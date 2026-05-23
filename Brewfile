@@ -8,7 +8,7 @@
 # Source GH repository: https://github.com/wilfriedago/Brewfile                               #
 # See brew docs for more info: https://docs.brew.sh/Manpage                                   #
 # =============================================================================================
-# License: MIT © Wilfrieds AGO 2025 <https://wilfriedago.me>                                 #
+# License: MIT © Wilfried AGO 2025 <https://wilfriedago.me>                                 #
 # =============================================================================================
 
 # Options
@@ -17,10 +17,14 @@ cask_args appdir: '~/Applications', require_sha: true
 # =============================================================================================
 # Taps
 # =============================================================================================
-tap 'atlassian/homebrew-acli' # atlassian tap
 tap 'derailed/k9s' # k9s tap
+tap 'dopplerhq/cli' # doppler tap
+tap 'formancehq/tap' # formance tap
+tap 'geodro/lerd' # lerd tap
 tap 'hashicorp/tap' # hashicorp tap
+tap 'jetbrains/utils' # jetbrains tap
 tap 'localstack/tap' # localstack tap
+tap 'mobile-dev-inc/tap' # mobile.dev (maestro) tap
 tap 'nikitabobko/tap' # aerospace tap
 tap 'oven-sh/bun' # bun tap
 tap 'quarkusio/tap' # quarkus tap
@@ -30,52 +34,48 @@ tap 'tw93/tap' # tw93 tap
 # Apps
 # =============================================================================================
 
+cask 'aerospace' # a fast, minimalistic workspace manager for macOS
+cask 'alt-tab' # windows alt-tab on macOS
 cask 'chatgpt' # OpenAI's official ChatGPT desktop app
 cask 'claude' # Anthropic's official Claude AI desktop app
-cask 'conductor' # Claude code parallelisation
+cask 'claude-code' # Anthropic's CLI for Claude
 cask 'discord' # voice and text chat software
-cask 'expo-orbit' # launch builds and start simulators from your menu bar
+cask 'expo-orbit' # launch builds and start simulators from the menu bar
 cask 'figma' # collaborative team software
 cask 'firefox@developer-edition' # web browser (developer edition)
-cask 'folo' # information browser
-cask 'ghostty' # a terminal emulator for macOS
-cask 'github-copilot-for-xcode' # Xcode extension for GitHub Copilot
 cask 'gitkraken' # Git GUI client
+cask 'google-gemini' # native desktop AI assistant from Google
+cask 'granola' # AI-powered notepad for meetings
 cask 'helium-browser' # Chromium-based web browser
 cask 'iina' # free and open-source media player
-cask 'launchos' # Launchpad alternative
-cask 'linear-linear' # app to manage software development and track bugs
-cask 'lm-studio' # discover, download, and run local LLMs
+cask 'jetbrains-toolbox' # JetBrains tools manager
+cask 'linear' # app to manage software development and track bugs
 cask 'megasync' # syncs files between computers and MEGA Cloud drives
-cask 'ngrok' # reverse proxy, secure introspectable tunnels to localhost
 cask 'obsidian' # knowledge base that works on top of a local folder of plain text Markdown files
-cask 'onlyoffice' # document editor
 cask 'orbstack' # a modern Docker Desktop alternative for macOS
 cask 'pearcleaner' # a cleaner for macOS
 cask 'postman' # collaboration platform for API development
-cask 'raycast' # a better Spotlight for macOS
 cask 'signal' # instant messaging application focusing on security
 cask 'slack' # messaging app
 cask 'spotify' # music streaming service
 cask 'transmission' # open-source BitTorrent client
 cask 'visual-studio-code' # open-source code editor
 cask 'warp' # a modern terminal for macOS
+cask 'zotero@beta' # collect, organize, cite, and share research sources
 
 # =============================================================================================
 # CLI tools
 # =============================================================================================
 
-brew 'acli' # atlassian command line interface
+brew 'atuin' # magical shell history backed by SQLite
 brew 'bat' # cat with syntax highlighting and Git integration
 brew 'btop' # resource monitor that shows usage and stats for processor, memory, disks, network and processes
-brew 'clang-format' # formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript
 brew 'cmake' # cross-platform make
 brew 'cocoapods' # dependency manager for Cocoa projects
 brew 'composer' # dependency manager for PHP
 brew 'coreutils' # GNU File, Shell, and Text utilities
-brew 'cppcheck' # static analysis of C and C++ code
-brew 'curl' # get a file from an HTTP, HTTPS or FTP server
-brew 'doctl' # DigitalOcean CLI
+brew 'direnv' # load/unload environment variables based on $PWD
+brew 'dopplerhq/cli/doppler' # secrets manager CLI
 brew 'dotdrop' # dotfiles manager
 brew 'eza' # modern replacement for 'ls'
 brew 'fastfetch' # fast system information tool written in Rust, similar to neofetch
@@ -83,54 +83,44 @@ brew 'fd' # simple, fast and user-friendly alternative to find
 brew 'ffmpeg' # play, record, convert and stream audio and video
 brew 'ffuf' # fast web fuzzer written in Go
 brew 'flawfinder' # examines code and reports possible security weaknesses
-brew 'fnm' # fast and simple Node.js version manager
+brew 'formancehq/tap/fctl' # Formance CLI
 brew 'fzf' # command-line fuzzy finder written in go
 brew 'gawk' # GNU awk utility
-brew 'gcc' # gnu compiler collection
+brew 'gemini-cli' # Google Gemini CLI
 brew 'gh' # github command-line tool
-brew 'git-cliff' # changelog generator that uses git commit messages to generate the changelog
-brew 'git-delta' # syntax-highlighting pager for git and diff output
 brew 'git-lfs' # Git extension for versioning large files
-brew 'glassfish' # Java EE application server
-brew 'gnupg' # GNU Privacy Guard, a free software replacement for Symantec's PGP
+brew 'glab' # open-source GitLab command-line tool
 brew 'gnu-sed' # GNU implementation of the famous stream editor
 brew 'grep' # GNU grep, egrep and fgrep
 brew 'hashicorp/tap/terraform' # infrastructure as code software
 brew 'helm' # Kubernetes package manager
-brew 'jq' # lightweight and flexible command-line json processor
-brew 'k6' # modern load testing tool, using Go and JavaScript
+brew 'just' # handy command runner for project-specific tasks
 brew 'k9s' # kubernetes cli to manage your clusters in style!
 brew 'kubernetes-cli' # kubernetes command-line tool
-brew 'latexindent' # indentation of LaTeX documents
-brew 'lazydocker' # lazier way to manage everything docker
-brew 'lazygit' # simple terminal ui for git commands
 brew 'lizard-analyzer' # extensible Cyclomatic Complexity Analyzer
 brew 'localstack-cli' # LocalStack CLI for local AWS cloud emulation
 brew 'mas' # Mac App Store command-line interface
 brew 'mint' # dependency manager that installs and runs Swift command-line tool packages
 brew 'mkcert' # simple tool to make locally trusted development certificates
-brew 'mole' # deep clean and optimize your Mac
 brew 'neovim' # vim-fork focused on extensibility and usability
-brew 'nikitabobko/tap/aerospace' # a fast, minimalistic workspace manager for macOS
 brew 'nmap' # network exploration tool and security/port scanner
-brew 'oasdiff' # diff tool for OpenAPI/Swagger files
-brew 'oven-sh/bun/bun' # fast all-in-one JavaScript runtime
 brew 'pandoc' # Swiss-army knife of markup format conversion
-brew 'php' # general-purpose scripting language
 brew 'pinentry-mac' # pinentry for GPG on Mac
 brew 'pipx' # execute binaries from Python packages in isolated environments
-brew 'pyenv' # Python version management
 brew 'quarkusio/tap/quarkus' # Quarkus CLI, a Kubernetes-native Java framework tailored for GraalVM and OpenJDK HotSpot
+brew 'rbenv' # Ruby version manager
+brew 'repomix' # pack your codebase into a single AI-friendly file
 brew 'ripgrep' # line-oriented search tool that recursively searches your current directory for a regex pattern
-brew 'starship' # cross-shell prompt for astronauts
-brew 'tectonic' # modernized, complete, self-contained TeX/LaTeX engine
+brew 'rtk' # Rust Token Killer, token-optimized CLI proxy
+brew 'television' # general purpose fuzzy finder TUI
 brew 'telnet' # user interface to the TELNET protocol
 brew 'terragrunt' # thin wrapper for Terraform e.g. for locking state
 brew 'tmux' # terminal multiplexer
 brew 'trash' # CLI tool that moves files or folder to the trash
 brew 'unar' # command-line unarchiving tools supporting multiple formats
-brew 'watchman' # watch files and take action when they change
+brew 'uv' # extremely fast Python package installer and resolver
 brew 'wget' # Internet file retriever
+brew 'witr' # Why is this running?
 brew 'yazi' # blazing fast terminal file manager written in Rust, based on async I/O
 brew 'yq' # process YAML, JSON, XML, CSV and properties documents from the CLI
 brew 'zoxide' # shell extension to navigate your filesystem faster
@@ -140,8 +130,7 @@ brew 'zplug' # next-generation plugin manager for zsh
 # VSCode extensions
 # =============================================================================================
 
-vscode 'github.copilot'
-vscode 'github.copilot-chat'
+vscode 'anthropic.claude-code'
 vscode 'pkief.material-icon-theme'
 vscode 'pkief.material-product-icons'
 vscode 'subframe7536.custom-ui-style'
@@ -151,8 +140,13 @@ vscode 'subframe7536.custom-ui-style'
 # =============================================================================================
 
 mas 'bitwarden', id: 1352778147
-mas 'goodnotes-2', id: 1444383602
 mas 'hidden-bar', id: 1452453066
+mas 'keynote', id: 361285480
+mas 'microsoft-word', id: 462054704
+mas 'numbers', id: 361304891
+mas 'pages', id: 361309726
+mas 'reeder', id: 6475002485
+mas 'telegram', id: 747648890
 mas 'termius', id: 1176074088
 mas 'whatsapp', id: 310633997
 mas 'xcode', id: 497799835
