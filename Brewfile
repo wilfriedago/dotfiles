@@ -18,17 +18,11 @@ cask_args appdir: '~/Applications', require_sha: true
 # Taps
 # =============================================================================================
 tap 'derailed/k9s' # k9s tap
-tap 'dopplerhq/cli' # doppler tap
-tap 'formancehq/tap' # formance tap
-tap 'geodro/lerd' # lerd tap
 tap 'hashicorp/tap' # hashicorp tap
-tap 'jetbrains/utils' # jetbrains tap
 tap 'localstack/tap' # localstack tap
 tap 'mobile-dev-inc/tap' # mobile.dev (maestro) tap
 tap 'nikitabobko/tap' # aerospace tap
-tap 'oven-sh/bun' # bun tap
 tap 'quarkusio/tap' # quarkus tap
-tap 'tw93/tap' # tw93 tap
 
 # =============================================================================================
 # Apps
@@ -61,7 +55,7 @@ cask 'spotify' # music streaming service
 cask 'transmission' # open-source BitTorrent client
 cask 'visual-studio-code' # open-source code editor
 cask 'warp' # a modern terminal for macOS
-cask 'zotero@beta' # collect, organize, cite, and share research sources
+cask 'zotero' # collect, organize, cite, and share research sources
 
 # =============================================================================================
 # CLI tools
@@ -83,7 +77,6 @@ brew 'fd' # simple, fast and user-friendly alternative to find
 brew 'ffmpeg' # play, record, convert and stream audio and video
 brew 'ffuf' # fast web fuzzer written in Go
 brew 'flawfinder' # examines code and reports possible security weaknesses
-brew 'formancehq/tap/fctl' # Formance CLI
 brew 'fzf' # command-line fuzzy finder written in go
 brew 'gawk' # GNU awk utility
 brew 'gemini-cli' # Google Gemini CLI
@@ -101,18 +94,15 @@ brew 'lizard-analyzer' # extensible Cyclomatic Complexity Analyzer
 brew 'localstack-cli' # LocalStack CLI for local AWS cloud emulation
 brew 'mas' # Mac App Store command-line interface
 brew 'mint' # dependency manager that installs and runs Swift command-line tool packages
+brew 'mise' # polyglot runtime manager (replaces fnm, rbenv, pyenv, sdkman, asdf)
 brew 'mkcert' # simple tool to make locally trusted development certificates
 brew 'neovim' # vim-fork focused on extensibility and usability
 brew 'nmap' # network exploration tool and security/port scanner
 brew 'pandoc' # Swiss-army knife of markup format conversion
-brew 'pinentry-mac' # pinentry for GPG on Mac
-brew 'pipx' # execute binaries from Python packages in isolated environments
 brew 'quarkusio/tap/quarkus' # Quarkus CLI, a Kubernetes-native Java framework tailored for GraalVM and OpenJDK HotSpot
-brew 'rbenv' # Ruby version manager
 brew 'repomix' # pack your codebase into a single AI-friendly file
 brew 'ripgrep' # line-oriented search tool that recursively searches your current directory for a regex pattern
 brew 'rtk' # Rust Token Killer, token-optimized CLI proxy
-brew 'television' # general purpose fuzzy finder TUI
 brew 'telnet' # user interface to the TELNET protocol
 brew 'terragrunt' # thin wrapper for Terraform e.g. for locking state
 brew 'tmux' # terminal multiplexer
@@ -124,7 +114,6 @@ brew 'witr' # Why is this running?
 brew 'yazi' # blazing fast terminal file manager written in Rust, based on async I/O
 brew 'yq' # process YAML, JSON, XML, CSV and properties documents from the CLI
 brew 'zoxide' # shell extension to navigate your filesystem faster
-brew 'zplug' # next-generation plugin manager for zsh
 
 # =============================================================================================
 # VSCode extensions

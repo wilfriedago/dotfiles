@@ -2,7 +2,7 @@
 
 add_newline = false
 
-command_timeout = 2000 # Timeout for commands in milliseconds
+command_timeout = 500 # Timeout for commands in milliseconds
 
 format = """
 $os\

@@ -70,15 +70,3 @@ man () {
     LESS_TERMCAP_us=$(printf '\e[1;32m') \
       man "$@"
 }
-
-# lazygit with auto-cd, usefull when you're working with worktrees
-lzg() {
-  export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
-
-  lazygit "$@"
-
-  if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
-    cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
-    rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
-  fi
-}

@@ -1,0 +1,4 @@
+[profiles.default]
+server_base = "https://vault.bitwarden.com"
+server_api = "https://vault.bitwarden.com/api"
+server_identity = "https://vault.bitwarden.com/identity"

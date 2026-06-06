@@ -34,7 +34,7 @@ export ZINIT_COMPLETIONS_DIR="${ZINIT_HOME_DIR}/completions"
 
 # GPG — only set for interactive shells (avoids subprocess fork in scripts)
 if [[ -o interactive ]]; then
-  export GPG_TTY=$(tty)
+  export GPG_TTY=$TTY
 fi
 
 # Preferred editor for local and remote sessions

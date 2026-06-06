@@ -72,9 +72,10 @@ fi
   source "$ZSH_CONFIG_DIR/plugins/bws.zsh"
 
   # ── Languages & runtimes ───────────────────────────────────────────────
+  # NOTE: mise is activated AFTER this block (see below) so its `precmd` hook
+  # runs last and its install paths stay at the front of $PATH.
   source "$ZSH_CONFIG_DIR/plugins/go.zsh"
   source "$ZSH_CONFIG_DIR/plugins/rust.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/python.zsh"
   source "$ZSH_CONFIG_DIR/plugins/node.zsh"
   source "$ZSH_CONFIG_DIR/plugins/pnpm.zsh"
   source "$ZSH_CONFIG_DIR/plugins/yarn.zsh"
@@ -89,7 +90,7 @@ fi
   source "$ZSH_CONFIG_DIR/plugins/minikube.zsh"
   source "$ZSH_CONFIG_DIR/plugins/terraform.zsh"
   source "$ZSH_CONFIG_DIR/plugins/gitlab.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/doctl.zsh"
+  # source "$ZSH_CONFIG_DIR/plugins/doctl.zsh"
   source "$ZSH_CONFIG_DIR/plugins/ngrok.zsh"
 
   # ── Framework-specific (guarded — only load in relevant projects) ──────
@@ -100,14 +101,16 @@ fi
   [[ -f pom.xml ]] && source "$ZSH_CONFIG_DIR/plugins/maven.zsh"
   [[ -d "$ANDROID_HOME" ]] && source "$ZSH_CONFIG_DIR/plugins/android.zsh"
   [[ -f pom.xml || -f quarkus.properties ]] && source "$ZSH_CONFIG_DIR/plugins/quarkus.zsh"
-
-  # ── Niche tools (loaded only if installed) ─────────────────────────────
-  source "$ZSH_CONFIG_DIR/plugins/vite-plus.zsh"
 }
 
 # fzf-tab must load AFTER compinit (it wraps `_main_complete`) and AFTER fzf.zsh
 # (whose `fzf --zsh` integration would otherwise re-bind `^I` to `fzf-completion`).
 zi light aloxaf/fzf-tab
+
+# Activate mise LAST so it runs after every other PATH modification (plugins
+# above, VSCode/Copilot shell integration, zinit, etc.). This keeps mise's
+# install paths at the front and silences `mise doctor`'s path-order warning.
+(( $+commands[mise] )) && _cache_eval "mise" "mise activate zsh" "$commands[mise]"
 
 # Compile compdump in background if stale
 if [[ -s "$COMPDUMP" && (! -s "${COMPDUMP}.zwc" || "$COMPDUMP" -nt "${COMPDUMP}.zwc") ]]; then

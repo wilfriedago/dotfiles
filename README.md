@@ -53,8 +53,6 @@ In terms of command-line tools, I try to keep them minimal—only the ones I use
 - [`fd`](https://github.com/sharkdp/fd) - A simple, fast and user-friendly alternative to `find`
 - [`fzf`](https://github.com/junegunn/fzf) - A command-line fuzzy finder
 - [`k9s`](https://github.com/derailed/k9s) - A terminal UI for Kubernetes
-- [`lazygit`](https://github.com/jesseduffield/lazygit) - A simple terminal UI for git commands
-- [`lazydocker`](https://github.com/jesseduffield/lazydocker) - A simple terminal UI for Docker
 - [`yazi`](https://github.com/sxyazi/yazi) - A terminal file manager
 - [`zoxide`](https://github.com/ajeetdsouza/zoxide) - A smarter `cd`
 

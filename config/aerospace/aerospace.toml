@@ -67,10 +67,6 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 # 1: Terminal  2: Browser  3: Editor  4: Communication  5: Design  6: Notes
 
 [[on-window-detected]]
-  if.app-id = 'com.mitchellh.ghostty'
-  run = ['move-node-to-workspace 1']
-
-[[on-window-detected]]
   if.app-id = 'dev.warp.Warp-Stable'
   run = ['move-node-to-workspace 1']
 
