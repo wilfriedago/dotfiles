@@ -99,7 +99,6 @@ Uses Karabiner-Elements for custom key bindings:
 ### CLI Tools
 - **Starship prompt**: [config/starship/](config/starship/)
 - **Git**: [config/gitconfig](config/gitconfig), [config/gitignore_global](config/gitignore_global)
-- **Lazygit**: [config/lazygit/](config/lazygit/)
 - **K9s**: [config/k9s/](config/k9s/)
 - **Bat**: [config/bat/](config/bat/)
 - **Yazi**: [config/yazi/](config/yazi/)
