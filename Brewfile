@@ -20,7 +20,6 @@ cask_args appdir: '~/Applications', require_sha: true
 tap 'derailed/k9s' # k9s tap
 tap 'hashicorp/tap' # hashicorp tap
 tap 'localstack/tap' # localstack tap
-tap 'mobile-dev-inc/tap' # mobile.dev (maestro) tap
 tap 'nikitabobko/tap' # aerospace tap
 tap 'quarkusio/tap' # quarkus tap
 
@@ -30,29 +29,31 @@ tap 'quarkusio/tap' # quarkus tap
 
 cask 'aerospace' # a fast, minimalistic workspace manager for macOS
 cask 'alt-tab' # windows alt-tab on macOS
+cask 'android-studio' # tools for building Android applications
 cask 'chatgpt' # OpenAI's official ChatGPT desktop app
 cask 'claude' # Anthropic's official Claude AI desktop app
 cask 'claude-code' # Anthropic's CLI for Claude
+cask 'copilot-cli' # GitHub Copilot coding agent in your terminal
 cask 'discord' # voice and text chat software
 cask 'expo-orbit' # launch builds and start simulators from the menu bar
 cask 'figma' # collaborative team software
-cask 'firefox@developer-edition' # web browser (developer edition)
 cask 'gitkraken' # Git GUI client
-cask 'google-gemini' # native desktop AI assistant from Google
 cask 'granola' # AI-powered notepad for meetings
 cask 'helium-browser' # Chromium-based web browser
 cask 'iina' # free and open-source media player
-cask 'jetbrains-toolbox' # JetBrains tools manager
-cask 'linear' # app to manage software development and track bugs
+cask 'intellij-idea' # Java IDE by JetBrains
+cask 'mactex-no-gui' # full TeX Live distribution without GUI applications
 cask 'megasync' # syncs files between computers and MEGA Cloud drives
 cask 'obsidian' # knowledge base that works on top of a local folder of plain text Markdown files
 cask 'orbstack' # a modern Docker Desktop alternative for macOS
+cask 'paseo' # self-hosted daemon for AI coding agents
 cask 'pearcleaner' # a cleaner for macOS
 cask 'postman' # collaboration platform for API development
 cask 'signal' # instant messaging application focusing on security
 cask 'slack' # messaging app
 cask 'spotify' # music streaming service
 cask 'transmission' # open-source BitTorrent client
+cask 'ungoogled-chromium' # Google Chromium, sans integration with Google
 cask 'visual-studio-code' # open-source code editor
 cask 'warp' # a modern terminal for macOS
 cask 'zotero' # collect, organize, cite, and share research sources
@@ -69,8 +70,8 @@ brew 'cocoapods' # dependency manager for Cocoa projects
 brew 'composer' # dependency manager for PHP
 brew 'coreutils' # GNU File, Shell, and Text utilities
 brew 'direnv' # load/unload environment variables based on $PWD
-brew 'dopplerhq/cli/doppler' # secrets manager CLI
 brew 'dotdrop' # dotfiles manager
+brew 'eas-cli' # command-line tool for working with Expo Application Services
 brew 'eza' # modern replacement for 'ls'
 brew 'fastfetch' # fast system information tool written in Rust, similar to neofetch
 brew 'fd' # simple, fast and user-friendly alternative to find
@@ -79,9 +80,9 @@ brew 'ffuf' # fast web fuzzer written in Go
 brew 'flawfinder' # examines code and reports possible security weaknesses
 brew 'fzf' # command-line fuzzy finder written in go
 brew 'gawk' # GNU awk utility
-brew 'gemini-cli' # Google Gemini CLI
 brew 'gh' # github command-line tool
 brew 'git-lfs' # Git extension for versioning large files
+brew 'gitleaks' # scan git repos and code for hardcoded secrets
 brew 'glab' # open-source GitLab command-line tool
 brew 'gnu-sed' # GNU implementation of the famous stream editor
 brew 'grep' # GNU grep, egrep and fgrep
@@ -96,19 +97,25 @@ brew 'mas' # Mac App Store command-line interface
 brew 'mint' # dependency manager that installs and runs Swift command-line tool packages
 brew 'mise' # polyglot runtime manager (replaces fnm, rbenv, pyenv, sdkman, asdf)
 brew 'mkcert' # simple tool to make locally trusted development certificates
+brew 'mole' # deep clean and optimize your Mac
+brew 'mysql' # open source relational database management system
 brew 'neovim' # vim-fork focused on extensibility and usability
 brew 'nmap' # network exploration tool and security/port scanner
 brew 'pandoc' # Swiss-army knife of markup format conversion
+brew 'plantuml' # draw UML diagrams
 brew 'quarkusio/tap/quarkus' # Quarkus CLI, a Kubernetes-native Java framework tailored for GraalVM and OpenJDK HotSpot
 brew 'repomix' # pack your codebase into a single AI-friendly file
 brew 'ripgrep' # line-oriented search tool that recursively searches your current directory for a regex pattern
 brew 'rtk' # Rust Token Killer, token-optimized CLI proxy
+brew 'tectonic' # modernized, complete, self-contained TeX/LaTeX engine
 brew 'telnet' # user interface to the TELNET protocol
-brew 'terragrunt' # thin wrapper for Terraform e.g. for locking state
+brew 'tex-fmt' # extremely fast LaTeX formatter written in Rust
 brew 'tmux' # terminal multiplexer
 brew 'trash' # CLI tool that moves files or folder to the trash
+brew 'typst' # markup-based typesetting system
 brew 'unar' # command-line unarchiving tools supporting multiple formats
 brew 'uv' # extremely fast Python package installer and resolver
+brew 'watchman' # watch files and take action when they change
 brew 'wget' # Internet file retriever
 brew 'witr' # Why is this running?
 brew 'yazi' # blazing fast terminal file manager written in Rust, based on async I/O
@@ -131,6 +138,8 @@ vscode 'subframe7536.custom-ui-style'
 mas 'bitwarden', id: 1352778147
 mas 'hidden-bar', id: 1452453066
 mas 'keynote', id: 361285480
+mas 'microsoft-excel', id: 462058435
+mas 'microsoft-powerpoint', id: 462062816
 mas 'microsoft-word', id: 462054704
 mas 'numbers', id: 361304891
 mas 'pages', id: 361309726
