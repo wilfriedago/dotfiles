@@ -1,8 +1,0 @@
-name = "New tab: wilfriedago"
-
-[[panes]]
-id = "main"
-type = "terminal"
-directory = "/Users/wilfriedago"
-
-[params]

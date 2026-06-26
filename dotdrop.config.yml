@@ -34,7 +34,7 @@ profiles:
     - d_k9s
     - d_nvim
     - d_starship
-    # - d_warp # I'm back to ghostty, why should i create an account to use a terminal?
+    - d_warp
     - d_yazi
     - f_curlrc
     - f_gitconfig
@@ -125,9 +125,9 @@ dotfiles:
   d_starship:
     src: config/starship
     dst: ~/.config/starship
-  # d_warp:
-  #   src: config/warp
-  #   dst: ~/.warp
+  d_warp:
+    src: config/warp
+    dst: ~/.warp
   d_yazi:
     src: config/yazi
     dst: ~/.config/yazi

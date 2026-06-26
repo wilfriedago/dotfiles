@@ -1,4 +1,0 @@
----
-"workspace:toggle_left_panel": cmd-b
-"terminal:warpify_ssh_session": ctrl-shift-|
-"terminal:warpify_subshell": ctrl-shift-|
