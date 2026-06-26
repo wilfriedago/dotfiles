@@ -6,7 +6,7 @@
 	name = Wilfried AGO
 	email = 68906789+wilfriedago@users.noreply.github.com
 	username = wilfriedago
-	signingKey = 63B083B382E2CB3C8764042344FF24F26FCE4AA9
+	signingKey = ~/.ssh/id_ed25519.pub
 
 [github]
 	user = wilfriedago
@@ -23,32 +23,7 @@
 	autocrlf = false
 
 [color]
-  status = auto
-  diff = auto
-  branch = auto
-  interactive = auto
-  grep = auto
-	ui = true
-
-[rerere]
-	enabled = 1
-	autoupdate = 1
-
-[push]
-  autoSetupRemote = true
-
-[pull]
-	rebase = true
-
-[rebase]
-  autoStash = true
-
-[commit]
-  gpgsign = true
-  # template = ~/.gitmessage
-
-[tag]
-	forceSignAnnotated = true
+	ui = auto
 
 [column]
 	ui = auto
@@ -56,11 +31,52 @@
 [branch]
 	sort = -committerdate
 
-[alias]
-	fpush = push
+[tag]
+	sort = -version:refname
+	forceSignAnnotated = true
 
-[hub]
-  protocol = https
+[rerere]
+	enabled = true
+	autoupdate = true
+
+[push]
+	autoSetupRemote = true
+	followTags = true
+
+[pull]
+	rebase = true
+
+[rebase]
+	autoStash = true
+	updateRefs = true
+
+[fetch]
+	prune = true
+	pruneTags = true
+
+[diff]
+	algorithm = histogram
+	colorMoved = zebra
+	renames = copies
+	mnemonicPrefix = true
+
+[merge]
+	conflictStyle = zdiff3
+
+[help]
+	autocorrect = prompt
+
+[commit]
+	gpgsign = true
+	verbose = true
+	# template = ~/.gitmessage
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	allowedSignersFile = ~/.config/git/allowed_signers
+	program = ssh-keygen
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -68,249 +84,136 @@
 	process = git-lfs filter-process
 	required = true
 
-[gpg]
-	program = gpg
-
 [gitflow "branch"]
-  master = main
-  develop = develop
+	master = main
+	develop = develop
 
 [gitflow "prefix"]
-  feature = feat/
-  release = release/
-  hotfix = hotfix/
-  bugfix = bugfix/
-  versiontag = v
+	feature = feat/
+	release = release/
+	hotfix = hotfix/
+	bugfix = bugfix/
+	versiontag = v
 
 [alias]
-  # Adding files
-  a = add --all
-  ai = add -i
+	# ── Adding ─────────────────────────────────────────────────────────────
+	a = add --all
+	ai = add -i
 
-  # Apply patches
-  ap = apply
-  as = apply --stat
-  ac = apply --check
-  ama = am --abort
-  amr = am --resolved
-  ams = am --skip
+	# ── Branch ─────────────────────────────────────────────────────────────
+	b = branch
+	ba = branch -a
+	bd = branch -d
+	bdd = branch -D
+	bc = rev-parse --abbrev-ref HEAD
+	bu = "!git rev-parse --abbrev-ref --symbolic-full-name @{u}"
+	default = "!git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'"
 
-  # Branch management
-  b = branch
-  ba = branch -a
-  bd = branch -d
-  bdd = branch -D
-  br = branch -r
-  bc = rev-parse --abbrev-ref HEAD
-  bu = "!git rev-parse --abbrev-ref --symbolic-full-name \"@{u}\""
-  bs = "!git-branch-status"
+	# ── Commit ─────────────────────────────────────────────────────────────
+	c = commit
+	ca = commit -a
+	cm = commit -m
+	cam = commit -am
+	cd = commit --amend
+	cad = commit -a --amend
+	undo = reset --soft HEAD^
+	absorb = !git-absorb --and-rebase
 
-  # Commits
-  c = commit
-  ca = commit -a
-  cm = commit -m
-  cam = commit -am
-  cem = commit --allow-empty -m
-  cd = commit --amend
-  cad = commit -a --amend
-  ced = commit --allow-empty --amend
+	# ── Clone ──────────────────────────────────────────────────────────────
+	cl = clone
+	cld = clone --depth 1
 
-  # Cloning
-  cl = clone
-  cld = clone --depth 1
-  clg = "!sh -c 'git clone git://github.com/$1 $(basename $1)' -"
-  clgp = "!sh -c 'git clone git@github.com:$1 $(basename $1)' -"
-  clgu = "!sh -c 'git clone git@github.com:$(git config --get user.username)/$1 $1' -"
+	# ── Cherry-pick ────────────────────────────────────────────────────────
+	cp = cherry-pick
+	cpa = cherry-pick --abort
+	cpc = cherry-pick --continue
 
-  # Cherry-pick
-  cp = cherry-pick
-  cpa = cherry-pick --abort
-  cpc = cherry-pick --continue
+	# ── Diff ───────────────────────────────────────────────────────────────
+	d = diff
+	dc = diff --cached
+	dft = "!f() { GIT_EXTERNAL_DIFF=difft git diff $@; }; f"
+	dfts = "!f() { GIT_EXTERNAL_DIFF=difft git diff --staged $@; }; f"
 
-  # Diff
-  d = diff
-  dp = diff --patience
-  dc = diff --cached
-  dk = diff --check
-  dck = diff --cached --check
-  dt = difftool
-  dct = difftool --cached
-  dft = "!f() { GIT_EXTERNAL_DIFF=difft git diff $@; }; f"
-  dfts = "!f() { GIT_EXTERNAL_DIFF=difft git diff --staged $@; }; f"
+	# ── Fetch ──────────────────────────────────────────────────────────────
+	f = fetch
+	fa = fetch --all
 
-  # Absorb (automatic fixup commits)
-  absorb = !git-absorb --and-rebase
+	# ── Log ────────────────────────────────────────────────────────────────
+	l = log --oneline
+	lg = log --oneline --graph --decorate
+	lga = log --oneline --graph --decorate --all
 
-  # Fetch
-  f = fetch
-  fo = fetch origin
-  fu = fetch upstream
+	# ── Merge ──────────────────────────────────────────────────────────────
+	m = merge
+	ma = merge --abort
+	mc = merge --continue
 
-  # Format patch
-  fp = format-patch
+	# ── Checkout / switch ──────────────────────────────────────────────────
+	o = checkout
+	ob = checkout -b
+	sw = switch
+	swc = switch -c
+	opr = "!f() { gh pr checkout \"$1\"; }; f"
 
-  # Fsck
-  fk = fsck
+	# ── Push ───────────────────────────────────────────────────────────────
+	# push.autoSetupRemote makes `git push` Just Work for new branches.
+	ps = push
+	psf = push --force-with-lease --force-if-includes
+	pst = push --tags
 
-  # Grep
-  g = grep -p
+	# ── Pull ───────────────────────────────────────────────────────────────
+	pl = pull
+	pb = pull --rebase
 
-  # Log
-  l = log --oneline
-  lg = log --oneline --graph --decorate
+	# ── Rebase ─────────────────────────────────────────────────────────────
+	rb = rebase
+	rba = rebase --abort
+	rbc = rebase --continue
+	rbi = rebase --interactive
+	rbs = rebase --skip
 
-  # Ls-files
-  ls = ls-files
-  lsf = "!git ls-files | grep -i"
+	# ── Reset ──────────────────────────────────────────────────────────────
+	reh = reset --hard
+	res = reset --soft
 
-  # Merge
-  m = merge
-  ma = merge --abort
-  mc = merge --continue
-  ms = merge --skip
+	# ── Remote ─────────────────────────────────────────────────────────────
+	r = remote
+	rv = remote -v
+	rao = remote add origin
+	rso = remote show origin
 
-  # Checkout
-  o = checkout
-  om = checkout master
-  ob = checkout -b
-  opr = "!sh -c 'git fo pull/$1/head:pr-$1 && git o pr-$1' -"
+	# ── Status ─────────────────────────────────────────────────────────────
+	s = status
+	sb = status -s -b
 
-  # Prune
-  pr = prune -v
+	# ── Stash ──────────────────────────────────────────────────────────────
+	sl = stash list
+	sp = stash pop
+	ss = stash save
+	stc = stash clear
 
-  # Push
-  ps = push
-  psf = push -f
-  psu = push -u
-  pst = push --tags
-  pso = push origin
-  psao = push --all origin
-  psfo = push -f origin
-  psuo = push -u origin
-  psom = push origin master
-  psaom = push --all origin master
-  psfom = push -f origin master
-  psuom = push -u origin master
-  psoc = "!git push origin $(git bc)"
-  psaoc = "!git push --all origin $(git bc)"
-  psfoc = "!git push -f origin $(git bc)"
-  psuoc = "!git push -u origin $(git bc)"
-  psdc = "!git push origin :$(git bc)"
+	# ── Tag ────────────────────────────────────────────────────────────────
+	t = tag
+	td = tag -d
 
-  # Pull
-  pl = pull
-  pb = pull --rebase
-  plo = pull origin
-  pbo = pull --rebase origin
-  plom = pull origin master
-  ploc = "!git pull origin $(git bc)"
-  pbom = pull --rebase origin master
-  pboc = "!git pull --rebase origin $(git bc)"
-  plu = pull upstream
-  plum = pull upstream master
-  pluc = "!git pull upstream $(git bc)"
-  pbum = pull --rebase upstream master
-  pbuc = "!git pull --rebase upstream $(git bc)"
+	# ── Show ───────────────────────────────────────────────────────────────
+	w = show
+	wp = show -p
 
-  # Rebase
-  rb = rebase
-  rba = rebase --abort
-  rbc = rebase --continue
-  rbi = rebase --interactive
-  rbs = rebase --skip
+	# ── Submodule ──────────────────────────────────────────────────────────
+	subup = submodule update --init --recursive
 
-  # Reset
-  re = reset
-  rh = reset HEAD
-  reh = reset --hard
-  rem = reset --mixed
-  res = reset --soft
-  rehh = reset --hard HEAD
-  remh = reset --mixed HEAD
-  undo = reset --soft HEAD^
-  rehom = reset --hard origin/master
+	# ── Worktree ───────────────────────────────────────────────────────────
+	wt = worktree
+	wta = worktree add
+	wtl = worktree list
+	wtr = worktree remove
 
-  # Remote
-  r = remote
-  ra = remote add
-  rr = remote rm
-  rv = remote -v
-  rn = remote rename
-  rp = remote prune
-  rs = remote show
-  rao = remote add origin
-  rau = remote add upstream
-  rro = remote remove origin
-  rru = remote remove upstream
-  rso = remote show origin
-  rsu = remote show upstream
-  rpo = remote prune origin
-  rpu = remote prune upstream
-
-  # Remove
-  rmf = rm -f
-  rmrf = rm -r -f
-
-  # Status
-  s = status
-  sb = status -s -b
-
-  # Stash
-  sa = stash apply
-  sc = stash clear
-  sd = stash drop
-  sl = stash list
-  sp = stash pop
-  ss = stash save
-  ssk = stash save -k
-  sw = stash show
-  st = "!git stash list | wc -l 2>/dev/null | grep -oEi '[0-9][0-9]*'"
-
-  # Tag
-  t = tag
-  td = tag -d
-
-  # Show
-  w = show
-  wp = show -p
-  wr = show -p --no-color
-
-  # SVN (if used)
-  svnr = svn rebase
-  svnd = svn dcommit
-  svnl = svn log --oneline --show-commit
-
-  # Submodules
-  subadd = "!sh -c 'git submodule add git://github.com/$1 $2/$(basename $1)' -"
-  subrm = "!sh -c 'git submodule deinit -f -- $1 && rm -rf .git/modules/$1 && git rm -f $1' -"
-  subup = submodule update --init --recursive
-  subpull = "!git submodule foreach git pull --tags -f origin master"
-
-  # Assume untracked
-  assume = update-index --assume-unchanged
-  unassume = update-index --no-assume-unchanged
-  assumed = "!git ls -v | grep ^h | cut -c 3-"
-  unassumeall = "!git assumed | xargs git unassume"
-  assumeall = "!git status -s | awk {'print $2'} | xargs git assume"
-
-  # Releases / versioning
-  bump = "!sh -c 'git commit -am \"Version bump v$1\" && git psuoc && git release $1' -"
-  release = "!sh -c 'git tag v$1 && git pst' -"
-  unrelease = "!sh -c 'git tag -d v$1 && git pso :v$1' -"
-  merged = "!sh -c 'git o master && git plom && git bd $1 && git rpo' -"
-
-  # Utilities
-  aliases = "!git config -l | grep alias | cut -c 7-"
-  snap = "!git stash save 'snapshot: $(date)' && git stash apply 'stash@{0}'"
-  bare = "!sh -c 'git symbolic-ref HEAD refs/heads/$1 && git rm --cached -r . && git clean -xfd' -"
-  whois = "!sh -c 'git log -i -1 --author=\"$1\" --pretty=\"format:%an <%ae>\"' -"
-  serve = daemon --reuseaddr --verbose --base-path=. --export-all ./.git
-  behind = "!git rev-list --left-only --count $(git bu)...HEAD"
-  ahead = "!git rev-list --right-only --count $(git bu)...HEAD"
-  ours = "!f() { git checkout --ours $@ && git add $@; }; f"
-  theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
-  subrepo = "!sh -c 'git filter-branch --prune-empty --subdirectory-filter $1 master' -"
-  human = "name-rev --name-only --refs=refs/heads/*"
-
-[safe]
-	directory = *
+	# ── Inspection ─────────────────────────────────────────────────────────
+	aliases = "!git config --get-regexp '^alias\\.' | sed 's/^alias\\.//' | sort"
+	behind = "!git rev-list --left-only --count $(git bu)...HEAD"
+	ahead = "!git rev-list --right-only --count $(git bu)...HEAD"
+	ours = "!f() { git checkout --ours $@ && git add $@; }; f"
+	theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+	whois = "!f() { git log -i -1 --author=\"$1\" --pretty='format:%an <%ae>'; }; f"
+	changelog = !git-cliff
