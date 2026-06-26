@@ -11,7 +11,7 @@
 # =============================================================================================
 
 # Check if Yarn is installed
-if (( ! $+commands[corepack] )); then
+if (( ! $+commands[yarn] )); then
   return
 fi
 

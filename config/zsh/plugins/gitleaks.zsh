@@ -1,36 +1,37 @@
 # =============================================================================================
-# ~/.config/zsh/plugins/node.zsh
+# ~/.config/zsh/plugins/gitleaks.zsh
 # =============================================================================================
-# Node.js & NPM Zsh Plugin
-# This plugin provides aliases and completion for Node.js and NPM.
+# Gitleaks Zsh Plugin
+# This plugin provides aliases and completion for Gitleaks.
 #
-# It makes managing Node.js packages directly from the command line easier.
+# It makes scanning code and git repositories for secrets directly from the command line easier.
 # For docs and more info, see: https://github.com/wilfriedago/dotfiles
 # =============================================================================================
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
-# Check if Node.js is installed
-if (( ! $+commands[node] )); then
+# Check if Gitleaks is installed
+if (( ! $+commands[gitleaks] )); then
   return
 fi
 
 # =============================================================================================
-# Environment Variables
+# Aliases
 # =============================================================================================
-export NODE_OPTIONS="--no-deprecation"
-
-# =============================================================================================
-# Aliases - Node.js
-# =============================================================================================
-alias nd='node'
+alias gl='gitleaks'
+alias glg='gitleaks git'
+alias gld='gitleaks dir'
+alias gls='gitleaks stdin'
+alias glv='gitleaks version'
+alias glp='gitleaks git --pre-commit --staged'
 
 # =============================================================================================
 # Completions
 # =============================================================================================
-if [[ ! -f "$ZSH_CACHE_DIR/completions/_npm" ]]; then
+if [[ ! -f "$ZSH_CACHE_DIR/completions/_gitleaks" ]]; then
   typeset -g -A _comps
-  autoload -Uz _npm
-  _comps[npm]=_npm
-  npm completion >| "$ZSH_CACHE_DIR/completions/_npm" &|
+  autoload -Uz _gitleaks
+  _comps[gitleaks]=_gitleaks
+  _comps[gl]=_gitleaks
+  gitleaks completion zsh >| "$ZSH_CACHE_DIR/completions/_gitleaks" &|
 fi

@@ -72,14 +72,14 @@ fi
   source "$ZSH_CONFIG_DIR/plugins/bws.zsh"
 
   # ── Languages & runtimes ───────────────────────────────────────────────
-  # NOTE: mise is activated AFTER this block (see below) so its `precmd` hook
-  # runs last and its install paths stay at the front of $PATH.
+  source "$ZSH_CONFIG_DIR/plugins/android.zsh"
   source "$ZSH_CONFIG_DIR/plugins/go.zsh"
   source "$ZSH_CONFIG_DIR/plugins/rust.zsh"
   source "$ZSH_CONFIG_DIR/plugins/node.zsh"
   source "$ZSH_CONFIG_DIR/plugins/pnpm.zsh"
   source "$ZSH_CONFIG_DIR/plugins/yarn.zsh"
   source "$ZSH_CONFIG_DIR/plugins/composer.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/tex.zsh"
 
   # ── Git & DevOps ───────────────────────────────────────────────────────
   source "$ZSH_CONFIG_DIR/plugins/docker.zsh"
@@ -93,13 +93,15 @@ fi
   # source "$ZSH_CONFIG_DIR/plugins/doctl.zsh"
   source "$ZSH_CONFIG_DIR/plugins/ngrok.zsh"
 
+  # ── AI tooling ─────────────────────────────────────────────────────────
+  source "$ZSH_CONFIG_DIR/plugins/claude.zsh"
+
   # ── Framework-specific (guarded — only load in relevant projects) ──────
   [[ -f artisan ]] && source "$ZSH_CONFIG_DIR/plugins/artisan.zsh"
   [[ -f manage.py ]] && source "$ZSH_CONFIG_DIR/plugins/django.zsh"
   [[ -f angular.json ]] && source "$ZSH_CONFIG_DIR/plugins/angular.zsh"
   [[ -f build.gradle || -f build.gradle.kts ]] && source "$ZSH_CONFIG_DIR/plugins/gradle.zsh"
   [[ -f pom.xml ]] && source "$ZSH_CONFIG_DIR/plugins/maven.zsh"
-  [[ -d "$ANDROID_HOME" ]] && source "$ZSH_CONFIG_DIR/plugins/android.zsh"
   [[ -f pom.xml || -f quarkus.properties ]] && source "$ZSH_CONFIG_DIR/plugins/quarkus.zsh"
 }
 

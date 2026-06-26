@@ -1,36 +1,31 @@
 # =============================================================================================
-# ~/.config/zsh/plugins/node.zsh
+# ~/.config/zsh/plugins/tex.zsh
 # =============================================================================================
-# Node.js & NPM Zsh Plugin
-# This plugin provides aliases and completion for Node.js and NPM.
+# TeX / MacTeX Zsh Plugin
+# This plugin ensures the MacTeX binaries are on the PATH and provides aliases.
 #
-# It makes managing Node.js packages directly from the command line easier.
+# MacTeX installs its tools under /Library/TeX/texbin. macOS normally adds this
+# via /etc/paths.d/TeX, but we add it here too so the PATH is explicit and
+# portable across machines.
 # For docs and more info, see: https://github.com/wilfriedago/dotfiles
 # =============================================================================================
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
-# Check if Node.js is installed
-if (( ! $+commands[node] )); then
+# =============================================================================================
+# Environment variables
+# =============================================================================================
+case ":$PATH:" in
+  *":/Library/TeX/texbin:"*) ;;
+  *) export PATH="/Library/TeX/texbin:$PATH" ;;
+esac
+
+# Check if TeX is installed
+if (( ! $+commands[tex] )); then
   return
 fi
 
 # =============================================================================================
-# Environment Variables
+# Aliases
 # =============================================================================================
-export NODE_OPTIONS="--no-deprecation"
-
-# =============================================================================================
-# Aliases - Node.js
-# =============================================================================================
-alias nd='node'
-
-# =============================================================================================
-# Completions
-# =============================================================================================
-if [[ ! -f "$ZSH_CACHE_DIR/completions/_npm" ]]; then
-  typeset -g -A _comps
-  autoload -Uz _npm
-  _comps[npm]=_npm
-  npm completion >| "$ZSH_CACHE_DIR/completions/_npm" &|
-fi
+alias tlmgr-update='sudo tlmgr update --self --all'
