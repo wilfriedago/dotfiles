@@ -59,12 +59,11 @@ fi
 
 [ -d "$ZSH_CONFIG_DIR/plugins" ] && {
   # ── Core (always loaded) ───────────────────────────────────────────────
-  source "$ZSH_CONFIG_DIR/plugins/brew.zsh"
   source "$ZSH_CONFIG_DIR/plugins/directories.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/fzf.zsh"
   source "$ZSH_CONFIG_DIR/plugins/grep.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/brew.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/fzf.zsh"
   source "$ZSH_CONFIG_DIR/plugins/nvim.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/search.zsh"
 
   # ── Environment & secrets ──────────────────────────────────────────────
   source "$ZSH_CONFIG_DIR/plugins/direnv.zsh"
@@ -73,36 +72,35 @@ fi
 
   # ── Languages & runtimes ───────────────────────────────────────────────
   source "$ZSH_CONFIG_DIR/plugins/android.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/go.zsh"
   source "$ZSH_CONFIG_DIR/plugins/rust.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/python.zsh"
   source "$ZSH_CONFIG_DIR/plugins/node.zsh"
   source "$ZSH_CONFIG_DIR/plugins/pnpm.zsh"
   source "$ZSH_CONFIG_DIR/plugins/yarn.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/composer.zsh"
   source "$ZSH_CONFIG_DIR/plugins/tex.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/composer.zsh"
 
   # ── Git & DevOps ───────────────────────────────────────────────────────
   source "$ZSH_CONFIG_DIR/plugins/docker.zsh"
   source "$ZSH_CONFIG_DIR/plugins/kubectl.zsh"
   source "$ZSH_CONFIG_DIR/plugins/helm.zsh"
   source "$ZSH_CONFIG_DIR/plugins/k9s.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/kind.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/minikube.zsh"
   source "$ZSH_CONFIG_DIR/plugins/terraform.zsh"
   source "$ZSH_CONFIG_DIR/plugins/gitlab.zsh"
-  # source "$ZSH_CONFIG_DIR/plugins/doctl.zsh"
   source "$ZSH_CONFIG_DIR/plugins/ngrok.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/vigolium.zsh"
 
   # ── AI tooling ─────────────────────────────────────────────────────────
   source "$ZSH_CONFIG_DIR/plugins/claude.zsh"
 
   # ── Framework-specific (guarded — only load in relevant projects) ──────
+  [[ -f pom.xml ]] && source "$ZSH_CONFIG_DIR/plugins/maven.zsh"
   [[ -f artisan ]] && source "$ZSH_CONFIG_DIR/plugins/artisan.zsh"
   [[ -f manage.py ]] && source "$ZSH_CONFIG_DIR/plugins/django.zsh"
   [[ -f angular.json ]] && source "$ZSH_CONFIG_DIR/plugins/angular.zsh"
-  [[ -f build.gradle || -f build.gradle.kts ]] && source "$ZSH_CONFIG_DIR/plugins/gradle.zsh"
-  [[ -f pom.xml ]] && source "$ZSH_CONFIG_DIR/plugins/maven.zsh"
+  [[ -d apps && -d sites ]] && source "$ZSH_CONFIG_DIR/plugins/bench.zsh"
   [[ -f pom.xml || -f quarkus.properties ]] && source "$ZSH_CONFIG_DIR/plugins/quarkus.zsh"
+  [[ -f build.gradle || -f build.gradle.kts ]] && source "$ZSH_CONFIG_DIR/plugins/gradle.zsh"
 }
 
 # fzf-tab must load AFTER compinit (it wraps `_main_complete`) and AFTER fzf.zsh
