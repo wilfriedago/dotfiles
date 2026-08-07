@@ -112,7 +112,6 @@ brew 'myx' # a lean, beautiful terminal Spotify player
 brew 'neovim' # vim-fork focused on extensibility and usability
 brew 'nmap' # network exploration tool and security/port scanner
 brew 'pandoc' # Swiss-army knife of markup format conversion
-brew 'plantuml' # draw UML diagrams
 brew 'quarkusio/tap/quarkus' # Quarkus CLI, a Kubernetes-native Java framework tailored for GraalVM and OpenJDK HotSpot
 brew 'repomix' # pack your codebase into a single AI-friendly file
 brew 'ripgrep' # line-oriented search tool that recursively searches your current directory for a regex pattern
@@ -121,8 +120,6 @@ brew 'scrcpy' # display and control your Android device
 brew 'telnet' # user interface to the TELNET protocol
 brew 'tex-fmt' # extremely fast LaTeX formatter written in Rust
 brew 'tmux' # terminal multiplexer
-brew 'trash' # CLI tool that moves files or folder to the trash
-brew 'trivy' # vulnerability scanner for container images, file systems, and Git repos
 brew 'typst' # markup-based typesetting system
 brew 'unar' # command-line unarchiving tools supporting multiple formats
 brew 'uv' # extremely fast Python package installer and resolver
