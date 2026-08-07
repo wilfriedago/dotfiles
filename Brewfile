@@ -138,9 +138,6 @@ vscode 'subframe7536.custom-ui-style'
 mas 'bitwarden', id: 1352778147
 mas 'hidden-bar', id: 1452453066
 mas 'keynote', id: 361285480
-mas 'microsoft-excel', id: 462058435
-mas 'microsoft-powerpoint', id: 462062816
-mas 'microsoft-word', id: 462054704
 mas 'numbers', id: 361304891
 mas 'pages', id: 361309726
 mas 'reeder', id: 6475002485
