@@ -12,20 +12,14 @@
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
-# =============================================================================================
 # Environment variables
-# =============================================================================================
+export TEXBIN_DIR="/Library/TeX/texbin"
+
+# Add TeX binaries to PATH if not already present
 case ":$PATH:" in
-  *":/Library/TeX/texbin:"*) ;;
-  *) export PATH="/Library/TeX/texbin:$PATH" ;;
+  *":$TEXBIN_DIR:"*) ;;
+  *) export PATH="$TEXBIN_DIR:$PATH" ;;
 esac
 
-# Check if TeX is installed
-if (( ! $+commands[tex] )); then
-  return
-fi
-
-# =============================================================================================
 # Aliases
-# =============================================================================================
 alias tlmgr-update='sudo tlmgr update --self --all'

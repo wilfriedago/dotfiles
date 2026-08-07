@@ -15,9 +15,7 @@ if (( ! $+commands[gitleaks] )); then
   return
 fi
 
-# =============================================================================================
 # Aliases
-# =============================================================================================
 alias gl='gitleaks'
 alias glg='gitleaks git'
 alias gld='gitleaks dir'
@@ -25,9 +23,7 @@ alias gls='gitleaks stdin'
 alias glv='gitleaks version'
 alias glp='gitleaks git --pre-commit --staged'
 
-# =============================================================================================
 # Completions
-# =============================================================================================
 if [[ ! -f "$ZSH_CACHE_DIR/completions/_gitleaks" ]]; then
   typeset -g -A _comps
   autoload -Uz _gitleaks

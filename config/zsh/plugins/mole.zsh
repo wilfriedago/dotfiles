@@ -15,9 +15,7 @@ if (( ! $+commands[mo] )); then
   return
 fi
 
-# =============================================================================================
 # Aliases
-# =============================================================================================
 alias moc='mo clean'                # free up disk space
 alias mocd='mo clean --dry-run'     # preview cleanup
 alias moo='mo optimize'             # refresh caches and services
@@ -29,9 +27,7 @@ alias mop='mo purge'                # remove old project artifacts
 alias mopd='mo purge --dry-run'     # preview project purge
 alias mou='mo uninstall'            # remove apps completely
 
-# =============================================================================================
 # Completions
-# =============================================================================================
 if [[ ! -f "$ZSH_CACHE_DIR/completions/_mole" ]]; then
   typeset -g -A _comps
   autoload -Uz _mole

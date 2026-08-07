@@ -11,13 +11,9 @@
 # =============================================================================================
 
 # Check if Terraform is installed
-if (( ! $+commands[terraform] )); then
-  return
-fi
+(( $+commands[terraform] )) || return
 
-# =============================================================================================
 # Aliases
-# =============================================================================================
 alias tf='terraform'
 alias tfa='terraform apply'
 alias tfaa='terraform apply -auto-approve'
@@ -36,8 +32,6 @@ alias tfs='terraform state'
 alias tft='terraform test'
 alias tfsh='terraform show'
 
-# =============================================================================================
 # Completions
-# =============================================================================================
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform

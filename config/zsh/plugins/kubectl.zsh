@@ -15,9 +15,7 @@ if (( ! $+commands[kubectl] )); then
   return
 fi
 
-# =============================================================================================
 # Aliases
-# =============================================================================================
 
 # This command is used a LOT both below and in daily life
 alias k='kubectl'
@@ -183,9 +181,7 @@ alias kej='kubectl edit job'
 alias kdj='kubectl describe job'
 alias kdelj='kubectl delete job'
 
-# =============================================================================================
 # Completions
-# =============================================================================================
 if [[ ! -f "$ZSH_CACHE_DIR/completions/_kubectl" ]]; then
   typeset -g -A _comps
   autoload -Uz _kubectl

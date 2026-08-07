@@ -15,9 +15,7 @@ if (( ! $+commands[gradle] )); then
   return
 fi
 
-# =============================================================================================
 # Aliases
-# =============================================================================================
 alias gw='gradle-or-gradlew'
 alias gradle='gradle-or-gradlew'
 alias gradlew='gradle-or-gradlew'

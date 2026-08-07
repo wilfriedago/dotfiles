@@ -10,11 +10,11 @@
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
-# =============================================================================================
-# Environment variables
-# =============================================================================================
+# Environment Variables
 export LMSTUDIO_HOME="$HOME/.lmstudio"
+export LMSTUDIO_BIN="$LMSTUDIO_HOME/bin"
+
 case ":$PATH:" in
-  *":$LMSTUDIO_HOME/bin:"*) ;;
-  *) export PATH="$LMSTUDIO_HOME/bin:$PATH" ;;
+  *":$LMSTUDIO_BIN:"*) ;;
+  *) export PATH="$LMSTUDIO_BIN:$PATH" ;;
 esac

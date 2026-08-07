@@ -10,18 +10,16 @@
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
-# =============================================================================================
-# Environment variables
-# =============================================================================================
-export ANDROID_HOME="${HOME}/Library/Android/sdk"
-
-# Check if Android SDK is installed
-if [[ ! -d "$ANDROID_HOME" ]]; then
-  return
-fi
+# Variables
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export ANDROID_EMULATOR="$ANDROID_HOME/emulator"
+export ANDROID_TOOLS="$ANDROID_HOME/tools"
+export ANDROID_PLATFORM_TOOLS="$ANDROID_HOME/platform-tools"
 
 # Add SDK tools to PATH
 case ":$PATH:" in
-  *":$ANDROID_HOME/platform-tools:"*) ;;
-  *) export PATH="${ANDROID_HOME}/emulator:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${PATH}" ;;
+  *":$ANDROID_EMULATOR:"*) ;;
+  *":$ANDROID_TOOLS:"*) ;;
+  *":$ANDROID_PLATFORM_TOOLS:"*) ;;
+  *) export PATH="$ANDROID_EMULATOR:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS:${PATH}" ;;
 esac

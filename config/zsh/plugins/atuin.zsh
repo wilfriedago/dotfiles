@@ -11,19 +11,13 @@
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
-# Check if atuin is installed
-if (( ! $+commands[atuin] )); then
-  return
-fi
+# Guards
+(( $+commands[atuin] )) || return
 
-# =============================================================================================
 # Initialization
-# =============================================================================================
 _cache_eval "atuin" "atuin init zsh --disable-up-arrow" "$(command -v atuin)"
 
-# =============================================================================================
 # Aliases
-# =============================================================================================
 alias hi='atuin search -i'       # interactive history search
 alias his='atuin search'         # search history
 alias hist='atuin stats'         # history statistics

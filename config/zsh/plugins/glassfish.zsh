@@ -10,11 +10,11 @@
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
-# =============================================================================================
 # Environment variables
-# =============================================================================================
 export GLASSFISH_HOME="/opt/homebrew/opt/glassfish/libexec"
+export GLASSFISH_BIN="$GLASSFISH_HOME/bin"
+
 case ":$PATH:" in
-  *":$GLASSFISH_HOME/bin:"*) ;;
-  *) export PATH="$GLASSFISH_HOME/bin:$PATH" ;;
+  *":$GLASSFISH_BIN:"*) ;;
+  *) export PATH="$GLASSFISH_BIN:$PATH" ;;
 esac

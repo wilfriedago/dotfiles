@@ -1,7 +1,17 @@
+# =============================================================================================
+# ~/.config/zsh/plugins/directories.zsh
+# =============================================================================================
+# Zoxide Zsh Plugin
+# This plugin provides aliases and completion for Zoxide.
+#
+# It makes directory navigation easier.
+# For docs and more info, see: https://github.com/wilfriedago/dotfiles
+# =============================================================================================
+# License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
+# =============================================================================================
+
 # Check if zoxide is installed
-if (( ! $+commands[zoxide] )); then
-  return
-fi
+(( $+commands[zoxide] )) || return
 
 export _ZO_DOCTOR=0 # Disable zoxide doctor checks (optional, but can speed up startup)
 
@@ -21,15 +31,15 @@ alias -g .....='../../../..'
 alias -g ......='../../../../..'
 alias -- -='cd -'
 alias cd='z'
-alias 1='cd -1'
-alias 2='cd -2'
-alias 3='cd -3'
-alias 4='cd -4'
-alias 5='cd -5'
-alias 6='cd -6'
-alias 7='cd -7'
-alias 8='cd -8'
-alias 9='cd -9'
+alias 1='z -1'
+alias 2='z -2'
+alias 3='z -3'
+alias 4='z -4'
+alias 5='z -5'
+alias 6='z -6'
+alias 7='z -7'
+alias 8='z -8'
+alias 9='z -9'
 alias l="eza -al --icons" # ls -l with icons
 alias ll='eza -l --icons' # ls long format with icons
 alias la='eza -a --icons' # ls all files with icons
@@ -44,6 +54,7 @@ function d () {
     dirs -v | head -n 10
   fi
 }
+
 compdef _dirs d
 
 # Override z to enable fzf-tab completion with `z name<tab>`

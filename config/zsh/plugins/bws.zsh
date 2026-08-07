@@ -23,13 +23,10 @@
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
-# Early exit if bws is not installed
+# Check if bws command is available
 (( $+commands[bws] )) || return 1
 
-# =============================================================================================
 # Configuration
-# =============================================================================================
-
 typeset -g BWS_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/bws"
 typeset -g BWS_CACHE_FILE="$BWS_CACHE_DIR/secrets.cache"
 typeset -g BWS_CACHE_META="$BWS_CACHE_DIR/secrets.meta"
@@ -452,9 +449,7 @@ bw() {
   esac
 }
 
-# =============================================================================================
 # Completions
-# =============================================================================================
 
 _bws_completion_setup() {
   local completion_file="${ZSH_CACHE_DIR:-$HOME/.cache/zsh}/completions/_bws"

@@ -11,12 +11,10 @@
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
-# Check if direnv is installed
+# Guards
 if (( ! $+commands[direnv] )); then
   return
 fi
 
-# =============================================================================================
 # Initialization
-# =============================================================================================
 _cache_eval "direnv" "direnv hook zsh" "$(command -v direnv)"

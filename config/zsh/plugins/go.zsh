@@ -10,21 +10,19 @@
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
-# =============================================================================================
-# Environment variables
-# =============================================================================================
-export GOPATH="$HOME/.go"
+# Environment Variables
+export GO_HOME="$HOME/.go"
+export GO_BIN="$GO_HOME/bin"
+
 case ":$PATH:" in
-  *":$GOPATH/bin:"*) ;;
-  *) export PATH="$GOPATH/bin:$PATH" ;;
+  *":$GO_BIN:"*) ;;
+  *) export PATH="$GO_BIN:$PATH" ;;
 esac
 
-# Check if Go is installed
+# Guards
 if (( ! $+commands[go] )); then
   return
 fi
 
-# =============================================================================================
 # Aliases
-# =============================================================================================
 alias gofmt="go fmt"

@@ -10,6 +10,11 @@
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
+# Check if composer is installed
+if (( ! $+commands[composer] )); then
+  return
+fi
+
 # =============================================================================================
 # Environment variables
 # =============================================================================================
@@ -18,8 +23,3 @@ case ":$PATH:" in
   *":$COMPOSER_HOME/vendor/bin:"*) ;;
   *) export PATH="$COMPOSER_HOME/vendor/bin:$PATH" ;;
 esac
-
-# Check if Composer is installed
-if (( ! $+commands[composer] )); then
-  return
-fi

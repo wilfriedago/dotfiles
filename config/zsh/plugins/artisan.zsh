@@ -10,11 +10,8 @@
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
-# Check if php is available
+# Guards
 (( $+commands[php] )) || return
-
-# Laravel context
-[[ -f artisan ]] || return
 
 # Aliases
 alias a="php artisan"

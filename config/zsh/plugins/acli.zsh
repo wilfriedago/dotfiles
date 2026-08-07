@@ -10,21 +10,14 @@
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
-# Check if Rovo is installed
-if (( ! $+commands[acli] )); then
-  return
-fi
+# Guard
+(( $+commands[acli] )) || return
 
-# =============================================================================================
 # Aliases
-# =============================================================================================
-
 alias rovo="acli rovodev"
 alias jira="acli jira"
 
-# =============================================================================================
 # Completions
-# =============================================================================================
 if [[ ! -f "$ZSH_CACHE_DIR/completions/_acli" ]]; then
   typeset -g -A _comps
   autoload -Uz _acli

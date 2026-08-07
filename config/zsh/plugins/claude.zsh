@@ -16,9 +16,7 @@ if (( ! $+commands[claude] )); then
   return
 fi
 
-# =============================================================================================
 # Aliases
-# =============================================================================================
 
 alias cl='claude'
 alias clc='claude --continue'                            # continue most recent conversation

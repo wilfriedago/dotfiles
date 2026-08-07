@@ -10,7 +10,7 @@
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>
 # =============================================================================================
 
-# =============================================================================================
 # Environment variables
-# =============================================================================================
-[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+export CARGO_HOME="$HOME/.cargo"
+
+[ -f "$CARGO_HOME/env" ] && source "$CARGO_HOME/env"
