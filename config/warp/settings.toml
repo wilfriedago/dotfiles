@@ -2,25 +2,25 @@
 spacing = "compact"
 
 [appearance.themes]
-system_theme = false
-theme = "dark"
+system_theme = true
 
 [appearance.vertical_tabs]
 enabled = false
 
 [appearance.text]
-notebook_font_size = 14.0
 font_size = 13.0
 font_name = "DankMono Nerd Font"
 ai_font_name = "DankMono Nerd Font"
-match_ai_font = false
+match_ai_font = true
 ligature_rendering_enabled = true
+notebook_font_size = 14.0
 
 [appearance.icon]
 app_icon = "classic_3"
 
 [appearance.window]
 override_opacity = 90
+zoom_level = 100
 
 [appearance.panes]
 should_dim_inactive_panes = true
@@ -38,7 +38,7 @@ enabled = false
 [agents]
 
 [agents.third_party]
-should_render_cli_agent_toolbar = false
+should_render_cli_agent_toolbar = true
 
 [agents.warp_agent]
 is_any_ai_enabled = false
@@ -72,3 +72,12 @@ quit_on_last_window_closed = true
 
 [terminal]
 use_audible_bell = true
+
+[warpify]
+
+[warpify.ssh]
+ssh_extension_install_mode = "always_install"
+reuse_existing_control_master = true
+
+[experimental]
+async_find_enabled = true
