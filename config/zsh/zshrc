@@ -77,7 +77,6 @@ fi
   source "$ZSH_CONFIG_DIR/plugins/node.zsh"
   source "$ZSH_CONFIG_DIR/plugins/pnpm.zsh"
   source "$ZSH_CONFIG_DIR/plugins/yarn.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/tex.zsh"
   source "$ZSH_CONFIG_DIR/plugins/composer.zsh"
 
   # ── Git & DevOps ───────────────────────────────────────────────────────

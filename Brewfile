@@ -118,7 +118,6 @@ brew 'ripgrep' # line-oriented search tool that recursively searches your curren
 brew 'rtk' # Rust Token Killer, token-optimized CLI proxy
 brew 'scrcpy' # display and control your Android device
 brew 'telnet' # user interface to the TELNET protocol
-brew 'tex-fmt' # extremely fast LaTeX formatter written in Rust
 brew 'tmux' # terminal multiplexer
 brew 'typst' # markup-based typesetting system
 brew 'unar' # command-line unarchiving tools supporting multiple formats
