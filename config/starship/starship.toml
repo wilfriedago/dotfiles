@@ -198,6 +198,8 @@ disabled = false
 symbol = "󱃾"
 format = 'in [$symbol $context\($namespace\)]($style) '
 style = 'fg:color_kubernetes'
+detect_files = ['Chart.yaml', 'kustomization.yaml', 'skaffold.yaml']
+detect_folders = ['k8s', 'kustomize', 'manifests', 'helm', 'kubernetes']
 
 [kubernetes.context_aliases]
 'arn:aws:eks:.*:.*:cluster/(?P<name>.*)' = '$name'
