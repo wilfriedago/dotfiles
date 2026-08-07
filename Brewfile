@@ -35,8 +35,6 @@ cask 'alt-tab' # windows alt-tab on macOS
 cask 'bluestacks' # Android emulator and mobile gaming platform
 cask 'chatgpt' # OpenAI's official ChatGPT desktop app
 cask 'claude' # Anthropic's official Claude AI desktop app
-# claude-code / copilot-cli intentionally omitted: `claude` is managed by its own native
-# installer (~/.local/bin), and Copilot is used through the `gh copilot` extension.
 cask 'codex' # OpenAI's coding agent that runs in your terminal
 cask 'discord' # voice and text chat software
 cask 'expo-orbit' # launch builds and start simulators from the menu bar

@@ -9,7 +9,6 @@
 .DS_Store
 .AppleDouble
 .LSOverride
-Icon
 ._*
 .DocumentRevisions-V100
 .fseventsd
@@ -34,3 +33,9 @@ ehthumbs_vista.db
 [Dd]esktop.ini
 $RECYCLE.BIN/
 *.lnk
+
+**/.claude/settings.local.json
+
+# Worktrees
+.git/worktrees/
+.worktrees/

@@ -1,3 +1,5 @@
+config-version = 2
+
 # Place a copy of this config to ~/.aerospace.toml
 # After that, you can edit ~/.aerospace.toml to your liking
 
@@ -56,17 +58,71 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 # ── Floating apps ────────────────────────────────────────────────────────────
 [[on-window-detected]]
-  if.app-id = 'com.apple.Preview'
-  run = ['layout floating']
+if.app-id = 'com.apple.Finder'
+run = ['layout floating']
 
 [[on-window-detected]]
-  if.app-id = 'com.apple.systempreferences'
-  run = ['layout floating']
+if.app-id = 'com.apple.Preview'
+run = ['layout floating']
 
 [[on-window-detected]]
-  if.app-id="com.mitchellh.ghostty"
-  run= ["layout tiling"]
+if.app-id = 'com.apple.systempreferences'
+run = ['layout floating']
 
+# ── Per-app workspace assignments ────────────────────────────────────────────
+# 1: Terminal  2: Browser  3: Editor  4: Communication  5: Notes
+
+[[on-window-detected]]
+if.app-id = "com.mitchellh.ghostty"
+run = ["layout floating", "move-node-to-workspace 1"]
+
+[[on-window-detected]]
+if.app-id = 'browser.helium'
+run = ['move-node-to-workspace 2']
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.firefoxdeveloperedition'
+run = ['move-node-to-workspace 2']
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = ['move-node-to-workspace 2']
+
+[[on-window-detected]]
+if.app-id = 'com.brave.Browser'
+run = ['move-node-to-workspace 2']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari'
+run = ['move-node-to-workspace 2']
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = ['move-node-to-workspace 3']
+
+[[on-window-detected]]
+if.app-id = 'dev.zed.Zed'
+run = ['move-node-to-workspace 3']
+
+[[on-window-detected]]
+if.app-id = 'com.jetbrains.intellij'
+run = ['move-node-to-workspace 3']
+
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = ['move-node-to-workspace 4']
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = ['move-node-to-workspace 4']
+
+[[on-window-detected]]
+if.app-id = 'org.whispersystems.signal-desktop'
+run = ['move-node-to-workspace 4']
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = ['move-node-to-workspace 5']
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
@@ -77,11 +133,11 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
 inner.horizontal = 0
-inner.vertical =   0
-outer.left =       0
-outer.bottom =     0
-outer.top =        0
-outer.right =      0
+inner.vertical = 0
+outer.left = 0
+outer.bottom = 0
+outer.top = 0
+outer.right = 0
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes

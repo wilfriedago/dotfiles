@@ -67,7 +67,7 @@
 	autocorrect = prompt
 
 [commit]
-	gpgsign = true
+	gpgSign = true
 	verbose = true
 	# template = ~/.gitmessage
 
