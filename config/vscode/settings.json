@@ -86,7 +86,6 @@
   "window.commandCenter": false,
   "window.customTitleBarVisibility": "never",
   "window.newWindowProfile": "Default",
-  "window.title": "",
   "window.titleBarStyle": "native",
   "workbench.activityBar.compact": true,
   "workbench.activityBar.location": "top",
