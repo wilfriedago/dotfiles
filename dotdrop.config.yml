@@ -4,8 +4,8 @@ config:
   create: true
   dotpath: ~/.dotfiles
   keepdot: false
-  link_dotfile_default: nolink
-  link_on_import: nolink
+  link_dotfile_default: absolute
+  link_on_import: absolute
   longkey: false
 profiles:
   default:
@@ -48,8 +48,8 @@ profiles:
 
     - d_mise
     - d_helm
-    - d_atuin
-    - d_bws
+    - d_iris
+    - f_myx_config
   macos:
     dotfiles:
     - f_vscode_custom_js
@@ -104,6 +104,7 @@ dotfiles:
   d_gh:
     src: config/gh
     dst: ~/.config/gh
+    link: link_children
   d_gh-copilot:
     src: config/gh-copilot
     dst: ~/.config/gh-copilot
@@ -119,9 +120,11 @@ dotfiles:
   d_k9s:
     src: config/k9s
     dst: ~/.config/k9s
+    link: link_children
   d_nvim:
     src: config/nvim
     dst: ~/.config/nvim
+    link: link_children
   d_starship:
     src: config/starship
     dst: ~/.config/starship
@@ -131,9 +134,6 @@ dotfiles:
   d_yazi:
     src: config/yazi
     dst: ~/.config/yazi
-  d_zsh:
-    src: config/zsh
-    dst: ~/.config/zsh
   f_curlrc:
     src: config/curlrc
     dst: ~/.curlrc
@@ -157,10 +157,10 @@ dotfiles:
     dst: ~/.scripts
   f_vscode_custom_js:
     src: config/vscode/custom.js
-    dst: ~/Library/Application Support/Code/User/custom.js
+    dst: ~/.vscode/custom.js
   f_vscode_custom_css:
     src: config/vscode/custom.css
-    dst: ~/Library/Application Support/Code/User/custom.css
+    dst: ~/.vscode/custom.css
   d_vscode_snippets:
     src: config/vscode/snippets
     dst: ~/Library/Application Support/Code/User/snippets
@@ -170,6 +170,7 @@ dotfiles:
   f_vscode_extensions:
     src: config/vscode/extensions.json
     dst: ~/.vscode/extensions/extensions.json
+    link: nolink
   f_vscode_keybindings:
     src: config/vscode/keybindings.json
     dst: ~/Library/Application Support/Code/User/keybindings.json
@@ -179,9 +180,10 @@ dotfiles:
   d_helm:
     src: config/helm
     dst: ~/.config/helm
-  d_atuin:
-    src: config/atuin
-    dst: ~/.config/atuin
-  d_bws:
-    src: config/bws
-    dst: ~/.config/bws
+    link: link_children
+  d_iris:
+    src: config/iris
+    dst: ~/.config/iris
+  f_myx_config:
+    src: config/myx/config.toml
+    dst: ~/.config/myx/config.toml

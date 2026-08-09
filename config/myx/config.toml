@@ -1,0 +1,9 @@
+# myx settings. Every key is optional — uncomment one to change it.
+
+# Rows kept visible above and below the list cursor, like vim's scrolloff.
+#scrolloff = 3
+
+# Terminal graphics protocol: kitty, iterm2, sixel or halfblocks.
+# Leave it commented to auto-detect; set it if album art comes out as a coarse
+# mosaic, which means the detection query went unanswered.
+#protocol = "kitty"
