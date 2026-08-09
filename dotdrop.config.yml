@@ -34,7 +34,6 @@ profiles:
     - d_k9s
     - d_nvim
     - d_starship
-    - d_warp
     - d_yazi
     - f_curlrc
     - f_gitconfig
@@ -128,9 +127,6 @@ dotfiles:
   d_starship:
     src: config/starship
     dst: ~/.config/starship
-  d_warp:
-    src: config/warp
-    dst: ~/.warp
   d_yazi:
     src: config/yazi
     dst: ~/.config/yazi
