@@ -1,25 +1,42 @@
 #!/usr/bin/env bash
 
-echo "Generating a new SSH key..."
+set -euo pipefail
 
-# Generating a new SSH key
-# https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key
-ssh-keygen -t ed25519 -C $1 -f ~/.ssh/id_ed25519
+usage() {
+  echo "Usage: $(basename "$0") <email> [key-path]" >&2
+}
 
-# Adding your SSH key to the ssh-agent
-# https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent
-eval "$(ssh-agent -s)"
-
-# Setting up the SSH config file
-if [ ! -f ~/.ssh/config ]; then
-  touch ~/.ssh/config
-  echo "Host *\n AddKeysToAgent yes\n UseKeychain yes\n IdentityFile ~/.ssh/id_ed25519" | tee ~/.ssh/config
+if (( $# < 1 || $# > 2 )) || [[ -z "$1" ]]; then
+  usage
+  exit 64
 fi
 
-ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+email=$1
+key_path=${2:-"$HOME/.ssh/id_ed25519"}
+key_dir=$(dirname "$key_path")
 
-# Adding your SSH key to your GitHub account
-# https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
-echo "run 'pbcopy < ~/.ssh/id_ed25519.pub' to copy the ssh public key to your clipboard"
+if [[ -e "$key_path" || -e "$key_path.pub" ]]; then
+  echo "Refusing to overwrite an existing SSH key: $key_path" >&2
+  exit 1
+fi
 
-# id_rsa or id_ed25519 ? - https://www.reddit.com/r/sysadmin/comments/4gktbr/ssh_ed25519_keys_vs_rsa_benefits_and_drawbacks/
+mkdir -p "$key_dir"
+chmod 700 "$key_dir"
+
+echo "Generating Ed25519 SSH key at $key_path..."
+ssh-keygen -t ed25519 -C "$email" -f "$key_path"
+
+if [[ -z "${SSH_AUTH_SOCK:-}" ]]; then
+  eval "$(ssh-agent -s)"
+fi
+
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  ssh-add --apple-use-keychain "$key_path"
+else
+  ssh-add "$key_path"
+fi
+
+echo "Public key created at $key_path.pub"
+if command -v pbcopy >/dev/null 2>&1; then
+  echo "Copy it with: pbcopy < '$key_path.pub'"
+fi
