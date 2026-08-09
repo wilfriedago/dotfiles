@@ -1,10 +1,10 @@
- 🏠 Wilfried's Dotfiles
+# 🏠 Wilfried's Dotfiles
 
-This repository contains my personal dotfiles and system configuration for macOS. It uses [`dotdrop`](https://github.com/deadc0de6/dotdrop).
+My personal dotfiles and macOS system configuration, managed with [`dotdrop`](https://github.com/deadc0de6/dotdrop).
 
 ## Overview
 
-This dotfiles repository aims to:
+This repository aims to:
 
 - Quickly set up a new development environment
 - Maintain consistent configurations across multiple machines
@@ -12,11 +12,14 @@ This dotfiles repository aims to:
 - Provide a modular and maintainable configuration system
 - Use a tiling window manager for efficient window management
 
+Configuration is deployed as **symlinks** pointing back into this repository, so `~/.zshrc` and [`config/zsh/zshrc`](config/zsh/zshrc) are the same file. Edit either one, commit from here — there is no copy step to remember.
+
 ## 🚀 Setup
 
 ### Prerequisites
 
 - Git
+- [Homebrew](https://brew.sh)
 
 ### Installation
 
@@ -27,86 +30,93 @@ git clone https://github.com/wilfriedago/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ```
 
-2. Install dependencies and set up the environment
+2. Install packages and applications:
 
 ```sh
+brew bundle --file Brewfile
+just zinit-install
 ```
 
-3. Deploy dotfiles
+3. Deploy the dotfiles:
 
 ```sh
-dotdrop install -c dotdrop.config.yaml -p default --force
-dotdrop install -c dotdrop.config.yaml -p macos --force
+dotdrop install -c dotdrop.config.yml -p default
+dotdrop install -c dotdrop.config.yml -p macos
+```
+
+Inspect conflicts before replacing existing files. If replacement is intentional, use
+`just install-force <profile>` after backing up anything you want to keep.
+
+4. Apply macOS system settings:
+
+```sh
+bash ~/.scripts/macos/settings.sh
 ```
 
 ## Configuration Details
 
 ### Shell
 
-For the shell, I am using [Zsh](https://www.zsh.org). I have a few plugins installed, but I try to keep them minimal to avoid clutter. My Zsh configuration is modular, with separate files for aliases, completions and functions. I also use [Starship](https://starship.rs) as my prompt. Check the [`config/zsh`](config/zsh) directory for my Zsh configuration and [`config/starship.toml`](config/starship.toml) for the Starship configuration.
+I use [Zsh](https://www.zsh.org) with a deliberately small plugin set. The configuration is modular, with separate files for aliases, completions, functions and settings, plus a [`plugins`](config/zsh/plugins) directory holding one file per tool. My prompt is [Starship](https://starship.rs).
 
-In terms of command-line tools, I try to keep them minimal—only the ones I use daily, such as:
+See [`config/zsh`](config/zsh) for the shell configuration and [`config/starship`](config/starship) for the prompt.
 
-- [`bat`](https://github.com/sharkdp/bat) - A cat clone with syntax highlighting and Git integration
-- [`btop`](https://github.com/ClementTsang/btop) - A terminal dashboard
-- [`eza`](https://github.com/eza-community/eza) - A modern alternative to `ls`
-- [`fd`](https://github.com/sharkdp/fd) - A simple, fast and user-friendly alternative to `find`
-- [`fzf`](https://github.com/junegunn/fzf) - A command-line fuzzy finder
-- [`k9s`](https://github.com/derailed/k9s) - A terminal UI for Kubernetes
-- [`yazi`](https://github.com/sxyazi/yazi) - A terminal file manager
-- [`zoxide`](https://github.com/ajeetdsouza/zoxide) - A smarter `cd`
+For command-line tools I stick to the ones I use daily:
 
-A complete list of configurations for each tool can be found in the [`Brewfile`](Brewfile#L57) directory.
+- [`bat`](https://github.com/sharkdp/bat) - a `cat` clone with syntax highlighting and Git integration
+- [`btop`](https://github.com/aristocratos/btop) - a terminal resource monitor
+- [`eza`](https://github.com/eza-community/eza) - a modern alternative to `ls`
+- [`fd`](https://github.com/sharkdp/fd) - a simple, fast and user-friendly alternative to `find`
+- [`fzf`](https://github.com/junegunn/fzf) - a command-line fuzzy finder
+- [`k9s`](https://github.com/derailed/k9s) - a terminal UI for Kubernetes
+- [`yazi`](https://github.com/sxyazi/yazi) - a terminal file manager
+- [`zoxide`](https://github.com/ajeetdsouza/zoxide) - a smarter `cd`
+
+The complete curated package list lives in [`Brewfile`](Brewfile).
 
 ### Terminal
 
-I use [Ghossty](https://ghostty.org) as terminal emulator, which is a lightweight terminal emulator that supports tabs and has a minimalistic design. It is fast and responsive, making it ideal for development work. And as a bonus, it has a built-in terminal multiplexer.
-
-### Application Launcher
-
-I recently moved from the default macOS Spotlight to [Raycast](https://www.raycast.com). While it offers an impressive range of features and a sleek user experience, many of its advanced capabilities are locked behind a Pro subscription, which I find limiting. As a result, I'm currently exploring alternative solutions.
+I use [Ghostty](https://ghostty.org) as my terminal emulator — lightweight, GPU-accelerated, with a minimal design and a built-in multiplexer.
 
 ### Editors
 
 #### VSCode
 
-I use [VSCode](https://code.visualstudio.com) - it's a simple and yet very extensible and powerful editor.
+[VSCode](https://code.visualstudio.com) is my main editor — simple, yet extensible and powerful. Its extensions are listed in [`Brewfile`](Brewfile), and I keep the setup as lean as I can. I separate work into profiles, each with its own settings, keybindings, extensions and snippets.
 
-Here's a list of [extensions](Brewfile#L124) I use daily, but I try to keep my `VSCode` setup as simple as possible. I tend to separate my work into different profiles, so I have a few profiles for different development contexts. Each profile has its own settings, keybindings, extensions, and snippets.
+Settings, keybindings, snippets and UI customisations live in [`config/vscode`](config/vscode).
 
-#### Zed
+#### Neovim
 
-Despite my love for VSCode, it still has limitations and I like to explore new tools, so currently I am trying to move my day-to-day work to [Zed](https://zed.dev), which I think, as an editor, has a bright future. I like how it can be configured and the way plugins are installed.
-
-My Zed plugins and configuration can be found [here](config/zed/settings.json), and the keymaps can be found [here](config/zed/keymap.json).
-
-### Hotkey Daemons
-
-Because I am using a primarily external keyboard and in most of my apps I rely on either Vi/Kakoune motions, I find it painful to use the mouse as it requires moving my right hand out of the keyboard and distracts my "zen" state :3. In most dev apps you can enable such modes, but in the default macOS apps or window manager such functionality is absent.
-To resolve this issue I am using two daemons:
-- [`Karabiner-Elements`](https://karabiner-elements.pqrs.org/) - to remap keys and create custom keybindings
-  - I have a custom profile that allows me to use `Caps Lock` as `Esc` and `Ctrl` as `Command` key
-  - I also have a custom profile for `Fn` key to act as `Ctrl` when pressed with other keys
-  - I have a custom profile for `Command` key to act as `Ctrl` when pressed with other keys
+A [LazyVim](https://www.lazyvim.org)-based configuration in [`config/nvim`](config/nvim), used for quick edits and remote work.
 
 ### Window Management
 
-As my main windows manager, I am using [`aerospace`](https://github.com/nikitabobko/AeroSpace) which is light and very configurable, and doesn't require to disable system integrity protection.
-It works perfectly with `skhd` which allows me to focus and modify the layout without distractions.
+My window manager is [`aerospace`](https://github.com/nikitabobko/AeroSpace) — light, very configurable, and it doesn't require disabling System Integrity Protection. Configuration is in [`config/aerospace`](config/aerospace).
 
 ## Update and Sync
 
-To update your dotfiles after making changes:
+Because dotfiles are symlinked, changes you make to a deployed config are already changes in this repository:
 
 ```sh
-# From the dotfiles directory
-dotdrop update
+cd ~/.dotfiles
+git status
+git commit -am "chore: update configuration"
 ```
 
-To install your dotfiles on a new system:
+To check that everything on disk still matches the repository:
 
 ```sh
-dotdrop install
+dotdrop compare -c dotdrop.config.yml -p default
+dotdrop compare -c dotdrop.config.yml -p macos
+```
+
+Re-run `dotdrop install` only after adding a new dotfile mapping, or on a new machine.
+
+Validate the repository before committing:
+
+```sh
+just check
 ```
 
 ## Acknowledgements

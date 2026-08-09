@@ -1,124 +1,63 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for agents working in this macOS dotfiles repository.
 
-## Repository Overview
+## Repository model
 
-This is a personal dotfiles repository for macOS using [dotdrop](https://github.com/deadc0de6/dotdrop) for managing configuration files. The repository automates environment setup, maintains consistent configurations across machines, and provides a modular shell configuration system.
+- `dotdrop.config.yml` deploys configuration from this repository.
+- Dotfiles use absolute symlinks by default; editing a deployed file usually edits the repository directly.
+- Preserve unrelated working-tree changes. This repository is frequently edited through deployed symlinks.
+- Do not use an unscoped `dotdrop update`. Directory updates can remove repository files missing from the destination.
+- Use `just install-force <profile>` only when replacing known conflicts is intentional.
 
-## Common Commands
-
-### Dotfiles Management
-
-```sh
-# Deploy dotfiles to a new system
-dotdrop install -c dotdrop.config.yaml -p default --force
-dotdrop install -c dotdrop.config.yaml -p macos --force
-
-# Update dotfiles after making changes
-dotdrop update
-```
-
-### Package Management
+## Commands
 
 ```sh
-# Install/update all packages and applications
-brew bundle --global --file $HOME/.Brewfile
-
-# Install specific categories from Brewfile
-brew bundle --file Brewfile
+just zinit-install      # explicitly install the Zsh plugin manager
+just install default   # deploy cross-application configuration
+just install macos     # deploy VS Code/macOS-specific configuration
+just compare           # compare deployed state with the repository
+just brew-sync         # install the curated Brewfile
+just macos             # apply macOS defaults
+just check             # run repository validation
 ```
 
-### macOS Settings
+## Dotdrop rules
 
-```sh
-# Apply macOS system settings
-bash ~/.scripts/macos/settings.sh
-```
+- `default` contains shell, terminal, Git, editor, Kubernetes, and CLI configuration.
+- `macos` contains VS Code settings, snippets, keybindings, and UI customization.
+- `d_gh`, `d_helm`, `d_k9s`, and `d_nvim` use `link_children` because those applications write runtime state into their config directories.
+- `f_vscode_extensions` uses `nolink` because VS Code generates and rewrites it.
+- Avoid Dotdrop templates: rendered files would no longer link directly to the repository source.
+- Never link an application-owned directory if it may contain credentials or generated state.
 
-## Architecture
+## Zsh architecture
 
-### Dotdrop Configuration
+- `config/zsh/zshenv` defines XDG paths and variables required by all Zsh sessions.
+- `config/zsh/zprofile` initializes Homebrew for login shells.
+- `config/zsh/zshrc` loads Iris, Zinit, shared shell modules, tool plugins, and Mise.
+- Zinit must be installed explicitly with `just zinit-install`; shell startup must not download code.
+- Files in `config/zsh/plugins/` are sourced explicitly from `zshrc`.
+- Tool and framework plugins must guard themselves with `(( $+commands[tool] )) || return` rather than inspecting the shell's initial working directory.
+- Initialize completion before sourcing plugins that call `compdef`.
+- Cache generated completions under `$ZSH_CACHE_DIR/completions`.
+- Keep Mise activation last so its runtime paths stay ahead of earlier PATH modifications.
+- Iris must remain at the beginning of `zshrc`; its initialization can replace the shell process.
 
-The repository uses [dotdrop.config.yml](dotdrop.config.yml) to define:
-- **Profiles**: `default` (cross-platform configs) and `macos` (macOS-specific configs like VSCode settings)
-- **Dotfiles mapping**: Source files in `config/` are deployed to their respective system locations (e.g., `config/zsh/zshrc` → `~/.zshrc`)
+## Package management
 
-### Shell Configuration (Zsh)
+- `Brewfile` is one curated inventory, not a machine-generated dump.
+- Keep taps, casks, formulae, VS Code extensions, and App Store entries alphabetized within their sections.
+- Add only direct tools and applications, not transitive dependencies.
+- Use `just brew-sync`; do not restore a forceful Brewfile dump recipe.
 
-Shell configuration is modular and located in [config/zsh/](config/zsh/):
+## Scripts
 
-- **[zshrc](config/zsh/zshrc)**: Main entry point that loads Zinit plugin manager and sources other modules
-- **[aliases.zsh](config/zsh/aliases.zsh)**: Command aliases
-- **[functions.zsh](config/zsh/functions.zsh)**: Custom shell functions
-- **[settings.zsh](config/zsh/settings.zsh)**: Shell options and configuration
-- **[completions.zsh](config/zsh/completions.zsh)**: Completion system setup
-- **[plugins/](config/zsh/plugins/)**: Tool-specific plugins with aliases and completions
+- Scripts belong under `scripts/` and are deployed to `~/.scripts`.
+- Bash scripts use `set -euo pipefail`, quote expansions, validate arguments, and refuse unintended overwrites.
+- `scripts/macos/settings.sh` must remain safe to rerun and must reject non-macOS hosts.
+- `scripts/gen-ssh-key.sh` creates keys only; `config/ssh.conf` remains the owner of SSH configuration.
 
-#### Zsh Plugin Pattern
+## Validation
 
-Each plugin in `config/zsh/plugins/` follows a consistent structure:
-1. Check if the tool is installed (`if (( ! $+commands[tool] )); then return; fi`)
-2. Define aliases for common operations
-3. Set up completions using the tool's native completion generator
-4. Cache completions in `$ZSH_CACHE_DIR/completions/`
-
-Example plugins: [kubectl.zsh](config/zsh/plugins/kubectl.zsh), [kind.zsh](config/zsh/plugins/kind.zsh), [docker.zsh](config/zsh/plugins/docker.zsh)
-
-### Package Management (Brewfile)
-
-[Brewfile](Brewfile) contains all macOS packages organized by category:
-- **Taps**: Third-party Homebrew repositories
-- **Apps**: GUI applications (cask)
-- **CLI tools**: Command-line utilities (brew)
-- **Linters/formatters**: Development tools
-- **VSCode extensions**: Editor extensions
-- **Mac App Store**: Apps installed via `mas`
-
-### Window Management
-
-Uses [AeroSpace](https://github.com/nikitabobko/AeroSpace) as the tiling window manager. Configuration is in [config/aerospace/aerospace.toml](config/aerospace/aerospace.toml).
-
-### Key Remapping
-
-Uses Karabiner-Elements for custom key bindings:
-- Caps Lock → Esc
-- Fn → Ctrl (when pressed with other keys)
-- Command ↔ Ctrl remapping
-
-## Configuration Files
-
-### Terminal
-- **Ghostty**: [config/ghostty/](config/ghostty/)
-
-### Editors
-- **VSCode**: [config/vscode/](config/vscode/) - settings, keybindings, extensions, snippets
-- **Zed**: [config/zed/settings.json](config/zed/settings.json), [config/zed/keymap.json](config/zed/keymap.json)
-- **Neovim**: [config/nvim/](config/nvim/)
-
-### CLI Tools
-- **Starship prompt**: [config/starship/](config/starship/)
-- **Git**: [config/gitconfig](config/gitconfig), [config/gitignore_global](config/gitignore_global)
-- **K9s**: [config/k9s/](config/k9s/)
-- **Bat**: [config/bat/](config/bat/)
-- **Yazi**: [config/yazi/](config/yazi/)
-
-## Development Notes
-
-### Adding a New Zsh Plugin
-
-1. Create `config/zsh/plugins/<tool>.zsh` following the plugin pattern
-2. Include tool check, aliases, and completion setup
-3. Plugin will auto-load via `zshrc` on next shell start
-
-### Adding New Packages
-
-1. Add to appropriate section in [Brewfile](Brewfile)
-2. Run `brew bundle --file Brewfile` to install
-3. For VSCode extensions, add to the `# VSCode extensions` section
-
-### Modifying Dotfile Mappings
-
-1. Edit [dotdrop.config.yml](dotdrop.config.yml) to add/modify file mappings
-2. Add source file to `config/` directory
-3. Run `dotdrop install` to deploy changes
+Run `just check` before finishing changes. It checks whitespace, ShellCheck when available, Bash and Zsh syntax, secrets, Dotdrop profiles, and Brewfile syntax. GitHub Actions installs all validation tools and runs the same recipe on macOS.
