@@ -47,7 +47,6 @@ profiles:
 
     - d_mise
     - d_helm
-    - d_iris
     - f_myx_config
     - f_composer
   macos:
@@ -178,9 +177,6 @@ dotfiles:
     src: config/helm
     dst: ~/.config/helm
     link: link_children
-  d_iris:
-    src: config/iris
-    dst: ~/.config/iris
   f_myx_config:
     src: config/myx/config.toml
     dst: ~/.config/myx/config.toml

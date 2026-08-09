@@ -35,14 +35,13 @@ just check             # run repository validation
 
 - `config/zsh/zshenv` defines XDG paths and variables required by all Zsh sessions.
 - `config/zsh/zprofile` initializes Homebrew for login shells.
-- `config/zsh/zshrc` loads Iris, Zinit, shared shell modules, tool plugins, and Mise.
+- `config/zsh/zshrc` loads Zinit, shared shell modules, tool plugins, and Mise.
 - Zinit must be installed explicitly with `just zinit-install`; shell startup must not download code.
 - Files in `config/zsh/plugins/` are sourced explicitly from `zshrc`.
 - Tool and framework plugins must guard themselves with `(( $+commands[tool] )) || return` rather than inspecting the shell's initial working directory.
 - Initialize completion before sourcing plugins that call `compdef`.
 - Cache generated completions under `$ZSH_CACHE_DIR/completions`.
 - Keep Mise activation last so its runtime paths stay ahead of earlier PATH modifications.
-- Iris must remain at the beginning of `zshrc`; its initialization can replace the shell process.
 
 ## Package management
 

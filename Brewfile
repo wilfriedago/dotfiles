@@ -9,7 +9,6 @@ tap 'localstack/tap'        # LocalStack AWS emulator CLI
 tap 'nikitabobko/tap'       # AeroSpace tiling window manager
 tap 'quarkusio/tap'         # Quarkus Java framework CLI
 tap 'stablyai/orca'         # Orca agent workspace app
-tap 'versenilvis/iris'      # Iris shell prompt/session tool
 
 # Applications
 cask 'aerospace'                  # i3-like tiling window manager for macOS
@@ -97,7 +96,6 @@ brew 'tree-sitter-cli'                # Builds and tests Tree-sitter grammars
 brew 'typst'                          # Modern typesetting system
 brew 'unar'                           # Extracts RAR and other archive formats
 brew 'uv'                             # Fast Python package and project manager
-brew 'versenilvis/iris/iris'          # Shell session initializer used by zshrc
 brew 'watchman'                       # File watching service for React Native
 brew 'wget'                           # Non-interactive file downloader
 brew 'witr'                           # Terminal workflow helper

@@ -10,11 +10,6 @@
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>                 #
 # =============================================================================================
 
-# IRIS must come first: its autostart hook `exec`s this shell into the IRIS PTY wrapper,
-# discarding everything done up to that point. Anything sourced above it is loaded twice.
-# Inert unless $IRIS_ENABLE is exported — see plugins/iris.zsh.
-[ -f "$ZSH_CONFIG_DIR/plugins/iris.zsh" ] && source "$ZSH_CONFIG_DIR/plugins/iris.zsh"
-
 # Zinit installation is explicit; shell startup must never download code.
 if [[ ! -r "$ZINIT_INSTALL_DIR/zinit.zsh" ]]; then
   print -u2 "Zinit is not installed. Run: just --justfile ~/.dotfiles/Justfile zinit-install"
