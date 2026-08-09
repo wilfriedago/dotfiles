@@ -18,9 +18,8 @@ fi
 # Initialization — cached for faster startup
 _cache_eval "fzf" "fzf --zsh" "$(command -v fzf)"
 
-# `fzf --zsh` binds ^I to fzf-completion. Tab belongs to IRIS now, so hand the key back to
-# zsh's native completion: IRIS consumes Tab first, and anything it forwards through should
-# land in the normal menu rather than a second fzf UI. Ctrl+T / Alt+C keep their widgets.
+# `fzf --zsh` binds ^I to fzf-completion. Hand Tab back to zsh's native completion menu,
+# which completions.zsh styles. Ctrl+T / Alt+C keep their fzf widgets.
 bindkey '^I' expand-or-complete
 
 # Preview snippet — runs in fzf's `--preview` subshell, so it can NOT reference

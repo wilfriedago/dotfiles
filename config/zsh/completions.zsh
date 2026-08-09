@@ -1,14 +1,11 @@
 #!/usr/bin/env zsh
 
-# Tab is consumed by IRIS at the PTY layer before zsh's ZLE ever sees it, so these
-# styles only take effect in a rescue shell (IRIS_RESCUE=1) or if IRIS is disabled.
-# They are kept working for exactly that case.
+# Styles for zsh's native completion menu, which owns Tab — see plugins/fzf.zsh.
 
 # set descriptions format to enable group support
 zstyle ':completion:*:descriptions' format '[%d]'
 
-# native zsh menu selection — previously `no`, which existed only so fzf-tab could
-# capture the unambiguous prefix. With fzf-tab gone that left Tab with no menu at all.
+# native zsh menu selection
 zstyle ':completion:*' menu select
 
 # hide parents
