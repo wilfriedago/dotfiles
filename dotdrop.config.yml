@@ -49,6 +49,7 @@ profiles:
     - d_helm
     - d_iris
     - f_myx_config
+    - f_composer
   macos:
     dotfiles:
     - f_vscode_custom_js
@@ -183,3 +184,6 @@ dotfiles:
   f_myx_config:
     src: config/myx/config.toml
     dst: ~/.config/myx/config.toml
+  f_composer:
+    src: config/composer/composer.json
+    dst: ~/.config/composer/composer.json
