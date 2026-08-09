@@ -1,23 +1,21 @@
 #!/usr/bin/env zsh
 
-# Tab binding is owned by aloxaf/fzf-tab (loaded via zinit turbo in zshrc),
-# which installs its own `^I` → `fzf-tab-complete` widget. Do not bind here.
+# Tab is consumed by IRIS at the PTY layer before zsh's ZLE ever sees it, so these
+# styles only take effect in a rescue shell (IRIS_RESCUE=1) or if IRIS is disabled.
+# They are kept working for exactly that case.
 
 # set descriptions format to enable group support
-# NOTE: don't use escape sequences here, fzf-tab will ignore them
 zstyle ':completion:*:descriptions' format '[%d]'
 
-# force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
-zstyle ':completion:*' menu no
+# native zsh menu selection — previously `no`, which existed only so fzf-tab could
+# capture the unambiguous prefix. With fzf-tab gone that left Tab with no menu at all.
+zstyle ':completion:*' menu select
 
 # hide parents
 zstyle ':completion:*' ignored-patterns '.|..|.DS_Store|**/.|**/..|**/.DS_Store|**/.git'
 
 # hide `..` and `.` from file menu
 zstyle ':completion:*' ignore-parents 'parent pwd directory'
-
-# show all files in the file menu
-zstyle ':completion:*' fzf-search-display true
 
 # Configure completion of directories.
 zstyle ':completion:*' list-colors         ${(s.:.)LS_COLORS}  # Enable $LS_COLORS for directories in completion menu.

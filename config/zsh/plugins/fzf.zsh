@@ -18,9 +18,14 @@ fi
 # Initialization — cached for faster startup
 _cache_eval "fzf" "fzf --zsh" "$(command -v fzf)"
 
+# `fzf --zsh` binds ^I to fzf-completion. Tab belongs to IRIS now, so hand the key back to
+# zsh's native completion: IRIS consumes Tab first, and anything it forwards through should
+# land in the normal menu rather than a second fzf UI. Ctrl+T / Alt+C keep their widgets.
+bindkey '^I' expand-or-complete
+
 # Preview snippet — runs in fzf's `--preview` subshell, so it can NOT reference
-# zsh functions from the parent shell. Reused below for both fzf-tab (via $realpath)
-# and standalone fzf bindings (via {} placeholder).
+# zsh functions from the parent shell. Reused below by the standalone fzf bindings
+# (Ctrl+T, Alt+C) and zoxide, via the {} placeholder.
 _FZF_PREVIEW_SNIPPET='
   if [ -d "$1" ]; then
     eza -al --tree --icons --level=3 --no-permissions --no-user --no-time --no-filesize "$1" | head -100
@@ -30,13 +35,6 @@ _FZF_PREVIEW_SNIPPET='
     bat -n --color=always --line-range :100 "$1"
   fi
 '
-
-# switch group using `<` and `>`
-zstyle ':fzf-tab:*' switch-group '<' '>'
-
-# complete `ls` / `cat` / etc — preview the highlighted candidate
-zstyle ':fzf-tab:complete:(\\|*/|)(ls|gls|bat|cat|cd|rm|cp|mv|ln|hx|code|open|source|z|eza):*' \
-  fzf-preview "zsh -c '$_FZF_PREVIEW_SNIPPET' _fzf_preview \"\$realpath\""
 
 # `.fzf` is used to provide fzf configuration for the shell
 export FZF_DEFAULT_COMMAND="

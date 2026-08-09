@@ -15,13 +15,7 @@
 
 # Aliases
 alias doc='doctl'
-alias docg='doctl compute droplet create'
-alias docl='doctl compute droplet list'
-alias docd='doctl compute droplet delete'
-alias doci='doctl compute droplet get'
-alias docp='doctl compute droplet power-on'
-alias docf='doctl compute droplet shutdown'
-alias docb='doctl compute droplet reboot'
+alias dodrop='doctl compute droplet'
 
 # Completions
 if [[ ! -f "$ZSH_CACHE_DIR/completions/_doctl" ]]; then

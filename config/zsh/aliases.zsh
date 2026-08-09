@@ -1,7 +1,6 @@
 # dotdrop
 alias dot='dotdrop --profile=default --cfg=~/.dotfiles/dotdrop.config.yml' # dotdrop with default profile
 alias doti='dot install' # install dotfiles
-alias dotu='dot update' # update dotfiles
 
 alias cat='bat' # cat with syntax highlighting
 alias del='trash' # move to trash

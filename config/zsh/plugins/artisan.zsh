@@ -33,7 +33,7 @@ alias al="php artisan list"
 alias amk="php artisan make:"
 
 # Completions
-if [[ ! -f "$ZSH_CACHE_DIR/completions/_artisan" ]]; then
+if (( $+commands[artisan] )) && [[ ! -f "$ZSH_CACHE_DIR/completions/_artisan" ]]; then
   typeset -g -A _comps
   autoload -Uz _artisan
   _comps[artisan]=_artisan

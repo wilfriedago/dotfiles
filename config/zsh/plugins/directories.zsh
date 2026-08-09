@@ -57,7 +57,9 @@ function d () {
 
 compdef _dirs d
 
-# Override z to enable fzf-tab completion with `z name<tab>`
+# Wrap zoxide's z in a real function so `compdef`/completion has something to attach to.
+# Originally added for fzf-tab; kept as a plain passthrough since zoxide's own `z` is
+# defined via eval and replacing it here would change jump behaviour.
 z () {
   \__zoxide_z "$@"
 }

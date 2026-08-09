@@ -14,7 +14,7 @@
 (( $+commands[quarkus] )) || return
 
 # Aliases
-alias q='quarkus'
+alias qk='quarkus'
 
 # Completions
 if [[ ! -f "$ZSH_CACHE_DIR/completions/_quarkus" ]]; then

@@ -62,3 +62,12 @@ export STARSHIP_CACHE="${XDG_CACHE_HOME}/starship"
 
 # EZA
 export EZA_CONFIG_DIR="${XDG_CONFIG_HOME}/eza"
+
+# Homebrew
+path=(/opt/homebrew/bin /opt/homebrew/sbin $path)
+fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
+
+# IRIS — must be exported: plugins/iris.zsh `exec`s the shell into the IRIS PTY
+# wrapper, and only environment variables survive that. Set IRIS_RESCUE=1 to start
+# a shell that skips the wrapper. Non-interactive shells are guarded in the plugin.
+export IRIS_ENABLE=1

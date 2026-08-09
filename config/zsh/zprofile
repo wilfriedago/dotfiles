@@ -8,20 +8,9 @@ if [[ -f /opt/homebrew/bin/brew ]]; then
     /opt/homebrew/bin/brew shellenv >| "$_brew_cache"
   fi
   source "$_brew_cache"
-elif [[ -f /usr/local/bin/brew ]]; then
-  if [[ ! -f "$_brew_cache" ]] || [[ /usr/local/bin/brew -nt "$_brew_cache" ]]; then
-    /usr/local/bin/brew shellenv >| "$_brew_cache"
-  fi
-  source "$_brew_cache"
-elif [[ -d /home/linuxbrew/.linuxbrew ]]; then
-  test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-  test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 unset _brew_cache
 
 # Remove non-existent paths, then deduplicate
 path=($^path(N-/))
 typeset -gU cdpath fpath path manpath infopath mailpath
-
-# Added by Toolbox App
-export PATH="$PATH:/usr/local/bin"

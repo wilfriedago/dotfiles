@@ -23,6 +23,3 @@ esac
 if (( ! $+commands[go] )); then
   return
 fi
-
-# Aliases
-alias gofmt="go fmt"

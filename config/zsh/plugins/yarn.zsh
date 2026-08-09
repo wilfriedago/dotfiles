@@ -12,13 +12,3 @@
 
 # Check if Yarn is installed
 (( $+commands[yarn] )) || return
-
-# Aliases
-alias y='yarn'
-alias ya='yarn add'
-alias yar='yarn remove'
-alias yau='yarn upgrade'
-alias ypl='yarn plugin'
-alias yst='yarn start'
-alias yte='yarn test'
-alias ybu='yarn build'

@@ -10,11 +10,18 @@
 # License: MIT Copyright (c) 2025 Wilfried Kirin AGO <https://wilfriedago.me>                 #
 # =============================================================================================
 
-# Download Zinit, if it's not there yet
-[[ ! -d "$ZINIT_INSTALL_DIR" ]] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_INSTALL_DIR"
+# IRIS must come first: its autostart hook `exec`s this shell into the IRIS PTY wrapper,
+# discarding everything done up to that point. Anything sourced above it is loaded twice.
+# Inert unless $IRIS_ENABLE is exported — see plugins/iris.zsh.
+[ -f "$ZSH_CONFIG_DIR/plugins/iris.zsh" ] && source "$ZSH_CONFIG_DIR/plugins/iris.zsh"
 
-# Load Zinit
-source "${ZINIT_INSTALL_DIR}/zinit.zsh"
+# Zinit installation is explicit; shell startup must never download code.
+if [[ ! -r "$ZINIT_INSTALL_DIR/zinit.zsh" ]]; then
+  print -u2 "Zinit is not installed. Run: just --justfile ~/.dotfiles/Justfile zinit-install"
+  return 1
+fi
+
+source "$ZINIT_INSTALL_DIR/zinit.zsh"
 
 # Load zinit's completion system
 autoload -Uz _zinit
@@ -30,10 +37,6 @@ zi ice \
 zi light starship/starship
 
 # Deferred plugins — turbo mode loads them after the first prompt for faster startup.
-# fzf-tab is loaded eagerly below (after compinit) so Tab completion works on the first prompt.
-zi ice wait lucid atload"_zsh_autosuggest_start"
-zi light zsh-users/zsh-autosuggestions
-
 zi ice wait lucid atinit"zicdreplay"
 zi light zdharma-continuum/fast-syntax-highlighting
 
@@ -67,8 +70,6 @@ fi
 
   # ── Environment & secrets ──────────────────────────────────────────────
   source "$ZSH_CONFIG_DIR/plugins/direnv.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/atuin.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/bws.zsh"
 
   # ── Languages & runtimes ───────────────────────────────────────────────
   source "$ZSH_CONFIG_DIR/plugins/android.zsh"
@@ -87,24 +88,14 @@ fi
   source "$ZSH_CONFIG_DIR/plugins/terraform.zsh"
   source "$ZSH_CONFIG_DIR/plugins/gitlab.zsh"
   source "$ZSH_CONFIG_DIR/plugins/ngrok.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/vigolium.zsh"
 
-  # ── AI tooling ─────────────────────────────────────────────────────────
-  source "$ZSH_CONFIG_DIR/plugins/claude.zsh"
-
-  # ── Framework-specific (guarded — only load in relevant projects) ──────
-  [[ -f pom.xml ]] && source "$ZSH_CONFIG_DIR/plugins/maven.zsh"
-  [[ -f artisan ]] && source "$ZSH_CONFIG_DIR/plugins/artisan.zsh"
-  [[ -f manage.py ]] && source "$ZSH_CONFIG_DIR/plugins/django.zsh"
-  [[ -f angular.json ]] && source "$ZSH_CONFIG_DIR/plugins/angular.zsh"
-  [[ -d apps && -d sites ]] && source "$ZSH_CONFIG_DIR/plugins/bench.zsh"
-  [[ -f pom.xml || -f quarkus.properties ]] && source "$ZSH_CONFIG_DIR/plugins/quarkus.zsh"
-  [[ -f build.gradle || -f build.gradle.kts ]] && source "$ZSH_CONFIG_DIR/plugins/gradle.zsh"
+  # ── Frameworks (command-guarded, available after changing directories) ─
+  source "$ZSH_CONFIG_DIR/plugins/maven.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/artisan.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/django.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/bench.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/quarkus.zsh"
 }
-
-# fzf-tab must load AFTER compinit (it wraps `_main_complete`) and AFTER fzf.zsh
-# (whose `fzf --zsh` integration would otherwise re-bind `^I` to `fzf-completion`).
-zi light aloxaf/fzf-tab
 
 # Activate mise LAST so it runs after every other PATH modification (plugins
 # above, VSCode/Copilot shell integration, zinit, etc.). This keeps mise's
