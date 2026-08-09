@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
 # This file contains settings for mac which makes me happy.
 # It is not a full list.
@@ -16,7 +16,12 @@ set -e
 #
 
 echo 'Configuring your mac. Hang tight.'
-osascript -e 'tell application "System Preferences" to quit'
+if [[ "$(uname -s)" != "Darwin" ]]; then
+  echo 'This script only supports macOS.' >&2
+  exit 1
+fi
+
+osascript -e 'tell application "System Settings" to quit' 2>/dev/null || true
 
 
 # === General ===
@@ -25,14 +30,9 @@ osascript -e 'tell application "System Preferences" to quit'
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 defaults write com.apple.menuextra.battery ShowTime -string "NO"
 
-# Disable dashboard:
-defaults write com.apple.dashboard mcx-disabled -bool true
-
-# Disable startup noise:
-sudo nvram SystemAudioVolume=%01
-
-# Mojave renders fonts that are too thin for me, use regular pre-mojave style:
-defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
+# Disable press-and-hold in favor of key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+defaults write NSGlobalDomain KeyRepeat -int 1
 
 # Scrollbars visible when scrolling:
 defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling"
@@ -105,9 +105,6 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # Allow quitting Finder via ⌘ + Q; doing so will also hide desktop icons
 defaults write com.apple.finder QuitMenuItem -bool true
 
-# Allow text selection in Quick Look
-defaults write com.apple.finder QLEnableTextSelection -bool true
-
 # Display full POSIX path as Finder window title
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
@@ -120,16 +117,6 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # Show Library folder
 chflags nohidden ~/Library
 
-
-# === Safari ===
-
-# Privacy: don’t send search queries to Apple
-defaults write com.apple.Safari UniversalSearchEnabled -bool false
-defaults write com.apple.Safari SuppressSearchSuggestions -bool true
-
-# Improve Safari security
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled -bool false
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabledForLocalFiles -bool false
 
 # === Text editing ===
 
@@ -145,7 +132,7 @@ defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 # Disable smart dashes:
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
-# Diable automatic period substitution:
+# Disable automatic period substitution:
 defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
 
 
@@ -168,7 +155,7 @@ defaults write com.apple.ActivityMonitor ShowCategory -int 0
 
 # Restarting apps:
 echo 'Restarting apps...'
-killall Finder
-killall Dock
+killall Finder 2>/dev/null || true
+killall Dock 2>/dev/null || true
 
 echo 'Done!'
