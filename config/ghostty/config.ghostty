@@ -1,6 +1,3 @@
-# Command
-command = "zsh -l"
-
 # Shell
 shell-integration = zsh
 shell-integration-features = ssh-env,ssh-terminfo
@@ -34,16 +31,13 @@ clipboard-read = "allow"
 clipboard-paste-protection = false
 
 # MacOS
-macos-titlebar-style = tabs
-macos-titlebar-proxy-icon = hidden
-macos-titlebar-style = transparent
+macos-icon = blueprint
 macos-option-as-alt = true
-macos-icon = xray
+macos-titlebar-proxy-icon = hidden
 
 # Keybindings
 keybind = super+r=reload_config
 keybind = super+i=inspector:toggle
-keybind = super+l=clear_screen
 
 # Shaders
 # custom-shader = shaders/cursor_frozen.glsl
