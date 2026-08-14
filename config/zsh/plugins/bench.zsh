@@ -50,6 +50,6 @@ alias bdoc='bench doctor'
 alias bver='bench version'
 
 # Completions
-if [[ ! -f "$ZSH_CACHE_DIR/completions/_bench" ]]; then
+if [[ ! -s "$ZSH_CACHE_DIR/completions/_bench" ]]; then
   bench completions --zsh --skip-rc -y --path "$ZSH_CACHE_DIR/completions/_bench" &> /dev/null &|
 fi

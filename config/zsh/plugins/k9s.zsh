@@ -16,7 +16,7 @@ if (( ! $+commands[k9s] )); then
 fi
 
 # Completions
-if [[ ! -f "$ZSH_CACHE_DIR/completions/_k9s" ]]; then
+if [[ ! -s "$ZSH_CACHE_DIR/completions/_k9s" ]]; then
   typeset -g -A _comps
   autoload -Uz _k9s
   _comps[k9s]=_k9s

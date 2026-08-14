@@ -38,7 +38,7 @@ alias pr='pnpm run'
 alias pdx='pnpm dlx'
 
 # Completions
-if [[ ! -f "$ZSH_CACHE_DIR/completions/_pnpm" ]]; then
+if [[ ! -s "$ZSH_CACHE_DIR/completions/_pnpm" ]]; then
   typeset -g -A _comps
   autoload -Uz _pnpm
   _comps[pnpm]=_pnpm

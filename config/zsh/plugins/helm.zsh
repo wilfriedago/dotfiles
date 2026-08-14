@@ -16,7 +16,7 @@ if (( ! $+commands[helm] )); then
 fi
 
 # Completions
-if [[ ! -f "$ZSH_CACHE_DIR/completions/_helm" ]]; then
+if [[ ! -s "$ZSH_CACHE_DIR/completions/_helm" ]]; then
   typeset -g -A _comps
   autoload -Uz _helm
   _comps[helm]=_helm

@@ -17,7 +17,7 @@
 alias gl='glab'
 
 # Completions
-if [[ ! -f "$ZSH_CACHE_DIR/completions/_glab" ]]; then
+if [[ ! -s "$ZSH_CACHE_DIR/completions/_glab" ]]; then
   typeset -g -A _comps
   autoload -Uz _glab
   _comps[glab]=_glab

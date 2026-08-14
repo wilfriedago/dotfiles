@@ -19,9 +19,10 @@ fi
 # Environment Variables
 # =============================================================================================
 export NODE_OPTIONS="--no-deprecation"
+export NODE_NO_WARNINGS=1
 
 # Completions
-if [[ ! -f "$ZSH_CACHE_DIR/completions/_npm" ]]; then
+if [[ ! -s "$ZSH_CACHE_DIR/completions/_npm" ]]; then
   typeset -g -A _comps
   autoload -Uz _npm
   _comps[npm]=_npm

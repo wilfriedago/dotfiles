@@ -182,7 +182,7 @@ alias kdj='kubectl describe job'
 alias kdelj='kubectl delete job'
 
 # Completions
-if [[ ! -f "$ZSH_CACHE_DIR/completions/_kubectl" ]]; then
+if [[ ! -s "$ZSH_CACHE_DIR/completions/_kubectl" ]]; then
   typeset -g -A _comps
   autoload -Uz _kubectl
   _comps[kubectl]=_kubectl

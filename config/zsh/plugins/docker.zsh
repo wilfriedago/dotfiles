@@ -77,7 +77,7 @@ alias dcstart="docker compose start"
 alias dck="docker compose kill"
 
 # Completions
-if [[ ! -f "$ZSH_CACHE_DIR/completions/_docker" ]]; then
+if [[ ! -s "$ZSH_CACHE_DIR/completions/_docker" ]]; then
   typeset -g -A _comps
   autoload -Uz _docker
   _comps[docker]=_docker
