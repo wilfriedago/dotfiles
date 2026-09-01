@@ -6,7 +6,6 @@
 # Add an entry per email address that maps to your signing key. Multiple
 # emails may share a key; multiple keys may map to the same email.
 
-68906789+wilfriedago@users.noreply.github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHcsQVumk9EpY2NebDB+M2CKyxougM4DZ8iIfGyU8Umy
-wilfried.ago@bftgroup.co ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHcsQVumk9EpY2NebDB+M2CKyxougM4DZ8iIfGyU8Umy
-wilfriedago@pm.me ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHcsQVumk9EpY2NebDB+M2CKyxougM4DZ8iIfGyU8Umy
-wilfried.ago@bftgroup.co ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICLO2k79dTZQvRNftN0BCdJkmooO+afiSbLnktxH1NsD 68906789+wilfriedago@users.noreply.github.com
+68906789+wilfriedago@users.noreply.github.com namespaces="git" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHcsQVumk9EpY2NebDB+M2CKyxougM4DZ8iIfGyU8Umy
+wilfried.ago@bftgroup.co namespaces="git" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHcsQVumk9EpY2NebDB+M2CKyxougM4DZ8iIfGyU8Umy
+wilfriedago@pm.me namespaces="git" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHcsQVumk9EpY2NebDB+M2CKyxougM4DZ8iIfGyU8Umy
