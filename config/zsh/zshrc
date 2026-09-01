@@ -22,18 +22,33 @@ source "$ZINIT_INSTALL_DIR/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# Load starship theme
-zi ice \
-  as"command" \
-  from"gh-r" \
-  atclone"./starship init zsh > starship.zsh; ./starship completions zsh > _starship" \
-  atpull"%atclone" \
-  src"starship.zsh"
-zi light starship/starship
-
 # Deferred plugins — turbo mode loads them after the first prompt for faster startup.
+# Declaration order is load order and it matters: fzf-tab has to come after the compinit
+# below but before anything that wraps widgets (highlighting, autosuggestions).
+
+# fzf UI for zsh's own completion menu — it replaces the menu, not the completion
+# system, so every zstyle in completions.zsh still applies. Styled in plugins/fzf.zsh.
 zi ice wait lucid atinit"zicdreplay"
+zi light Aloxaf/fzf-tab
+
+zi ice wait lucid
 zi light zdharma-continuum/fast-syntax-highlighting
+
+# Extra completion definitions. `blockf` stops the plugin from touching $fpath itself;
+# zinit symlinks its `_*` functions into $ZINIT_COMPLETIONS_DIR, which is already on
+# $fpath before the compinit below runs. Nothing is sourced, so startup cost is nil.
+zi ice wait lucid blockf atpull"zinit creinstall -q ."
+zi light zsh-users/zsh-completions
+
+# Fish-like inline suggestions from history, falling back to the completion system.
+# Variables must be set before the plugin loads; `atload` starts it manually because
+# turbo loading happens after zsh has already built the line editor.
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+# Async fetching is on by default on zsh >= 5.0.8, so it is not set here.
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20 # skip suggestions for long lines (pasted commands)
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1    # bind widgets once instead of on every prompt
+zi ice wait lucid atload"!_zsh_autosuggest_start"
+zi light zsh-users/zsh-autosuggestions
 
 # =============================================================================================
 # Shell
@@ -49,22 +64,31 @@ zi light zdharma-continuum/fast-syntax-highlighting
 # =============================================================================================
 COMPDUMP="${ZSH_CACHE_DIR}/.zcompdump"
 autoload -Uz compinit
-if [[ -n "$COMPDUMP"(#qN.mh+24) ]]; then
+# Run the full compinit — including its ~20 ms compaudit scan — at most once a
+# day; otherwise trust the dump and load it directly.
+#
+# The age test must happen in a real glob context. `[[ -n $file(#qN.mh+24) ]]`
+# looks like it works but does NOT: filename generation is not performed inside
+# [[ ]], so the qualifier is ignored, the word is just the literal path, and the
+# test is true whenever the variable is non-empty — which forced the slow path on
+# every single shell. Array assignment does glob, so the qualifier applies.
+_compdump_stale=( ${COMPDUMP}(Nmh+24) )
+if (( ${#_compdump_stale} )); then
   compinit -d "$COMPDUMP"
 else
   compinit -C -d "$COMPDUMP"
 fi
+unset _compdump_stale
 
 [ -d "$ZSH_CONFIG_DIR/plugins" ] && {
   # ── Core (always loaded) ───────────────────────────────────────────────
+  source "$ZSH_CONFIG_DIR/plugins/starship.zsh"
   source "$ZSH_CONFIG_DIR/plugins/directories.zsh"
   source "$ZSH_CONFIG_DIR/plugins/grep.zsh"
   source "$ZSH_CONFIG_DIR/plugins/brew.zsh"
   source "$ZSH_CONFIG_DIR/plugins/fzf.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/carapace.zsh"
   source "$ZSH_CONFIG_DIR/plugins/nvim.zsh"
-
-  # ── Environment & secrets ──────────────────────────────────────────────
-  source "$ZSH_CONFIG_DIR/plugins/direnv.zsh"
 
   # ── Languages & runtimes ───────────────────────────────────────────────
   source "$ZSH_CONFIG_DIR/plugins/android.zsh"
@@ -82,7 +106,6 @@ fi
   source "$ZSH_CONFIG_DIR/plugins/k9s.zsh"
   source "$ZSH_CONFIG_DIR/plugins/terraform.zsh"
   source "$ZSH_CONFIG_DIR/plugins/gitlab.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/ngrok.zsh"
 
   # ── Frameworks (command-guarded, available after changing directories) ─
   source "$ZSH_CONFIG_DIR/plugins/maven.zsh"

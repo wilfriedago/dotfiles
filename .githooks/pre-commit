@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+#
+# Fast pre-commit gate for this repository.
+#
+# Only the checks that must run BEFORE a commit exists live here — a secret that
+# reaches a commit is already a problem, even unpushed. Everything slower
+# (dotdrop validity, Brewfile parsing, shellcheck) stays in `just check` and CI.
+#
+# Install with: just hooks
+# Bypass once with: git commit --no-verify
+
+set -euo pipefail
+
+repo_root=$(git rev-parse --show-toplevel)
+cd "$repo_root"
+
+fail=0
+
+# 1. Secrets — staged content only, so unstaged scratch files do not block.
+# `git --staged` is the gitleaks >=8.19 form; `protect` is deprecated.
+if command -v gitleaks >/dev/null 2>&1; then
+  if ! gitleaks git --staged --no-banner --redact . >/dev/null 2>&1; then
+    echo "pre-commit: gitleaks found a secret in staged changes." >&2
+    gitleaks git --staged --no-banner --redact . >&2 || true
+    fail=1
+  fi
+else
+  echo "pre-commit: gitleaks not installed; secret scan skipped." >&2
+fi
+
+# 2. Zsh syntax — a broken rc file locks you out of new shells.
+staged_zsh=$(git diff --cached --name-only --diff-filter=ACM \
+  -- 'config/zsh/*.zsh' 'config/zsh/plugins/*.zsh' \
+     'config/zsh/zshrc' 'config/zsh/zshenv' 'config/zsh/zprofile' \
+     'config/zsh/zlogin' 'config/zsh/zlogout')
+if [[ -n "$staged_zsh" ]]; then
+  while IFS= read -r f; do
+    [[ -f "$f" ]] || continue
+    if ! zsh -n "$f" 2>/dev/null; then
+      echo "pre-commit: zsh syntax error in $f" >&2
+      zsh -n "$f" >&2 || true
+      fail=1
+    fi
+  done <<< "$staged_zsh"
+fi
+
+# 3. Bash syntax for staged scripts.
+staged_sh=$(git diff --cached --name-only --diff-filter=ACM -- 'scripts/*.sh' 'scripts/**/*.sh')
+if [[ -n "$staged_sh" ]]; then
+  while IFS= read -r f; do
+    [[ -f "$f" ]] || continue
+    if ! bash -n "$f" 2>/dev/null; then
+      echo "pre-commit: bash syntax error in $f" >&2
+      fail=1
+    fi
+  done <<< "$staged_sh"
+fi
+
+if (( fail )); then
+  echo >&2
+  echo "pre-commit: commit blocked. Fix the above, or bypass with --no-verify." >&2
+  exit 1
+fi

@@ -55,22 +55,3 @@ k9s:
     disableAutoscroll: false
     # Toggles log line timestamp info. Default false
     showTime: false
-  # Provide shell pod customization when nodeShell feature gate is enabled!
-  shellPod:
-    # The shell pod image to use.
-    image: killerAdmin
-    # The namespace to launch to shell pod into.
-    namespace: default
-    # The resource limit to set on the shell pod.
-    limits:
-      cpu: 100m
-      memory: 100Mi
-    # Enable TTY
-    tty: true
-    hostPathVolume:
-      - name: docker-socket
-        # Mount the Docker socket into the shell pod
-        mountPath: /var/run/docker.sock
-        # The path on the host to mount
-        hostPath: /var/run/docker.sock
-        readOnly: true

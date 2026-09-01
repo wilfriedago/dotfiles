@@ -26,13 +26,13 @@ osascript -e 'tell application "System Settings" to quit' 2>/dev/null || true
 
 # === General ===
 
-# Hide remaining battery time; show percentage
-defaults write com.apple.menuextra.battery ShowPercent -string "YES"
-defaults write com.apple.menuextra.battery ShowTime -string "NO"
+# Show battery percentage.
+defaults -currentHost write com.apple.controlcenter BatteryShowPercentage -bool true
 
-# Disable press-and-hold in favor of key repeat
+# Disable press-and-hold in favor of key repeat.
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
 # Scrollbars visible when scrolling:
 defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling"
@@ -67,8 +67,9 @@ defaults write com.apple.dock tilesize -int 56
 # Show indicator lights for open apps in Dock:
 defaults write com.apple.dock show-process-indicators -bool true
 
-# Dock size and location:
-defaults write com.apple.Dock size-immutable -bool yes
+# Lock the Dock size. Domain names are case-sensitive: the old `com.apple.Dock`
+# spelling wrote to a plist nothing reads.
+defaults write com.apple.dock size-immutable -bool true
 
 # Show Dock instantly:
 defaults write com.apple.dock autohide-delay -float 0
@@ -136,6 +137,27 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
 
 
+# === Screenshots ===
+
+# Keep screenshots out of the Desktop, and drop the window drop-shadow.
+mkdir -p "${HOME}/Pictures/Screenshots"
+defaults write com.apple.screencapture location -string "${HOME}/Pictures/Screenshots"
+defaults write com.apple.screencapture type -string "png"
+defaults write com.apple.screencapture disable-shadow -bool true
+defaults write com.apple.screencapture show-thumbnail -bool false
+
+
+# === Trackpad ===
+
+# Tap to click, for this host and for the login screen.
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+# Full-speed pointer movement (no acceleration ceiling).
+defaults write NSGlobalDomain com.apple.trackpad.scaling -float 3.0
+
+
 # === Time Machine ===
 
 # Prevent Time Machine from prompting to use new hard drives as backup volume
@@ -153,9 +175,25 @@ defaults write com.apple.ActivityMonitor IconType -int 5
 # Show all processes in Activity Monitor
 defaults write com.apple.ActivityMonitor ShowCategory -int 0
 
+# === Touch ID for sudo ===
+
+# /etc/pam.d/sudo_local survives OS updates; editing /etc/pam.d/sudo does not.
+# Needs sudo, so it is skipped rather than failing the whole run.
+if [[ ! -f /etc/pam.d/sudo_local ]]; then
+  if sudo -n true 2>/dev/null; then
+    printf 'auth       sufficient     pam_tid.so\n' | sudo tee /etc/pam.d/sudo_local >/dev/null
+    echo 'Enabled Touch ID for sudo.'
+  else
+    echo 'Skipped Touch ID for sudo (needs sudo). To enable:'
+    echo "  echo 'auth       sufficient     pam_tid.so' | sudo tee /etc/pam.d/sudo_local"
+  fi
+fi
+
+
 # Restarting apps:
 echo 'Restarting apps...'
 killall Finder 2>/dev/null || true
 killall Dock 2>/dev/null || true
+killall SystemUIServer 2>/dev/null || true
 
-echo 'Done!'
+echo 'Done! Some settings need a logout to take effect.'

@@ -215,7 +215,8 @@ function _build_kubectl_out_alias {
   compdef _$1 $1
 }
 
-_build_kubectl_out_alias "kj"  'kubectl "$@" -o json | jq'
-_build_kubectl_out_alias "kjx" 'kubectl "$@" -o json | fx'
-_build_kubectl_out_alias "ky"  'kubectl "$@" -o yaml | yh'
+# `kj` pipes through jq (declared in the Brewfile). The former `kjx`/`ky`
+# variants needed fx and yh, which were never installed — dropped rather than
+# left as aliases that fail at the moment you reach for them.
+_build_kubectl_out_alias "kj" 'kubectl "$@" -o json | jq'
 unfunction _build_kubectl_out_alias

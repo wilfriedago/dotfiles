@@ -5,12 +5,13 @@
 [user]
 	name = Wilfried AGO
 	email = 68906789+wilfriedago@users.noreply.github.com
-	username = wilfriedago
 	signingKey = ~/.ssh/id_ed25519.pub
 
-[github]
-	user = wilfriedago
-	email = 68906789+wilfriedago@users.noreply.github.com
+# Work repositories get the work address. Must come AFTER [user] — an include
+# only overrides what was set before it. Trailing slash matters: it makes the
+# pattern match the directory's contents.
+[includeIf "gitdir:~/Developer/Works/"]
+	path = ~/.config/git/work.inc
 
 [init]
 	defaultBranch = main
@@ -21,6 +22,9 @@
 	excludesfile = ~/.gitignore_global
 	ignorecase = false
 	autocrlf = false
+	# Daemon-backed change detection; meaningful on large repos, no-op on small ones.
+	fsmonitor = true
+	untrackedCache = true
 
 [color]
 	ui = auto
@@ -84,17 +88,6 @@
 	process = git-lfs filter-process
 	required = true
 
-[gitflow "branch"]
-	master = main
-	develop = develop
-
-[gitflow "prefix"]
-	feature = feat/
-	release = release/
-	hotfix = hotfix/
-	bugfix = bugfix/
-	versiontag = v
-
 [alias]
 	# ── Adding ─────────────────────────────────────────────────────────────
 	a = add --all
@@ -117,7 +110,6 @@
 	cd = commit --amend
 	cad = commit -a --amend
 	undo = reset --soft HEAD^
-	absorb = !git-absorb --and-rebase
 
 	# ── Clone ──────────────────────────────────────────────────────────────
 	cl = clone

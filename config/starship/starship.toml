@@ -41,7 +41,6 @@ $status\
 palette = 'default'
 
 [palettes.default]
-
 color_ok = 'bright-green'
 color_danger = 'bright-red'
 color_caution = 'bright-yellow'
@@ -71,7 +70,7 @@ vimcmd_replace_one_symbol = '[➜](color_vimcmd_replace)'
 vimcmd_visual_symbol = '[➜](color_vimcmd_visual)'
 
 [os]
-disabled = true # I don't need to know the OS I'm using
+disabled = true
 style = "fg:color_os"
 format = '[$symbol]($style)'
 
@@ -166,11 +165,6 @@ format = '[(([+$added]($added_style))([-$deleted]($deleted_style)) )](fg:color_g
 added_style = "fg:color_git_added"
 deleted_style = "fg:color_git_deleted"
 only_nonzero_diffs = true
-
-[shell]
-disabled = true
-zsh_indicator = "󰊠"
-style = "green bold"
 
 [status]
 disabled = false

@@ -15,6 +15,27 @@ _cache_eval() {
   source "$cache_file"
 }
 
+# Point a $XDG_BIN_HOME shim at an executable that ships inside a macOS app bundle.
+# Usage: _link_app_bin <name> <target>
+#
+# App bundles must not go on $PATH themselves: their Resources directories carry
+# unrelated executables — ChatGPT.app ships its own `rg`, which would shadow
+# Homebrew's ripgrep — and the ones versioned per release (Claude Code) move on
+# every update, leaving a dead $PATH entry behind. A single symlink in
+# $XDG_BIN_HOME, already on $PATH from zshenv, exposes exactly one command and is
+# re-resolved on every shell start, so an app update is picked up on the next one.
+#
+# Costs a stat in the common case: `-ef` compares the resolved files, no fork.
+_link_app_bin() {
+  local name="$1" target="$2" link="${XDG_BIN_HOME}/${1}"
+  [[ -x "$target" ]] || return 1
+  # Never clobber a real file — a manual install or another package manager owns it.
+  [[ -e "$link" && ! -L "$link" ]] && return 1
+  [[ -L "$link" && "$link" -ef "$target" ]] && return 0
+  [[ -d "$XDG_BIN_HOME" ]] || mkdir -p "$XDG_BIN_HOME"
+  ln -sfn "$target" "$link" && rehash
+}
+
 # iterate over directories and pulls git repositories
 rgp () {
   find . -name ".git" -type d | sed 's/\/.git//' |  xargs -P10 -I{} git -C {} pull
@@ -56,17 +77,4 @@ loadenv () {
     export $line > /dev/null
   done < "$1"
   echo "Environment variables loaded from $1."
-}
-
-# show pretty `man` page
-man () {
-  env \
-    LESS_TERMCAP_mb=$(printf '\e[1;31m') \
-    LESS_TERMCAP_md=$(printf '\e[1;31m') \
-    LESS_TERMCAP_me=$(printf '\e[0m') \
-    LESS_TERMCAP_se=$(printf '\e[0m') \
-    LESS_TERMCAP_so=$(printf '\e[1;44;33m') \
-    LESS_TERMCAP_ue=$(printf '\e[0m') \
-    LESS_TERMCAP_us=$(printf '\e[1;32m') \
-      man "$@"
 }

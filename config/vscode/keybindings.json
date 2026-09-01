@@ -13,7 +13,15 @@
     "command": "workbench.action.togglePanel"
   },
   {
-    "key": "cmd+j",
-    "command": "-workbench.action.togglePanel"
-  }
+    "key": "shift+cmd+'",
+    "command": "workbench.action.toggleStatusbarVisibility"
+},
+{
+    "key": "shift+enter",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+        "text": "\u001b\r"
+    },
+    "when": "terminalFocus"
+}
 ]

@@ -27,11 +27,11 @@ window-padding-x = 10
 window-padding-balance = true
 
 # Clipboard
-clipboard-read = "allow"
-clipboard-paste-protection = false
+clipboard-read = "ask"
+clipboard-paste-protection = true
 
 # MacOS
-macos-icon = blueprint
+macos-icon = xray
 macos-option-as-alt = true
 macos-titlebar-proxy-icon = hidden
 

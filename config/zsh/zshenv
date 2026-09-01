@@ -39,16 +39,13 @@ fi
 
 # Preferred editor for local and remote sessions
 export PAGER="less"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
 export EDITOR="nvim"
 export VISUAL=$EDITOR
 export GIT_EDITOR=$EDITOR
 export KUBE_EDITOR=$EDITOR
 export BUNDLER_EDITOR=$EDITOR
-
-# local exports
-export PATH="/usr/local/bin:$PATH"
-export PATH="/opt/local/bin:$PATH"
-export PATH="$XDG_BIN_HOME:$PATH"
 
 # Man
 export MANPATH="/usr/local/man:$MANPATH"
@@ -63,6 +60,6 @@ export STARSHIP_CACHE="${XDG_CACHE_HOME}/starship"
 # EZA
 export EZA_CONFIG_DIR="${XDG_CONFIG_HOME}/eza"
 
-# Homebrew
-path=(/opt/homebrew/bin /opt/homebrew/sbin $path)
-fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
+typeset -gU cdpath fpath path manpath infopath mailpath
+path=("$XDG_BIN_HOME" $path)
+path=($^path(N-/))

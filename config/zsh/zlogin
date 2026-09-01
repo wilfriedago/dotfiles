@@ -1,17 +1,32 @@
 #  ~/.zlogin
+#
+# Byte-compile zsh source to wordcode so later shells skip parsing.
+# Runs detached (&!) after the prompt is already up, so it never delays login.
+#
+# Note on the `! -e` test: zsh's `-nt` returns FALSE when the right-hand file
+# does not exist (bash returns TRUE). Testing only `src -nt src.zwc` therefore
+# never fires on a first run, no .zwc is created, and the condition can never
+# become true — the loop silently does nothing forever. The existence check is
+# what makes this work at all.
+#
+# .zwc files land next to their source. For plugins/ that source lives in this
+# repository (the deployed directory is a symlink), so *.zwc is gitignored.
 
-# Background compilation for faster subsequent startup
-# Credit @htr3n. More info: https://htr3n.github.io/2018/07/faster-zsh/
 {
-  # Compile zcompdump (use the same path as zshrc)
+  emulate -L zsh
+  setopt local_options null_glob
+
   zcompdump="${ZSH_CACHE_DIR:-$HOME/.cache/zsh}/.zcompdump"
-  if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then
-    zcompile "$zcompdump"
+  if [[ -s "$zcompdump" ]] && [[ ! -e "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc" ]]; then
+    zcompile -R -- "$zcompdump"
   fi
 
-  # Compile all zsh config and plugin files to wordcode for faster sourcing
+  local config_dir="${ZSH_CONFIG_DIR:-$HOME/.config/zsh}"
   local f
-  for f in "${ZSH_CONFIG_DIR:-$HOME/.config/zsh}"/*.zsh "${ZSH_CONFIG_DIR:-$HOME/.config/zsh}"/plugins/*.zsh; do
-    [[ -f "$f" && "$f" -nt "${f}.zwc" ]] && zcompile "$f"
+  for f in "$config_dir"/*.zsh "$config_dir"/plugins/*.zsh; do
+    [[ -f "$f" ]] || continue
+    if [[ ! -e "${f}.zwc" || "$f" -nt "${f}.zwc" ]]; then
+      zcompile -R -- "$f"
+    fi
   done
 } &!

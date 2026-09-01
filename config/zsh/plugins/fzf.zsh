@@ -18,9 +18,10 @@ fi
 # Initialization — cached for faster startup
 _cache_eval "fzf" "fzf --zsh" "$(command -v fzf)"
 
-# `fzf --zsh` binds ^I to fzf-completion. Hand Tab back to zsh's native completion menu,
-# which completions.zsh styles. Ctrl+T / Alt+C keep their fzf widgets.
-bindkey '^I' expand-or-complete
+# `fzf --zsh` binds ^I to fzf-completion, which bypasses zsh's completion system entirely.
+# fzf-tab claims ^I when it loads (see zshrc) and drives the real completion system instead,
+# so nothing is rebound here. Ctrl+T / Alt+C / Ctrl+R keep their fzf widgets, and
+# fzf-completion stays reachable through its `**` trigger.
 
 # Preview snippet — runs in fzf's `--preview` subshell, so it can NOT reference
 # zsh functions from the parent shell. Reused below by the standalone fzf bindings
@@ -29,7 +30,7 @@ _FZF_PREVIEW_SNIPPET='
   if [ -d "$1" ]; then
     eza -al --tree --icons --level=3 --no-permissions --no-user --no-time --no-filesize "$1" | head -100
   elif [ "$(file -Lbs --mime-type "$1" | cut -d/ -f1)" = "image" ]; then
-    chafa -r2 -w 100 "$1"
+    viu -w 100 "$1"
   else
     bat -n --color=always --line-range :100 "$1"
   fi
@@ -106,3 +107,40 @@ export _ZO_FZF_OPTS="
 "
 
 # z() wrapper moved to directories.zsh where __zoxide_z is defined
+
+# =============================================================================================
+# fzf-tab — fzf as the completion menu
+# =============================================================================================
+# The plugin itself is declared in zshrc (it must load before the widget-wrapping plugins).
+# It reads zsh's own completion output, so the zstyles in completions.zsh still apply;
+# `menu no` there is required for fzf-tab to take over the menu.
+
+zstyle ':fzf-tab:*' fzf-command fzf
+zstyle ':fzf-tab:*' use-fzf-default-opts yes  # off by default; inherit $FZF_DEFAULT_OPTS above
+zstyle ':fzf-tab:*' switch-group '<' '>'      # cycle completion groups (kills < > in the query)
+zstyle ':fzf-tab:*' continuous-trigger '/'    # keep descending into directories on /
+zstyle ':fzf-tab:*' single-group color header # keep the group header when there is only one
+zstyle ':fzf-tab:*' prefix ''                 # drop the '·' marker in front of candidates
+zstyle ':fzf-tab:*' fzf-min-height 15
+
+# Previews run in a zsh subshell where fzf-tab exports $word, $group and $desc. It also
+# exports $realpath, but only when the completer marked its candidates as files with
+# `compadd -f` — carapace hands everything to _describe as plain values, so $realpath is
+# missing for the ~680 commands it owns. Falling back to $word covers those: carapace
+# returns whole cwd-relative paths. The -e test keeps non-path groups preview-free.
+zstyle ':fzf-tab:complete:*:*' fzf-preview \
+  "ftb_target=\${realpath:-\$word}; [[ -e \$ftb_target ]] && zsh -c '$_FZF_PREVIEW_SNIPPET' _fzf_preview \$ftb_target"
+
+# BSD ps: no --pid/--no-headers, so use -p with an empty format suffix.
+zstyle ':fzf-tab:complete:(kill|ps|killport):argument-rest' fzf-preview 'ps -p $word -o command='
+zstyle ':fzf-tab:complete:(kill|ps|killport):argument-rest' fzf-flags '--preview-window=down:3:wrap'
+
+# Expand the value behind a variable name instead of previewing it as a path.
+zstyle ':fzf-tab:complete:(-parameter-|-brace-parameter-|export|unset|typeset):*' \
+  fzf-preview 'echo ${(P)word}'
+
+# Git: branches and refs get their log, paths get their diff.
+zstyle ':fzf-tab:complete:git-(checkout|switch|rebase|merge|log|show):*' \
+  fzf-preview 'git log --oneline --graph --color=always -20 $word --'
+zstyle ':fzf-tab:complete:git-(add|diff|restore):*' \
+  fzf-preview 'git diff --color=always -- $word'
