@@ -14,13 +14,10 @@ tap 'stablyai/orca'         # Orca agent workspace app
 cask 'aerospace'           # i3-like tiling window manager for macOS
 cask 'alt-tab'             # Windows-style alt-tab window switcher
 cask 'bluestacks'          # Android emulator for app testing
-# Both desktop apps bundle their own agent CLI and keep it updated with the app;
-# plugins/claude.zsh and plugins/codex.zsh put those on $PATH. The standalone
-# 'claude-code@latest' and 'codex' casks are intentionally not installed — a second
-# copy of the same CLI updates on its own schedule and drifts from the app's.
 cask 'chatgpt'             # OpenAI ChatGPT desktop client (ships the codex CLI)
 cask 'claude'              # Anthropic Claude desktop client (ships the claude CLI)
-cask 'copilot-cli'         # GitHub Copilot command-line agent
+cask 'claude-code@latest'  # Claude Code CLI packaged as a macOS app
+cask 'codex'               # OpenAI Codex desktop client
 cask 'discord'             # Chat and voice for communities
 cask 'ghostty'             # GPU-accelerated terminal emulator
 cask 'gitkraken'           # Visual Git client
@@ -30,7 +27,9 @@ cask 'helium-browser'      # Privacy-focused Chromium browser
 cask 'iina'                # Modern macOS media player
 cask 'jetbrains-toolbox'   # Manages JetBrains IDE installs
 cask 'linear'              # Issue tracking and project planning
+cask 'mangodisk'           # Local disk/browser helper app
 cask 'megasync'            # MEGA cloud storage sync client
+cask 'morgen'              # Calendar and workflow automation app
 cask 'obsidian'            # Markdown knowledge base
 cask 'orbstack'            # Fast Docker and Linux VMs for macOS
 cask 'pearcleaner'         # App uninstaller and leftover cleaner
@@ -41,17 +40,18 @@ cask 'slack'               # Team chat and collaboration
 cask 'stablyai/orca/orca'  # Orca parallel agent workspaces
 cask 'transmission'        # Lightweight BitTorrent client
 cask 'visual-studio-code'  # Primary code editor
+cask 'vorssaint'           # App launcher / utility
 cask 'zotero'              # Reference and citation manager
 
 # Command-line tools
 brew 'bat'                            # cat with syntax highlighting and paging
-brew 'bison'                          # GNU parser generator, newer than macOS build
 brew 'btop'                           # Resource monitor TUI
 brew 'carapace'                       # Completion specs for CLIs zsh has none for
 brew 'cmake'                          # Cross-platform build system generator
 brew 'cocoapods'                      # Dependency manager for iOS/macOS projects
 brew 'composer'                       # PHP dependency manager
 brew 'coreutils'                      # GNU core utilities (gls, gdate, ...)
+brew 'derailed/k9s/k9s'               # Kubernetes cluster TUI
 brew 'difftastic'                     # Structural diff — backs `git dft`
 brew 'dotdrop'                        # Dotfile manager driving this repository
 brew 'eas-cli'                        # Expo Application Services build CLI
@@ -72,21 +72,22 @@ brew 'glab'                           # GitLab CLI
 brew 'gnu-sed'                        # GNU sed, avoids BSD sed incompatibilities
 brew 'gradle-completion'              # Shell completion for Gradle
 brew 'grep'                           # GNU grep, superset of macOS grep
+brew 'haseebkhalid1507/tap/myx'       # Shell workflow helper
+brew 'hashicorp/tap/terraform'        # Infrastructure as code
 brew 'helm'                           # Kubernetes package manager
-brew 'jq'                             # JSON processor — used by the `kj` kubectl alias
 brew 'just'                           # Command runner used by this repository
-brew 'derailed/k9s/k9s'               # Kubernetes cluster TUI
-brew 'kubernetes-cli'                 # kubectl Kubernetes client
+brew 'llmfit'                         # LLM runtime utility library/tooling
 brew 'lizard-analyzer'                # Code complexity analyzer
 brew 'localstack/tap/localstack-cli'  # Runs AWS services locally
 brew 'mariadb-connector-c'            # MariaDB C client library
 brew 'mas'                            # Mac App Store CLI
 brew 'mise'                           # Polyglot runtime and tool version manager
 brew 'mkcert'                         # Locally trusted development certificates
-brew 'haseebkhalid1507/tap/myx'       # Shell workflow helper
+brew 'myx'                            # Shell workflow helper
 brew 'neovim'                         # Terminal editor
 brew 'nmap'                           # Network and port scanner
 brew 'pandoc'                         # Universal document converter
+brew 'pi-coding-agent'                # Coding agent runtime
 brew 'pkgconf'                        # pkg-config implementation for builds
 brew 'poppler'                        # PDF utilities (pdftotext, pdfimages)
 brew 'quarkusio/tap/quarkus'          # Quarkus Java project CLI
@@ -95,9 +96,7 @@ brew 'rtk'                            # Compresses noisy command output
 brew 'shellcheck'                     # Shell script linter
 brew 'starship'                       # Cross-shell prompt
 brew 'telnet'                         # Plain TCP connectivity checks
-brew 'hashicorp/tap/terraform'        # Infrastructure as code
 brew 'tmux'                           # Terminal multiplexer
-brew 'trash'                          # Move files to macOS Trash — backs the `del` alias
 brew 'tree-sitter-cli'                # Builds and tests Tree-sitter grammars
 brew 'typst'                          # Modern typesetting system
 brew 'unar'                           # Extracts RAR and other archive formats
@@ -112,8 +111,6 @@ brew 'yt-dlp'                         # Video and audio downloader
 brew 'zoxide'                         # Frecency-based directory jumping
 
 # VS Code extensions
-vscode 'anthropic.claude-code'         # Claude Code IDE integration
-vscode 'openai.chatgpt'                # ChatGPT/Codex IDE integration
 vscode 'pkief.material-icon-theme'     # Material file icons
 vscode 'pkief.material-product-icons'  # Material UI icons
 vscode 'subframe7536.custom-ui-style'  # Custom window and font styling
@@ -121,7 +118,6 @@ vscode 'subframe7536.custom-ui-style'  # Custom window and font styling
 # Mac App Store
 mas 'bitwarden', id: 1352778147      # Password manager
 mas 'keynote', id: 361285480         # Apple presentations
-mas 'microsoft-word', id: 462054704  # Microsoft word processor
 mas 'numbers', id: 361304891         # Apple spreadsheets
 mas 'pages', id: 361309726           # Apple word processor
 mas 'reeder', id: 6475002485         # RSS and read-later client
