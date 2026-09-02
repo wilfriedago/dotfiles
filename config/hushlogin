@@ -1,0 +1,2 @@
+# login(1) only checks that this file exists; its content is ignored.
+# Presence suppresses the "Last login:" banner and the local-mail notice.
