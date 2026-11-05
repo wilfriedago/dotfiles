@@ -106,13 +106,33 @@ fi
 
 echo
 echo 'Commands referenced by config'
-for c in bat eza fzf fd rg zoxide starship mise jq trash difft viu gh k9s kubectl helm; do
+for c in bat eza fzf fd rg zoxide starship mise vp jq trash difft viu gh k9s kubectl helm; do
   if command -v "$c" >/dev/null 2>&1; then
     ok "$c"
   else
     bad "$c is referenced by config but not installed"
   fi
 done
+
+echo
+echo 'Toolchains'
+# JavaScript belongs to Vite+, everything else to mise. Homebrew pulls in its own
+# node as a dependency, so a wrong PATH order silently swaps the runtime.
+vp_bin="${XDG_DATA_HOME:-$HOME/.local/share}/vite-plus/bin"
+for c in node npm pnpm yarn; do
+  resolved=$(zsh -l -i -c "whence -p $c" 2>/dev/null)
+  if [[ "$resolved" == "$vp_bin/$c" ]]; then
+    ok "$c resolves to the Vite+ shim"
+  else
+    bad "$c resolves to ${resolved:-nothing}, expected $vp_bin/$c"
+  fi
+done
+
+if mise ls --current 2>/dev/null | grep -qE '^(node|bun|deno|pnpm|yarn|npm:)'; then
+  bad 'mise manages JavaScript tools — they belong to Vite+ (vp)'
+else
+  ok 'mise manages no JavaScript tools'
+fi
 
 echo
 echo 'Git'
