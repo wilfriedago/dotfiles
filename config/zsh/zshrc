@@ -94,10 +94,13 @@ unset _compdump_stale
   source "$ZSH_CONFIG_DIR/plugins/android.zsh"
   source "$ZSH_CONFIG_DIR/plugins/rust.zsh"
   source "$ZSH_CONFIG_DIR/plugins/python.zsh"
+  source "$ZSH_CONFIG_DIR/plugins/composer.zsh"
+
+  # ── JavaScript (Vite+ owns node and the package managers, not mise) ────
+  source "$ZSH_CONFIG_DIR/plugins/vite-plus.zsh"
   source "$ZSH_CONFIG_DIR/plugins/node.zsh"
   source "$ZSH_CONFIG_DIR/plugins/pnpm.zsh"
   source "$ZSH_CONFIG_DIR/plugins/yarn.zsh"
-  source "$ZSH_CONFIG_DIR/plugins/composer.zsh"
 
   # ── Git & DevOps ───────────────────────────────────────────────────────
   source "$ZSH_CONFIG_DIR/plugins/docker.zsh"
@@ -118,9 +121,26 @@ unset _compdump_stale
 # Activate mise LAST so it runs after every other PATH modification (plugins
 # above, VSCode/Copilot shell integration, zinit, etc.). This keeps mise's
 # install paths at the front and silences `mise doctor`'s path-order warning.
-(( $+commands[mise] )) && _cache_eval "mise" "mise activate zsh" "$commands[mise]"
+# mise ships no JS tools (see config/mise), so this cannot shadow Vite+'s node.
+#
+# `mise activate` prints PATH as a literal snapshot of the generating shell, so a
+# plain cache would reset PATH to whatever it was on the day it was written —
+# dropping the Vite+ shims and anything added since. Generate it in a clean env
+# with a placeholder for PATH instead, expanded back to the live $PATH on load.
+_mise_activate() {
+  env -i HOME="$HOME" PATH="@@PATH@@:${commands[mise]:h}" "$commands[mise]" activate zsh |
+    sed "s/@@PATH@@/'\"\$PATH\"'/g"
+}
+(( $+commands[mise] )) && _cache_eval "mise" "_mise_activate" "$commands[mise]"
+unfunction _mise_activate
 
 # Compile compdump in background if stale
 if [[ -s "$COMPDUMP" && (! -s "${COMPDUMP}.zwc" || "$COMPDUMP" -nt "${COMPDUMP}.zwc") ]]; then
   zcompile "$COMPDUMP"
 fi
+
+# Vite+ bin (https://viteplus.dev)
+. "/Users/wilfriedago/.config/vite-plus/env"
+
+# Added by Devin
+export PATH="/Users/wilfriedago/.codeium/windsurf/bin:$PATH"

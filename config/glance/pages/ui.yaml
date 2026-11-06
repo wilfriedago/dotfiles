@@ -1,0 +1,141 @@
+- name: Ui
+  columns:
+    - size: full
+      widgets:
+        - type: group
+          widgets:
+            - type: rss
+              title: Frameworks
+              style: detailed-list
+              limit: 20
+              collapse-after: 6
+              cache: 12h
+              feeds:
+                - url: https://blog.angular.dev/feed
+                  title: Angular
+                - url: https://nartc.me/feed.xml
+                  title: Chau Tran
+                - url: https://react.dev/rss.xml
+                  title: React
+                - url: https://nextjs.org/feed.xml
+                  title: Next.js
+                - url: https://reactnative.dev/blog/rss.xml
+                  title: React Native
+                - url: https://v2.tauri.app/blog/rss.xml
+                  title: Tauri
+            - type: rss
+              title: Tooling
+              style: detailed-list
+              limit: 20
+              collapse-after: 6
+              cache: 12h
+              feeds:
+                - url: https://vite.dev/blog.rss
+                  title: Vite
+                - url: https://voidzero.dev/feed.xml
+                  title: VoidZero
+                - url: https://rspack.rs/rss/blog-rss.xml
+                  title: Rspack
+                - url: https://pnpm.io/blog/rss.xml
+                  title: pnpm
+                - url: https://e18e.dev/blog.rss
+                  title: e18e
+                - url: https://devblogs.microsoft.com/typescript/feed/
+                  title: TypeScript
+                - url: https://www.totaltypescript.com/rss.xml
+                  title: Total TypeScript
+                - url: https://eslint.org/feed.xml
+                  title: ESLint
+                - url: https://typescript-eslint.io/blog/rss.xml
+                  title: typescript-eslint
+                - url: https://nodejs.org/en/feed/blog.xml
+                  title: Node.js
+            - type: rss
+              title: CSS & Design
+              style: detailed-list
+              limit: 20
+              collapse-after: 6
+              cache: 12h
+              feeds:
+                - url: https://www.joshwcomeau.com/rss.xml
+                  title: Josh Comeau
+                - url: https://nerdy.dev/rss.xml
+                  title: Adam Argyle
+                - url: https://ishadeed.com/feed.xml
+                  title: Ahmad Shadeed
+                - url: https://www.smashingmagazine.com/feed/
+                  title: Smashing Magazine
+                - url: https://tailwindcss.com/feeds/feed.xml
+                  title: Tailwind CSS
+                - url: https://material.io/feed.xml
+                  title: Material Design
+                - url: https://mui.com/feed/blog/rss.xml
+                  title: MUI
+            - type: rss
+              title: Web platform
+              style: detailed-list
+              limit: 20
+              collapse-after: 6
+              cache: 12h
+              feeds:
+                - url: https://developer.chrome.com/static/blog/feed.xml
+                  title: Chrome for Developers
+                - url: https://developer.mozilla.org/en-US/blog/rss.xml
+                  title: MDN
+                - url: https://gomakethings.com/feed/index.xml
+                  title: Go Make Things
+                - url: https://frontendmasters.com/blog/feed/
+                  title: Frontend Masters
+
+        - type: rss
+          title: People
+          style: detailed-list
+          limit: 25
+          collapse-after: 8
+          cache: 12h
+          feeds:
+            - url: https://antfu.me/feed.xml
+              title: Anthony Fu
+            - url: https://blog.axlight.com/index.xml
+              title: Daishi Kato
+            - url: https://www.robinwieruch.de/index.xml
+              title: Robin Wieruch
+            - url: https://weser.io/rss.xml
+              title: Robin Weser
+            - url: https://wanago.io/feed/
+              title: Marcin Wanago
+            - url: https://www.raymondcamden.com/feed.xml
+              title: Raymond Camden
+            - url: https://giftegwuenu.com/rss.xml
+              title: Gift Egwuenu
+            - url: https://notes.aliciasykes.com/feed.rss
+              title: Alicia Sykes
+            - url: https://grafikart.fr/feed.rss
+              title: Grafikart
+            - url: https://cprss.s3.amazonaws.com/react.statuscode.com.xml
+              title: React Status
+
+        - type: group
+          widgets:
+            - type: reddit
+              subreddit: angular
+              sort-by: top
+              top-period: week
+              show-thumbnails: true
+            - type: reddit
+              subreddit: designsystems
+              sort-by: new
+              show-thumbnails: true
+
+    - size: small
+      widgets:
+        - type: releases
+          cache: 1d
+          show-source-icon: true
+          repositories:
+            - angular/angular
+            - vitejs/vite
+            - microsoft/TypeScript
+            - tauri-apps/tauri
+            - nodejs/node
+            - pnpm/pnpm

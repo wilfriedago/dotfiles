@@ -1,0 +1,12 @@
+{
+  "defaultNodeVersion": "24.18.0",
+  "defaultPackageManagerVersions": {
+    "yarn": "1.22.22"
+  },
+  "packageManagerShimModes": {
+    "bun": "managed",
+    "npm": "managed",
+    "pnpm": "managed",
+    "yarn": "managed"
+  }
+}

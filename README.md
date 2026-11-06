@@ -76,7 +76,9 @@ The complete curated package list lives in [`Brewfile`](Brewfile).
 
 ### Terminal
 
-I use [Ghostty](https://ghostty.org) as my terminal emulator — lightweight, GPU-accelerated, with a minimal design and a built-in multiplexer.
+I use Rex as my terminal emulator. It isn't on Homebrew yet, so it's installed by hand from its DMG and is not in the `Brewfile`; its config lives in [`config/rex`](config/rex).
+
+My previous terminal, Ghostty, is no longer installed, but its config is kept in [`config/ghostty`](config/ghostty).
 
 ### Editors
 

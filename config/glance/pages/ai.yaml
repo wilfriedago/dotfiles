@@ -1,0 +1,57 @@
+- name: AI
+  slug: ai
+  columns:
+    - size: full
+      widgets:
+        - type: rss
+          title: AI & Data
+          style: detailed-list
+          limit: 25
+          collapse-after: 8
+          cache: 6h
+          feeds:
+            - url: https://lastweekin.ai/feed
+              title: Last Week in AI
+            - url: https://openai.com/news/rss.xml
+              title: OpenAI
+            - url: https://www.databricks.com/feed
+              title: Databricks
+            # Suggested additions
+            - url: https://simonwillison.net/atom/everything/
+              title: Simon Willison
+            - url: https://huggingface.co/blog/feed.xml
+              title: Hugging Face
+
+        - type: videos
+          style: grid-cards
+          collapse-after-rows: 1
+          channels:
+            - UCKWaEZ-_VweaEx1j62do_vQ # IBM Technology
+            - UCcefcZRL2oaA_uBNeo5UOWg # Y Combinator
+
+        - type: group
+          widgets:
+            - type: reddit
+              subreddit: LocalLLaMA
+              show-thumbnails: true
+            - type: reddit
+              subreddit: dataengineering
+              show-thumbnails: true
+
+    - size: small
+      widgets:
+        - type: rss
+          title: Claude status
+          limit: 5
+          cache: 30m
+          feeds:
+            - url: https://status.claude.com/history.rss
+
+        - type: releases
+          cache: 1d
+          show-source-icon: true
+          repositories:
+            - ollama/ollama
+            - ggml-org/llama.cpp
+            - duckdb/duckdb
+            - apache/airflow

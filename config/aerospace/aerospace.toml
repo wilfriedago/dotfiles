@@ -204,7 +204,7 @@ if.app-id = "com.apple.Console"
 run = ["move-node-to-workspace 1"]
 
 [[on-window-detected]]
-if.app-id = "com.mitchellh.ghostty"
+if.app-id = "com.superlogical.rex"
 run = ["move-node-to-workspace 1", "layout floating"]
 
 # ── 2: Browser ───────────────────────────────────────────────────────────────

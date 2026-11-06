@@ -1,27 +1,23 @@
 // Place your key bindings in this file to override the defaults
 [
   {
-    "key": "shift+cmd+b",
-    "command": "workbench.action.toggleAuxiliaryBar"
+    "command": "workbench.action.toggleAuxiliaryBar",
+    "key": "cmd+b"
   },
   {
-    "key": "alt+cmd+b",
-    "command": "-workbench.action.toggleAuxiliaryBar"
+    "command": "workbench.action.togglePanel",
+    "key": "cmd+'"
   },
   {
-    "key": "cmd+'",
-    "command": "workbench.action.togglePanel"
+    "command": "workbench.action.toggleStatusbarVisibility",
+    "key": "shift+cmd+'"
   },
   {
-    "key": "shift+cmd+'",
-    "command": "workbench.action.toggleStatusbarVisibility"
-},
-{
-    "key": "shift+enter",
-    "command": "workbench.action.terminal.sendSequence",
-    "args": {
-        "text": "\u001b\r"
-    },
-    "when": "terminalFocus"
-}
+    "command": "workbench.action.toggleSidebarVisibility",
+    "key": "shift+cmd+b"
+  },
+  {
+    "command": "-workbench.action.toggleSidebarVisibility",
+    "key": "cmd+b"
+  }
 ]

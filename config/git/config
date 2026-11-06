@@ -5,7 +5,7 @@
 [user]
 	name = Wilfried AGO
 	email = 68906789+wilfriedago@users.noreply.github.com
-	signingKey = ~/.ssh/id_ed25519.pub
+	signingKey = /Users/wilfriedago/.ssh/id_ed25519.pub
 
 # Work repositories get the work address. Must come AFTER [user] — an include
 # only overrides what was set before it. Trailing slash matters: it makes the
@@ -79,8 +79,8 @@
 	format = ssh
 
 [gpg "ssh"]
-	allowedSignersFile = ~/.config/git/allowed_signers
 	program = ssh-keygen
+	allowedSignersFile = /Users/wilfriedago/.ssh/allowed_signers
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -209,3 +209,5 @@
 	theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
 	whois = "!f() { git log -i -1 --author=\"$1\" --pretty='format:%an <%ae>'; }; f"
 	changelog = !git-cliff
+[safe]
+	directory = *

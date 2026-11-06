@@ -1,0 +1,139 @@
+- name: Infra
+  columns:
+    - size: full
+      widgets:
+        - type: group
+          widgets:
+            - type: rss
+              title: Kubernetes
+              style: detailed-list
+              limit: 20
+              collapse-after: 6
+              cache: 12h
+              feeds:
+                - url: https://kubernetes.io/feed.xml
+                  title: Kubernetes
+                - url: https://learnkube.com/rss.xml
+                  title: LearnKube
+                - url: https://helm.sh/blog/index.xml
+                  title: Helm
+                - url: https://istio.io/latest/blog/feed.xml
+                  title: Istio
+                - url: https://linkerd.io/blog/feed.xml
+                  title: Linkerd
+            - type: rss
+              title: Containers & Network
+              style: detailed-list
+              limit: 20
+              collapse-after: 6
+              cache: 12h
+              feeds:
+                - url: https://blog.podman.io/feed/
+                  title: Podman
+                - url: https://www.docker.com/feed/
+                  title: Docker
+                - url: https://tailscale.com/blog/index.xml
+                  title: Tailscale
+                - url: https://traefik.io/rss.xml
+                  title: Traefik
+                - url: https://www.keycloak.org/rss.xml
+                  title: Keycloak
+                - url: https://blog.cloudflare.com/rss
+                  title: Cloudflare
+            - type: rss
+              title: Cloud
+              style: detailed-list
+              limit: 20
+              collapse-after: 6
+              cache: 12h
+              feeds:
+                - url: https://aws.amazon.com/blogs/aws/feed/
+                  title: AWS News
+                - url: https://docs.aws.amazon.com/lambda/latest/dg/lambda-updates.rss
+                  title: AWS Lambda
+                - url: https://www.finops.org/feed/
+                  title: FinOps Foundation
+                - url: https://about.gitlab.com/atom.xml
+                  title: GitLab
+
+        - type: group
+          widgets:
+            - type: rss
+              title: Homelab & Linux
+              style: detailed-list
+              limit: 20
+              collapse-after: 6
+              cache: 12h
+              feeds:
+                - url: https://selfh.st/rss/
+                  title: selfh.st
+                - url: https://mischavandenburg.com/index.xml
+                  title: Mischa van den Burg
+                - url: https://linkarzu.com/feed.xml
+                  title: linkarzu
+                - url: https://christitus.com/index.xml
+                  title: Chris Titus
+                - url: https://www.linux.com/feed/
+                  title: Linux.com
+                - url: https://lukesmith.xyz/index.xml
+                  title: Luke Smith
+            - type: rss
+              title: Security & Privacy
+              style: detailed-list
+              limit: 20
+              collapse-after: 6
+              cache: 6h
+              feeds:
+                - url: https://snyk.io/blog/feed/
+                  title: Snyk
+                - url: https://palant.info/rss.xml
+                  title: Almost Secure
+                - url: https://blog.arcjet.com/rss/
+                  title: Arcjet
+                - url: https://auth0.com/blog/rss.xml
+                  title: Auth0
+                - url: https://conduition.io/rss2.xml
+                  title: Conduition
+                - url: https://spreadprivacy.com/rss/
+                  title: Spread Privacy
+                - url: https://www.ivpn.net/en/blog/index.xml
+                  title: IVPN
+
+        - type: group
+          widgets:
+            - type: reddit
+              subreddit: selfhosted
+              show-thumbnails: true
+            - type: reddit
+              subreddit: homelab
+              show-thumbnails: true
+            - type: reddit
+              subreddit: kubernetes
+              show-thumbnails: true
+
+    - size: small
+      widgets:
+        # Uncomment and point at your homelab services
+        # - type: monitor
+        #   cache: 1m
+        #   title: Homelab
+        #   sites:
+        #     - title: Gitea
+        #       url: https://gitea.example.ts.net
+        #     - title: Immich
+        #       url: https://immich.example.ts.net
+
+        - type: releases
+          cache: 1d
+          show-source-icon: true
+          repositories:
+            - k3s-io/k3s
+            - containers/podman
+            - tailscale/tailscale
+            - traefik/traefik
+            - keycloak/keycloak
+            - helm/helm
+            - glanceapp/glance
+            - go-gitea/gitea
+            - immich-app/immich
+            - syncthing/syncthing

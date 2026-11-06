@@ -1,0 +1,13 @@
+// Zed tasks (run with `task: spawn`).
+[
+  {
+    // Stands in for the VS Code Todo Tree extension
+    "label": "todos",
+    "command": "rg",
+    "args": ["--line-number", "--column", "--smart-case", "\\b(TODO|FIXME|HACK|XXX)\\b"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  }
+]

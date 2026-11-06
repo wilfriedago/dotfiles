@@ -1,0 +1,17 @@
+/* Served by Glance at /assets/user.css (see theme.custom-css-file in config.yaml).
+   Browsers cache this file: hard-reload (Cmd+Shift+R) after editing. */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+/* Glance sets its font only on body; everything else inherits from it. */
+body {
+  font-family: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+/* Form controls don't inherit fonts by default. */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}

@@ -1,0 +1,16 @@
+// Zed key bindings, ported from config/vscode/keybindings.json.
+//
+// The agent panel sits in the left dock and the project/git panels in the right dock,
+// mirroring the VS Code auxiliary bar (left) and primary sidebar (right).
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-b": "workspace::ToggleLeftDock",
+      "shift-cmd-b": "workspace::ToggleRightDock",
+      "cmd-'": "workspace::ToggleBottomDock",
+      "cmd-,": "zed::OpenSettingsFile",
+      "cmd-k f": "git::Fetch"
+    }
+  }
+]

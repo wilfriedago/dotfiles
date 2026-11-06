@@ -1,0 +1,13 @@
+server:
+  assets-path: /app/assets
+
+theme:
+  # Assets are cached by the browser: hard refresh (Ctrl+F5) after editing the CSS
+  custom-css-file: /assets/user.css
+
+pages:
+  - $include: /app/pages/home.yaml
+  - $include: /app/pages/engineering.yaml
+  - $include: /app/pages/ui.yaml
+  - $include: /app/pages/infra.yaml
+  - $include: /app/pages/ai.yaml

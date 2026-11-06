@@ -1,0 +1,145 @@
+- name: Home
+  columns:
+    - size: small
+      widgets:
+        - type: clock
+          hour-format: 12h
+          timezones:
+            - timezone: America/Edmonton
+              label: Calgary
+            - timezone: America/New_York
+              label: New York
+            - timezone: Africa/Dakar
+              label: Dakar
+            - timezone: Europe/Paris
+              label: Paris
+            - timezone: Africa/Nairobi
+              label: Nairobi
+
+
+        - type: calendar
+          first-day-of-week: monday
+
+        - type: twitch-channels
+          channels:
+            - theprimeagen
+            - christitustech
+
+    - size: full
+      widgets:
+        - type: group
+          widgets:
+            - type: hacker-news
+              sort-by: top
+              limit: 15
+              collapse-after: 5
+            - type: lobsters
+              sort-by: hot
+              limit: 15
+              collapse-after: 5
+            - type: rss
+              title: Security
+              limit: 15
+              collapse-after: 5
+              cache: 1h
+              feeds:
+                - url: https://feeds.feedburner.com/TheHackersNews
+                  title: The Hacker News
+
+        - type: videos
+          style: horizontal-cards
+          limit: 10
+          channels:
+            - UCsBjURrPoezykLs9EqgamOA # Fireship
+            - UCkVfrGwV-iG9bSsgCbrNPxQ # Better Stack
+            - UCKWaEZ-_VweaEx1j62do_vQ # IBM Technology
+            - UCLMPXsvSrhNPN3i9h-u8PYg # Spring I/O
+            - UCn3bV5kx77HsVwtnlCeEi_A # Frappe
+            - UCcefcZRL2oaA_uBNeo5UOWg # Y Combinator
+            - UCT-0BP5tI1Dzc49_8TYgPYw # Batala's
+
+        - type: group
+          widgets:
+            - type: rss
+              title: Benin & Africa
+              style: detailed-list
+              limit: 20
+              collapse-after: 6
+              cache: 1h
+              feeds:
+                - url: https://www.banouto.bj/rss-actualites
+                  title: Banouto
+                - url: https://lanouvelletribune.info/feed/
+                  title: La Nouvelle Tribune
+                - url: https://www.france24.com/fr/afrique/rss
+                  title: France 24 Afrique
+            - type: rss
+              title: Tech news
+              style: detailed-list
+              limit: 20
+              collapse-after: 6
+              cache: 1h
+              feeds:
+                - url: https://www.theverge.com/rss/index.xml
+                  title: The Verge
+                - url: https://www.wired.com/feed/rss
+                  title: WIRED
+                - url: https://korben.info/feed
+                  title: Korben
+
+    - size: small
+      widgets:
+        - type: weather
+          location: Cotonou, Benin
+          units: metric
+          hour-format: 12h
+
+        - type: markets
+          markets:
+            - symbol: BTC-USD
+              name: Bitcoin
+            - symbol: XMR-USD
+              name: Monero
+            - symbol: SPY
+              name: S&P 500
+            - symbol: NVDA
+              name: NVIDIA
+            - symbol: MSFT
+              name: Microsoft
+            - symbol: XOF=X
+              name: USD / XOF
+            - symbol: CAD=X
+              name: USD / CAD
+            - symbol: CADUSD=X
+              name: CAD / USD
+
+        - type: rss
+          title: Podcasts
+          limit: 12
+          collapse-after: 5
+          cache: 12h
+          feeds:
+            - url: https://api.substack.com/feed/podcast/458709.rss
+              title: The Pragmatic Engineer
+            - url: https://kube.fm/podcast.xml
+              title: KubeFM
+            - url: https://feeds.megaphone.fm/FSI1483080183
+              title: Syntax
+            - url: https://feeds.transistor.fm/the-engineering-enablement-podcast
+              title: Engineering Enablement
+            - url: https://anchor.fm/s/dd6922b4/podcast/rss
+              title: devtools.fm
+            - url: https://feed.podbean.com/bootifulpodcast/feed.xml
+              title: A Bootiful Podcast
+            - url: https://softskills.audio/feed.xml
+              title: Soft Skills Engineering
+            - url: https://feed.7f5afe5c.public.multi-containers.ibm.com/rss/1773841/403892542/1_x5yvmanw
+              title: Mixture of Experts
+            - url: https://anchor.fm/s/f58d3330/podcast/rss
+              title: Lightcone
+            - url: https://podcast.darknetdiaries.com
+              title: Darknet Diaries
+            - url: https://feed.ausha.co/BxW2S9Mex0Vb
+              title: Artisan Developpeur
+            - url: http://feeds.harvardbusiness.org/harvardbusiness/ideacast
+              title: HBR IdeaCast

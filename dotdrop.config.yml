@@ -35,25 +35,24 @@ profiles:
     - d_git-cliff
     - d_k9s
     - d_mise
+    - f_vite_plus_config
     - d_nvim
+    - d_rex
     - d_starship
     - d_yazi
+    - d_zed
     - f_curlrc
-    - f_gitconfig
-    - f_git_allowed_signers
-    - f_git_work_inc
-    - f_gitignore_global
+    - f_git_config
+    - f_git_ignore_global
     - f_gpg-agent
     - f_hushlogin
-    - f_ssh
+    - f_ssh_allowed_signers
+    - f_ssh_config
     - d_scripts
-    - f_myx_config
   macos:
     dotfiles:
     - f_vscode_custom_js
     - f_vscode_custom_css
-
-      # Default profile vscode configuration files
     - d_vscode_snippets
     - f_vscode_settings
     - f_vscode_keybindings
@@ -124,26 +123,27 @@ dotfiles:
     src: config/nvim
     dst: ~/.config/nvim
     link: link_children
+  d_rex:
+    src: config/rex
+    dst: ~/.config/rex
   d_starship:
     src: config/starship
     dst: ~/.config/starship
   d_yazi:
     src: config/yazi
     dst: ~/.config/yazi
+  d_zed:
+    src: config/zed
+    dst: ~/.config/zed
+    link: link_children
   f_curlrc:
     src: config/curlrc
     dst: ~/.curlrc
-  f_gitconfig:
-    src: config/gitconfig
+  f_git_config:
+    src: config/git/config
     dst: ~/.gitconfig
-  f_git_allowed_signers:
-    src: config/git/allowed_signers
-    dst: ~/.config/git/allowed_signers
-  f_git_work_inc:
-    src: config/git/work.inc
-    dst: ~/.config/git/work.inc
-  f_gitignore_global:
-    src: config/gitignore_global
+  f_git_ignore_global:
+    src: config/git/ignore_global
     dst: ~/.gitignore_global
   f_gpg-agent:
     src: config/gnupg/gpg-agent.conf
@@ -151,8 +151,11 @@ dotfiles:
   f_hushlogin:
     src: config/hushlogin
     dst: ~/.hushlogin
-  f_ssh:
-    src: config/ssh.conf
+  f_ssh_allowed_signers:
+    src: config/ssh/allowed_signers
+    dst: ~/.ssh/allowed_signers
+  f_ssh_config:
+    src: config/ssh/config
     dst: ~/.ssh/config
   d_scripts:
     src: scripts
@@ -175,9 +178,9 @@ dotfiles:
   d_mise:
     src: config/mise
     dst: ~/.config/mise
-  f_myx_config:
-    src: config/myx/config.toml
-    dst: ~/.config/myx/config.toml
+  f_vite_plus_config:
+    src: config/vite-plus/config.json
+    dst: ~/.config/vite-plus/config.json
   f_composer:
     src: config/composer/composer.json
     dst: ~/.config/composer/composer.json

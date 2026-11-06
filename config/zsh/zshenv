@@ -63,3 +63,6 @@ export EZA_CONFIG_DIR="${XDG_CONFIG_HOME}/eza"
 typeset -gU cdpath fpath path manpath infopath mailpath
 path=("$XDG_BIN_HOME" $path)
 path=($^path(N-/))
+
+# Vite+ bin (https://viteplus.dev)
+. "/Users/wilfriedago/.config/vite-plus/env"

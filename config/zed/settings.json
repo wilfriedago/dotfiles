@@ -1,0 +1,125 @@
+// Zed settings, ported from config/vscode/settings.json.
+//
+// Run `zed: open default settings` from the command palette to see every option.
+{
+  // Appearance
+  "cli_default_open_behavior": "existing_window",
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "theme": "VSCode Dark Modern",
+  "icon_theme": "Material Icon Theme",
+  "ui_font_family": "DankMono Nerd Font",
+  "ui_font_size": 15.0,
+  "buffer_font_family": "DankMono Nerd Font",
+  "buffer_font_size": 13.0,
+  "markdown_preview": {
+    "code_font_family": "DankMono Nerd Font",
+    "font_family": "IBM Plex Sans"
+  },
+
+  // Extensions installed automatically on any machine that uses this config
+  "auto_install_extensions": {
+    "codebook": true,
+    "dockerfile": true,
+    "html": true,
+    "material-icon-theme": true,
+    "toml": true,
+    "tsgo": true,
+    "vscode-dark-modern": true
+  },
+
+  // Editor
+  "vim_mode": true,
+  "tab_size": 2,
+  "soft_wrap": "editor_width",
+  "wrap_guides": [150],
+  "cursor_blink": true,
+  "linked_edits": true,
+  "auto_indent_on_paste": true,
+  "minimap": { "show": "never" },
+  "sticky_scroll": { "enabled": false },
+  "scrollbar": { "axes": { "horizontal": false } },
+  "toolbar": { "breadcrumbs": false },
+  "preview_tabs": { "enabled": false },
+  "remove_trailing_whitespace_on_save": true,
+  "ensure_final_newline_on_save": true,
+
+  // Files: "..." keeps Zed's defaults (.git, .DS_Store, ...)
+  "file_scan_exclusions": ["...", "**/.worktrees"],
+
+  // Layout: panels on the right, agent on the left (same as the VS Code sidebars)
+  "project_panel": { "dock": "right", "auto_fold_dirs": true },
+  "git_panel": { "dock": "right" },
+  "outline_panel": { "dock": "right" },
+  "agent": { "dock": "left" },
+  "title_bar": {
+    "show_onboarding_banner": false,
+    "show_sign_in": false,
+    "show_user_picture": false
+  },
+  "restore_on_startup": "last_session",
+
+  // Git (commit signing comes from gitconfig, Zed shells out to git)
+  "git": {
+    "inline_blame": { "enabled": true }
+  },
+
+  // AI
+  "edit_predictions": { "provider": "copilot" },
+  "agent_servers": {
+    "github-copilot-cli": {
+      "type": "registry"
+    },
+    "codex-acp": {
+      "type": "registry"
+    },
+    "claude-acp": {
+      "favorite_config_option_values": {
+        "mode": [
+          "auto"
+        ]
+      },
+      "default_config_options": {
+        "mode": "auto",
+        "model": "default"
+      },
+      "type": "registry"
+    }
+  },
+
+  // Languages: tsgo replaces vtsls, "..." keeps the other servers (eslint, codebook, ...)
+  "languages": {
+    "Git Commit": { "show_edit_predictions": false },
+    "JavaScript": { "language_servers": ["tsgo", "!vtsls", "!typescript-language-server", "..."] },
+    "TSX": { "language_servers": ["tsgo", "!vtsls", "!typescript-language-server", "..."] },
+    "TypeScript": { "language_servers": ["tsgo", "!vtsls", "!typescript-language-server", "..."] }
+  },
+  "lsp": {
+    "basedpyright": {
+      "settings": {
+        "basedpyright.analysis": { "typeCheckingMode": "standard" }
+      }
+    },
+    // Only used if vtsls is enabled again in "languages" above
+    "vtsls": {
+      "settings": {
+        "javascript": { "format": { "semicolons": "remove" }, "preferences": { "quoteStyle": "single" } },
+        "typescript": { "format": { "semicolons": "remove" }, "preferences": { "quoteStyle": "single" } }
+      }
+    }
+  },
+
+  // Terminal
+  "terminal": {
+    "font_size": 13,
+    "max_scroll_history_lines": 20000
+  },
+
+  // Privacy
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+    "anthropic_retention": false
+  }
+}

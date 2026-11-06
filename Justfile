@@ -13,6 +13,9 @@ config := justfile_directory() / "dotdrop.config.yml"
 scripts := justfile_directory() / "scripts"
 githooks := justfile_directory() / ".githooks"
 
+# Global JavaScript CLIs, installed through Vite+ (`vp install -g`).
+js_globals := "@pen.dev/cli"
+
 # List all available recipes
 _default:
   @just --list
@@ -23,7 +26,8 @@ _default:
 bootstrap: brew-sync fonts zinit-install
   @just apply {{default_profile}}
   @just apply macos
-  mise install
+  @just runtimes
+  @just js
   @just hooks
   @echo ""
   @echo "Bootstrap complete. Next:"
@@ -43,6 +47,7 @@ apply-force profile=default_profile:
 update:
   brew update && brew upgrade && brew cleanup
   mise upgrade
+  vp update -g
   gh extension upgrade --all
   zsh -ic 'zinit self-update && zinit update --all' || true
 
@@ -85,6 +90,16 @@ hooks:
   @ln -sf {{githooks}}/pre-commit {{justfile_directory()}}/.git/hooks/pre-commit
   @echo "pre-commit hook installed"
 
+# Install general-purpose runtimes and tools with mise (everything except JavaScript)
+runtimes:
+  mise install
+
+# Install the JavaScript toolchain with Vite+ (Node.js default from config/vite-plus)
+js:
+  vp env setup
+  vp env install "$(jq -r .defaultNodeVersion {{justfile_directory()}}/config/vite-plus/config.json)"
+  vp install -g {{js_globals}}
+
 # Install the Zsh plugin manager (shell startup must never download code)
 zinit-install:
   @bash {{scripts}}/install-zinit.sh
@@ -96,6 +111,17 @@ macos:
 # Interactive: SSH key, GitHub auth, commit signing
 credentials:
   @bash {{scripts}}/credentials.sh
+
+# ── Services ─────────────────────────────────────────────────────────────────
+
+glance := justfile_directory() / "config/glance"
+
+# Validates first, so a broken config never takes down a working dashboard.
+
+# Validate the Glance config, then recreate its container
+glance-reload:
+  docker compose --project-directory {{glance}} run --rm --no-deps glance config:validate
+  docker compose --project-directory {{glance}} up -d --force-recreate --remove-orphans
 
 # ── Diagnostics ──────────────────────────────────────────────────────────────
 

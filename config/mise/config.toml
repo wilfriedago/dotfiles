@@ -1,12 +1,18 @@
+# mise owns the general-purpose toolchain. JavaScript (Node.js and its package
+# managers) is owned by Vite+ instead -- see config/vite-plus/config.json.
+
+[settings]
+# Hard boundary: ignore JS runtimes even when a project's mise.toml or
+# .tool-versions asks for them, so mise never shadows the Vite+ shims on PATH.
+disable_tools = ["node", "bun", "deno", "pnpm", "yarn"]
+disable_backends = ["npm"]
+
 [tools]
-node = "lts"
-bun = "latest"
-pnpm = "latest"
+go = "latest"
+java = ["temurin-17", "temurin-21", "temurin-25"]
+kotlin = "latest"
 gradle = "9"
 maven = "3.9"
-kotlin = "latest"
-java = ["temurin-17", "temurin-21", "temurin-25"]
-go = "latest"
 
 # Linters and formatters used across many projects.
 ruff = "latest"

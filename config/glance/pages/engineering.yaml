@@ -1,0 +1,152 @@
+- name: Engineering
+  columns:
+    - size: full
+      widgets:
+        - type: rss
+          title: Architecture & Systems
+          style: detailed-list
+          limit: 25
+          collapse-after: 8
+          cache: 12h
+          feeds:
+            - url: https://www.martinfowler.com/feed.atom
+              title: Martin Fowler
+            - url: https://herbertograca.com/feed/
+              title: Herberto Graca
+            - url: https://microservices.io/feed.xml
+              title: microservices.io
+            - url: https://explaining.software/rss.xml
+              title: Explaining Software Design
+            - url: https://matklad.github.io/feed.xml
+              title: matklad
+            - url: https://mitchellh.com/feed.xml
+              title: Mitchell Hashimoto
+            - url: https://danlebrero.com/feed.rss
+              title: Dan Lebrero
+            - url: https://blog.cleancoder.com/atom.xml
+              title: Clean Coder
+            - url: https://samwho.dev/rss.xml
+              title: samwho
+            - url: https://ciechanow.ski/atom.xml
+              title: Bartosz Ciechanowski
+
+        - type: group
+          widgets:
+            - type: rss
+              title: Data & Ledgers
+              style: detailed-list
+              limit: 20
+              collapse-after: 6
+              cache: 12h
+              feeds:
+                - url: https://tigerbeetle.com/blog/atom.xml
+                  title: TigerBeetle
+                - url: https://temporal.io/blog/feed.xml
+                  title: Temporal
+                - url: https://www.confluent.io/rss.xml
+                  title: Confluent
+                - url: https://pulsar.apache.org/blog/rss.xml
+                  title: Apache Pulsar
+                - url: https://www.paradedb.com/feed.xml
+                  title: ParadeDB
+                - url: https://neon.com/blog/rss.xml
+                  title: Neon
+                - url: https://turso.tech/blog/feed.xml
+                  title: Turso
+                - url: https://postgresql.life/index.xml
+                  title: PostgreSQL Person of the Week
+                - url: https://www.tazama.org/feed/
+                  title: Tazama
+            - type: rss
+              title: JVM
+              style: detailed-list
+              limit: 20
+              collapse-after: 6
+              cache: 12h
+              feeds:
+                - url: https://spring.io/blog/category/engineering.atom
+                  title: Spring Engineering
+                - url: https://quarkus.io/feed.xml
+                  title: Quarkus
+                - url: https://maciejwalkowiak.com/rss.xml
+                  title: Maciej Walkowiak
+                - url: https://www.the-main-thread.com/feed
+                  title: The Main Thread
+                - url: https://devblogs.microsoft.com/java/feed/
+                  title: Microsoft for Java
+                - url: https://scala-lang.org/feed/index.xml
+                  title: Scala
+                - url: https://inside.java/feed.xml
+                  title: Inside Java
+            - type: rss
+              title: Frappe
+              limit: 15
+              collapse-after: 6
+              cache: 12h
+              feeds:
+                - url: https://frappe.io/rss.xml
+                  title: Frappe Blog
+
+        - type: group
+          widgets:
+            - type: rss
+              title: Newsletters
+              style: detailed-list
+              limit: 20
+              collapse-after: 6
+              cache: 12h
+              feeds:
+                - url: https://feeds.feedburner.com/ThePragmaticEngineer
+                  title: The Pragmatic Engineer
+                - url: https://blog.bytebytego.com/feed
+                  title: ByteByteGo
+                - url: https://www.developing.dev/feed
+                  title: The Developing Dev
+                - url: https://newsletter.getdx.com/feed
+                  title: Engineering Enablement
+                - url: https://8thlight.com/insights/feed/rss.xml
+                  title: 8th Light
+                - url: https://artisandeveloppeur.fr/feed
+                  title: Artisan Developpeur
+            - type: rss
+              title: Company blogs
+              style: detailed-list
+              limit: 20
+              collapse-after: 6
+              cache: 12h
+              feeds:
+                - url: https://netflixtechblog.com/feed
+                  title: Netflix
+                - url: https://engineering.fb.com/feed/
+                  title: Meta
+                - url: https://slack.engineering/feed/
+                  title: Slack
+                - url: https://discord.com/blog/rss.xml
+                  title: Discord
+                - url: https://github.blog/feed/
+                  title: GitHub
+                - url: https://blog.duolingo.com/rss/
+                  title: Duolingo
+
+    - size: small
+      widgets:
+        - type: repository
+          repository: wilfriedago/obsidian-tinymist
+          pull-requests-limit: 5
+          issues-limit: 5
+          commits-limit: 3
+
+        - type: releases
+          cache: 1d
+          show-source-icon: true
+          # Unauthenticated GitHub API = 60 req/h. Add a read-only token if releases stop loading.
+          # Glance expands env vars even inside comments, hence the backslash: drop it when enabling.
+          # token: \${GITHUB_TOKEN}
+          repositories:
+            - tigerbeetle/tigerbeetle
+            - frappe/frappe
+            - frappe/erpnext
+            - temporalio/temporal
+            - spring-projects/spring-boot
+            - quarkusio/quarkus
+            - apache/pulsar
