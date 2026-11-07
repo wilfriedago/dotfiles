@@ -2,7 +2,10 @@
 
 add_newline = false
 
-command_timeout = 500 # Timeout for commands in milliseconds
+# Timeout for commands in milliseconds. macOS's /usr/bin/git is an xcrun shim that
+# takes ~550ms on its first call after the xcrun cache is cleared (~10ms warm),
+# so 500 made Starship print "Executing command /usr/bin/git timed out".
+command_timeout = 1000
 
 format = """
 $os\
