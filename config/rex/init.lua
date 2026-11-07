@@ -1,4 +1,4 @@
--- Migrated from Ghostty (~/.config/ghostty/config.ghostty)
+
 
 -- config.ghostty:39 keybind = super+r=reload_config
 rex.bind("cmd+r", "client.config.reload")
